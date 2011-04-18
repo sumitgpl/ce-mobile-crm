@@ -1,13 +1,13 @@
 #folders and files structure
 
-= Introduction =
+= Folder List =
 
-Add your content here.
+* language : contain language js files
+* custom : contain custom js files
+* js : contain core js files
 
+= Core files =
 
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+* ce-mobile-crm-version.min.js js core file
+* config.js : config file
+* select_field : list of selected field in json request
