@@ -106,7 +106,7 @@ function LoginUser() {
         method: "login",
         input_type: "JSON",
         response_type: "JSON",
-        rest_data: '[{"password":"' + password + '","user_name":"' + enteredUsername + '"},"SugarCrm",{"name":"language","value","en_US"}]'
+        rest_data: '[{"password":"' + password + '","user_name":"' + enteredUsername + '"},"SugarCrm",{"name":"language","value":"en_US"}]'
     },
     function(data) {
         if (data !== "") {
