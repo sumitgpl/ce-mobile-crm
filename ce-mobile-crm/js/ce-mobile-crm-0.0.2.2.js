@@ -111,7 +111,7 @@ function LoginUser(notcryptmdp) {
         method: "login",
         input_type: "JSON",
         response_type: "JSON",
-        rest_data: '[{"password":"' + c + '","user_name":"' + a + '"},"SugarCrm",{"name":"language","value","en_US"}]'
+        rest_data: '[{"password":"' + c + '","user_name":"' + a + '"},"SugarCrm",{"name":"language","value":"en_US"}]'
     }, function (b) {
         if (b !== "") {
             b = jQuery.parseJSON(b);
