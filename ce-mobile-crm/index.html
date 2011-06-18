@@ -76,6 +76,12 @@
                             <div id="TasksListPageLinkLabel"></div>
                         </a>
                     </div>
+                    <div class="IconContainer">
+                        <a href="#NotesListPage">
+                            <div class="NotesIcon"></div>
+                            <div id="NotesListPageLinkLabel"></div>
+                        </a>
+                    </div>
                 </div>
             </div><!-- /content -->
         </div><!-- /page -->
@@ -183,6 +189,21 @@
             </div>
             <div data-role="content">
                 <ul id="AllTasksListDiv" data-role="listview" data-filter="false" />
+            </div><!-- /content -->
+        </div><!-- /page -->
+
+        <div id="NotesListPage" data-role="page" data-theme="b">
+            <div data-role="header">
+                <h1 id="NotesListPageTitle"></h1>
+            </div><!-- /header -->
+            <div id="NotesListPageSubMenu" data-role="navbar">
+                <ul>
+                    <li><a href="javascript:SugarCrmGetNotesListFromServer(NotesListPrevOffset);" data-icon="arrow-l"></a></li>
+                    <li><a href="javascript:SugarCrmGetNotesListFromServer(NotesListNextOffset);" data-icon="arrow-r"></a></li>
+                </ul>
+            </div>
+            <div data-role="content">
+                <ul id="AllNotesListDiv" data-role="listview" data-filter="false" />
             </div><!-- /content -->
         </div><!-- /page -->
 

@@ -37,6 +37,7 @@ var TasksListNextOffset = 0;
 var TasksListPrevOffset = 0;
 var TasksListCurrentOffset = 0;
 /* Set the Note Global Variables */
+var NotesListCurrentOffset = 0;
 var CurrentNoteId = '';
 
 $('#HomePage').live('pagecreate',function(event,ui) {
@@ -49,6 +50,7 @@ $('#HomePage').live('pagecreate',function(event,ui) {
    $('#CallsListPageLinkLabel').text(RES_CALLS_LABEL);
    $('#MeetingsListPageLinkLabel').text(RES_MEETINGS_LABEL);
    $('#TasksListPageLinkLabel').text(RES_TASKS_LABEL);
+   $('#NotesListPageLinkLabel').text(RES_NOTES_LABEL);
    $('#AccountsListPageTitle').text(RES_ACCOUNTS_LABEL);
    $('#ContactsListPageTitle').text(RES_CONTACTS_LABEL);
    $('#OpportunitiesListPageTitle').text(RES_OPPORTUNITIES_LABEL);
@@ -56,6 +58,7 @@ $('#HomePage').live('pagecreate',function(event,ui) {
    $('#CallsListPageTitle').text(RES_CALLS_LABEL);
    $('#MeetingsListPageTitle').text(RES_MEETINGS_LABEL);
    $('#TasksListPageTitle').text(RES_TASKS_LABEL);
+   $('#NotesListPageTitle').text(RES_NOTES_LABEL);
    $('#ViewContactDetailsPageTitle').text(RES_CONTACT_LABEL + " " + RES_DETAILS_LABEL);
    $('#ViewContactDetailsPageHomeLink .ui-btn-text').text(RES_HOME_LABEL);
 });
@@ -87,6 +90,10 @@ $('#MeetingsListPage').live('pageshow',function(event,ui) {
 
 $('#TasksListPage').live('pageshow',function(event,ui) {
    SugarCrmGetTasksListFromServer(TasksListCurrentOffset);
+});
+
+$('#NotesListPage').live('pageshow',function(event,ui) {
+   SugarCrmGetNotesListFromServer(NotesListCurrentOffset);
 });
 
 /* Redirect to the Login Page if no session exisits */
