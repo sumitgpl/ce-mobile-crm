@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<project name="ce-mobile-crm" basedir="." default="merge">
+	<property name="cssdir" location="css"/>
+	<property name="jsdir" location="js"/>
+	<property name="css-sources" value="style.css"/>
+	<property name="js-sources" value="LanguageResources.js,
+        Application.js,
+        Account.js,
+	Contacts.js,
+	Opportunities.js,
+	Leads.js,
+	Calls.js,
+	Meetings.js,
+	Tasks.js,
+        Notes.js"
+	/>
+
+	<target name="merge">
+		<antcall target="merge_css" />
+		<antcall target="merge_js" />
+	</target>
+
+	<target name="merge_css">
+		<concat destfile="ce-mobile-crm.css">
+			<filelist dir="${cssdir}" files="${css-sources}"/>
+		</concat>
+	</target>
+
+	<target name="merge_js">
+		<concat destfile="ce-mobile-crm.js">
+			<filelist dir="${jsdir}" files="${js-sources}"/>
+		</concat>
+	</target>
+</project>
