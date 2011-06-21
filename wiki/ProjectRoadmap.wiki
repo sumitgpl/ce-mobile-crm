@@ -1,19 +1,23 @@
 #labels Featured,Phase-Requirements,ProjectRoadmap
 = Project Roadmap =
 
+== Release Note ==
+  * see : [https://code.google.com/p/ce-mobile-crm/source/browse/tags/0.0.2.2/ce-mobile-crm/README.TXT README.TXT]
+
+
 == 0.0.3.0 ==
-  # Add specific fields that are being used to perform all select statements, which should fix a stuck on Loading issue
-  # Add support for additional languages
-  # Integrated jQueryMobile Alpha 4.1
-  # Add support for call logging which will prompt the user for a reason for the call when a phone number is clicked, then log this call to the activity of the record.
+  * Add specific fields that are being used to perform all select statements, which should fix a stuck on Loading issue
+  * Add support for additional languages
+  * Integrated jQueryMobile Alpha 4.1
+  * Add support for call logging which will prompt the user for a reason for the call when a phone number is clicked, then log this call to the activity of the record.
 
 == 0.0.4.0 ==
-  # Create, Read, Update, and Delete methods for all core modules
+  * Create, Read, Update, and Delete methods for all core modules
 
 
 == 1.0.0.0 ==
-  # Integrate the production release of jQueryMobile
-  # Fix any outstanding critical bug fixes
+  * Integrate the production release of jQueryMobile
+  * Fix any outstanding critical bug fixes
 This would then make for the official v1.0 release of this application.
 
 
