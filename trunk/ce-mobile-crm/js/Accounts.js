@@ -1,7 +1,7 @@
 /*
 * CE Mobile CRM : SugarCrmGetAccountsListFromServer
 * This Global method is called on the pageshow method for the
-* ViewAcccountsListPage and it gets the entry list from the
+* ViewAccountsListPage and it gets the entry list from the
 * REST API then binds each of the items to the list view.
 */
 function SugarCrmGetAccountsListFromServer(offset) {
@@ -115,7 +115,7 @@ function SugarCrmGetAccountDetails() {
             if ((accountsList !== undefined) && (accountsList.entry_list !== undefined)) {
                 if (accountsList.entry_list[0] !== undefined) {
                     var account = accountsList.entry_list[0];
-                    /* Set the Acccount Name and Description */
+                    /* Set the Account Name and Description */
                     $('#AccountNameH1').html(account.name_value_list.name.value);
                     $('#AccountDescriptionP').text(account.name_value_list.description.value);
                     /* Now start appending details and divider rows to the informaiton list */

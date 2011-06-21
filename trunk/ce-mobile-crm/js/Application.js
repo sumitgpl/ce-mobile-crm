@@ -42,7 +42,7 @@ var CurrentNoteId = '';
 $('#HomePage').live('pagecreate',function(event,ui) {
    $('.IconContainer a').attr('class','IconContainerLink');
    $('#LogOutButton .ui-btn-text').text(RES_LOGOUT_LABEL);
-   $('#AcccountsListPageLinkLabel').text(RES_ACCOUNTS_LABEL);
+   $('#AccountsListPageLinkLabel').text(RES_ACCOUNTS_LABEL);
    $('#ContactsListPageLinkLabel').text(RES_CONTACTS_LABEL);
    $('#OpportunitiesListPageLinkLabel').text(RES_OPPORTUNITIES_LABEL);
    $('#LeadsListPageLinkLabel').text(RES_LEADS_LABEL);
@@ -58,6 +58,7 @@ $('#HomePage').live('pagecreate',function(event,ui) {
    $('#TasksListPageTitle').text(RES_TASKS_LABEL);
    $('#ViewContactDetailsPageTitle').text(RES_CONTACT_LABEL + " " + RES_DETAILS_LABEL);
    $('#ViewContactDetailsPageHomeLink .ui-btn-text').text(RES_HOME_LABEL);
+   $('#ViewAccountDetailsPageTitle').text(RES_ACCOUNT_LABEL);
 });
 
 /* Set Page Bindings for each of the List Pages */
