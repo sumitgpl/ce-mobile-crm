@@ -57,7 +57,6 @@ $('#HomePage').live('pagecreate',function(event,ui) {
    $('#MeetingsListPageTitle').text(RES_MEETINGS_LABEL);
    $('#TasksListPageTitle').text(RES_TASKS_LABEL);
    $('#ViewContactDetailsPageTitle').text(RES_CONTACT_LABEL + " " + RES_DETAILS_LABEL);
-   $('#ViewContactDetailsPageHomeLink .ui-btn-text').text(RES_HOME_LABEL);
    $('#ViewAccountDetailsPageTitle').text(RES_ACCOUNT_LABEL);
 });
 
