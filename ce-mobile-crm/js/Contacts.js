@@ -83,9 +83,9 @@ function SugarCrmGetContactDetails() {
         rest_data: '{"session":"' + SugarSessionId +
             '","module_name":"Contacts",' +
             '"id":"' + CurrentContactId + '",' +
-            '"select_fields":"["first_name","last_name","account_name","title","phone_work","email1","description","primary_address_street","primary_address_city","primary_address_state",' +
+            '"select_fields":["first_name","last_name","account_name","title","phone_work","email1","description","primary_address_street","primary_address_city","primary_address_state",' +
             '"primary_address_postalcode","primary_address_country","phone_mobile","phone_fax","department","alt_address_street","alt_address_city","alt_address_state",' +
-            '"alt_address_postalcode","alt_address_country"]",' +
+            '"alt_address_postalcode","alt_address_country"],' +
             '"link_name_to_fields_array":""}'
     }, function(data) {
         if (data != undefined) {
