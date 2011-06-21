@@ -5,6 +5,7 @@ MAX = Application.js
 MIN = Application.min.js
 CSS = style.css
 CSSMIN = style.min.css
+ZIP = ${DIR}.zip
 
 JSFILES = js/LanguageResources.js \
   js/Application.js \
@@ -20,7 +21,7 @@ JSFILES = js/LanguageResources.js \
 
 CSSFILES = css/style.css \
 
-all: clean cssmin jsmin deploy usemin rmmax
+all: clean cssmin jsmin deploy usemin rmmax zip
 
 testmax: clean cssmin jsmin deploy
 
@@ -28,6 +29,7 @@ testmin: clean cssmin jsmin deploy usemin
 
 clean:
 	@@rm -rf ${DIR}*
+	@@rm -f ${ZIP}
 	@@mkdir -p ${DIR}
 	@@mkdir -p ${DIR}/css
 	@@mkdir -p ${DIR}/js
@@ -49,6 +51,7 @@ deploy:
 	@@cp -R jquery_mobile/ ${DIR}/jquery_mobile/
 	@@cp -R images/ ${DIR}/images/
 	@@sed -e '/<!-- JS BEGIN -->/{:z;N;/<!-- JS END -->/!bz;d}' index.html > ${DIR}/index.html
+	@@cp .htaccess ${DIR}
 	@@rm *.js
 	@@rm *.css
 	@@find ${DIR} -name ".svn" | xargs rm -Rf
@@ -64,4 +67,7 @@ rmmax:
 	@@rm  ${DIR}/css/style.css
 	@@rm  ${DIR}/jquery_mobile/jquery.mobile-1.0a3.js
 	@@rm  ${DIR}/jquery_mobile/jquery.mobile-1.0a3.css
+
+zip:
+	@@zip -rq ${ZIP} ${DIR}
 
