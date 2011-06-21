@@ -57,7 +57,7 @@ $('#HomePage').live('pagecreate',function(event,ui) {
    $('#MeetingsListPageTitle').text(RES_MEETINGS_LABEL);
    $('#TasksListPageTitle').text(RES_TASKS_LABEL);
    $('#ViewContactDetailsPageTitle').text(RES_CONTACT_LABEL + " " + RES_DETAILS_LABEL);
-   $('#ViewAccountDetailsPageTitle').text(RES_ACCOUNT_LABEL);
+   $('#ViewAccountDetailsPageTitle').text(RES_ACCOUNT_LABEL + " " + RES_DETAILS_LABEL);
 });
 
 /* Set Page Bindings for each of the List Pages */
@@ -89,7 +89,7 @@ $('#TasksListPage').live('pageshow',function(event,ui) {
    SugarCrmGetTasksListFromServer(TasksListCurrentOffset);
 });
 
-/* Redirect to the Login Page if no session exisits */
+/* Redirect to the Login Page if no session exists */
 $('#HomePage').live('pageshow',function(event,ui) {
     if (SugarSessionId === '') {
         $.mobile.changePage('LoginPage');
