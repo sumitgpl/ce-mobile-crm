@@ -1,4 +1,4 @@
-lo/*!
+/*!
  * jQuery Mobile v1.0a3
  * http://jquerymobile.com/
  *
