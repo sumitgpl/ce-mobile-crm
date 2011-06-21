@@ -127,7 +127,7 @@ function SugarCrmGetCallDetails() {
         }
     });
     getCallRelatedContactsInsetList();
-    getCallRelatedUsersInsetList();
+    //getCallRelatedUsersInsetList();
     getCallRelatedLeadsInsetList();
     getCallRelatedNotesInsetList();
 }

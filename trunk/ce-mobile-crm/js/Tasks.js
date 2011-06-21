@@ -124,7 +124,7 @@ function SugarCrmGetTaskDetails() {
             }
         }
     getTaskRelatedContactsInsetList();
-    getTaskRelatedUsersInsetList();
+    //getTaskRelatedUsersInsetList();
     getTaskRelatedLeadsInsetList();
     });
 }
