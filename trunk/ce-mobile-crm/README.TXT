@@ -25,6 +25,14 @@ applications.
 As jquerymobile continues to progress, we will work to incorporate those changes into this application
 hopefully this will lead to 1 version for all platforms.
 
+Release 0.0.2.2 Change Log
+--- Fixed login failed (#5, #7)
+--- Fixed logout on contact detail page
+--- Fixed various typos
+--- Improved login page : now using a form to remember inputs and submit on enter key
+--- Added .htaccess
+--- Improved makefile
+
 Release 0.0.2.1 Change Log
 --- Fixed bug with hyperlinks not opening correctly.
 
