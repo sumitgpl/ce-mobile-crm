@@ -52,6 +52,7 @@ deploy:
 	@@cp -R images/ ${DIR}/images/
 	@@sed -e '/<!-- JS BEGIN -->/{:z;N;/<!-- JS END -->/!bz;d}' index.html > ${DIR}/index.html
 	@@cp .htaccess ${DIR}
+	@@cp README.TXT ${DIR}
 	@@rm *.js
 	@@rm *.css
 	@@find ${DIR} -name ".svn" | xargs rm -Rf
