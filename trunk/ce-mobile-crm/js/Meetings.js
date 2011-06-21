@@ -125,7 +125,7 @@ function SugarCrmGetMeetingDetails() {
         }
     });
     getMeetingRelatedContactsInsetList();
-    getMeetingRelatedUsersInsetList();
+    //getMeetingRelatedUsersInsetList();
     getMeetingRelatedLeadsInsetList();
     getMeetingRelatedNotesInsetList();
 }
@@ -230,7 +230,7 @@ function getMeetingRelatedUsersInsetList() {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
-        rest_data: '{"session":"' + SugarSessionId + '","module_name":"Meetings","module_id":"' + CurrentMeetingId + '","link_field_name":"users","related_module_query":"","related_fields":["id","first_name","last_name","title"],"related_module_link_name_to_fields_array":"","deleted":0}'
+        rest_data: '{"session":"' + SugarSessionId + '","module_name":"Meetings","module_id":"' + CurrentMeetingId + '","link_field_name":"users","related_module_query":"","related_fields":"","related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
         if (data != undefined) {
             $('#ViewMeetingDetailsPageUsersListUl').append("<li data-role=\"list-divider\">Users</li>");
