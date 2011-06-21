@@ -1,15 +1,12 @@
-
 VER = $(shell cat version.txt)
-SED_VER = sed "/@VERSION/${VER}/"
 
 DIR = ce-mobile-crm-${VER}
-MAX = ${DIR}.js
-MIN = ${DIR}.min.js
-CSS = ${DIR}.css
-CSSMIN = ${DIR}.min.css
+MAX = Application.js
+MIN = Application.min.js
+CSS = style.css
+CSSMIN = style.min.css
 
-FILES = js/LanguageResources.js \
-  jquery_mobile/jquery.mobile-1.0a3.js \
+JSFILES = js/LanguageResources.js \
   js/Application.js \
   js/Accounts.js \
   js/Contacts.js \
@@ -19,10 +16,15 @@ FILES = js/LanguageResources.js \
   js/Meetings.js \
   js/Tasks.js \
   js/Notes.js \
+  js/Md5.js \
 
 CSSFILES = css/style.css \
 
-all: clean mobile min deploy
+all: clean cssmin jsmin deploy usemin rmmax
+
+testmax: clean cssmin jsmin deploy
+
+testmin: clean cssmin jsmin deploy usemin
 
 clean:
 	@@rm -rf ${DIR}*
@@ -30,16 +32,12 @@ clean:
 	@@mkdir -p ${DIR}/css
 	@@mkdir -p ${DIR}/js
 
-css:
+cssmin:
 	@@cat ${CSSFILES} >> ${CSS}
-
-cssmin: css
 	@@java -jar build/yuicompressor-2.4.2.jar --type css ${CSS} >> ${CSSMIN}
 
-mobile:
-	@@cat ${FILES} >> ${MAX}
-
-min: mobile
+jsmin:
+	@@cat ${JSFILES} >> ${MAX}
 	@@java -jar build/google-compiler-20100917.jar --js ${MAX} --warning_level QUIET --js_output_file ${MIN}.tmp
 	@@cat ${MIN}.tmp >> ${MIN}
 	@@rm -f ${MIN}.tmp
@@ -47,9 +45,23 @@ min: mobile
 deploy: 
 	@@cp *.js ${DIR}/js/
 	@@cp js/jquery-*.min.js ${DIR}/js/
-	@@cp js/Md5.js ${DIR}/js/
-	@@cp css/*.css ${DIR}/css/
+	@@cp *.css ${DIR}/css/
 	@@cp -R jquery_mobile/ ${DIR}/jquery_mobile/
 	@@cp -R images/ ${DIR}/images/
-	@@cp *.html ${DIR}/
+	@@sed -e '/<!-- JS BEGIN -->/{:z;N;/<!-- JS END -->/!bz;d}' index.html > ${DIR}/index.html
 	@@rm *.js
+	@@rm *.css
+	@@find ${DIR} -name ".svn" | xargs rm -Rf
+
+
+usemin:
+	@@sed -e 's/style.css/style.min.css/' ${DIR}/index.html > ${DIR}/index.html.tmp
+	@@sed -e 's/Application.js/Application.min.js/' ${DIR}/index.html.tmp > ${DIR}/index.html
+	@@rm  ${DIR}/index.html.tmp
+
+rmmax:
+	@@rm  ${DIR}/js/Application.js
+	@@rm  ${DIR}/css/style.css
+	@@rm  ${DIR}/jquery_mobile/jquery.mobile-1.0a3.js
+	@@rm  ${DIR}/jquery_mobile/jquery.mobile-1.0a3.css
+
