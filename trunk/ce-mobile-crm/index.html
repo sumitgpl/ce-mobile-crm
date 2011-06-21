@@ -417,6 +417,7 @@
                 <h1>Login</h1>
             </div><!-- /header -->  
             <div data-role="content">
+                <form action="#" onsubmit="LoginUser(); return false;" method="get">
                 <p>Enter your username and password, then click login</p>
                 </center>
                 <label for="SettingsPageSugarCrmUsername">* Username:</label>
@@ -426,7 +427,8 @@
                 <input id="SettingsPageSugarCrmPassword" type="password" />
                 <br />
                 <br />
-                <a href="javascript:LoginUser();" data-role="button" data-theme="c">Login</a>
+                <input type="submit" value="Login" />
+                </form>
                 <br />
                 <center>CE Mobile CRM v0.0.2.2</center>
             </div>
