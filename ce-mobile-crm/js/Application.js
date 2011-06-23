@@ -97,11 +97,13 @@ $('#HomePage').live('pageshow',function(event,ui) {
 });
 
 /* Login function used to log the user in and establish session */
-function LoginUser() {
+function LoginUser(noEncryption) {
     $.mobile.pageLoading();
     var enteredUsername = $('#SettingsPageSugarCrmUsername').val();
     var enteredPassword = $('#SettingsPageSugarCrmPassword').val();
-    var password = $.md5(enteredPassword);
+    var password = enteredPassword;
+    if (noEncryption==undefined) password = $.md5(password);
+
     $.get('../service/v2/rest.php', {
         method: "login",
         input_type: "JSON",
@@ -110,16 +112,25 @@ function LoginUser() {
     },
     function(data) {
         if (data !== "") {
-        var loginResult = jQuery.parseJSON(data);
-        if ((loginResult.name !== undefined) && (loginResult.name === 'Invalid Login')) {alert('Login Failed');}
+          var loginResult = jQuery.parseJSON(data);
+          if ((loginResult.name !== undefined) && (loginResult.name === 'Invalid Login')) {
+            if (noEncryption==undefined) { // invalid login, try with non encrypted password (LDAP auth) @TODO check security (https needed ?)
+              LoginUser(true);
+            }
+            else {
+              alert('Login Failed');
+            }
+          }
+          else {
+              SugarSessionId = loginResult.id;
+              $('#SettingsPageSugarCrmUsername').val('');
+              $('#SettingsPageSugarCrmPassword').val('');
+              $.mobile.changePage('HomePage');
+          }
+        }
         else {
-            SugarSessionId = loginResult.id;
-            $('#SettingsPageSugarCrmUsername').val('');
-            $('#SettingsPageSugarCrmPassword').val('');
-            $.mobile.changePage('HomePage');
+          alert('An unexpected error occurred logging in.');
         }
-        }
-        else {alert('An unexpected error occurred logging in.');}
         $.mobile.pageLoading(true);
     });
 }
