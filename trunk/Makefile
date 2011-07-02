@@ -48,7 +48,8 @@ deploy:
 	@@cp *.js ${DIR}/js/
 	@@cp js/jquery-*.min.js ${DIR}/js/
 	@@cp *.css ${DIR}/css/
-	@@cp -R jquery_mobile/ ${DIR}/jquery_mobile/
+	@@cp js/jquery.mobile* ${DIR}/js/
+	@@cp -R js/images/ ${DIR}/js/images/
 	@@cp -R images/ ${DIR}/images/
 	@@sed -e '/<!-- JS BEGIN -->/{:z;N;/<!-- JS END -->/!bz;d}' index.html > ${DIR}/index.html
 	@@cp .htaccess ${DIR}
@@ -66,8 +67,8 @@ usemin:
 rmmax:
 	@@rm  ${DIR}/js/Application.js
 	@@rm  ${DIR}/css/style.css
-	@@rm  ${DIR}/jquery_mobile/jquery.mobile-1.0a3.js
-	@@rm  ${DIR}/jquery_mobile/jquery.mobile-1.0a3.css
+	@@rm  ${DIR}/js/jquery.mobile-1.0b1-20110701.js
+	@@rm  ${DIR}/js/jquery.mobile-1.0b1-20110701.css
 
 zip:
 	@@zip -rq ${ZIP} ${DIR}
