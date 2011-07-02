@@ -13,7 +13,7 @@ function SugarCrmGetCallsListFromServer(offset) {
                 var callsList = jQuery.parseJSON(data);
                 if ((callsList.name !== undefined) && (callsList.name === "Invalid Session ID")) {
                     SugarSessionId = ''
-                    $.mobile.changePage('LoginPage');
+                    $.mobile.changePage('#LoginPage');
                 }
                 if ((callsList != undefined) && (callsList.entry_list != undefined)) {
                     /* Set the current offset accordingly */
@@ -44,7 +44,7 @@ function SugarCrmGetCallsListFromServer(offset) {
                                     "data-identity": call.id,
                                     click: function() {
                                         CurrentCallId = $(this).data("identity");
-                                        $.mobile.changePage('ViewCallDetailsPage');
+                                        $.mobile.changePage('#ViewCallDetailsPage');
                                         $.mobile.pageLoading();
                                         SugarCrmGetCallDetails();
                                     }
@@ -83,7 +83,7 @@ function SugarCrmGetCallDetails() {
             var callsList = jQuery.parseJSON(data);
             if ((callsList.name !== undefined) && (callsList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((callsList != undefined) && (callsList.entry_list != undefined)) {
                 if (callsList.entry_list[0] != undefined) {
@@ -143,7 +143,7 @@ function getCallParentDetails(callDetailsParentType,callDetailsParentId) {
         var parentsList = jQuery.parseJSON(data);
         if ((parentsList.name !== undefined) && (parentsList.name === "Invalid Session ID")) {
             SugarSessionId = ''
-            $.mobile.changePage('LoginPage');
+            $.mobile.changePage('#LoginPage');
         }
         if ((parentsList != undefined) && (parentsList.entry_list != undefined)) {
             if (parentsList.entry_list[0] != undefined) {
@@ -176,7 +176,7 @@ function getCallRelatedContactsInsetList() {
             var callContactsList = jQuery.parseJSON(data);
             if ((callContactsList.name !== undefined) && (callContactsList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((callContactsList != undefined) && (callContactsList.entry_list != undefined)) {
                 if (callContactsList.entry_list.length>0)
@@ -195,7 +195,7 @@ function getCallRelatedContactsInsetList() {
                                 "data-identity": callConctact.id,
                                 click: function() {
                                     CurrentContactId = $(this).data("identity");
-                                    $.mobile.changePage('ViewContactDetailsPage');
+                                    $.mobile.changePage('#ViewContactDetailsPage');
                                     $.mobile.pageLoading();
                                     SugarCrmGetContactDetails();
                                 }
@@ -233,7 +233,7 @@ function getCallRelatedUsersInsetList() {
             var callUsersList = jQuery.parseJSON(data);
             if ((callUsersList.name !== undefined) && (callUsersList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((callUsersList != undefined) && (callUsersList.entry_list != undefined)) {
                 if (callUsersList.entry_list.length>0)
@@ -278,7 +278,7 @@ function getCallRelatedLeadsInsetList() {
             var callLeadsList = jQuery.parseJSON(data);
             if ((callLeadsList.name !== undefined) && (callLeadsList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((callLeadsList != undefined) && (callLeadsList.entry_list != undefined)) {
                 if (callLeadsList.entry_list.length>0)
@@ -301,7 +301,7 @@ function getCallRelatedLeadsInsetList() {
                                 "data-identity": callLead.id,
                                 click: function() {
                                     CurrentLeadId = $(this).data("identity");
-                                    $.mobile.changePage('ViewLeadDetailsPage');
+                                    $.mobile.changePage('#ViewLeadDetailsPage');
                                     $.mobile.pageLoading();
                                     SugarCrmGetLeadDetails();
                                 }
@@ -338,7 +338,7 @@ function getCallRelatedNotesInsetList() {
             var callNotesList = jQuery.parseJSON(data);
             if ((callNotesList.name !== undefined) && (callNotesList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((callNotesList != undefined) && (callNotesList.entry_list != undefined)) {
                 if (callNotesList.entry_list.length>0)
@@ -361,7 +361,7 @@ function getCallRelatedNotesInsetList() {
                                 "data-identity": callNote.id,
                                 click: function() {
                                     CurrentNoteId = $(this).data("identity");
-                                    $.mobile.changePage('ViewNoteDetailsPage');
+                                    $.mobile.changePage('#ViewNoteDetailsPage');
                                     $.mobile.pageLoading();
                                     SugarCrmGetNoteDetails();
                                 }

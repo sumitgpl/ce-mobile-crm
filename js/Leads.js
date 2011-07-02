@@ -13,7 +13,7 @@ function SugarCrmGetLeadsListFromServer(offset) {
                 var leadsList = jQuery.parseJSON(data);
                 if ((leadsList.name !== undefined) && (leadsList.name === "Invalid Session ID")) {
                     SugarSessionId = ''
-                    $.mobile.changePage('LoginPage');
+                    $.mobile.changePage('#LoginPage');
                 }
                 if ((leadsList != undefined) && (leadsList.entry_list != undefined)) {
                     /* Set the current offset accordingly */
@@ -44,7 +44,7 @@ function SugarCrmGetLeadsListFromServer(offset) {
                                     "data-identity": lead.id,
                                     click: function() {
                                         CurrentLeadId = $(this).data("identity");
-                                        $.mobile.changePage('ViewLeadDetailsPage');
+                                        $.mobile.changePage('#ViewLeadDetailsPage');
                                         $.mobile.pageLoading();
                                         SugarCrmGetLeadDetails();
                                     }
@@ -81,7 +81,7 @@ function SugarCrmGetLeadDetails() {
             var leadsList = jQuery.parseJSON(data);
             if ((leadsList.name !== undefined) && (leadsList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((leadsList != undefined) && (leadsList.entry_list != undefined)) {
                 if (leadsList.entry_list[0] != undefined) {
@@ -295,7 +295,7 @@ function getLeadRelatedCallsInsetList() {
             var leadCallsList = jQuery.parseJSON(data);
             if ((leadCallsList.name !== undefined) && (leadCallsList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((leadCallsList != undefined) && (leadCallsList.entry_list != undefined)) {
                 if (leadCallsList.entry_list.length>0)
@@ -322,7 +322,7 @@ function getLeadRelatedCallsInsetList() {
                                 "data-identity": leadCall.id,
                                 click: function() {
                                     CurrentCallId = $(this).data("identity");
-                                    $.mobile.changePage('ViewCallDetailsPage');
+                                    $.mobile.changePage('#ViewCallDetailsPage');
                                 }
                             });
                             leadCallLink.append( leadCallHeader );
@@ -365,7 +365,7 @@ function getLeadRelatedMeetingsInsetList() {
             var leadMeetingsList = jQuery.parseJSON(data);
             if ((leadMeetingsList.name !== undefined) && (leadMeetingsList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((leadMeetingsList != undefined) && (leadMeetingsList.entry_list != undefined)) {
                 if (leadMeetingsList.entry_list.length>0)
@@ -393,7 +393,7 @@ function getLeadRelatedMeetingsInsetList() {
                                 "data-identity": leadMeeting.id,
                                 click: function() {
                                     CurrentMeetingId = $(this).data("identity");
-                                    $.mobile.changePage('ViewMeetingDetailsPage');
+                                    $.mobile.changePage('#ViewMeetingDetailsPage');
                                 }
                             });
                             leadMeetingLink.append( leadMeetingHeader );
@@ -434,7 +434,7 @@ function getLeadRelatedTasksInsetList() {
             var leadTasksList = jQuery.parseJSON(data);
             if ((leadTasksList.name !== undefined) && (leadTasksList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((leadTasksList != undefined) && (leadTasksList.entry_list != undefined)) {
                 if (leadTasksList.entry_list.length>0)
@@ -462,7 +462,7 @@ function getLeadRelatedTasksInsetList() {
                                 "data-identity": leadTask.id,
                                 click: function() {
                                     CurrentTaskId = $(this).data("identity");
-                                    $.mobile.changePage('ViewTaskDetailsPage');
+                                    $.mobile.changePage('#ViewTaskDetailsPage');
                                 }
                             });
                             leadTaskLink.append(leadTaskHeader);

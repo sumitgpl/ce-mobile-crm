@@ -92,7 +92,7 @@ $('#TasksListPage').live('pageshow',function(event,ui) {
 /* Redirect to the Login Page if no session exists */
 $('#HomePage').live('pageshow',function(event,ui) {
     if (SugarSessionId === '') {
-        $.mobile.changePage('LoginPage');
+        $.mobile.changePage('#LoginPage');
     }
 });
 
@@ -125,7 +125,7 @@ function LoginUser(noEncryption) {
               SugarSessionId = loginResult.id;
               $('#SettingsPageSugarCrmUsername').val('');
               $('#SettingsPageSugarCrmPassword').val('');
-              $.mobile.changePage('HomePage');
+              $.mobile.changePage('#HomePage');
           }
         }
         else {
@@ -153,7 +153,7 @@ function LogOutUser() {
         response_type: "JSON",
         rest_data: '[{"session":"' + SugarSessionId + '"}]'
     },function(data) {
-        $.mobile.changePage('LoginPage');
+        $.mobile.changePage('#LoginPage');
     });
 }
 

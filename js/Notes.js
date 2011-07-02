@@ -12,7 +12,7 @@ function SugarCrmGetNoteDetails() {
             var notesList = jQuery.parseJSON(data);
             if ((notesList.name !== undefined) && (notesList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((notesList != undefined) && (notesList.entry_list != undefined)) {
                 if (notesList.entry_list[0] != undefined) {

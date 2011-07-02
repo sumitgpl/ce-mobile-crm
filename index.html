@@ -8,9 +8,18 @@
         <link rel="apple-touch-startup-image" href="images/startup.png" />
         <link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
         <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="jquery_mobile/jquery.mobile-1.0a3.min.css" />
-        <script type="text/javascript" src="js/jquery-1.5.min.js"></script>
-        <script type="text/javascript" src="jquery_mobile/jquery.mobile-1.0a3.min.js"></script>
+        <!-- CDN BEGIN -->
+        <!--
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.css" />
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.1.min.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-config.js"></script>
+        <script type="text/javascript" src="http://code.jquery.com/mobile/1.0b1/jquery.mobile-1.0b1.min.js"></script>
+        -->
+        <!-- CDN END -->
+        <link rel="stylesheet" href="js/jquery.mobile-1.0b1.css" />
+        <script type="text/javascript" src="js/jquery-1.6.1.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-config.js"></script>
+        <script type="text/javascript" src="js/jquery.mobile-1.0b1.js"></script>
         <script type="text/javascript" src="js/Application.js"></script>
         <!-- JS BEGIN -->
         <script type="text/javascript" src="js/LanguageResources.js"></script>
@@ -27,9 +36,32 @@
         <title>CE CRM Mobile</title>
     </head>
     <body>
-        <div id="HomePage" data-role="page" data-theme="b">
-            <div data-role="header" data-backbtn="false">
-                <h1>CE CRM Mobile</h1>
+
+        <div id="LoginPage" data-role="page" data-theme="b" data-title="Login">
+            <div data-role="header">
+                <h1>Login</h1>
+            </div><!-- /header -->  
+            <div data-role="content">
+                <form action="#" method="get" onsubmit="LoginUser(); return false;">
+                <p>Enter your username and password, then click login</p>
+                </center>
+                <label for="SettingsPageSugarCrmUsername">* Username:</label>
+                <input id="SettingsPageSugarCrmUsername" type="text" />
+                <br />
+                <label for="SettingsPageSugarCrmPassword">* Password</label>
+                <input id="SettingsPageSugarCrmPassword" type="password" />
+                <br />
+                <br />
+                <input type="submit" value="Login" />
+                </form>
+                <br />
+                <center>CE Mobile CRM v0.0.2.3</center>
+            </div>
+        </div><!-- /page -->
+
+        <div id="HomePage" data-role="page" data-theme="b" data-title="Home">
+            <div data-role="header">
+                <h1>CE Mobile CRM</h1>
                 <a id="LogOutButton" href="javascript:LogOutUser();" class="ui-btn-right"></a>
             </div><!-- /header -->
             <div data-role="content">
@@ -82,7 +114,7 @@
             </div><!-- /content -->
         </div><!-- /page -->
 
-        <div id="AccountsListPage" data-role="page" data-theme="b">
+        <div id="AccountsListPage" data-role="page" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1 id="AccountsListPageTitle"></h1>
             </div><!-- /header -->
@@ -97,7 +129,7 @@
             </div><!-- /content -->
         </div><!-- /page -->
 
-        <div id="ContactsListPage" data-role="page" data-theme="b">
+        <div id="ContactsListPage" data-role="page" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1 id="ContactsListPageTitle"></h1>
             </div><!-- /header -->
@@ -112,7 +144,7 @@
             </div><!-- /content -->
         </div><!-- /page -->
 
-        <div id="OpportunitiesListPage" data-role="page" data-theme="b">
+        <div id="OpportunitiesListPage" data-role="page" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1 id="OpportunitiesListPageTitle"></h1>
             </div><!-- /header -->
@@ -127,7 +159,7 @@
             </div><!-- /content -->
         </div><!-- /page -->
 
-        <div id="LeadsListPage" data-role="page" data-theme="b">
+        <div id="LeadsListPage" data-role="page" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1 id="LeadsListPageTitle"></h1>
             </div><!-- /header -->
@@ -142,7 +174,7 @@
             </div><!-- /content -->
         </div><!-- /page -->
 
-        <div id="CallsListPage" data-role="page" data-theme="b">
+        <div id="CallsListPage" data-role="page" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1 id="CallsListPageTitle"></h1>
             </div><!-- /header -->
@@ -157,7 +189,7 @@
             </div><!-- /content -->
         </div><!-- /page -->
 
-        <div id="MeetingsListPage" data-role="page" data-theme="b">
+        <div id="MeetingsListPage" data-role="page" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1 id="MeetingsListPageTitle"></h1>
             </div><!-- /header -->
@@ -173,7 +205,7 @@
         </div><!-- /page -->
 
 
-        <div id="TasksListPage" data-role="page" data-theme="b">
+        <div id="TasksListPage" data-role="page" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1 id="TasksListPageTitle"></h1>
             </div><!-- /header -->
@@ -188,7 +220,7 @@
             </div><!-- /content -->
         </div><!-- /page -->
 
-        <div data-role="page" id="ViewAccountDetailsPage" data-theme="b">
+        <div id="ViewAccountDetailsPage" data-role="page" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1 id="ViewAccountDetailsPageTitle"></h1>
                 <a href="#HomePage" data-icon="home" data-direction="reverse" class="ui-btn-right">Home</a>
@@ -224,7 +256,7 @@
             </div>
         </div>
 
-        <div data-role="page" id="ViewContactDetailsPage" data-theme="b">
+        <div data-role="page" id="ViewContactDetailsPage" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1 id="ViewContactDetailsPageTitle"></h1>
                 <a href="#HomePage" data-icon="home" data-direction="reverse" class="ui-btn-right">Home</a>
@@ -257,7 +289,7 @@
             </div>
         </div>
 
-        <div data-role="page" id="ViewOpportunityDetailsPage" data-theme="b">
+        <div data-role="page" id="ViewOpportunityDetailsPage" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1>Opportunity Details</h1>
                 <a href="#HomePage" data-icon="home" data-direction="reverse" class="ui-btn-right">Home</a>
@@ -290,7 +322,7 @@
             </div>
         </div>
 
-        <div data-role="page" id="ViewLeadDetailsPage" data-theme="b">
+        <div data-role="page" id="ViewLeadDetailsPage" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1>Lead Details</h1>
                 <a href="#HomePage" data-icon="home" data-direction="reverse" class="ui-btn-right">Home</a>
@@ -312,10 +344,10 @@
                 <div>
                     <ul id="ViewLeadDetailsPageTasksListUl" data-role="listview" data-inset="true" />
                 </div>
-        </div>
+            </div>
         </div>
 
-        <div data-role="page" id="ViewCallDetailsPage" data-theme="b">
+        <div data-role="page" id="ViewCallDetailsPage" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1>Call Details</h1>
                 <a href="#HomePage" data-icon="home" data-direction="reverse" class="ui-btn-right">Home</a>
@@ -341,10 +373,10 @@
                 <div>
                     <ul id="ViewCallDetailsPageNotesListUl" data-role="listview" data-inset="true" />
                 </div>
-        </div>
+            </div>
         </div>
 
-        <div data-role="page" id="ViewMeetingDetailsPage" data-theme="b">
+        <div data-role="page" id="ViewMeetingDetailsPage" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1>Meeting Details</h1>
                 <a href="#HomePage" data-icon="home" data-direction="reverse" class="ui-btn-right">Home</a>
@@ -370,10 +402,10 @@
                 <div>
                     <ul id="ViewMeetingDetailsPageNotesListUl" data-role="listview" data-inset="true" />
                 </div>
-        </div>
+            </div>
         </div>
 
-        <div data-role="page" id="ViewTaskDetailsPage" data-theme="b">
+        <div data-role="page" id="ViewTaskDetailsPage" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1>Task Details</h1>
                 <a href="#HomePage" data-icon="home" data-direction="reverse" class="ui-btn-right">Home</a>
@@ -395,10 +427,10 @@
                 <div>
                     <ul id="ViewTaskDetailsPageLeadsListUl" data-role="listview" data-inset="true" />
                 </div>
-        </div>
+            </div>
         </div>
 
-        <div data-role="page" id="ViewNoteDetailsPage" data-theme="b">
+        <div data-role="page" id="ViewNoteDetailsPage" data-theme="b" data-add-back-btn="true">
             <div data-role="header">
                 <h1>Note Details</h1>
                 <a href="#HomePage" data-icon="home" data-direction="reverse" class="ui-btn-right">Home</a>
@@ -409,29 +441,8 @@
                 <div>
                     <ul id="ViewNoteDetailsPageDetailsList" data-role="listview" data-inset="true" />
                 </div>
-        </div>
+            </div>
         </div>
 
-        <div id="LoginPage" data-role="page" data-theme="b">
-            <div data-role="header" data-backbtn="false">
-                <h1>Login</h1>
-            </div><!-- /header -->  
-            <div data-role="content">
-                <form action="#" onsubmit="LoginUser(); return false;" method="get">
-                <p>Enter your username and password, then click login</p>
-                </center>
-                <label for="SettingsPageSugarCrmUsername">* Username:</label>
-                <input id="SettingsPageSugarCrmUsername" type="text" />
-                <br />
-                <label for="SettingsPageSugarCrmPassword">* Password</label>
-                <input id="SettingsPageSugarCrmPassword" type="password" />
-                <br />
-                <br />
-                <input type="submit" value="Login" />
-                </form>
-                <br />
-                <center>CE Mobile CRM v0.0.2.3</center>
-            </div>
-        </div><!-- /page -->
     </body>
 </html>
