@@ -2,7 +2,7 @@
 = Project Roadmap =
 
 == Release Note ==
-  * see : [https://code.google.com/p/ce-mobile-crm/source/browse/tags/0.0.2.2/ce-mobile-crm/README.TXT README.TXT]
+  * see : [https://code.google.com/p/ce-mobile-crm/source/browse/trunk/README.TXT README.TXT]
 
 
 == 0.0.3.0 ==
