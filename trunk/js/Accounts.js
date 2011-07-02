@@ -27,10 +27,10 @@ function SugarCrmGetAccountsListFromServer(offset) {
         }, function(data) {
             if (data !== undefined) {
                 var accountsList = jQuery.parseJSON(data);
-            if ((accountsList.name !== undefined) && (accountsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
-            }
+                if ((accountsList.name !== undefined) && (accountsList.name === "Invalid Session ID")) {
+                    SugarSessionId = ''
+                    $.mobile.changePage('#LoginPage');
+                }
                 if ((accountsList !== undefined) && (accountsList.entry_list !== undefined)) {
                     /* Set the current offset accordingly */
                     if (accountsList.result_count === 0) {
@@ -62,7 +62,7 @@ function SugarCrmGetAccountsListFromServer(offset) {
                                     "data-identity": account.id,
                                     click: function() {
                                         CurrentAccountId = $(this).data("identity");
-                                        $.mobile.changePage('ViewAccountDetailsPage');
+                                        $.mobile.changePage('#ViewAccountDetailsPage');
                                         $.mobile.pageLoading();
                                         SugarCrmGetAccountDetails();
                                     }
@@ -110,7 +110,7 @@ function SugarCrmGetAccountDetails() {
             var accountsList = jQuery.parseJSON(data);
             if ((accountsList.name !== undefined) && (accountsList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((accountsList !== undefined) && (accountsList.entry_list !== undefined)) {
                 if (accountsList.entry_list[0] !== undefined) {
@@ -305,7 +305,7 @@ function SugarCrmGetAccountDetails() {
             var accountContactsList = jQuery.parseJSON(data);
             if ((accountContactsList.name !== undefined) && (accountContactsList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((accountContactsList !== undefined) && (accountContactsList.entry_list !== undefined)) {
                 if (accountContactsList.entry_list.length>0)
@@ -324,7 +324,7 @@ function SugarCrmGetAccountDetails() {
                                 "data-identity": accountConctact.id,
                                 click: function() {
                                     CurrentContactId = $(this).data("identity");
-                                    $.mobile.changePage('ViewContactDetailsPage');
+                                    $.mobile.changePage('#ViewContactDetailsPage');
                                     $.mobile.pageLoading();
                                     SugarCrmGetContactDetails();
                                 }
@@ -359,7 +359,7 @@ function SugarCrmGetAccountDetails() {
             var accountOpportunitiesList = jQuery.parseJSON(data);
             if ((accountOpportunitiesList.name !== undefined) && (accountOpportunitiesList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((accountOpportunitiesList !== undefined) && (accountOpportunitiesList.entry_list !== undefined)) {
                 if (accountOpportunitiesList.entry_list.length>0)
@@ -378,7 +378,7 @@ function SugarCrmGetAccountDetails() {
                                 "data-identity": accountOpportunity.id,
                                 click: function() {
                                     CurrentOpportunityId = $(this).data("identity");
-                                    $.mobile.changePage('ViewOpportunityDetailsPage');
+                                    $.mobile.changePage('#ViewOpportunityDetailsPage');
                                     $.mobile.pageLoading();
                                     SugarCrmGetOpportunityDetails();
                                 }
@@ -413,7 +413,7 @@ function SugarCrmGetAccountDetails() {
             var accountLeadsList = jQuery.parseJSON(data);
             if ((accountLeadsList.name !== undefined) && (accountLeadsList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((accountLeadsList !== undefined) && (accountLeadsList.entry_list !== undefined)) {
                 if (accountLeadsList.entry_list.length>0)
@@ -436,7 +436,7 @@ function SugarCrmGetAccountDetails() {
                                 "data-identity": accountLead.id,
                                 click: function() {
                                     CurrentLeadId = $(this).data("identity");
-                                    $.mobile.changePage('ViewLeadDetailsPage');
+                                    $.mobile.changePage('#ViewLeadDetailsPage');
                                     $.mobile.pageLoading();
                                     SugarCrmGetLeadDetails();
                                 }
@@ -478,7 +478,7 @@ function SugarCrmGetAccountDetails() {
             var accountCallsList = jQuery.parseJSON(data);
             if ((accountCallsList.name !== undefined) && (accountCallsList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((accountCallsList !== undefined) && (accountCallsList.entry_list !== undefined)) {
                 if (accountCallsList.entry_list.length>0)
@@ -501,7 +501,7 @@ function SugarCrmGetAccountDetails() {
                                 "data-identity": accountCall.id,
                                 click: function() {
                                     CurrentCallId = $(this).data("identity");
-                                    $.mobile.changePage('ViewCallDetailsPage');
+                                    $.mobile.changePage('#ViewCallDetailsPage');
                                     $.mobile.pageLoading();
                                     SugarCrmGetCallDetails();
                                 }
@@ -544,7 +544,7 @@ function SugarCrmGetAccountDetails() {
             var accountMeetingsList = jQuery.parseJSON(data);
             if ((accountMeetingsList.name !== undefined) && (accountMeetingsList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((accountMeetingsList !== undefined) && (accountMeetingsList.entry_list !== undefined)) {
                 if (accountMeetingsList.entry_list.length>0)
@@ -572,7 +572,7 @@ function SugarCrmGetAccountDetails() {
                                 "data-identity": accountMeeting.id,
                                 click: function() {
                                     CurrentMeetingId = $(this).data("identity");
-                                    $.mobile.changePage('ViewMeetingDetailsPage');
+                                    $.mobile.changePage('#ViewMeetingDetailsPage');
                                     $.mobile.pageLoading();
                                     SugarCrmGetMeetingDetails();
                                 }
@@ -613,7 +613,7 @@ function SugarCrmGetAccountDetails() {
             var accountTasksList = jQuery.parseJSON(data);
             if ((accountTasksList.name !== undefined) && (accountTasksList.name === "Invalid Session ID")) {
                 SugarSessionId = ''
-                $.mobile.changePage('LoginPage');
+                $.mobile.changePage('#LoginPage');
             }
             if ((accountTasksList !== undefined) && (accountTasksList.entry_list !== undefined)) {
                 if (accountTasksList.entry_list.length>0)
@@ -641,7 +641,7 @@ function SugarCrmGetAccountDetails() {
                                 "data-identity": accountTask.id,
                                 click: function() {
                                     CurrentTaskId = $(this).data("identity");
-                                    $.mobile.changePage('ViewTaskDetailsPage');
+                                    $.mobile.changePage('#ViewTaskDetailsPage');
                                     $.mobile.pageLoading();
                                     SugarCrmGetTaskDetails();
                                 }
