@@ -2,7 +2,7 @@ function SugarCrmGetTasksListFromServer(offset) {
     var existingList = $('#AllTasksListDiv li');
     if ((existingList.length === 0) || (TasksListCurrentOffset !== offset)) {
         $.mobile.pageLoading();
-        TasksListCurrentOffset = offset
+        TasksListCurrentOffset = offset;
         $.get('../service/v2/rest.php', {
             method: "get_entry_list",
             input_type: "JSON",
@@ -12,7 +12,7 @@ function SugarCrmGetTasksListFromServer(offset) {
             if (data != undefined) {
                 var tasksList = jQuery.parseJSON(data);
                 if ((tasksList.name !== undefined) && (tasksList.name === "Invalid Session ID")) {
-                    SugarSessionId = ''
+                    SugarSessionId = '';
                     $.mobile.changePage('#LoginPage');
                 }
                 if ((tasksList != undefined) && (tasksList.entry_list != undefined)) {
@@ -80,7 +80,7 @@ function SugarCrmGetTaskDetails() {
         if (data != undefined) {
             var tasksList = jQuery.parseJSON(data);
             if ((tasksList.name !== undefined) && (tasksList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((tasksList != undefined) && (tasksList.entry_list != undefined)) {
@@ -139,7 +139,7 @@ function getTaskParentDetails(taskDetailsParentType,taskDetailsParentId) {
     }, function(data) {
         var parentsList = jQuery.parseJSON(data);
         if ((parentsList.name !== undefined) && (parentsList.name === "Invalid Session ID")) {
-            SugarSessionId = ''
+            SugarSessionId = '';
             $.mobile.changePage('#LoginPage');
         }
         if ((parentsList != undefined) && (parentsList.entry_list != undefined)) {
@@ -172,7 +172,7 @@ function getTaskRelatedContactsInsetList() {
             $('#ViewTaskDetailsPageContactsListUl').append("<li data-role=\"list-divider\">Contacts</li>");
             var taskContactsList = jQuery.parseJSON(data);
             if ((taskContactsList.name !== undefined) && (taskContactsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((taskContactsList != undefined) && (taskContactsList.entry_list != undefined)) {
@@ -229,7 +229,7 @@ function getTaskRelatedUsersInsetList() {
             $('#ViewTaskDetailsPageUsersListUl').append("<li data-role=\"list-divider\">Users</li>");
             var taskUsersList = jQuery.parseJSON(data);
             if ((taskUsersList.name !== undefined) && (taskUsersList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((taskUsersList != undefined) && (taskUsersList.entry_list != undefined)) {
@@ -274,7 +274,7 @@ function getTaskRelatedLeadsInsetList() {
             $('#ViewTaskDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
             var taskLeadsList = jQuery.parseJSON(data);
             if ((taskLeadsList.name !== undefined) && (taskLeadsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((taskLeadsList != undefined) && (taskLeadsList.entry_list != undefined)) {

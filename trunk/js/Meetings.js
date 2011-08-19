@@ -2,7 +2,7 @@ function SugarCrmGetMeetingsListFromServer(offset) {
     var existingList = $('#AllMeetingsListDiv li');
     if ((existingList.length === 0) || (MeetingsListCurrentOffset !== offset)) {
         $.mobile.pageLoading();
-        MeetingsListCurrentOffset = offset
+        MeetingsListCurrentOffset = offset;
         $.get('../service/v2/rest.php', {
             method: "get_entry_list",
             input_type: "JSON",
@@ -12,7 +12,7 @@ function SugarCrmGetMeetingsListFromServer(offset) {
             if (data != undefined) {
                 var meetingsList = jQuery.parseJSON(data);
                 if ((meetingsList.name !== undefined) && (meetingsList.name === "Invalid Session ID")) {
-                    SugarSessionId = ''
+                    SugarSessionId = '';
                     $.mobile.changePage('#LoginPage');
                 }
                 if ((meetingsList != undefined) && (meetingsList.entry_list != undefined)) {
@@ -80,7 +80,7 @@ function SugarCrmGetMeetingDetails() {
         if (data != undefined) {
             var meetingsList = jQuery.parseJSON(data);
             if ((meetingsList.name !== undefined) && (meetingsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((meetingsList != undefined) && (meetingsList.entry_list != undefined)) {
@@ -140,7 +140,7 @@ function getMeetingParentDetails(meetingDetailsParentType,meetingDetailsParentId
     }, function(data) {
         var parentsList = jQuery.parseJSON(data);
         if ((parentsList.name !== undefined) && (parentsList.name === "Invalid Session ID")) {
-            SugarSessionId = ''
+            SugarSessionId = '';
             $.mobile.changePage('#LoginPage');
         }
         if ((parentsList != undefined) && (parentsList.entry_list != undefined)) {
@@ -176,7 +176,7 @@ function getMeetingRelatedContactsInsetList() {
             $('#ViewMeetingDetailsPageContactsListUl').append("<li data-role=\"list-divider\">Contacts</li>");
             var meetingContactsList = jQuery.parseJSON(data);
             if ((meetingContactsList.name !== undefined) && (meetingContactsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((meetingContactsList != undefined) && (meetingContactsList.entry_list != undefined)) {
@@ -236,7 +236,7 @@ function getMeetingRelatedUsersInsetList() {
             $('#ViewMeetingDetailsPageUsersListUl').append("<li data-role=\"list-divider\">Users</li>");
             var meetingUsersList = jQuery.parseJSON(data);
             if ((meetingUsersList.name !== undefined) && (meetingUsersList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((meetingUsersList != undefined) && (meetingUsersList.entry_list != undefined)) {
@@ -281,7 +281,7 @@ function getMeetingRelatedLeadsInsetList() {
             $('#ViewMeetingDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
             var meetingLeadsList = jQuery.parseJSON(data);
             if ((meetingLeadsList.name !== undefined) && (meetingLeadsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((meetingLeadsList != undefined) && (meetingLeadsList.entry_list != undefined)) {
@@ -341,7 +341,7 @@ function getMeetingRelatedNotesInsetList() {
             $('#ViewMeetingDetailsPageNotesListUl').append("<li data-role=\"list-divider\">Notes</li>");
             var callNotesList = jQuery.parseJSON(data);
             if ((callNotesList.name !== undefined) && (callNotesList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((callNotesList != undefined) && (callNotesList.entry_list != undefined)) {
