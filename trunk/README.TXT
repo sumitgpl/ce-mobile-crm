@@ -25,19 +25,28 @@ applications.
 As jquerymobile continues to progress, we will work to incorporate those changes into this application
 hopefully this will lead to 1 version for all platforms.
 
+Release 0.0.2.4 Change Log
+--- Updated jquery.mobile to 1.0b2 (issue 15)
+--- Fixed transition after logging in (issue 16)
+--- Fixed logout button
+--- Improved login page
+--- Fixed missing semicolons
+--- Fixed links color on HomePage
+
 Release 0.0.2.3 Change Log
---- Fixed back buttons
---- Fixed LDAP auth
---- Updated jquery.mobile to 1.0b1-20110701
+--- Fixed back buttons (issue 4)
+--- Fixed LDAP auth (issue 12)
+--- Updated jquery.mobile to 1.0b1-20110701 (issue 4)
 --- Cleaned project structure
 
 Release 0.0.2.2 Change Log
---- Fixed login failed (#5, #7)
+--- Fixed login failed (issue 5, issue 7)
 --- Fixed logout on contact detail page
 --- Fixed various typos
 --- Improved login page : now using a form to remember inputs and submit on enter key
 --- Added .htaccess
 --- Improved makefile
+--- Fixed "Page keeps refreshing after login" (issue 8)
 
 Release 0.0.2.1 Change Log
 --- Fixed bug with hyperlinks not opening correctly.

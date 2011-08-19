@@ -35,29 +35,23 @@ clean:
 	@@mkdir -p ${DIR}/js
 
 cssmin:
-	@@cat ${CSSFILES} >> ${CSS}
-	@@java -jar build/yuicompressor-2.4.2.jar --type css ${CSS} >> ${CSSMIN}
+	@@cat ${CSSFILES} >> ${DIR}/css/${CSS}
+	@@java -jar build/yuicompressor-2.4.2.jar --type css ${DIR}/css/${CSS} >> ${DIR}/css/${CSSMIN}
 
 jsmin:
-	@@cat ${JSFILES} >> ${MAX}
-	@@java -jar build/google-compiler-20100917.jar --js ${MAX} --warning_level QUIET --js_output_file ${MIN}.tmp
-	@@cat ${MIN}.tmp >> ${MIN}
-	@@rm -f ${MIN}.tmp
+	@@cat ${JSFILES} >> ${DIR}/js/${MAX}
+	@@java -jar build/google-compiler-20100917.jar --js ${DIR}/js/${MAX} --warning_level QUIET --js_output_file ${DIR}/js/${MIN}.tmp
+	@@cat ${DIR}/js/${MIN}.tmp >> ${DIR}/js/${MIN}
+	@@rm -f ${DIR}/js/${MIN}.tmp
 
 deploy: 
-	@@cp *.js ${DIR}/js/
-	@@cp js/jquery-*.min.js ${DIR}/js/
-	@@cp *.css ${DIR}/css/
-	@@cp js/jquery.mobile* ${DIR}/js/
-	@@cp -R js/images/ ${DIR}/js/images/
+	@@cp -R lib/ ${DIR}/lib/
+	@@cp js/jquery.mobile-config.js ${DIR}/js/
 	@@cp -R images/ ${DIR}/images/
 	@@sed -e '/<!-- JS BEGIN -->/{:z;N;/<!-- JS END -->/!bz;d}' index.html > ${DIR}/index.html
 	@@cp .htaccess ${DIR}
 	@@cp README.TXT ${DIR}
-	@@rm *.js
-	@@rm *.css
 	@@find ${DIR} -name ".svn" | xargs rm -Rf
-
 
 usemin:
 	@@sed -e 's/style.css/style.min.css/' ${DIR}/index.html > ${DIR}/index.html.tmp
@@ -67,8 +61,9 @@ usemin:
 rmmax:
 	@@rm  ${DIR}/js/Application.js
 	@@rm  ${DIR}/css/style.css
-	@@rm  ${DIR}/js/jquery.mobile-1.0b1-20110701.js
-	@@rm  ${DIR}/js/jquery.mobile-1.0b1-20110701.css
+	@@rm  ${DIR}/lib/jquery-1.6.2.js
+	@@rm  ${DIR}/lib/jquery.mobile/jquery.mobile-1.0b2.js
+	@@rm  ${DIR}/lib/jquery.mobile/jquery.mobile-1.0b2.css
 
 zip:
 	@@zip -rq ${ZIP} ${DIR}
