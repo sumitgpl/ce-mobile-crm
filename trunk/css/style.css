@@ -105,4 +105,13 @@ body { background: #cccccc;}
     margin-right: auto;
 }
 
+em { 
+    color: red; 
+    font-weight: bold; 
+    padding-right: .25em; 
+}
 
+.ui-footer p {
+  font-size: 16px;
+  text-align: center;
+}
