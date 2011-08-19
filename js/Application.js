@@ -153,7 +153,7 @@ function LogOutUser() {
         response_type: "JSON",
         rest_data: '[{"session":"' + SugarSessionId + '"}]'
     },function(data) {
-        $.mobile.changePage('#LoginPage');
+        $.mobile.changePage('#LoginPage', { reverse: "true"} );
     });
 }
 
