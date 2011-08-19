@@ -33,32 +33,34 @@
         <script type="text/javascript" src="js/Notes.js"></script>
         <!-- JS END -->
         <link rel="stylesheet" href="css/style.css" />
-        <title>CE CRM Mobile</title>
+        <title>CE Mobile CRM</title>
     </head>
     <body>
 
         <div id="LoginPage" data-role="page" data-theme="b" data-title="Login">
             <div data-role="header">
-                <h1>Login</h1>
+                <h1>Login Page</h1>
             </div><!-- /header -->  
             <div data-role="content">
-                <p>Enter your username and password, then click login</p>
-                <label for="SettingsPageSugarCrmUsername">* Username:</label>
+                Enter your username and password, then click login
+                <br />
+                <br />
+                <label for="SettingsPageSugarCrmUsername"><em>* </em>Username:</label>
                 <input id="SettingsPageSugarCrmUsername" type="text" />
                 <br />
-                <label for="SettingsPageSugarCrmPassword">* Password</label>
+                <label for="SettingsPageSugarCrmPassword"><em>* </em>Password:</label>
                 <input id="SettingsPageSugarCrmPassword" type="password" />
                 <br />
-                <br />
                 <a href="javascript:LoginUser();" data-role="button">Login</a>
-                <br />
-                <center>CE Mobile CRM v0.0.2.3</center>
             </div>
+            <div data-role="footer">
+                <p>CE Mobile CRM v0.0.2.3</p>
+            </div><!-- /footer -->
         </div><!-- /page -->
 
         <div id="HomePage" data-role="page" data-theme="b" data-title="Home">
             <div data-role="header">
-                <h1>CE Mobile CRM</h1>
+                <h1>Home Page</h1>
                 <a id="LogOutButton" href="javascript:LogOutUser();" class="ui-btn-left">Logout</a>
             </div><!-- /header -->
             <div data-role="content">
@@ -109,6 +111,9 @@
                     </div>
                 </div>
             </div><!-- /content -->
+            <div data-role="footer">
+                <p>CE Mobile CRM v0.0.2.3</p>
+            </div><!-- /footer -->
         </div><!-- /page -->
 
         <div id="AccountsListPage" data-role="page" data-theme="b" data-add-back-btn="true">
