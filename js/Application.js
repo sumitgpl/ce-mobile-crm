@@ -40,7 +40,6 @@ var TasksListCurrentOffset = 0;
 var CurrentNoteId = '';
 
 $('#HomePage').live('pagecreate',function(event,ui) {
-   $('.IconContainer a').attr('class','IconContainerLink');
    $('#LogOutButton .ui-btn-text').text(RES_LOGOUT_LABEL);
    $('#AccountsListPageLinkLabel').text(RES_ACCOUNTS_LABEL);
    $('#ContactsListPageLinkLabel').text(RES_CONTACTS_LABEL);

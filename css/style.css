@@ -17,10 +17,11 @@ body { background: #cccccc;}
     padding-bottom: 15px;
 }
 /* Formats the href link */
-.IconContainerLink {
+.IconContainer .ui-link {
     text-decoration: none;
     color:#111111;
     text-shadow: 0 1px 1px #fff;
+    font-weight: normal;
 }
 /* Sets the image to use as the icon from the sprit for Accounts */
 .AccountsIcon {
