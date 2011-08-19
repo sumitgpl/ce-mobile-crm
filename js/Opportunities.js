@@ -12,7 +12,7 @@ function SugarCrmGetOpportunitiesListFromServer(offset) {
             if (data != undefined) {
                 var opportunitiesList = jQuery.parseJSON(data);
             if ((opportunitiesList.name !== undefined) && (opportunitiesList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
                 if ((opportunitiesList != undefined) && (opportunitiesList.entry_list != undefined)) {
@@ -99,7 +99,7 @@ function SugarCrmGetOpportunityDetails() {
         if (data != undefined) {
             var opportunitiesList = jQuery.parseJSON(data);
             if ((opportunitiesList.name !== undefined) && (opportunitiesList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((opportunitiesList != undefined) && (opportunitiesList.entry_list != undefined)) {
@@ -187,7 +187,7 @@ function getOpportunityRelatedContactsInsetList() {
             $('#ViewOpportunityDetailsPageContactsListUl li').remove();
             var opportunityContactsList = jQuery.parseJSON(data);
             if ((opportunityContactsList.name !== undefined) && (opportunityContactsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((opportunityContactsList != undefined) && (opportunityContactsList.entry_list != undefined)) {
@@ -245,7 +245,7 @@ function getOpportunityRelatedLeadsInsetList() {
         if (data != undefined) {
             var opportunityLeadsList = jQuery.parseJSON(data);
            if ((opportunityLeadsList.name !== undefined) && (opportunityLeadsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((opportunityLeadsList != undefined) && (opportunityLeadsList.entry_list != undefined)) {
@@ -313,7 +313,7 @@ function getOpportunityRelatedCallsInsetList() {
         if (data != undefined) {
             var opportunityCallsList = jQuery.parseJSON(data);
            if ((opportunityCallsList.name !== undefined) && (opportunityCallsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((opportunityCallsList != undefined) && (opportunityCallsList.entry_list != undefined)) {
@@ -388,7 +388,7 @@ function getOpportunityRelatedMeetingsInsetList() {
             $('#ViewOpportunityDetailsPageMeetingsListUl li').remove();
             var opportunityMeetingsList = jQuery.parseJSON(data);
            if ((opportunityMeetingsList.name !== undefined) && (opportunityMeetingsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((opportunityMeetingsList != undefined) && (opportunityMeetingsList.entry_list != undefined)) {
@@ -462,7 +462,7 @@ function getOpportunityRelatedTasksInsetList() {
             $('#ViewOpportunityDetailsPageTasksListUl li').remove();
             var opportunityTasksList = jQuery.parseJSON(data);
            if ((opportunityTasksList.name !== undefined) && (opportunityTasksList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((opportunityTasksList != undefined) && (opportunityTasksList.entry_list != undefined)) {

@@ -2,7 +2,7 @@ function SugarCrmGetCallsListFromServer(offset) {
     var existingList = $('#AllCallsListDiv li');
     if ((existingList.length === 0) || (CallsListCurrentOffset !== offset)) {
         $.mobile.pageLoading();
-        CallsListCurrentOffset = offset
+        CallsListCurrentOffset = offset;
         $.get('../service/v2/rest.php', {
             method: "get_entry_list",
             input_type: "JSON",
@@ -12,7 +12,7 @@ function SugarCrmGetCallsListFromServer(offset) {
             if (data != undefined) {
                 var callsList = jQuery.parseJSON(data);
                 if ((callsList.name !== undefined) && (callsList.name === "Invalid Session ID")) {
-                    SugarSessionId = ''
+                    SugarSessionId = '';
                     $.mobile.changePage('#LoginPage');
                 }
                 if ((callsList != undefined) && (callsList.entry_list != undefined)) {
@@ -82,7 +82,7 @@ function SugarCrmGetCallDetails() {
         if (data != undefined) {
             var callsList = jQuery.parseJSON(data);
             if ((callsList.name !== undefined) && (callsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((callsList != undefined) && (callsList.entry_list != undefined)) {
@@ -142,7 +142,7 @@ function getCallParentDetails(callDetailsParentType,callDetailsParentId) {
     }, function(data) {
         var parentsList = jQuery.parseJSON(data);
         if ((parentsList.name !== undefined) && (parentsList.name === "Invalid Session ID")) {
-            SugarSessionId = ''
+            SugarSessionId = '';
             $.mobile.changePage('#LoginPage');
         }
         if ((parentsList != undefined) && (parentsList.entry_list != undefined)) {
@@ -175,7 +175,7 @@ function getCallRelatedContactsInsetList() {
             $('#ViewCallDetailsPageContactsListUl').append("<li data-role=\"list-divider\">Contacts</li>");
             var callContactsList = jQuery.parseJSON(data);
             if ((callContactsList.name !== undefined) && (callContactsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((callContactsList != undefined) && (callContactsList.entry_list != undefined)) {
@@ -232,7 +232,7 @@ function getCallRelatedUsersInsetList() {
             $('#ViewCallDetailsPageUsersListUl').append("<li data-role=\"list-divider\">Users</li>");
             var callUsersList = jQuery.parseJSON(data);
             if ((callUsersList.name !== undefined) && (callUsersList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((callUsersList != undefined) && (callUsersList.entry_list != undefined)) {
@@ -277,7 +277,7 @@ function getCallRelatedLeadsInsetList() {
             $('#ViewCallDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
             var callLeadsList = jQuery.parseJSON(data);
             if ((callLeadsList.name !== undefined) && (callLeadsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((callLeadsList != undefined) && (callLeadsList.entry_list != undefined)) {
@@ -337,7 +337,7 @@ function getCallRelatedNotesInsetList() {
             $('#ViewCallDetailsPageNotesListUl').append("<li data-role=\"list-divider\">Notes</li>");
             var callNotesList = jQuery.parseJSON(data);
             if ((callNotesList.name !== undefined) && (callNotesList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((callNotesList != undefined) && (callNotesList.entry_list != undefined)) {

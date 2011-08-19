@@ -28,7 +28,7 @@ function SugarCrmGetAccountsListFromServer(offset) {
             if (data !== undefined) {
                 var accountsList = jQuery.parseJSON(data);
                 if ((accountsList.name !== undefined) && (accountsList.name === "Invalid Session ID")) {
-                    SugarSessionId = ''
+                    SugarSessionId = '';
                     $.mobile.changePage('#LoginPage');
                 }
                 if ((accountsList !== undefined) && (accountsList.entry_list !== undefined)) {
@@ -109,7 +109,7 @@ function SugarCrmGetAccountDetails() {
         if (data !== undefined) {
             var accountsList = jQuery.parseJSON(data);
             if ((accountsList.name !== undefined) && (accountsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((accountsList !== undefined) && (accountsList.entry_list !== undefined)) {
@@ -304,7 +304,7 @@ function SugarCrmGetAccountDetails() {
         if (data !== undefined) {
             var accountContactsList = jQuery.parseJSON(data);
             if ((accountContactsList.name !== undefined) && (accountContactsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((accountContactsList !== undefined) && (accountContactsList.entry_list !== undefined)) {
@@ -358,7 +358,7 @@ function SugarCrmGetAccountDetails() {
         if (data !== undefined) {
             var accountOpportunitiesList = jQuery.parseJSON(data);
             if ((accountOpportunitiesList.name !== undefined) && (accountOpportunitiesList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((accountOpportunitiesList !== undefined) && (accountOpportunitiesList.entry_list !== undefined)) {
@@ -412,7 +412,7 @@ function SugarCrmGetAccountDetails() {
         if (data !== undefined) {
             var accountLeadsList = jQuery.parseJSON(data);
             if ((accountLeadsList.name !== undefined) && (accountLeadsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((accountLeadsList !== undefined) && (accountLeadsList.entry_list !== undefined)) {
@@ -477,7 +477,7 @@ function SugarCrmGetAccountDetails() {
         if (data !== undefined) {
             var accountCallsList = jQuery.parseJSON(data);
             if ((accountCallsList.name !== undefined) && (accountCallsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((accountCallsList !== undefined) && (accountCallsList.entry_list !== undefined)) {
@@ -543,7 +543,7 @@ function SugarCrmGetAccountDetails() {
         if (data !== undefined) {
             var accountMeetingsList = jQuery.parseJSON(data);
             if ((accountMeetingsList.name !== undefined) && (accountMeetingsList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((accountMeetingsList !== undefined) && (accountMeetingsList.entry_list !== undefined)) {
@@ -612,7 +612,7 @@ function SugarCrmGetAccountDetails() {
         if (data !== undefined) {
             var accountTasksList = jQuery.parseJSON(data);
             if ((accountTasksList.name !== undefined) && (accountTasksList.name === "Invalid Session ID")) {
-                SugarSessionId = ''
+                SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
             if ((accountTasksList !== undefined) && (accountTasksList.entry_list !== undefined)) {

@@ -1,7 +1,7 @@
 /* General Resources */
 var RES_LOGIN_MESSAGE = "Enter your username and password, then click login";
 var RES_LOGIN_TITLE = "Login";
-var RES_LOGOUT_LABEL = "Logout"
+var RES_LOGOUT_LABEL = "Logout";
 var RES_HOME_LABEL = "Home";
 var RES_BACK_LABEL = "Back Test";
 var RES_USERNAME_LABEL = "Username";
