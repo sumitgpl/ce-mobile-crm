@@ -21,7 +21,7 @@
         <script type="text/javascript" src="lib/jquery.mobile/jquery.mobile-1.0b3.min.js"></script>
         <script type="text/javascript" src="js/Application.js"></script>
         <!-- JS BEGIN -->
-        <script type="text/javascript" src="lang/en_US.js"></script>
+        <script type="text/javascript" src="js/LanguageResources.js"></script>
         <script type="text/javascript" src="js/Md5.js"></script>
         <script type="text/javascript" src="js/Accounts.js"></script>
         <script type="text/javascript" src="js/Contacts.js"></script>
@@ -463,14 +463,156 @@
             </div>
             <div data-role="content" data-theme="c">
                 <ul data-role="listview">
-                    <li><a id="CreateNewAccountButton" href="javascript:createNewAccount();">REPLACEMENT_TEXT</a></li>
-                    <li><a id="CreateNewContactButton" href="javascript:createNewContact();">REPLACEMENT_TEXT</a></li>
-                    <li><a id="CreateNewOpportunityButton" href="javascript:createNewOpportunity();">REPLACEMENT_TEXT</a></li>
-                    <li><a id="CreateNewLeadButton" href="javascript:createNewLead();">REPLACEMENT_TEXT</a></li>
-                    <li><a id="CreateNewCallButton" href="javascript:createNewCall();">REPLACEMENT_TEXT</a></li>
-                    <li><a id="CreateNewMeetingButton" href="javascript:createNewMeeting();">REPLACEMENT_TEXT</a></li>
-                    <li><a id="CreateNewTaskButton" href="javascript:createNewTask();">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewAccountButton" href="#CreateNewAccountPage">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewContactButton" href="#CreateNewContactPage">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewOpportunityButton" href="#CreateNewOpportunityPage">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewLeadButton" href="#CreateNewLeadPage">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewCallButton" href="#CreateNewCallPage">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewMeetingButton" href="#CreateNewMeetingPage">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewTaskButton" href="#CreateNewTaskPage">REPLACEMENT_TEXT</a></li>
                 </ul>
+            </div>
+        </div>
+
+        <div data-role="page" id="CreateNewAccountPage" data-theme="b">
+            <div data-role="header">
+                <h1 id="NewAccountHeader">REPLACEMENT_TEXT</h1>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <label for="AccountNameTextBox"><em>* </em><span id="AccountNameLabel">REPLACEMENT_TEXT</span></label>
+                    <input id="AccountNameTextBox" type="text" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label id="NewAccountOfficePhoneLabel" for="NewAccountOfficePhoneTextBox">REPLACEMENT_TEXT</label>
+                    <input id="NewAccountOfficePhoneTextBox" type="tel" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label id="NewAccountWebSiteLabel" for="NewAccountWebSiteTextBox">REPLACEMENT_TEXT</label>
+                    <input id="NewAccountWebSiteTextBox" type="text" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label id="NewAccountPhoneFaxLabel" for="NewAccountPhoneFaxTextBox">REPLACEMENT_TEXT</label>
+                    <input id="NewAccountPhoneFaxTextBox" type="tel" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label id="NewAccountDescriptionLabel" for="NewAccountDescriptionTextArea">REPLACEMENT_TEXT</label>
+                    <textarea id="NewAccountDescriptionTextArea"></textarea>
+                </div>
+		<div class="ui-body ui-body-b">
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a"><button id="SaveNewAccountButton" class="SaveButtonClass" type="submit" data-theme="d" onclick="SugarCrmAddNewAccount()">REPLACEMENT_TEXT</button></div>
+                        <div class="ui-block-b"><button id="CancelNewAccountButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
+                    </fieldset>
+		</div>
+            </div>
+        </div>
+
+        <div data-role="page" id="CreateNewContactPage" data-theme="b">
+            <div data-role="header">
+                <h1 id="NewContactHeader">REPLACEMENT_TEXT</h1>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <label id="ContactNameLabel" for="ContactNameTextBox">REPLACEMENT_TEXT</label>
+                    <input id="ContactNameTextBox" type="text" />
+                </div>
+		<div class="ui-body ui-body-b">
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a"><button id="SaveNewContactButton" class="SaveButtonClass" type="submit" data-theme="d">REPLACEMENT_TEXT</button></div>
+                        <div class="ui-block-b"><button id="CancelNewContactButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
+                    </fieldset>
+		</div>
+            </div>
+        </div>
+
+        <div data-role="page" id="CreateNewOpportunityPage" data-theme="b">
+            <div data-role="header">
+                <h1 id="NewOpportunityHeader">REPLACEMENT_TEXT</h1>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <label id="OpportunityNameLabel" for="OpportunityNameTextBox">REPLACEMENT_TEXT</label>
+                    <input id="OpportunityNameTextBox" type="text" />
+                </div>
+		<div class="ui-body ui-body-b">
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a"><button id="SaveNewOpportunityButton" class="SaveButtonClass" type="submit" data-theme="d">REPLACEMENT_TEXT</button></div>
+                        <div class="ui-block-b"><button id="CancelNewOpportunityButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
+                    </fieldset>
+		</div>
+            </div>
+        </div>
+
+        <div data-role="page" id="CreateNewLeadPage" data-theme="b">
+            <div data-role="header">
+                <h1 id="NewLeadHeader">REPLACEMENT_TEXT</h1>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <label id="LeadNameLabel" for="LeadNameTextBox">REPLACEMENT_TEXT</label>
+                    <input id="LeadNameTextBox" type="text" />
+                </div>
+		<div class="ui-body ui-body-b">
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a"><button id="SaveNewLeadButton" class="SaveButtonClass" type="submit" data-theme="d">REPLACEMENT_TEXT</button></div>
+                        <div class="ui-block-b"><button id="CancelNewLeadButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
+                    </fieldset>
+		</div>
+            </div>
+        </div>
+
+        <div data-role="page" id="CreateNewCallPage" data-theme="b">
+            <div data-role="header">
+                <h1 id="NewCallHeader">REPLACEMENT_TEXT</h1>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <label id="CallNameLabel" for="CallNameTextBox">REPLACEMENT_TEXT</label>
+                    <input id="CallNameTextBox" type="text" />
+                </div>
+		<div class="ui-body ui-body-b">
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a"><button id="SaveNewCallButton" class="SaveButtonClass" type="submit" data-theme="d">REPLACEMENT_TEXT</button></div>
+                        <div class="ui-block-b"><button id="CancelNewCallButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
+                    </fieldset>
+		</div>
+            </div>
+        </div>
+
+        <div data-role="page" id="CreateNewMeetingPage" data-theme="b">
+            <div data-role="header">
+                <h1 id="NewMeetingHeader">REPLACEMENT_TEXT</h1>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <label id="MeetingNameLabel" for="MeetingNameTextBox">REPLACEMENT_TEXT</label>
+                    <input id="MeetingNameTextBox" type="text" />
+                </div>
+		<div class="ui-body ui-body-b">
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a"><button id="SaveNewMeetingButton" class="SaveButtonClass" type="submit" data-theme="d">REPLACEMENT_TEXT</button></div>
+                        <div class="ui-block-b"><button id="CancelNewMeetingButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
+                    </fieldset>
+		</div>
+            </div>
+        </div>
+
+        <div data-role="page" id="CreateNewTaskPage" data-theme="b">
+            <div data-role="header">
+                <h1 id="NewTaskHeader">REPLACEMENT_TEXT</h1>
+            </div>
+            <div data-role="content">
+                <div data-role="fieldcontain">
+                    <label id="TaskNameLabel" for="TaskNameTextBox">REPLACEMENT_TEXT</label>
+                    <input id="TaskNameTextBox" type="text" />
+                </div>
+		<div class="ui-body ui-body-b">
+                    <fieldset class="ui-grid-a">
+                        <div class="ui-block-a"><button id="SaveNewTaskButton" class="SaveButtonClass" type="submit" data-theme="d">REPLACEMENT_TEXT</button></div>
+                        <div class="ui-block-b"><button id="CancelNewTaskButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
+                    </fieldset>
+		</div>
             </div>
         </div>
     </body>

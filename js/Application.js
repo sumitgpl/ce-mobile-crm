@@ -47,11 +47,24 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
     $('#LoginDescriptionParagraph').text(RES_LOGIN_MESSAGE);
     $('#LoginFormLoginButton').text(RES_LOGIN_TITLE);
     $('#LoginPageHeader').text(RES_LOGIN_PAGE_HEADER);
+    $('.SaveButtonClass').text(RES_SAVE_BUTTON);
+    $('.CancelButtonClass').text(RES_CANCEL_BUTTON);
 });
 
 $('#AboutPage').live('pagecreate',function(event,ui) {
    $('#ViewAboutApplicationPageTitle').text(RES_ABOUT_APPLICATION_HEADER);
    $('#AboutApplicationParagraph').text(RES_LOGIN_PAGE_HEADER + " " + RES_CURRENT_VERSION_NUMBER);
+});
+
+$('#AddNewSelectTypePage').live('pagecreate',function(event,ui) {
+   $('#SelectNewRecordTypeHeader').text(RES_SELECT_NEW_TYPE);
+   $('#CreateNewAccountButton').text(RES_ACCOUNT_LABEL);
+   $('#CreateNewContactButton').text(RES_CONTACT_LABEL);
+   $('#CreateNewOpportunityButton').text(RES_OPPORTUNITY_LABEL);
+   $('#CreateNewLeadButton').text(RES_LEAD_LABEL);
+   $('#CreateNewCallButton').text(RES_CALL_LABEL);
+   $('#CreateNewMeetingButton').text(RES_MEETING_LABEL);
+   $('#CreateNewTaskButton').text(RES_TASK_LABEL);
 });
 
 $('#HomePage').live('pagecreate',function(event,ui) {
@@ -202,3 +215,41 @@ function LogCall(moduleName,uniqueId) {
         alert(data);
     });
 }
+
+$('#CreateNewAccountPage').live('pagecreate',function(event,ui) {
+    $('#NewAccountHeader').text(RES_NEW_ACCOUNT_PAGE_TITLE);
+    $('#AccountNameLabel').text(RES_NEW_ACCOUNT_NAME_LABEL);
+    $('#NewAccountOfficePhoneLabel').text(RES_NEW_ACCOUNT_OFFICE_PHONE_LABEL);
+    $('#NewAccountWebSiteLabel').text(RES_NEW_ACCOUNT_WEBSITE_LABEL);
+    $('#NewAccountPhoneFaxLabel').text(RES_NEW_ACCOUNT_PHONE_FAX_LABEL);
+    $('#NewAccountDescriptionLabel').text(RES_DESCRIPTION_LABEL);
+});
+
+$('#CreateNewContactPage').live('pagecreate',function(event,ui) {
+
+});
+
+$('#CreateNewOpportunityPage').live('pagecreate',function(event,ui) {
+
+});
+
+$('#CreateNewLeadPage').live('pagecreate',function(event,ui) {
+
+});
+
+$('#CreateNewCallPage').live('pagecreate',function(event,ui) {
+
+});
+
+$('#CreateNewMeetingPage').live('pagecreate',function(event,ui) {
+
+});
+
+$('#CreateNewTaskPage').live('pagecreate',function(event,ui) {
+
+});
+
+
+
+
+
