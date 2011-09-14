@@ -62,7 +62,7 @@
                 <a href="javascript:ShowMainMenu();" data-icon="grid" class="MainMenuButton ui-btn-right">REPLACEMENT_TEXT</a>
                 <div id="MainMenuNavBar" data-role="navbar" style="display:none;">
                     <ul>
-                        <li><a id="AddNewButton" href="javascript:MainMenuAddNew();" data-iconpos="top" data-icon="plus">REPLACEMENT_TEXT</a></li>
+                        <li><a id="AddNewButton" href="#AddNewSelectTypePage" data-iconpos="top" data-icon="plus" data-rel="dialog">REPLACEMENT_TEXT</a></li>
                         <li><a id="LogOutButton" href="javascript:LogOutUser();" class="LogoutButton" data-iconpos="top" data-icon="back">REPLACEMENT_TEXT</a></li>
                         <li><a href="javascript:ShowAboutApplicationPage();" class="AboutApplicationClass" data-iconpos="top" data-icon="info">REPLACEMENT_TEXT</a>
                     </ul>
@@ -454,6 +454,23 @@
             </div>
             <div data-role="content">
                 <p id="AboutApplicationParagraph">REPLACEMENT_TEXT</p>
+            </div>
+        </div>
+
+        <div data-role="page" id="AddNewSelectTypePage" data-theme="b">
+            <div data-role="header" data-theme="d">
+                <h1 id="SelectNewRecordTypeHeader">REPLACEMENT_TEXT</h1>
+            </div>
+            <div data-role="content" data-theme="c">
+                <ul data-role="listview">
+                    <li><a id="CreateNewAccountButton" href="javascript:createNewAccount();">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewContactButton" href="javascript:createNewContact();">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewOpportunityButton" href="javascript:createNewOpportunity();">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewLeadButton" href="javascript:createNewLead();">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewCallButton" href="javascript:createNewCall();">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewMeetingButton" href="javascript:createNewMeeting();">REPLACEMENT_TEXT</a></li>
+                    <li><a id="CreateNewTaskButton" href="javascript:createNewTask();">REPLACEMENT_TEXT</a></li>
+                </ul>
             </div>
         </div>
     </body>
