@@ -1,8 +1,11 @@
+/* VERSION STRING */
+var RES_CURRENT_VERSION_NUMBER = "v0.0.2.5";
 /* General Resources */
 var RES_LOGIN_MESSAGE = "Enter your username and password, then click login";
 var RES_LOGIN_TITLE = "Login";
 var RES_LOGOUT_LABEL = "Logout";
 var RES_HOME_LABEL = "Home";
+var RES_MAIN_MENU_LABEL = "Menu";
 var RES_BACK_LABEL = "Back Test";
 var RES_USERNAME_LABEL = "Username";
 var RES_PASSWORD_LABEL = "Password";
@@ -26,6 +29,8 @@ var RES_CAMPAIGN_LABEL = "Campaign";
 var RES_CAMPAIGNS_LABEL = "Campaigns";
 var RES_USER_LABEL = "User";
 var RES_USERS_LABEL = "Users";
+var RES_LOGIN_PAGE_HEADER = "CE CRM Mobile";
+var RES_ADD_BUTTON = "Add";
 /* Divider Resources */
 var RES_OVERVIEW_LABEL = "Overview";
 var RES_MORE_INFORMATION_LABEL = "More Information";
@@ -86,3 +91,5 @@ var RES_DATE_CREATED_LABEL = "Date Created";
 /* Notification Resources */
 var RES_DO_NOT_CALL = "*NOTE: This Contact is marked as Do Not Call.";
 var RES_LOG_CALL_QUESTION = "Would you like to log this call?";
+var RES_ABOUT_APPLICATION_MENU_ITEM = "About";
+var RES_ABOUT_APPLICATION_HEADER = "About";

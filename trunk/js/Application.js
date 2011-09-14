@@ -39,7 +39,25 @@ var TasksListCurrentOffset = 0;
 /* Set the Note Global Variables */
 var CurrentNoteId = '';
 
+$('#LoginPage').live('pagecreate',function(event,ui) {
+    $('.AboutApplicationClass').text(RES_ABOUT_APPLICATION_MENU_ITEM);
+    $('#UsernameLabel').text(RES_USERNAME_LABEL);
+    $('#UsernameLabel').text(RES_USERNAME_LABEL);
+    $('#PasswordLabel').text(RES_PASSWORD_LABEL);
+    $('#LoginDescriptionParagraph').text(RES_LOGIN_MESSAGE);
+    $('#LoginFormLoginButton').text(RES_LOGIN_TITLE);
+    $('#LoginPageHeader').text(RES_LOGIN_PAGE_HEADER);
+});
+
+$('#AboutPage').live('pagecreate',function(event,ui) {
+   $('#ViewAboutApplicationPageTitle').text(RES_ABOUT_APPLICATION_HEADER);
+   $('#AboutApplicationParagraph').text(RES_LOGIN_PAGE_HEADER + " " + RES_CURRENT_VERSION_NUMBER);
+});
+
 $('#HomePage').live('pagecreate',function(event,ui) {
+   $('.MainMenuButton').text(RES_MAIN_MENU_LABEL);
+   $('#AddNewButton').text(RES_ADD_BUTTON);
+   $('.LogoutButton').text(RES_LOGOUT_LABEL);
    $('#LogOutButton .ui-btn-text').text(RES_LOGOUT_LABEL);
    $('#AccountsListPageLinkLabel').text(RES_ACCOUNTS_LABEL);
    $('#ContactsListPageLinkLabel').text(RES_CONTACTS_LABEL);
@@ -57,6 +75,7 @@ $('#HomePage').live('pagecreate',function(event,ui) {
    $('#TasksListPageTitle').text(RES_TASKS_LABEL);
    $('#ViewContactDetailsPageTitle').text(RES_CONTACT_LABEL + " " + RES_DETAILS_LABEL);
    $('#ViewAccountDetailsPageTitle').text(RES_ACCOUNT_LABEL + " " + RES_DETAILS_LABEL);
+   $('#ViewAboutApplicationPageTitle').text(RES_ABOUT_APPLICATION_HEADER);
 });
 
 /* Set Page Bindings for each of the List Pages */
@@ -154,6 +173,14 @@ function LogOutUser() {
     },function(data) {
         $.mobile.changePage('#LoginPage', { reverse: "true"} );
     });
+}
+
+function ShowMainMenu() {
+    $('#MainMenuNavBar').toggle();
+}
+
+function ShowAboutApplicationPage() {
+    $.mobile.changePage('#AboutPage', { reverse: "true"} );
 }
 
 function LogCall(moduleName,uniqueId) {
