@@ -31,6 +31,10 @@ var RES_USER_LABEL = "User";
 var RES_USERS_LABEL = "Users";
 var RES_LOGIN_PAGE_HEADER = "CE CRM Mobile";
 var RES_ADD_BUTTON = "Add";
+var RES_SAVE_BUTTON = "Save";
+var RES_CANCEL_BUTTON = "Cancel";
+var RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED = "One or more required fields is missing, please check the form and retry";
+var RES_SELECT_NEW_TYPE = "Selct Type";
 /* Divider Resources */
 var RES_OVERVIEW_LABEL = "Overview";
 var RES_MORE_INFORMATION_LABEL = "More Information";
@@ -47,6 +51,11 @@ var RES_ACCOUNT_MEMBER_LABEL = "Member Of";
 var RES_ACCOUNT_OWNERSHIP_LABEL = "Ownership";
 var RES_ACCOUNT_CAMPAIGN_LABEL = "Campaign";
 var RES_ACCOUNT_RATING_LABEL = "Rating";
+var RES_NEW_ACCOUNT_PAGE_TITLE = "*New Account";
+var RES_NEW_ACCOUNT_NAME_LABEL ="Name";
+var RES_NEW_ACCOUNT_OFFICE_PHONE_LABEL = "Office Phone";
+var RES_NEW_ACCOUNT_WEBSITE_LABEL = "Website";
+var RES_NEW_ACCOUNT_PHONE_FAX_LABEL = "Phone Fax";
 /* Contact Field Label Resources */
 var RES_CONTACT_REPORTS_TO_LABEL = "Reports To";
 /* Opportunity Field Label Resources */

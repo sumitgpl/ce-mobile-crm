@@ -667,3 +667,21 @@ function SugarCrmGetAccountDetails() {
 }
 
 
+function SugarCrmAddNewAccount() {
+    var validInput = ValidateNewAccountToAdd();
+    if (validInput) {
+        /* TODO: NEED TO COMPLETE THIS METHOD TO ADD A NEW ACCOUNT */
+    }
+    else {
+        alert(RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
+    }
+}
+
+function ValidateNewAccountToAdd() {
+    if ($('#AccountNameTextBox').text().length > 0) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
