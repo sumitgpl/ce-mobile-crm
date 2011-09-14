@@ -39,29 +39,34 @@
 
         <div id="LoginPage" data-role="page" data-theme="b" data-title="Login">
             <div data-role="header">
-                <h1>Login Page</h1>
+                <h1 id="LoginPageHeader">REPLACEMENT_TEXT</h1>
+                <a href="javascript:ShowAboutApplicationPage();" class="AboutApplicationClass ui-btn-right">REPLACEMENT_TEXT</a>
             </div><!-- /header -->  
             <div data-role="content">
-                Enter your username and password, then click login
+                <p id="LoginDescriptionParagraph">REPLACEMENT_TEXT</p>
                 <br />
                 <br />
-                <label for="SettingsPageSugarCrmUsername"><em>* </em>Username:</label>
+                <label for="SettingsPageSugarCrmUsername"><em>* </em><span id="UsernameLabel">REPLACEMENT_TEXT</span></label>
                 <input id="SettingsPageSugarCrmUsername" type="text" />
                 <br />
-                <label for="SettingsPageSugarCrmPassword"><em>* </em>Password:</label>
+                <label for="SettingsPageSugarCrmPassword"><em>* </em><span id="PasswordLabel">REPLACEMENT_TEXT</span></label>
                 <input id="SettingsPageSugarCrmPassword" type="password" />
                 <br />
-                <a href="javascript:LoginUser();" data-role="button">Login</a>
+                <a id="LoginFormLoginButton" href="javascript:LoginUser();" data-role="button">REPLACEMENT_TEXT</a>
             </div>
-            <div data-role="footer">
-                <p>CE Mobile CRM v0.0.2.4</p>
-            </div><!-- /footer -->
         </div><!-- /page -->
 
         <div id="HomePage" data-role="page" data-theme="b" data-title="Home">
             <div data-role="header">
                 <h1>Home Page</h1>
-                <a id="LogOutButton" href="javascript:LogOutUser();" class="ui-btn-left">Logout</a>
+                <a href="javascript:ShowMainMenu();" data-icon="grid" class="MainMenuButton ui-btn-right">REPLACEMENT_TEXT</a>
+                <div id="MainMenuNavBar" data-role="navbar" style="display:none;">
+                    <ul>
+                        <li><a id="AddNewButton" href="javascript:MainMenuAddNew();" data-iconpos="top" data-icon="plus">REPLACEMENT_TEXT</a></li>
+                        <li><a id="LogOutButton" href="javascript:LogOutUser();" class="LogoutButton" data-iconpos="top" data-icon="back">REPLACEMENT_TEXT</a></li>
+                        <li><a href="javascript:ShowAboutApplicationPage();" class="AboutApplicationClass" data-iconpos="top" data-icon="info">REPLACEMENT_TEXT</a>
+                    </ul>
+                </div>
             </div><!-- /header -->
             <div data-role="content">
                 <div class="IconWrapper">
@@ -111,9 +116,6 @@
                     </div>
                 </div>
             </div><!-- /content -->
-            <div data-role="footer">
-                <p>CE Mobile CRM v0.0.2.4</p>
-            </div><!-- /footer -->
         </div><!-- /page -->
 
         <div id="AccountsListPage" data-role="page" data-theme="b" data-add-back-btn="true">
@@ -446,5 +448,13 @@
             </div>
         </div>
 
+        <div data-role="page" id="AboutPage" data-theme="b" data-add-back-btn="true">
+            <div data-role="header">
+                <h1 id="ViewAboutApplicationPageTitle">REPLACEMENT_TEXT</h1>
+            </div>
+            <div data-role="content">
+                <p id="AboutApplicationParagraph">REPLACEMENT_TEXT</p>
+            </div>
+        </div>
     </body>
 </html>
