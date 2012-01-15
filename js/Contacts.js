@@ -1,7 +1,7 @@
 function SugarCrmGetContactListFromServer(offset) {
     var existingList = $('#AllContactsListDiv li');
     if ((existingList.length === 0) || (ContactsListCurrentOffset !== offset)) {
-        $.mobile.pageLoading();
+        
         ContactsListCurrentOffset = offset;
         $.get('../service/v2/rest.php', {
             method: "get_entry_list",
@@ -50,7 +50,7 @@ function SugarCrmGetContactListFromServer(offset) {
                                     click: function() {
                                         CurrentContactId = $(this).data("identity");
                                         $.mobile.changePage('#ViewContactDetailsPage');
-                                        $.mobile.pageLoading();
+                                        
                                         SugarCrmGetContactDetails();
                                     }
                                 });
@@ -67,7 +67,7 @@ function SugarCrmGetContactListFromServer(offset) {
                     }
                 }
             }
-            $.mobile.pageLoading(true);
+            
         });
     }
 }
@@ -305,7 +305,7 @@ function getContactRelatedOpportunitiesInsetList() {
                                 click: function() {
                                     CurrentOpportunityId = $(this).data("identity");
                                     $.mobile.changePage('#ViewOpportunityDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetOpportunityDetails();
                                 }
                             });
@@ -365,7 +365,7 @@ function getContactRelatedLeadsInsetList() {
                                 click: function() {
                                     CurrentLeadId = $(this).data("identity");
                                     $.mobile.changePage('#ViewLeadDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetLeadDetails();
                                 }
                             });
@@ -435,7 +435,7 @@ function getContactRelatedCallsInsetList() {
                                 click: function() {
                                     CurrentCallId = $(this).data("identity");
                                     $.mobile.changePage('#ViewCallDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetCallDetails();
                                 }
                             });
@@ -508,7 +508,7 @@ function getContactRelatedMeetingsInsetList() {
                                 click: function() {
                                     CurrentMeetingId = $(this).data("identity");
                                     $.mobile.changePage('#ViewMeetingDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetMeetingDetails();
                                 }
                             });
@@ -528,7 +528,7 @@ function getContactRelatedMeetingsInsetList() {
             }
             $('#ViewContactDetailsPageMeetingsListUl').listview("refresh");
         }
-        $.mobile.pageLoading(true);
+        
     });
 }
 
@@ -583,7 +583,7 @@ function getContactRelatedTasksInsetList() {
                                 click: function() {
                                     CurrentTaskId = $(this).data("identity");
                                     $.mobile.changePage('#ViewTaskDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetTaskDetails();
                                 }
                             });
@@ -603,7 +603,7 @@ function getContactRelatedTasksInsetList() {
             }
             $('#ViewContactDetailsPageTasksListUl').listview("refresh");
         }
-        $.mobile.pageLoading(true);
+        
     });
 }
 

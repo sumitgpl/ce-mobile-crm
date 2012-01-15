@@ -1,7 +1,7 @@
 function SugarCrmGetLeadsListFromServer(offset) {
     var existingList = $('#AllLeadsListDiv li');
     if ((existingList.length === 0) || (LeadsListCurrentOffset !== offset)) {
-        $.mobile.pageLoading();
+        
         LeadsListCurrentOffset = offset;
         $.get('../service/v2/rest.php', {
             method: "get_entry_list",
@@ -45,7 +45,7 @@ function SugarCrmGetLeadsListFromServer(offset) {
                                     click: function() {
                                         CurrentLeadId = $(this).data("identity");
                                         $.mobile.changePage('#ViewLeadDetailsPage');
-                                        $.mobile.pageLoading();
+                                        
                                         SugarCrmGetLeadDetails();
                                     }
                                 });
@@ -62,7 +62,7 @@ function SugarCrmGetLeadsListFromServer(offset) {
                     }
                 }
             }
-            $.mobile.pageLoading(true);
+            
         });
     }
 }
@@ -481,7 +481,7 @@ function getLeadRelatedTasksInsetList() {
             }
             $('#ViewLeadDetailsPageTasksListUl').listview("refresh");
         }
-        $.mobile.pageLoading(true);
+        
     });
 }
 

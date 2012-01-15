@@ -1,7 +1,7 @@
 function SugarCrmGetTasksListFromServer(offset) {
     var existingList = $('#AllTasksListDiv li');
     if ((existingList.length === 0) || (TasksListCurrentOffset !== offset)) {
-        $.mobile.pageLoading();
+        
         TasksListCurrentOffset = offset;
         $.get('../service/v2/rest.php', {
             method: "get_entry_list",
@@ -44,7 +44,7 @@ function SugarCrmGetTasksListFromServer(offset) {
                                     click: function() {
                                         CurrentTaskId = $(this).data("identity");
                                         $.mobile.changePage('#ViewTaskDetailsPage');
-                                        $.mobile.pageLoading();
+                                        
                                         SugarCrmGetTaskDetails();
                                     }
                                 });
@@ -61,13 +61,13 @@ function SugarCrmGetTasksListFromServer(offset) {
                     }
                 }
             }
-            $.mobile.pageLoading(true);
+            
         });
     }
 }
 
 function SugarCrmGetTaskDetails() {
-    $.mobile.pageLoading();
+    
     $('#TaskNameH1').html('');
     $('#TaskSubjectP').text('');
     $('#ViewTaskDetailsPageDetailsList li').remove();
@@ -193,7 +193,7 @@ function getTaskRelatedContactsInsetList() {
                                 click: function() {
                                     CurrentContactId = $(this).data("identity");
                                     $.mobile.changePage('#ViewContactDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetContactDetails();
                                 }
                             });
@@ -213,7 +213,7 @@ function getTaskRelatedContactsInsetList() {
             }
             $('#ViewTaskDetailsPageContactsListUl').listview("refresh");
         }
-        $.mobile.pageLoading(true);
+        
     });
 }
 
@@ -258,7 +258,7 @@ function getTaskRelatedUsersInsetList() {
             }
             $('#ViewTaskDetailsPageUsersListUl').listview("refresh");
         }
-        $.mobile.pageLoading(true);
+        
     });
 }
 
@@ -299,7 +299,7 @@ function getTaskRelatedLeadsInsetList() {
                                 click: function() {
                                     CurrentLeadId = $(this).data("identity");
                                     $.mobile.changePage('#ViewLeadDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetLeadDetails();
                                 }
                             });
@@ -319,6 +319,6 @@ function getTaskRelatedLeadsInsetList() {
             }
             $('#ViewTaskDetailsPageLeadsListUl').listview("refresh");
         }
-        $.mobile.pageLoading(true);
+        
     });
 }

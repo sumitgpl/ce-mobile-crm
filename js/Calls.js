@@ -1,7 +1,7 @@
 function SugarCrmGetCallsListFromServer(offset) {
     var existingList = $('#AllCallsListDiv li');
     if ((existingList.length === 0) || (CallsListCurrentOffset !== offset)) {
-        $.mobile.pageLoading();
+        
         CallsListCurrentOffset = offset;
         $.get('../service/v2/rest.php', {
             method: "get_entry_list",
@@ -45,7 +45,7 @@ function SugarCrmGetCallsListFromServer(offset) {
                                     click: function() {
                                         CurrentCallId = $(this).data("identity");
                                         $.mobile.changePage('#ViewCallDetailsPage');
-                                        $.mobile.pageLoading();
+                                        
                                         SugarCrmGetCallDetails();
                                     }
                                 });
@@ -63,13 +63,13 @@ function SugarCrmGetCallsListFromServer(offset) {
                     }
                 }
             }
-            $.mobile.pageLoading(true);
+            
         });
     }
 }
 
 function SugarCrmGetCallDetails() {
-    $.mobile.pageLoading();
+    
     $('#CallNameH1').html('');
     $('#CallSubjectP').text('');
     $('#ViewCallDetailsPageDetailsList li').remove();
@@ -196,7 +196,7 @@ function getCallRelatedContactsInsetList() {
                                 click: function() {
                                     CurrentContactId = $(this).data("identity");
                                     $.mobile.changePage('#ViewContactDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetContactDetails();
                                 }
                             });
@@ -216,7 +216,7 @@ function getCallRelatedContactsInsetList() {
             }
             $('#ViewCallDetailsPageContactsListUl').listview("refresh");
         }
-        $.mobile.pageLoading(true);
+        
     });
 }
 
@@ -261,7 +261,7 @@ function getCallRelatedUsersInsetList() {
             }
             $('#ViewCallDetailsPageUsersListUl').listview("refresh");
         }
-        $.mobile.pageLoading(true);
+        
     });
 }
 
@@ -302,7 +302,7 @@ function getCallRelatedLeadsInsetList() {
                                 click: function() {
                                     CurrentLeadId = $(this).data("identity");
                                     $.mobile.changePage('#ViewLeadDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetLeadDetails();
                                 }
                             });
@@ -362,7 +362,7 @@ function getCallRelatedNotesInsetList() {
                                 click: function() {
                                     CurrentNoteId = $(this).data("identity");
                                     $.mobile.changePage('#ViewNoteDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetNoteDetails();
                                 }
                             });
@@ -382,6 +382,6 @@ function getCallRelatedNotesInsetList() {
             }
             $('#ViewCallDetailsPageNotesListUl').listview("refresh");
         }
-        $.mobile.pageLoading(true);
+        
     });
 }
