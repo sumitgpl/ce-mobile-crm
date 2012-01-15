@@ -2458,7 +2458,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 		toPage.data( "page" )._trigger( "beforeshow", null, { prevPage: fromPage || $( "" ) } );
 
 		//clear page loader
-		$.mobile.hidePageLoadingMsg();
+		$.mobile.hideshowPageLoadingMsgMsg();
 
 		if( touchOverflow && toScroll ){
 
@@ -2745,7 +2745,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 
 			// This configurable timeout allows cached pages a brief delay to load without showing a message
 			var loadMsgDelay = setTimeout(function(){
-					$.mobile.showPageLoadingMsg();
+					$.mobile.showshowPageLoadingMsgMsg();
 				}, settings.loadMsgDelay ),
 
 				// Shared logic for clearing timeout and removing message.
@@ -2755,7 +2755,7 @@ $.widget( "mobile.page", $.mobile.widget, {
 					clearTimeout( loadMsgDelay );
 
 					// Hide loading message
-					$.mobile.hidePageLoadingMsg();
+					$.mobile.hideshowPageLoadingMsgMsg();
 				};
 		}
 
@@ -6840,7 +6840,7 @@ $( document ).bind( "pagecreate", function( event ) {
 
 	$.extend($.mobile, {
 		// turn on/off page loading message.
-		showPageLoadingMsg: function() {
+		showshowPageLoadingMsgMsg: function() {
 			if ( $.mobile.loadingMessage ) {
 				var activeBtn = $( "." + $.mobile.activeBtnClass ).first();
 
@@ -6859,7 +6859,7 @@ $( document ).bind( "pagecreate", function( event ) {
 			$html.addClass( "ui-loading" );
 		},
 
-		hidePageLoadingMsg: function() {
+		hideshowPageLoadingMsgMsg: function() {
 			$html.removeClass( "ui-loading" );
 		},
 
@@ -6894,7 +6894,7 @@ $( document ).bind( "pagecreate", function( event ) {
 			$window.trigger( "pagecontainercreate" );
 
 			// cue page loading message
-			$.mobile.showPageLoadingMsg();
+			$.mobile.showshowPageLoadingMsgMsg();
 
 			// if hashchange listening is disabled or there's no hash deeplink, change to the first page in the DOM
 			if ( !$.mobile.hashListeningEnabled || !$.mobile.path.stripHash( location.hash ) ) {
