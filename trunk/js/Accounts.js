@@ -7,8 +7,6 @@
 function SugarCrmGetAccountsListFromServer(offset) {
     var existingList = $('#AllAccountsListDiv li');
     if ((existingList.length === 0) || (AccountsListCurrentOffset !== offset)) {
-        /* Show the loading panel */
-        $.mobile.pageLoading();
         AccountsListCurrentOffset = offset;
         /* Set the parameters of the call to the get_entry_list then place the call */
         $.get('../service/v2/rest.php', {
@@ -63,7 +61,7 @@ function SugarCrmGetAccountsListFromServer(offset) {
                                     click: function() {
                                         CurrentAccountId = $(this).data("identity");
                                         $.mobile.changePage('#ViewAccountDetailsPage');
-                                        $.mobile.pageLoading();
+                                        
                                         SugarCrmGetAccountDetails();
                                     }
                                 });
@@ -83,7 +81,7 @@ function SugarCrmGetAccountsListFromServer(offset) {
                 }
             }
             /* Hide the loading panel */
-            $.mobile.pageLoading(true);
+            
         });
     }
 }
@@ -325,7 +323,7 @@ function SugarCrmGetAccountDetails() {
                                 click: function() {
                                     CurrentContactId = $(this).data("identity");
                                     $.mobile.changePage('#ViewContactDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetContactDetails();
                                 }
                             });
@@ -379,7 +377,7 @@ function SugarCrmGetAccountDetails() {
                                 click: function() {
                                     CurrentOpportunityId = $(this).data("identity");
                                     $.mobile.changePage('#ViewOpportunityDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetOpportunityDetails();
                                 }
                             });
@@ -437,7 +435,7 @@ function SugarCrmGetAccountDetails() {
                                 click: function() {
                                     CurrentLeadId = $(this).data("identity");
                                     $.mobile.changePage('#ViewLeadDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetLeadDetails();
                                 }
                             });
@@ -502,7 +500,7 @@ function SugarCrmGetAccountDetails() {
                                 click: function() {
                                     CurrentCallId = $(this).data("identity");
                                     $.mobile.changePage('#ViewCallDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetCallDetails();
                                 }
                             });
@@ -573,7 +571,7 @@ function SugarCrmGetAccountDetails() {
                                 click: function() {
                                     CurrentMeetingId = $(this).data("identity");
                                     $.mobile.changePage('#ViewMeetingDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetMeetingDetails();
                                 }
                             });
@@ -642,7 +640,7 @@ function SugarCrmGetAccountDetails() {
                                 click: function() {
                                     CurrentTaskId = $(this).data("identity");
                                     $.mobile.changePage('#ViewTaskDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetTaskDetails();
                                 }
                             });
@@ -662,7 +660,7 @@ function SugarCrmGetAccountDetails() {
             }
         }
         $('#ViewAccountDetailsPageTasksListUl').listview("refresh");
-        $.mobile.pageLoading(true);
+        
     });
 }
 
@@ -670,7 +668,26 @@ function SugarCrmGetAccountDetails() {
 function SugarCrmAddNewAccount() {
     var validInput = ValidateNewAccountToAdd();
     if (validInput) {
-        /* TODO: NEED TO COMPLETE THIS METHOD TO ADD A NEW ACCOUNT */
+         $.get('../service/v2/rest.php', {
+	method: "set_entry",
+	input_type: "JSON",
+	rest_data: '{"session":"' + SugarSessionId + '",' +
+		'"module":"Accounts",' +
+		'"name_value_list":[{"name":"name","value":"' + $('#AccountNameTextBox').val() + '"},' +
+		'{"name":"description","value":,"' + $('#NewAccountDescriptionTextArea').val() + '"},' +
+                '{"name":"phone_office","value":"' + $('#NewAccountOfficePhoneTextBox').val() + '"},' +
+                '{"name":"website","value":"' + $('#NewAccountWebSiteTextBox').val() + '"},' +
+                '{"name":"phone_fax","value":"' + $('#NewAccountPhoneFaxTextBox').val() + '"}]}'
+        }, function(data) {
+            if ((data !== undefined) && (data[0] !== undefined)) {
+		 $('#AccountNameTextBox').val('');
+                 $('#NewAccountDescriptionTextArea').val('');
+                 $('#NewAccountOfficePhoneTextBox').val('');
+                 $('#NewAccountWebSiteTextBox').val('');
+                 $('#NewAccountPhoneFaxTextBox').val('');
+                 $.mobile.changePage('#HomePage');
+            }
+        });
     }
     else {
         alert(RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
@@ -678,7 +695,7 @@ function SugarCrmAddNewAccount() {
 }
 
 function ValidateNewAccountToAdd() {
-    if ($('#AccountNameTextBox').text().length > 0) {
+    if ($('#AccountNameTextBox').val().length > 0) {
         return true;
     }
     else {
