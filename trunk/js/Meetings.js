@@ -1,7 +1,7 @@
 function SugarCrmGetMeetingsListFromServer(offset) {
     var existingList = $('#AllMeetingsListDiv li');
     if ((existingList.length === 0) || (MeetingsListCurrentOffset !== offset)) {
-        $.mobile.pageLoading();
+        
         MeetingsListCurrentOffset = offset;
         $.get('../service/v2/rest.php', {
             method: "get_entry_list",
@@ -44,7 +44,7 @@ function SugarCrmGetMeetingsListFromServer(offset) {
                                     click: function() {
                                         CurrentMeetingId = $(this).data("identity");
                                         $.mobile.changePage('#ViewMeetingDetailsPage');
-                                        $.mobile.pageLoading();
+                                        
                                         SugarCrmGetMeetingDetails();
                                     }
                                 });
@@ -61,13 +61,13 @@ function SugarCrmGetMeetingsListFromServer(offset) {
                     }
                 }
             }
-            $.mobile.pageLoading(true);
+            
         });
     }
 }
 
 function SugarCrmGetMeetingDetails() {
-    $.mobile.pageLoading();
+    
     $('#MeetingNameH1').html('');
     $('#MeetingSubjectP').text('');
     $('#ViewMeetingDetailsPageDetailsList li').remove();
@@ -197,7 +197,7 @@ function getMeetingRelatedContactsInsetList() {
                                 click: function() {
                                     CurrentContactId = $(this).data("identity");
                                     $.mobile.changePage('#ViewContactDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetContactDetails();
                                 }
                             });
@@ -217,7 +217,7 @@ function getMeetingRelatedContactsInsetList() {
             }
             $('#ViewMeetingDetailsPageContactsListUl').listview("refresh");
         }
-        $.mobile.pageLoading(true);
+        
     });
 }
 
@@ -265,7 +265,7 @@ function getMeetingRelatedUsersInsetList() {
             }
             $('#ViewMeetingDetailsPageUsersListUl').listview("refresh");
         }
-        $.mobile.pageLoading(true);
+        
     });
 }
 
@@ -306,7 +306,7 @@ function getMeetingRelatedLeadsInsetList() {
                                 click: function() {
                                     CurrentLeadId = $(this).data("identity");
                                     $.mobile.changePage('#ViewLeadDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetLeadDetails();
                                 }
                             });
@@ -366,7 +366,7 @@ function getMeetingRelatedNotesInsetList() {
                                 click: function() {
                                     CurrentNoteId = $(this).data("identity");
                                     $.mobile.changePage('#ViewNoteDetailsPage');
-                                    $.mobile.pageLoading();
+                                    
                                     SugarCrmGetNoteDetails();
                                 }
                             });
@@ -386,6 +386,6 @@ function getMeetingRelatedNotesInsetList() {
             }
             $('#ViewMeetingDetailsPageNotesListUl').listview("refresh");
         }
-        $.mobile.pageLoading(true);
+        
     });
 }

@@ -34,7 +34,7 @@ function SugarCrmGetNoteDetails() {
                 }
             }
         }
-        $.mobile.pageLoading(true);
+        $.mobile.showPageLoadingMsg(true);
     });
 }
 

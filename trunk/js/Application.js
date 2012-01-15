@@ -129,7 +129,7 @@ $('#HomePage').live('pageshow',function(event,ui) {
 
 /* Login function used to log the user in and establish session */
 function LoginUser(noEncryption) {
-    $.mobile.showPageLoadingMsg();
+    $.mobile.showshowPageLoadingMsgMsg();
     var enteredUsername = $('#SettingsPageSugarCrmUsername').val();
     var enteredPassword = $('#SettingsPageSugarCrmPassword').val();
     var password = enteredPassword;
@@ -162,7 +162,7 @@ function LoginUser(noEncryption) {
         else {
           alert('An unexpected error occurred logging in.');
         }
-        $.mobile.hidePageLoadingMsg();
+        $.mobile.hideshowPageLoadingMsgMsg();
     });
 }
 
