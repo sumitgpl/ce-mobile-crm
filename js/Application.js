@@ -152,6 +152,12 @@ $('#TasksListPage').live('pageshow',function(event,ui) {
    SugarCrmGetTasksListFromServer(TasksListCurrentOffset);
 });
 
+$('#SearchListPage').live('pagecreate',function(event,ui) {
+   getAvailableSearchModules();
+   $('#SearchPageHeader').text(RES_SEARCH_PAGE_HEADER);
+   $('#SearchModulesLabel').html(RES_SELECT_MODULES_TO_SEARCH);
+   $('#SearchPagePerformSearchButton').text(RES_SEARCH_PAGE_BUTTON);
+});
 /* Redirect to the Login Page if no session exists */
 $('#HomePage').live('pageshow',function(event,ui) {
     if (SugarSessionId === '') {
