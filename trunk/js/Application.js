@@ -115,6 +115,7 @@ $('#HomePage').live('pagecreate',function(event,ui) {
    $('#OpportunitiesListPageTitle').text(RES_OPPORTUNITIES_LABEL);
    $('#LeadsListPageTitle').text(RES_LEADS_LABEL);
    $('#CallsListPageTitle').text(RES_CALLS_LABEL);
+   $('#SearchListPageLinkLabel').text(RES_SEARCH_ICON_LABEL);
    $('#MeetingsListPageTitle').text(RES_MEETINGS_LABEL);
    $('#TasksListPageTitle').text(RES_TASKS_LABEL);
    $('#ViewContactDetailsPageTitle').text(RES_CONTACT_LABEL + " " + RES_DETAILS_LABEL);
