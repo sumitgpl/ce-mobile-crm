@@ -607,3 +607,55 @@ function getContactRelatedTasksInsetList() {
     });
 }
 
+function SugarCrmAddNewContact() {
+    var validInput = ValidateNewContactToAdd();
+    if (validInput) {
+         $.get('../service/v2/rest.php', {
+	method: "set_entry",
+	input_type: "JSON",
+        response_type: "JSON",
+	rest_data: '{"session":"' + SugarSessionId + '",' +
+		'"module":"Contacts",' +
+		'"name_value_list":[' +
+                '{"name":"first_name","value":"' + $('#ContactFirstNameTextBox').val() + '"},' +
+		'{"name":"last_name","value":"' + $('#ContactLastNameTextBox').val() + '"},' +
+                '{"name":"phone_work","value":"' + $('#ContactOfficePhoneTextBox').val() + '"},' +
+                '{"name":"phone_mobile","value":"' + $('#ContactMobileTextBox').val() + '"},' +
+                '{"name":"phone_fax","value":"' + $('#ContactPhoneFaxTextBox').val() + '"},' +
+                '{"name":"email","value":"' + $('#ContactEmailTextBox').val() + '"},' +
+                '{"name":"title","value":"' + $('#ContactTitleTextBox').val() + '"},' +
+                '{"name":"department","value":"' + $('#ContactDepartmentTextBox').val() + '"},' +
+                '{"name":"description","value":"' + $('#NewContactDescriptionTextArea').val() + '"}]}'
+        }, function(data) {
+            if (data !== undefined) {
+                var addContactResult = jQuery.parseJSON(data);
+                if (addContactResult.id === "Invalid Session ID") {
+                    SugarSessionId = '';
+                    $.mobile.changePage('#LoginPage');
+                }
+		 $('#ContactFirstNameTextBox').val('');
+                 $('#ContactLastNameTextBox').val('');
+                 $('#ContactOfficePhoneTextBox').val('');
+                 $('#ContactMobileTextBox').val('');
+                 $('#ContactPhoneFaxTextBox').val('');
+                 $('#ContactEmailTextBox').val('');
+                 $('#ContactTitleTextBox').val('');
+                 $('#ContactDepartmentTextBox').val('');
+                 $('#NewContactDescriptionTextArea').val('');
+                 $.mobile.changePage('#HomePage');
+            }
+        });
+    }
+    else {
+        alert(RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
+    }
+}
+
+function ValidateNewContactToAdd() {
+    if (($('#ContactFirstNameTextBox').val().length > 0) && ($('#ContactLastNameTextBox').val().length > 0)) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
