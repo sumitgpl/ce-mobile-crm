@@ -5,7 +5,7 @@ function SearchByModule() {
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '",' +
         '"search_string":"' + $('#ModuleSearchTerm').val() + '",' +
-        '"modules":"' + "" + '",' +
+        '"modules":"' + '[ { "Accounts" } ] ' + '",' +
         '"offset":0,' +
         '"max_results":' + RowsPerPageInListViews + '}'
     }, function(data) {
