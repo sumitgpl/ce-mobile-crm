@@ -123,3 +123,6 @@ var RES_SETTINGS_SERVER_ADDRESS_LABEL = "SugarCRM Server Address";
 var RES_SETTINGS_SAVE_CONFIG_LABEL = "Save Configuration?"
 
 var RES_SEARCH_ICON_LABEL = "Search";
+var RES_SELECT_MODULES_TO_SEARCH = "Select modules to be included in the search";
+var RES_SEARCH_PAGE_HEADER = "Search";
+var RES_SEARCH_PAGE_BUTTON = "Perform Search";
