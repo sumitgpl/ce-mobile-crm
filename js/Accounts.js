@@ -132,9 +132,9 @@ function SugarCrmGetAccountDetails() {
                         rel: "external",
                         "style": "text-decoration:none;color:#444;",
                         click: function() {
-                            var answer = confirm("Log this call?");
-                            if (answer) {
-                                LogCall("Accounts",CurrentAccountId);
+                            var subject = prompt("",RES_LOG_CALL_REASON);
+                            if (subject !== "") {
+                                LogCall("Accounts",CurrentAccountId,subject);
                                 return true;
                             }
                             else { return true; }
@@ -489,7 +489,7 @@ function SugarCrmGetAccountDetails() {
                             var accountCallListItem = $("<li/>");
                             var accountCallHeader = "<h4>" + accountCall.name_value_list.name.value + "</h4>";
                             var accountCallParagraph = '';
-                            if (accountCall.name_value_list.status !== undefined) {
+                            if ((accountCall.name_value_list.status !== undefined) && (accountCall.name_value_list.date_start !== undefined)) {
                                 accountCallParagraph = "<p>" + accountCall.name_value_list.status.value;
                                 accountCallParagraph+="<br/>" + accountCall.name_value_list.date_start.value;
                                 accountCallParagraph+="</p>";
@@ -671,6 +671,7 @@ function SugarCrmAddNewAccount() {
          $.get('../service/v2/rest.php', {
 	method: "set_entry",
 	input_type: "JSON",
+        response_type: "JSON",
 	rest_data: '{"session":"' + SugarSessionId + '",' +
 		'"module":"Accounts",' +
 		'"name_value_list":[{"name":"name","value":"' + $('#AccountNameTextBox').val() + '"},' +
@@ -679,7 +680,12 @@ function SugarCrmAddNewAccount() {
                 '{"name":"website","value":"' + $('#NewAccountWebSiteTextBox').val() + '"},' +
                 '{"name":"phone_fax","value":"' + $('#NewAccountPhoneFaxTextBox').val() + '"}]}'
         }, function(data) {
-            if ((data !== undefined) && (data[0] !== undefined)) {
+            if (data !== undefined) {
+                var addAccountResult = jQuery.parseJSON(data);
+                if (data.id === "Invalid Session ID") {
+                    SugarSessionId = '';
+                    $.mobile.changePage('#LoginPage');
+                }
 		 $('#AccountNameTextBox').val('');
                  $('#NewAccountDescriptionTextArea').val('');
                  $('#NewAccountOfficePhoneTextBox').val('');
