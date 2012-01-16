@@ -81,9 +81,9 @@ function SugarCrmGetAccountsListFromServer(offset) {
                     }
                 }
             }
+        });
             /* Hide the loading panel */
             $.mobile.hideshowPageLoadingMsgMsg();
-        });
     }
 }
 
@@ -668,6 +668,7 @@ function SugarCrmGetAccountDetails() {
 
 
 function SugarCrmAddNewAccount() {
+    $.mobile.showshowPageLoadingMsgMsg();
     var validInput = ValidateNewAccountToAdd();
     if (validInput) {
          $.get(CurrentServerAddress + '/service/v2/rest.php', {
@@ -693,11 +694,14 @@ function SugarCrmAddNewAccount() {
                  $('#NewAccountOfficePhoneTextBox').val('');
                  $('#NewAccountWebSiteTextBox').val('');
                  $('#NewAccountPhoneFaxTextBox').val('');
+                 $('#AllAccountsListDiv').children().remove('li');
+                 $.mobile.hideshowPageLoadingMsgMsg();
                  $.mobile.changePage('#HomePage');
             }
         });
     }
     else {
+        $.mobile.hideshowPageLoadingMsgMsg();
         alert(RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
     }
 }
