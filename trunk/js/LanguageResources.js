@@ -1,5 +1,5 @@
 /* VERSION STRING */
-var RES_CURRENT_VERSION_NUMBER = "v0.0.2.5";
+var RES_CURRENT_VERSION_NUMBER = "v1.0.0.0";
 /* General Resources */
 var RES_LOGIN_MESSAGE = "Enter your username and password, then click login";
 var RES_LOGIN_TITLE = "Login";
@@ -113,3 +113,11 @@ var RES_NEW_CONTACT_PHONE_FAX_LABEL = "Fax";
 var RES_NEW_CONTACT_TITLE_LABEL = "Title";
 var RES_NEW_CONTACT_EMAIL_LABEL = "Email";
 var RES_NEW_CONTACT_DEPARTMENT_LABEL = "Department";
+/* Navigational Resources */
+var RES_NAVIGATE_RECORDS_PREV_LABEL = "Prev";
+var RES_NAVIGATE_RECORDS_NEXT_LABEL = "Next";
+var RES_SETTINGS_PROTOCOL_HTTP_LABEL = "HTTP";
+var RES_SETTINGS_PROTOCOL_HTTPS_LABEL = "HTTPS"
+var RES_SETTINGS_PROTOCOL_SELECTION_LABEL = "Select Protocol";
+var RES_SETTINGS_SERVER_ADDRESS_LABEL = "SugarCRM Server Address";
+var RES_SETTINGS_SAVE_CONFIG_LABEL = "Save Configuration?"

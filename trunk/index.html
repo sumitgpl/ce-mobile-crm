@@ -27,7 +27,7 @@
         <script type="text/javascript" src="js/Notes.js"></script>
         <!-- JS END -->
         <link rel="stylesheet" href="css/style.css" />
-        <title>CE Mobile CRM</title>
+        <title>REPLACEMENT_TEXT</title>
     </head>
     <body>
 
@@ -37,22 +37,35 @@
                 <a href="javascript:ShowAboutApplicationPage();" class="AboutApplicationClass ui-btn-right">REPLACEMENT_TEXT</a>
             </div><!-- /header -->  
             <div data-role="content">
+                <form action="#" method="get">
                 <p id="LoginDescriptionParagraph">REPLACEMENT_TEXT</p>
-                <br />
-                <br />
                 <label for="SettingsPageSugarCrmUsername"><em>* </em><span id="UsernameLabel">REPLACEMENT_TEXT</span></label>
-                <input id="SettingsPageSugarCrmUsername" type="text" />
+                <input id="SettingsPageSugarCrmUsername" type="text" onchange="revalidateControl(this,'[^\s*\S]');" />
                 <br />
                 <label for="SettingsPageSugarCrmPassword"><em>* </em><span id="PasswordLabel">REPLACEMENT_TEXT</span></label>
-                <input id="SettingsPageSugarCrmPassword" type="password" />
+                <input id="SettingsPageSugarCrmPassword" type="password" onchange="revalidateControl(this,'[^\s*\S]');" />
                 <br />
+                <label for="SettingsPageSugarCrmServerAddress"><em>* </em><span id="SettingsPageSugarCrmServerAddressLabel">REPLACEMENT_TEXT</span></label>
+                <input id="SettingsPageSugarCrmServerAddress" type="text" onchange="revalidateControl(this,'[^\s*\S]');" />
+                <div data-role="fieldcontain">
+                    <fieldset data-role="controlgroup" data-type="horizontal">
+                        <legend id="SettingsPageSugarCrmProtocol">REPLACEMENT_TEXT</legend>
+                                <input type="radio" name="protocol_choice" id="SugarCrmProtocolHttpsRadioButton" value="HTTPS://" checked="true" />
+                                <label id="SugarCrmProtocolHttpsLabel" for="SugarCrmProtocolHttpsRadioButton">List</label>
+                                <input type="radio" name="protocol_choice" id="SugarCrmProtocolHttpRadioButton" value="HTTP://"  />
+                                <label id="SugarCrmProtocolHttpLabel" for="SugarCrmProtocolHttpRadioButton">Grid</label>
+                    </fieldset>
+                </div>
+                <input type="checkbox" name="SettingsPageSugarCrmSaveSettings" id="SettingsPageSugarCrmSaveSettings" class="custom" checked="true" />
+                <label for="SettingsPageSugarCrmSaveSettings" id="SettingsPageSugarCrmSaveSettingsLabel">REPLACEMENT_TEXT</label>
                 <a id="LoginFormLoginButton" href="javascript:LoginUser();" data-role="button">REPLACEMENT_TEXT</a>
+                </form>
             </div>
         </div><!-- /page -->
 
         <div id="HomePage" data-role="page" data-theme="b" data-title="Home">
             <div data-role="header">
-                <h1>Home Page</h1>
+                <h1 id="HomePageHeader">REPLACEMENT_TEXT</h1>
                 <a href="javascript:ShowMainMenu();" data-icon="grid" class="MainMenuButton ui-btn-right">REPLACEMENT_TEXT</a>
                 <div id="MainMenuNavBar" data-role="navbar" style="display:none;">
                     <ul>
@@ -113,18 +126,20 @@
         </div><!-- /page -->
 
         <div id="AccountsListPage" data-role="page" data-theme="b" data-add-back-btn="true">
-            <div data-role="header">
+            <div data-role="header" data-position="fixed">
                 <h1 id="AccountsListPageTitle"></h1>
             </div><!-- /header -->
-            <div id="AccountListPageSubMenu" data-role="navbar">
-                <ul>
-                    <li><a href="javascript:SugarCrmGetAccountsListFromServer(AccountsListPrevOffset);" data-icon="arrow-l"></a></li>
-                    <li><a href="javascript:SugarCrmGetAccountsListFromServer(AccountsListNextOffset);" data-icon="arrow-r"></a></li>
-                </ul>
-            </div>
             <div data-role="content">
                 <ul id="AllAccountsListDiv" data-role="listview" data-filter="false" />
             </div><!-- /content -->
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar" data-iconpos="top">
+               <ul>
+                    <li><a href="javascript:SugarCrmGetAccountsListFromServer(AccountsListPrevOffset);" data-icon="arrow-l">Prev</a></li>
+                    <li><a href="javascript:SugarCrmGetAccountsListFromServer(AccountsListNextOffset);" data-icon="arrow-r">Next</a></li>
+                </ul>
+                </div>
+            </div>
         </div><!-- /page -->
 
         <div id="ContactsListPage" data-role="page" data-theme="b" data-add-back-btn="true">
@@ -475,7 +490,7 @@
             <div data-role="content">
                 <div data-role="fieldcontain">
                     <label for="AccountNameTextBox"><em>* </em><span id="AccountNameLabel">REPLACEMENT_TEXT</span></label>
-                    <input id="AccountNameTextBox" type="text" />
+                    <input id="AccountNameTextBox" type="text" onchange="revalidateControl(this,'[^\s*\S]');"/>
                 </div>
                 <div data-role="fieldcontain">
                     <label id="NewAccountOfficePhoneLabel" for="NewAccountOfficePhoneTextBox">REPLACEMENT_TEXT</label>
@@ -509,11 +524,11 @@
             <div data-role="content">
                 <div data-role="fieldcontain">
                     <label for="ContactFirstNameTextBox"><em>* </em><span id="ContactFirstNameLabel">REPLACEMENT_TEXT</span></label>
-                    <input id="ContactFirstNameTextBox" type="text" />
+                    <input id="ContactFirstNameTextBox" type="text" onchange="revalidateControl(this,'[^\s*\S]');"/>
                 </div>
                 <div data-role="fieldcontain">
                     <label for="ContactLastNameTextBox"><em>* </em><span id="ContactLastNameLabel">REPLACEMENT_TEXT</span></label>
-                    <input id="ContactLastNameTextBox" type="text" />
+                    <input id="ContactLastNameTextBox" type="text" onchange="revalidateControl(this,'[^\s*\S]');"/>
                 </div>
                 <div data-role="fieldcontain">
                     <label id="ContactOfficePhoneLabel" for="ContactOfficePhoneTextBox">REPLACEMENT_TEXT</label>
@@ -557,6 +572,10 @@
                 <h1 id="NewOpportunityHeader">REPLACEMENT_TEXT</h1>
             </div>
             <div data-role="content">
+                <div data-role="fieldcontain">
+                    <label id="OpportunityNameLabel" for="OpportunityNameTextBox">REPLACEMENT_TEXT</label>
+                    <input id="OpportunityNameTextBox" type="text" />
+                </div>
                 <div data-role="fieldcontain">
                     <label id="OpportunityNameLabel" for="OpportunityNameTextBox">REPLACEMENT_TEXT</label>
                     <input id="OpportunityNameTextBox" type="text" />

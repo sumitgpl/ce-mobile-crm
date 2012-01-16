@@ -3,7 +3,7 @@ function SugarCrmGetCallsListFromServer(offset) {
     if ((existingList.length === 0) || (CallsListCurrentOffset !== offset)) {
         
         CallsListCurrentOffset = offset;
-        $.get('../service/v2/rest.php', {
+        $.get(CurrentServerAddress + '/service/v2/rest.php', {
             method: "get_entry_list",
             input_type: "JSON",
             response_type: "JSON",
@@ -73,7 +73,7 @@ function SugarCrmGetCallDetails() {
     $('#CallNameH1').html('');
     $('#CallSubjectP').text('');
     $('#ViewCallDetailsPageDetailsList li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_entry",
         input_type: "JSON",
         response_type: "JSON",
@@ -134,7 +134,7 @@ function SugarCrmGetCallDetails() {
 
 function getCallParentDetails(callDetailsParentType,callDetailsParentId) {
     var parentInfo = "<h4>" + callDetailsParentType + ":&nbsp;";
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_entry",
         input_type: "JSON",
         response_type: "JSON",
@@ -165,7 +165,7 @@ function getCallParentDetails(callDetailsParentType,callDetailsParentId) {
 
 function getCallRelatedContactsInsetList() {
     $('#ViewCallDetailsPageContactsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -222,7 +222,7 @@ function getCallRelatedContactsInsetList() {
 
 function getCallRelatedUsersInsetList() {
     $('#ViewCallDetailsPageUsersListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -267,7 +267,7 @@ function getCallRelatedUsersInsetList() {
 
 function getCallRelatedLeadsInsetList() {
     $('#ViewCallDetailsPageLeadsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -327,7 +327,7 @@ function getCallRelatedLeadsInsetList() {
 
 function getCallRelatedNotesInsetList() {
     $('#ViewCallDetailsPageNotesListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",

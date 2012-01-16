@@ -3,7 +3,7 @@ function SugarCrmGetMeetingsListFromServer(offset) {
     if ((existingList.length === 0) || (MeetingsListCurrentOffset !== offset)) {
         
         MeetingsListCurrentOffset = offset;
-        $.get('../service/v2/rest.php', {
+        $.get(CurrentServerAddress + '/service/v2/rest.php', {
             method: "get_entry_list",
             input_type: "JSON",
             response_type: "JSON",
@@ -71,7 +71,7 @@ function SugarCrmGetMeetingDetails() {
     $('#MeetingNameH1').html('');
     $('#MeetingSubjectP').text('');
     $('#ViewMeetingDetailsPageDetailsList li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_entry",
         input_type: "JSON",
         response_type: "JSON",
@@ -132,7 +132,7 @@ function SugarCrmGetMeetingDetails() {
 
 function getMeetingParentDetails(meetingDetailsParentType,meetingDetailsParentId) {
     var parentInfo = "<h4>" + meetingDetailsParentType + ":&nbsp;";
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_entry",
         input_type: "JSON",
         response_type: "JSON",
@@ -166,7 +166,7 @@ function getMeetingRelatedContactsInsetList() {
     if (SugarSessionId == '') {
         $.mobile.changePage('#HomePage');
     }
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -226,7 +226,7 @@ function getMeetingRelatedUsersInsetList() {
     if (SugarSessionId == '') {
         $.mobile.changePage('#HomePage');
     }
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -271,7 +271,7 @@ function getMeetingRelatedUsersInsetList() {
 
 function getMeetingRelatedLeadsInsetList() {
     $('#ViewMeetingDetailsPageLeadsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -331,7 +331,7 @@ function getMeetingRelatedLeadsInsetList() {
 
 function getMeetingRelatedNotesInsetList() {
     $('#ViewMeetingDetailsPageNotesListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",

@@ -3,7 +3,7 @@ function SugarCrmGetOpportunitiesListFromServer(offset) {
     if ((existingList.length === 0) || (OpportunitiesListCurrentOffset !== offset)) {
         
         OpportunitiesListCurrentOffset = offset;
-        $.get('../service/v2/rest.php', {
+        $.get(CurrentServerAddress + '/service/v2/rest.php', {
             method: "get_entry_list",
             input_type: "JSON",
             response_type: "JSON",
@@ -87,7 +87,7 @@ function SugarCrmGetOpportunityDetails() {
     $('#OpportunityNameH1').html('');
     $('#OpportunityDescriptionP').text('');
     $('#ViewOpportunityDetailsPageDetailsList li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_entry",
         input_type: "JSON",
         response_type: "JSON",
@@ -176,7 +176,7 @@ function SugarCrmGetOpportunityDetails() {
 function getOpportunityRelatedContactsInsetList() {
     
     $('#ViewOpportunityDetailsPageContactsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -236,7 +236,7 @@ function getOpportunityRelatedContactsInsetList() {
 function getOpportunityRelatedLeadsInsetList() {
     
     $('#ViewOpportunityDetailsPageLeadsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -298,7 +298,7 @@ function getOpportunityRelatedLeadsInsetList() {
 function getOpportunityRelatedCallsInsetList() {
     
     $('#ViewOpportunityDetailsPageCallsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -372,7 +372,7 @@ function getOpportunityRelatedCallsInsetList() {
 function getOpportunityRelatedMeetingsInsetList() {
     
     $('#ViewOpportunityDetailsPageMeetingsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -446,7 +446,7 @@ function getOpportunityRelatedMeetingsInsetList() {
 function getOpportunityRelatedTasksInsetList() {
     
     $('#ViewOpportunityDetailsPageTasksListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",

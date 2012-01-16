@@ -3,7 +3,7 @@ function SugarCrmGetTasksListFromServer(offset) {
     if ((existingList.length === 0) || (TasksListCurrentOffset !== offset)) {
         
         TasksListCurrentOffset = offset;
-        $.get('../service/v2/rest.php', {
+        $.get(CurrentServerAddress + '/service/v2/rest.php', {
             method: "get_entry_list",
             input_type: "JSON",
             response_type: "JSON",
@@ -71,7 +71,7 @@ function SugarCrmGetTaskDetails() {
     $('#TaskNameH1').html('');
     $('#TaskSubjectP').text('');
     $('#ViewTaskDetailsPageDetailsList li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_entry",
         input_type: "JSON",
         response_type: "JSON",
@@ -131,7 +131,7 @@ function SugarCrmGetTaskDetails() {
 
 function getTaskParentDetails(taskDetailsParentType,taskDetailsParentId) {
     var parentInfo = "<h4>" + taskDetailsParentType + ":&nbsp;";
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_entry",
         input_type: "JSON",
         response_type: "JSON",
@@ -162,7 +162,7 @@ function getTaskParentDetails(taskDetailsParentType,taskDetailsParentId) {
 
 function getTaskRelatedContactsInsetList() {
     $('#ViewTaskDetailsPageContactsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -219,7 +219,7 @@ function getTaskRelatedContactsInsetList() {
 
 function getTaskRelatedUsersInsetList() {
     $('#ViewTaskDetailsPageUsersListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -264,7 +264,7 @@ function getTaskRelatedUsersInsetList() {
 
 function getTaskRelatedLeadsInsetList() {
     $('#ViewTaskDetailsPageLeadsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",

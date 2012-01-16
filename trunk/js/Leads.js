@@ -3,7 +3,7 @@ function SugarCrmGetLeadsListFromServer(offset) {
     if ((existingList.length === 0) || (LeadsListCurrentOffset !== offset)) {
         
         LeadsListCurrentOffset = offset;
-        $.get('../service/v2/rest.php', {
+        $.get(CurrentServerAddress + '/service/v2/rest.php', {
             method: "get_entry_list",
             input_type: "JSON",
             response_type: "JSON",
@@ -71,7 +71,7 @@ function SugarCrmGetLeadDetails() {
     $('#ContactNameH1').html('');
     $('#ContactTitleP').text('');
     $('#ViewLeadDetailsPageDetailsList li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_entry",
         input_type: "JSON",
         response_type: "JSON",
@@ -278,7 +278,7 @@ function SugarCrmGetLeadDetails() {
 
 function getLeadRelatedCallsInsetList() {
     $('#ViewLeadDetailsPageCallsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -348,7 +348,7 @@ function getLeadRelatedCallsInsetList() {
 
 function getLeadRelatedMeetingsInsetList() {
     $('#ViewLeadDetailsPageMeetingsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -417,7 +417,7 @@ function getLeadRelatedMeetingsInsetList() {
 
 function getLeadRelatedTasksInsetList() {
     $('#ViewLeadDetailsPageTasksListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
