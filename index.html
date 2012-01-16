@@ -25,6 +25,7 @@
         <script type="text/javascript" src="js/Meetings.js"></script>
         <script type="text/javascript" src="js/Tasks.js"></script>
         <script type="text/javascript" src="js/Notes.js"></script>
+        <script type="text/javascript" src="js/SearchByModule.js"></script>
         <!-- JS END -->
         <link rel="stylesheet" href="css/style.css" />
         <title>REPLACEMENT_TEXT</title>
@@ -63,7 +64,7 @@
             </div>
         </div><!-- /page -->
 
-        <div id="HomePage" data-role="page" data-theme="b" data-title="Home">
+        <div id="HomePage" data-role="page" data-theme="b" data-title="Home" data-add-back-btn="false">
             <div data-role="header">
                 <h1 id="HomePageHeader">REPLACEMENT_TEXT</h1>
                 <a href="javascript:ShowMainMenu();" data-icon="grid" class="MainMenuButton ui-btn-right">REPLACEMENT_TEXT</a>
@@ -119,6 +120,12 @@
                         <a href="#TasksListPage">
                             <div class="TasksIcon"></div>
                             <div id="TasksListPageLinkLabel"></div>
+                        </a>
+                    </div>
+                    <div class="IconContainer">
+                        <a href="#SearchListPage">
+                            <div class="SearchIcon"></div>
+                            <div id="SearchListPageLinkLabel"></div>
                         </a>
                     </div>
                 </div>
@@ -564,6 +571,16 @@
                         <div class="ui-block-b"><button id="CancelNewContactButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
                     </fieldset>
 		</div>
+            </div>
+        </div>
+
+        <div data-role="page" id="SearchListPage" data-theme="b">
+            <div data-role="header">
+                <h1 id="SearchPageHeader">REPLACEMENT_TEXT</h1>
+            </div>
+            <div data-role="content">
+                
+                
             </div>
         </div>
 
