@@ -100,5 +100,6 @@ var RES_DATE_CREATED_LABEL = "Date Created";
 /* Notification Resources */
 var RES_DO_NOT_CALL = "*NOTE: This Contact is marked as Do Not Call.";
 var RES_LOG_CALL_QUESTION = "Would you like to log this call?";
+var RES_LOG_CALL_REASON = "What is this call about?";
 var RES_ABOUT_APPLICATION_MENU_ITEM = "About";
 var RES_ABOUT_APPLICATION_HEADER = "About";

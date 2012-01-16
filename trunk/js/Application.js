@@ -196,25 +196,29 @@ function ShowAboutApplicationPage() {
     $.mobile.changePage('#AboutPage', { reverse: "true"} );
 }
 
-function LogCall(moduleName,uniqueId) {
+function LogCall(moduleName,uniqueId,subject) {
     $.get('../service/v2/rest.php', {
         method: "set_entry",
         input_type: "JSON",
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '",' +
-        '"module_name":"' + moduleName + '",' +
+        '"module_name":"Calls",' +
         '"name_value_list":[' +
-        '{"name":"name","value":"Call placed from mobile device"},' +
+        '{"name":"name","value":"' + subject + '"},' +
         '{"name":"direction","value":"Outbound"},' +
         '{"name":"parent_type","value":"' + moduleName + '"},' +
         '{"name":"parent_id","value":"' + uniqueId + '"},' +
-        '{"name":"status","value":"Test"},' +
+        '{"name":"status","value":"Held"},' +
         '{"name":"duration_hours","value":0},' +
         '{"name":"duration_minutes","value":0}]}'
     }, function(data) {
-        alert(data);
+        if (data !== undefined) {
+            var newCall = jQuery.parseJSON(data);
+        }
     });
 }
+
+
 
 $('#CreateNewAccountPage').live('pagecreate',function(event,ui) {
     $('#NewAccountHeader').text(RES_NEW_ACCOUNT_PAGE_TITLE);
