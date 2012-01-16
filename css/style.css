@@ -23,6 +23,13 @@ body { background: #cccccc;}
     text-shadow: 0 1px 1px #fff;
     font-weight: normal;
 }
+
+.IconContainer .ui-link:visited {
+    text-decoration: none;
+    color:#111111;
+    text-shadow: 0 1px 1px #fff;
+    font-weight: normal;
+}
 /* Sets the image to use as the icon from the sprit for Accounts */
 .AccountsIcon {
     background-image:url('../images/icons_sprite.png');
@@ -94,11 +101,22 @@ body { background: #cccccc;}
     margin-left: auto;
     margin-right: auto;
 }
-/* Sets the image to use as the icon from the sprit for Tasks */
+/* Sets the image to use as the icon from the sprite for Tasks */
 .TasksIcon {
     background-image:url('../images/icons_sprite.png');
     background-repeat: no-repeat;
     background-position: -2px -132px;
+    height:57px;
+    width:57px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Sets the image to use as the icon from the sprite for Search */
+.SearchIcon {
+    background-image:url('../images/icons_sprite.png');
+    background-repeat: no-repeat;
+    background-position: -133px -132px;
     height:57px;
     width:57px;
     margin-left: auto;
