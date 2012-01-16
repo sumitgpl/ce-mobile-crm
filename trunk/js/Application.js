@@ -60,8 +60,25 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
 });
 
 
-$('#LoginPage').live('pageaftershow',function(event,ui) {
-    $("input[type='radio']:first").attr("checked",true).checkboxradio("refresh");
+$('#LoginPage').live('pageshow',function(event,ui) {
+    var username = getCookie("username");
+    if (username!=null && username!="") {
+        $('#SettingsPageSugarCrmUsername').val(username);
+    }
+    var serveraddress = getCookie("serveraddress");
+    if ((serveraddress !== undefined) && (serveraddress !== "")) {
+        var serverurl = "";
+        if (serveraddress.toString().toLowerCase().indexOf("p://") > 0) {
+            $('#SugarCrmProtocolHttpRadioButton').attr('checked',true).checkboxradio("refresh");
+            $('#SugarCrmProtocolHttpsRadioButton').attr('checked',false).checkboxradio("refresh");
+            serverurl = serveraddress.substring(7,(serveraddress.toString().length));
+        } else {
+            $('#SugarCrmProtocolHttpsRadioButton').attr('checked',true).checkboxradio("refresh");
+            $('#SugarCrmProtocolHttpRadioButton').attr('checked',false).checkboxradio("refresh");
+            serverurl = serveraddress.substring(8,(serveraddress.toString().length));
+        }
+        $('#SettingsPageSugarCrmServerAddress').val(serverurl);
+    }
 });
 
 $('#AboutPage').live('pagecreate',function(event,ui) {
@@ -145,15 +162,25 @@ $('#HomePage').live('pageshow',function(event,ui) {
 function LoginUser(noEncryption) {
     if (validateLoginFields() == true) {
     $.mobile.showshowPageLoadingMsgMsg();
-    var enteredUsername = $('#SettingsPageSugarCrmUsername').val();
-    var enteredPassword = $('#SettingsPageSugarCrmPassword').val();
-    var password = enteredPassword;
+    /* Build the server address string based on prefs */
     if ($('SugarCrmProtocolHttpRadioButton').attr('checked',true)) {
         CurrentServerAddress = "http://";
     } else {
         CurrentServerAddress = "https://";
     }
     CurrentServerAddress+=$('#SettingsPageSugarCrmServerAddress').val();
+    var enteredUsername = "";
+    if ($('#SettingsPageSugarCrmSaveSettings').attr('checked',true)) {
+        setCookie("username",$('#SettingsPageSugarCrmUsername').val(),365);
+        enteredUsername = getCookie("username");
+        setCookie("serveraddress",CurrentServerAddress,365);
+    } else {
+        enteredUsername = $('#SettingsPageSugarCrmSaveSettings').val();
+    }
+    
+    var enteredPassword = $('#SettingsPageSugarCrmPassword').val();
+    var password = enteredPassword;
+
     if (noEncryption==undefined) password = $.md5(password);
 
     $.get(CurrentServerAddress + '/service/v2/rest.php', {
@@ -170,6 +197,7 @@ function LoginUser(noEncryption) {
               LoginUser(true);
             }
             else {
+              $.mobile.hideshowPageLoadingMsgMsg();
               alert('Login Failed');
             }
           }
@@ -177,15 +205,17 @@ function LoginUser(noEncryption) {
               SugarSessionId = loginResult.id;
               $('#SettingsPageSugarCrmUsername').val('');
               $('#SettingsPageSugarCrmPassword').val('');
+              $.mobile.hideshowPageLoadingMsgMsg();
               $.mobile.changePage('#HomePage');
           }
         }
         else {
+          $.mobile.hideshowPageLoadingMsgMsg();
           alert('An unexpected error occurred logging in.');
         }
-        $.mobile.hideshowPageLoadingMsgMsg();
     });
     } else {
+        $.mobile.hideshowPageLoadingMsgMsg();
         alert(RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
     }
 }
@@ -308,4 +338,27 @@ function revalidateControl(control,validationExpression) {
     }
 }
 
+
+function setCookie(c_name,value,exdays)
+{
+var exdate=new Date();
+exdate.setDate(exdate.getDate() + exdays);
+var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+document.cookie=c_name + "=" + c_value;
+}
+
+function getCookie(c_name)
+{
+var i,x,y,ARRcookies=document.cookie.split(";");
+for (i=0;i<ARRcookies.length;i++)
+{
+  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+  x=x.replace(/^\s+|\s+$/g,"");
+  if (x==c_name)
+    {
+    return unescape(y);
+    }
+  }
+}
 
