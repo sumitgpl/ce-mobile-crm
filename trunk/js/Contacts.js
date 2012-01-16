@@ -622,7 +622,7 @@ function SugarCrmAddNewContact() {
                 '{"name":"phone_work","value":"' + $('#ContactOfficePhoneTextBox').val() + '"},' +
                 '{"name":"phone_mobile","value":"' + $('#ContactMobileTextBox').val() + '"},' +
                 '{"name":"phone_fax","value":"' + $('#ContactPhoneFaxTextBox').val() + '"},' +
-                '{"name":"email","value":"' + $('#ContactEmailTextBox').val() + '"},' +
+                '{"name":"email1","value":"' + $('#ContactEmailTextBox').val() + '"},' +
                 '{"name":"title","value":"' + $('#ContactTitleTextBox').val() + '"},' +
                 '{"name":"department","value":"' + $('#ContactDepartmentTextBox').val() + '"},' +
                 '{"name":"description","value":"' + $('#NewContactDescriptionTextArea').val() + '"}]}'
