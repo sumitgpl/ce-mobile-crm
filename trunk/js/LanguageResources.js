@@ -103,3 +103,13 @@ var RES_LOG_CALL_QUESTION = "Would you like to log this call?";
 var RES_LOG_CALL_REASON = "What is this call about?";
 var RES_ABOUT_APPLICATION_MENU_ITEM = "About";
 var RES_ABOUT_APPLICATION_HEADER = "About";
+/* Create Contact Resources */
+var RES_NEW_CONTACT_PAGE_TITLE = "*New Contact";
+var RES_NEW_CONTACT_FIRST_NAME_LABEL = "First Name";
+var RES_NEW_CONTACT_LAST_NAME_LABEL = "Last Name";
+var RES_NEW_CONTACT_OFFICE_PHONE_LABEL = "Office Phone";
+var RES_NEW_CONTACT_MOBILE_PHONE_LABEL = "Mobile";
+var RES_NEW_CONTACT_PHONE_FAX_LABEL = "Fax";
+var RES_NEW_CONTACT_TITLE_LABEL = "Title";
+var RES_NEW_CONTACT_EMAIL_LABEL = "Email";
+var RES_NEW_CONTACT_DEPARTMENT_LABEL = "Department";

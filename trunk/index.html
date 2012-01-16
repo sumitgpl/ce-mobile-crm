@@ -508,12 +508,44 @@
             </div>
             <div data-role="content">
                 <div data-role="fieldcontain">
-                    <label id="ContactNameLabel" for="ContactNameTextBox">REPLACEMENT_TEXT</label>
-                    <input id="ContactNameTextBox" type="text" />
+                    <label for="ContactFirstNameTextBox"><em>* </em><span id="ContactFirstNameLabel">REPLACEMENT_TEXT</span></label>
+                    <input id="ContactFirstNameTextBox" type="text" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label for="ContactLastNameTextBox"><em>* </em><span id="ContactLastNameLabel">REPLACEMENT_TEXT</span></label>
+                    <input id="ContactLastNameTextBox" type="text" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label id="ContactOfficePhoneLabel" for="ContactOfficePhoneTextBox">REPLACEMENT_TEXT</label>
+                    <input id="ContactOfficePhoneTextBox" type="tel" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label id="ContactMobilePhoneLabel" for="ContactMobileTextBox">REPLACEMENT_TEXT</label>
+                    <input id="ContactMobileTextBox" type="tel" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label id="ContactPhoneFaxLabel" for="ContactPhoneFaxTextBox">REPLACEMENT_TEXT</label>
+                    <input id="ContactPhoneFaxTextBox" type="tel" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label id="ContactEmailLabel" for="ContactEmailTextBox">REPLACEMENT_TEXT</label>
+                    <input id="ContactEmailTextBox" type="email" />
+                </div>                
+                <div data-role="fieldcontain">
+                    <label id="ContactTitleLabel" for="ContactTitleTextBox">REPLACEMENT_TEXT</label>
+                    <input id="ContactTitleTextBox" type="text" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label id="ContactDepartmentLabel" for="ContactDepartmentTextBox">REPLACEMENT_TEXT</label>
+                    <input id="ContactDepartmentTextBox" type="text" />
+                </div>
+                <div data-role="fieldcontain">
+                    <label id="NewContactDescriptionLabel" for="NewContactDescriptionTextArea">REPLACEMENT_TEXT</label>
+                    <textarea id="NewContactDescriptionTextArea"></textarea>
                 </div>
 		<div class="ui-body ui-body-b">
                     <fieldset class="ui-grid-a">
-                        <div class="ui-block-a"><button id="SaveNewContactButton" class="SaveButtonClass" type="submit" data-theme="d">REPLACEMENT_TEXT</button></div>
+                        <div class="ui-block-a"><button id="SaveNewContactButton" class="SaveButtonClass" type="submit" data-theme="d" onclick="SugarCrmAddNewContact();">REPLACEMENT_TEXT</button></div>
                         <div class="ui-block-b"><button id="CancelNewContactButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
                     </fieldset>
 		</div>

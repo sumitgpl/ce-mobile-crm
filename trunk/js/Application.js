@@ -230,7 +230,16 @@ $('#CreateNewAccountPage').live('pagecreate',function(event,ui) {
 });
 
 $('#CreateNewContactPage').live('pagecreate',function(event,ui) {
-
+    $('#NewContactHeader').text(RES_NEW_CONTACT_PAGE_TITLE);
+    $('#ContactFirstNameLabel').text(RES_NEW_CONTACT_FIRST_NAME_LABEL);
+    $('#ContactLastNameLabel').text(RES_NEW_CONTACT_LAST_NAME_LABEL);
+    $('#ContactOfficePhoneLabel').text(RES_NEW_CONTACT_OFFICE_PHONE_LABEL);
+    $('#ContactMobilePhoneLabel').text(RES_NEW_CONTACT_MOBILE_PHONE_LABEL);
+    $('#ContactPhoneFaxLabel').text(RES_NEW_CONTACT_PHONE_FAX_LABEL);
+    $('#ContactEmailLabel').text(RES_NEW_CONTACT_EMAIL_LABEL);
+    $('#ContactTitleLabel').text(RES_NEW_CONTACT_TITLE_LABEL);
+    $('#ContactDepartmentLabel').text(RES_NEW_CONTACT_DEPARTMENT_LABEL);
+    $('#NewContactDescriptionLabel').text(RES_DESCRIPTION_LABEL);
 });
 
 $('#CreateNewOpportunityPage').live('pagecreate',function(event,ui) {
