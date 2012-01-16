@@ -2,7 +2,7 @@ function SugarCrmGetNoteDetails() {
     $('#NoteSubjectH1').html('');
     $('#NoteTextP').text('');
     $('#ViewNoteDetailsPageDetailsList li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_entry",
         input_type: "JSON",
         response_type: "JSON",

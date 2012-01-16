@@ -38,6 +38,9 @@ var TasksListPrevOffset = 0;
 var TasksListCurrentOffset = 0;
 /* Set the Note Global Variables */
 var CurrentNoteId = '';
+var CurrentProtocol = 'HTTPS://';
+var CurrentServerAddress = '';
+
 
 $('#LoginPage').live('pagecreate',function(event,ui) {
     $('.AboutApplicationClass').text(RES_ABOUT_APPLICATION_MENU_ITEM);
@@ -47,8 +50,18 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
     $('#LoginDescriptionParagraph').text(RES_LOGIN_MESSAGE);
     $('#LoginFormLoginButton').text(RES_LOGIN_TITLE);
     $('#LoginPageHeader').text(RES_LOGIN_PAGE_HEADER);
+    $('#SettingsPageSugarCrmProtocol').text(RES_SETTINGS_PROTOCOL_SELECTION_LABEL);
+    $('#SugarCrmProtocolHttpsLabel').text(RES_SETTINGS_PROTOCOL_HTTPS_LABEL);
+    $('#SugarCrmProtocolHttpLabel').text(RES_SETTINGS_PROTOCOL_HTTP_LABEL);
+    $('#SettingsPageSugarCrmServerAddressLabel').text(RES_SETTINGS_SERVER_ADDRESS_LABEL);
+    $('#SettingsPageSugarCrmSaveSettingsLabel').text(RES_SETTINGS_SAVE_CONFIG_LABEL);
     $('.SaveButtonClass').text(RES_SAVE_BUTTON);
     $('.CancelButtonClass').text(RES_CANCEL_BUTTON);
+});
+
+
+$('#LoginPage').live('pageaftershow',function(event,ui) {
+    $("input[type='radio']:first").attr("checked",true).checkboxradio("refresh");
 });
 
 $('#AboutPage').live('pagecreate',function(event,ui) {
@@ -68,6 +81,7 @@ $('#AddNewSelectTypePage').live('pagecreate',function(event,ui) {
 });
 
 $('#HomePage').live('pagecreate',function(event,ui) {
+   $('#HomePageHeader').text(RES_LOGIN_PAGE_HEADER);
    $('.MainMenuButton').text(RES_MAIN_MENU_LABEL);
    $('#AddNewButton').text(RES_ADD_BUTTON);
    $('.LogoutButton').text(RES_LOGOUT_LABEL);
@@ -129,13 +143,20 @@ $('#HomePage').live('pageshow',function(event,ui) {
 
 /* Login function used to log the user in and establish session */
 function LoginUser(noEncryption) {
+    if (validateLoginFields() == true) {
     $.mobile.showshowPageLoadingMsgMsg();
     var enteredUsername = $('#SettingsPageSugarCrmUsername').val();
     var enteredPassword = $('#SettingsPageSugarCrmPassword').val();
     var password = enteredPassword;
+    if ($('SugarCrmProtocolHttpRadioButton').attr('checked',true)) {
+        CurrentServerAddress = "http://";
+    } else {
+        CurrentServerAddress = "https://";
+    }
+    CurrentServerAddress+=$('#SettingsPageSugarCrmServerAddress').val();
     if (noEncryption==undefined) password = $.md5(password);
 
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "login",
         input_type: "JSON",
         response_type: "JSON",
@@ -164,11 +185,14 @@ function LoginUser(noEncryption) {
         }
         $.mobile.hideshowPageLoadingMsgMsg();
     });
+    } else {
+        alert(RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
+    }
 }
 
 /* Bind the Window Before Load event to log the user out */
 window.onbeforeunload = function() {
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "logout",
         input_type: "JSON",
         response_type: "JSON",
@@ -177,14 +201,25 @@ window.onbeforeunload = function() {
     return;
 };
 
+function validateLoginFields() {
+    if (($('#SettingsPageSugarCrmUsername').val().length > 0) && ($('#SettingsPageSugarCrmPassword').val().length > 0) && ($('#SettingsPageSugarCrmServerAddress').val().length > 0)) {
+        return true;
+    } else {
+        $('#SettingsPageSugarCrmUsername').change();
+        $('#SettingsPageSugarCrmPassword').change();
+        $('#SettingsPageSugarCrmServerAddress').change();
+        return false;
+    }
+}
+
 function LogOutUser() {
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "logout",
         input_type: "JSON",
         response_type: "JSON",
         rest_data: '[{"session":"' + SugarSessionId + '"}]'
     },function(data) {
-        $.mobile.changePage('#LoginPage', { reverse: "true"} );
+        $.mobile.changePage('#LoginPage', {reverse: "true"} );
     });
 }
 
@@ -193,11 +228,11 @@ function ShowMainMenu() {
 }
 
 function ShowAboutApplicationPage() {
-    $.mobile.changePage('#AboutPage', { reverse: "true"} );
+    $.mobile.changePage('#AboutPage', {reverse: "true"} );
 }
 
 function LogCall(moduleName,uniqueId,subject) {
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "set_entry",
         input_type: "JSON",
         response_type: "JSON",
@@ -262,7 +297,15 @@ $('#CreateNewTaskPage').live('pagecreate',function(event,ui) {
 
 });
 
-
-
+function revalidateControl(control,validationExpression) {
+    var re = new RegExp(validationExpression);
+    if ((control.type === 'text') || (control.type === 'password')) {
+        if (re.test($.trim(control.value))) {
+            $(control).removeClass('invalid');
+        } else {
+            $(control).addClass('invalid');
+        }
+    }
+}
 
 

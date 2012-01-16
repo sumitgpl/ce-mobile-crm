@@ -3,7 +3,7 @@ function SugarCrmGetContactListFromServer(offset) {
     if ((existingList.length === 0) || (ContactsListCurrentOffset !== offset)) {
         
         ContactsListCurrentOffset = offset;
-        $.get('../service/v2/rest.php', {
+        $.get(CurrentServerAddress + '/service/v2/rest.php', {
             method: "get_entry_list",
             input_type: "JSON",
             response_type: "JSON",
@@ -76,7 +76,7 @@ function SugarCrmGetContactDetails() {
     $('#ContactNameH1').html('');
     $('#ContactTitleP').text('');
     $('#ViewContactDetailsPageDetailsList li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_entry",
         input_type: "JSON",
         response_type: "JSON",
@@ -274,7 +274,7 @@ function SugarCrmGetContactDetails() {
 
 function getContactRelatedOpportunitiesInsetList() {
     $('#ViewContactDetailsPageOpportunitiesListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -330,7 +330,7 @@ function getContactRelatedOpportunitiesInsetList() {
 
 function getContactRelatedLeadsInsetList() {
     $('#ViewContactDetailsPageLeadsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -390,7 +390,7 @@ function getContactRelatedLeadsInsetList() {
 
 function getContactRelatedCallsInsetList() {
     $('#ViewContactDetailsPageCallsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -462,7 +462,7 @@ function getContactRelatedCallsInsetList() {
 
 function getContactRelatedMeetingsInsetList() {
     $('#ViewContactDetailsPageMeetingsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -537,7 +537,7 @@ function getContactRelatedTasksInsetList() {
     if (SugarSessionId == '') {
         $.mobile.changePage('#HomePage');
     }
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -610,7 +610,7 @@ function getContactRelatedTasksInsetList() {
 function SugarCrmAddNewContact() {
     var validInput = ValidateNewContactToAdd();
     if (validInput) {
-         $.get('../service/v2/rest.php', {
+         $.get(CurrentServerAddress + '/service/v2/rest.php', {
 	method: "set_entry",
 	input_type: "JSON",
         response_type: "JSON",

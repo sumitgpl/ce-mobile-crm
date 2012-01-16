@@ -7,9 +7,10 @@
 function SugarCrmGetAccountsListFromServer(offset) {
     var existingList = $('#AllAccountsListDiv li');
     if ((existingList.length === 0) || (AccountsListCurrentOffset !== offset)) {
+        $.mobile.showshowPageLoadingMsgMsg();
         AccountsListCurrentOffset = offset;
         /* Set the parameters of the call to the get_entry_list then place the call */
-        $.get('../service/v2/rest.php', {
+        $.get(CurrentServerAddress + '/service/v2/rest.php', {
             method: "get_entry_list",
             input_type: "JSON",
             response_type: "JSON",
@@ -81,7 +82,7 @@ function SugarCrmGetAccountsListFromServer(offset) {
                 }
             }
             /* Hide the loading panel */
-            
+            $.mobile.hideshowPageLoadingMsgMsg();
         });
     }
 }
@@ -95,10 +96,11 @@ function SugarCrmGetAccountsListFromServer(offset) {
 * appends the details to the Account details screen
 */
 function SugarCrmGetAccountDetails() {
+    $.mobile.showshowPageLoadingMsgMsg();
     $('#ViewAccountDetailsPageDetailsList li').remove();
     $('#AccountNameH1').html('');
     $('#AccountDescriptionP').text('');
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_entry",
         input_type: "JSON",
         response_type: "JSON",
@@ -292,7 +294,7 @@ function SugarCrmGetAccountDetails() {
         $('#ViewAccountDetailsPageDetailsList').listview("refresh");
     });
     $('#ViewAccountDetailsPageContactsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -346,7 +348,7 @@ function SugarCrmGetAccountDetails() {
     });
 
     $('#ViewAccountDetailsPageOpportunitiesListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -400,7 +402,7 @@ function SugarCrmGetAccountDetails() {
     });
 
     $('#ViewAccountDetailsPageLeadsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -459,7 +461,7 @@ function SugarCrmGetAccountDetails() {
 
 
     $('#ViewAccountDetailsPageCallsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -525,7 +527,7 @@ function SugarCrmGetAccountDetails() {
     });
 
     $('#ViewAccountDetailsPageMeetingsListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -594,7 +596,7 @@ function SugarCrmGetAccountDetails() {
     });
 
     $('#ViewAccountDetailsPageTasksListUl li').remove();
-    $.get('../service/v2/rest.php', {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "get_relationships",
         input_type: "JSON",
         response_type: "JSON",
@@ -660,7 +662,7 @@ function SugarCrmGetAccountDetails() {
             }
         }
         $('#ViewAccountDetailsPageTasksListUl').listview("refresh");
-        
+        $.mobile.hideshowPageLoadingMsgMsg();
     });
 }
 
@@ -668,7 +670,7 @@ function SugarCrmGetAccountDetails() {
 function SugarCrmAddNewAccount() {
     var validInput = ValidateNewAccountToAdd();
     if (validInput) {
-         $.get('../service/v2/rest.php', {
+         $.get(CurrentServerAddress + '/service/v2/rest.php', {
 	method: "set_entry",
 	input_type: "JSON",
         response_type: "JSON",
