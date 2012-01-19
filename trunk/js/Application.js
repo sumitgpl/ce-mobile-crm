@@ -170,7 +170,7 @@ function LoginUser(noEncryption) {
     if (validateLoginFields() == true) {
     $.mobile.showshowPageLoadingMsgMsg();
     /* Build the server address string based on prefs */
-    if ($('SugarCrmProtocolHttpRadioButton').attr('checked',true)) {
+    if ($('#SugarCrmProtocolHttpRadioButton').attr('checked',true)) {
         CurrentServerAddress = "http://";
     } else {
         CurrentServerAddress = "https://";
