@@ -18,8 +18,10 @@ JSFILES = js/LanguageResources.js \
   js/Tasks.js \
   js/Notes.js \
   js/Md5.js \
+  js/jquery.mobile-config.js
 
 CSSFILES = css/style.css \
+  lib/jquery.mobile/ce-mobile-crm.css \
 
 all: clean cssmin jsmin deploy usemin rmmax zip
 

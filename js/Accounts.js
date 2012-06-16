@@ -7,7 +7,7 @@
 function SugarCrmGetAccountsListFromServer(offset) {
     var existingList = $('#AllAccountsListDiv li');
     if ((existingList.length === 0) || (AccountsListCurrentOffset !== offset)) {
-        $.mobile.showshowPageLoadingMsgMsg();
+        $.mobile.showPageLoadingMsg();
         AccountsListCurrentOffset = offset;
         /* Set the parameters of the call to the get_entry_list then place the call */
         $.get(CurrentServerAddress + '/service/v2/rest.php', {
@@ -42,7 +42,7 @@ function SugarCrmGetAccountsListFromServer(offset) {
                     /* Warn the user if they try to naviage beyond the records available */
                     if ((accountsList.next_offset === 0) || (accountsList.result_count === 0))
                     {
-                        alert('There are no more records in that direction');
+                        showInformationDialog(RES_INFO_TITLE,RES_NO_RECORDS_TEXT);
                     }
                     else {
                         /* Remove the existing list items before rebinding */
@@ -83,7 +83,7 @@ function SugarCrmGetAccountsListFromServer(offset) {
             }
         });
             /* Hide the loading panel */
-            $.mobile.hideshowPageLoadingMsgMsg();
+            $.mobile.hidePageLoadingMsg();
     }
 }
 
@@ -96,7 +96,7 @@ function SugarCrmGetAccountsListFromServer(offset) {
 * appends the details to the Account details screen
 */
 function SugarCrmGetAccountDetails() {
-    $.mobile.showshowPageLoadingMsgMsg();
+    $.mobile.showPageLoadingMsg();
     $('#ViewAccountDetailsPageDetailsList li').remove();
     $('#AccountNameH1').html('');
     $('#AccountDescriptionP').text('');
@@ -139,7 +139,7 @@ function SugarCrmGetAccountDetails() {
                                 LogCall("Accounts",CurrentAccountId,subject);
                                 return true;
                             }
-                            else { return true; }
+                            else {return true;}
                         }
                     });
                     officePhoneLink.append(officePhoneParagraph);
@@ -154,7 +154,7 @@ function SugarCrmGetAccountDetails() {
                         var formattedUrl = "";
                         if (account.name_value_list.website.value.substring(0, 4) !== "http") {
                             formattedUrl = "http://" + account.name_value_list.website.value;
-                        } else { formattedUrl = account.name_value_list.website.value; }
+                        } else {formattedUrl = account.name_value_list.website.value;}
                         var webSiteLi = $("<li/>");
                         var webSiteHeader = "<h4>" + account.name_value_list.website.value + "</h4>";
                         var webSiteParagraph = "<p><br />Web Site</p>";
@@ -662,13 +662,13 @@ function SugarCrmGetAccountDetails() {
             }
         }
         $('#ViewAccountDetailsPageTasksListUl').listview("refresh");
-        $.mobile.hideshowPageLoadingMsgMsg();
+        $.mobile.hidePageLoadingMsg();
     });
 }
 
 
 function SugarCrmAddNewAccount() {
-    $.mobile.showshowPageLoadingMsgMsg();
+    $.mobile.showPageLoadingMsg();
     var validInput = ValidateNewAccountToAdd();
     if (validInput) {
          $.get(CurrentServerAddress + '/service/v2/rest.php', {
@@ -695,22 +695,24 @@ function SugarCrmAddNewAccount() {
                  $('#NewAccountWebSiteTextBox').val('');
                  $('#NewAccountPhoneFaxTextBox').val('');
                  $('#AllAccountsListDiv').children().remove('li');
-                 $.mobile.hideshowPageLoadingMsgMsg();
+                 $.mobile.hidePageLoadingMsg();
                  $.mobile.changePage('#HomePage');
             }
         });
     }
     else {
-        $.mobile.hideshowPageLoadingMsgMsg();
-        alert(RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
+        $.mobile.hidePageLoadingMsg();
+        showInformationDialog(RES_INFO_TITLE,RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
     }
 }
 
 function ValidateNewAccountToAdd() {
     if ($('#AccountNameTextBox').val().length > 0) {
+        $('#AccountNameTextBox').addClass('invalid');
         return true;
     }
     else {
+        $('#AccountNameTextBox').removeClass('invalid');
         return false;
     }
 }
