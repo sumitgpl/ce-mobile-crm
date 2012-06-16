@@ -141,4 +141,6 @@ var RES_FIELD_LABEL_MEMBER_OF = "Member of";
 var RES_FIELD_LABEL_OWNERSHIP = "Ownership";
 var RES_FIELD_LABEL_CAMPAIGN = "Campaign";
 var RES_FIELD_LABEL_RATING = "Rating";
-var RES_FIELD_LABEL_
+var RES_FIELD_LABEL_ASSIGNED_TO = "Assigned To";
+var RES_FIELD_LABEL_DATE_MODIFIED = "Date Modified";
+var RES_FIELD_LABEL_DATE_CREATED = "Date Created";
