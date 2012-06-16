@@ -8,9 +8,9 @@
         <link rel="apple-touch-startup-image" href="images/startup.png" />
         <link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
         <!-- CSS BEGIN -->
-        <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="theme/ce-mobile-crm.min.css" />
         <link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile.structure-1.1.0.min.css" />
+        <link rel="stylesheet" href="css/style.css" />
         <!-- CSS END -->
         <!-- JS BEGIN -->
         <script type="text/javascript" src="lib/jquery/jquery-1.7.1.min.js"></script>
@@ -39,13 +39,13 @@
                 <a class="AboutApplicationClass ui-btn-right">REPLACEMENT_TEXT</a>
             </div><!-- /header -->  
             <div data-role="content">
-                <form action="#" method="get">
+                <form id="LoginPageLoginForm" action="#" method="get">
                     <p id="LoginDescriptionParagraph">REPLACEMENT_TEXT</p>
                     <label for="SettingsPageSugarCrmUsername"><em>* </em><span id="UsernameLabel">REPLACEMENT_TEXT</span></label>
-                    <input id="SettingsPageSugarCrmUsername" type="text" onchange="revalidateControl(this,'[^\s*\S]');" />
+                    <input id="SettingsPageSugarCrmUsername" type="text" data-validation="[/^\s*\S.*$/]" />
                     <br />
                     <label for="SettingsPageSugarCrmPassword"><em>* </em><span id="PasswordLabel">REPLACEMENT_TEXT</span></label>
-                    <input id="SettingsPageSugarCrmPassword" type="password" onchange="revalidateControl(this,'[^\s*\S]');" />
+                    <input id="SettingsPageSugarCrmPassword" type="password" data-validation="[/^\s*\S.*$/]" class="invalid" />
                     <br />
                     <a id="LoginFormLoginButton" href="javascript:LoginUser();" data-role="button">REPLACEMENT_TEXT</a>
                 </form>
@@ -479,7 +479,7 @@
             <div data-role="content">
                 <div data-role="fieldcontain">
                     <label for="AccountNameTextBox"><em>* </em><span id="AccountNameLabel">REPLACEMENT_TEXT</span></label>
-                    <input id="AccountNameTextBox" type="text" onchange="revalidateControl(this,'[^\s*\S]');"/>
+                    <input id="AccountNameTextBox" type="text" data-validation="[^\s*\S]" />
                 </div>
                 <div data-role="fieldcontain">
                     <label id="NewAccountOfficePhoneLabel" for="NewAccountOfficePhoneTextBox">REPLACEMENT_TEXT</label>
@@ -513,11 +513,11 @@
             <div data-role="content">
                 <div data-role="fieldcontain">
                     <label for="ContactFirstNameTextBox"><em>* </em><span id="ContactFirstNameLabel">REPLACEMENT_TEXT</span></label>
-                    <input id="ContactFirstNameTextBox" type="text" onchange="revalidateControl(this,'[^\s*\S]');"/>
+                    <input id="ContactFirstNameTextBox" type="text" data-validation="[^\s*\S]"/>
                 </div>
                 <div data-role="fieldcontain">
                     <label for="ContactLastNameTextBox"><em>* </em><span id="ContactLastNameLabel">REPLACEMENT_TEXT</span></label>
-                    <input id="ContactLastNameTextBox" type="text" onchange="revalidateControl(this,'[^\s*\S]');"/>
+                    <input id="ContactLastNameTextBox" type="text" data-validation="[^\s*\S]"/>
                 </div>
                 <div data-role="fieldcontain">
                     <label id="ContactOfficePhoneLabel" for="ContactOfficePhoneTextBox">REPLACEMENT_TEXT</label>
