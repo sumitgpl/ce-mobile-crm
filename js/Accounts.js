@@ -42,7 +42,7 @@ function SugarCrmGetAccountsListFromServer(offset) {
                     /* Warn the user if they try to naviage beyond the records available */
                     if ((accountsList.next_offset === 0) || (accountsList.result_count === 0))
                     {
-                        showInformationDialog(RES_INFO_TITLE,RES_NO_RECORDS_TEXT);
+                        alert(RES_INFO_TITLE,RES_NO_RECORDS_TEXT);
                     }
                     else {
                         /* Remove the existing list items before rebinding */
@@ -249,34 +249,34 @@ function SugarCrmGetAccountDetails() {
                     /* Append the deivider for the More Information Section */
                     $('#ViewAccountDetailsPageDetailsList').append("<li data-role=\"list-divider\">More Information</li>");
                     if ((account.name_value_list.account_type !== undefined) && (account.name_value_list.account_type.value !== "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />Account Type</p><h4>" + account.name_value_list.account_type.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_ACCOUNT_TYPE + "</p><h4>" + account.name_value_list.account_type.value + "</h4></li>");
                     }
                     if ((account.name_value_list.industry !== undefined) && (account.name_value_list.industry.value !== "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />Industry</p><h4>" + account.name_value_list.industry.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_INDUSTRY + "</p><h4>" + account.name_value_list.industry.value + "</h4></li>");
                     }
                     if ((account.name_value_list.annual_revenue !== undefined) && (account.name_value_list.annual_revenue.value !== "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />Annual Revenue</p><h4>" + account.name_value_list.annual_revenue.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_ANNUAL_REVENUE + "</p><h4>" + account.name_value_list.annual_revenue.value + "</h4></li>");
                     }
                     if ((account.name_value_list.employees !== undefined) && (account.name_value_list.employees.value !== "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />Employees</p><h4>" + account.name_value_list.employees.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_EMPLOYEES + "</p><h4>" + account.name_value_list.employees.value + "</h4></li>");
                     }
                     if ((account.name_value_list.sic_code !== undefined) && (account.name_value_list.sic_code.value !== "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><P><br />SIC Code</p><h4>" + account.name_value_list.sic_code.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><P><br />" + RES_FIELD_LABEL_SIC_CODE + "</p><h4>" + account.name_value_list.sic_code.value + "</h4></li>");
                     }
                     if ((account.name_value_list.ticker_symbol !== undefined) && (account.name_value_list.ticker_symbol.value != "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />Ticker Symbol</p><h4>" + account.name_value_list.ticker_symbol.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_TICKER_SYMBOL + "</p><h4>" + account.name_value_list.ticker_symbol.value + "</h4></li>");
                     }
                     if ((account.name_value_list.parent_name !== undefined) && (account.name_value_list.parent_name.value !== "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />Member of</p><h4>" + account.name_value_list.parent_name.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_MEMBER_OF + "</p><h4>" + account.name_value_list.parent_name.value + "</h4></li>");
                     }
                     if ((account.name_value_list.ownership !== undefined) && (account.name_value_list.ownership.value !== "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />Ownership</p><h4>" + account.name_value_list.ownership.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_OWNERSHIP + "</p><h4>" + account.name_value_list.ownership.value + "</h4></li>");
                     }
                     if ((account.name_value_list.campaign_name !== undefined) && (account.name_value_list.campaign_name.value !== "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />Campaign</p><h4>" + account.name_value_list.campaign_name.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_CAMPAIGN + "</p><h4>" + account.name_value_list.campaign_name.value + "</h4></li>");
                     }
                     if ((account.name_value_list.rating !== undefined) && (account.name_value_list.rating.value !== "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />Rating</p><h4>" + account.name_value_list.rating.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_RATING + "</p><h4>" + account.name_value_list.rating.value + "</h4></li>");
                     }
                     $('#ViewAccountDetailsPageDetailsList').append("<li data-role=\"list-divider\">Other</li>");
                     if ((account.name_value_list.assigned_user_name !== undefined) && (account.name_value_list.assigned_user_name.value !== "")) {
@@ -669,8 +669,7 @@ function SugarCrmGetAccountDetails() {
 
 function SugarCrmAddNewAccount() {
     $.mobile.showPageLoadingMsg();
-    var validInput = ValidateNewAccountToAdd();
-    if (validInput) {
+    if ($('#CreateNewAccountPageCreateAccountForm .invalid').length <= 0) {
          $.get(CurrentServerAddress + '/service/v2/rest.php', {
 	method: "set_entry",
 	input_type: "JSON",
@@ -702,17 +701,6 @@ function SugarCrmAddNewAccount() {
     }
     else {
         $.mobile.hidePageLoadingMsg();
-        showInformationDialog(RES_INFO_TITLE,RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
-    }
-}
-
-function ValidateNewAccountToAdd() {
-    if ($('#AccountNameTextBox').val().length > 0) {
-        $('#AccountNameTextBox').addClass('invalid');
-        return true;
-    }
-    else {
-        $('#AccountNameTextBox').removeClass('invalid');
-        return false;
+        alert(RES_INFO_TITLE,RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
     }
 }
