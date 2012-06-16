@@ -61,10 +61,21 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
     $('.CancelButtonClass').text(RES_CANCEL_BUTTON);
     $('.AboutApplicationClass').bind({
         click:function() {
-        showInformationDialog(RES_INFO_TITLE,RES_LOGIN_PAGE_HEADER + ' ' + RES_CURRENT_VERSION_NUMBER);
-       }
-      });
-    
+            showInformationDialog(RES_INFO_TITLE,RES_LOGIN_PAGE_HEADER + ' ' + RES_CURRENT_VERSION_NUMBER);
+        }
+    });
+    /* Check all input controls that hava a data-validation rule and bind the appropriate regular expression checking */
+    $('input[data-validation]').each(function(index,item){
+        if ($(item).attr('data-validation') !== "") {
+            $(item).bind('change',function(){
+                if ($(this).val().match($(this).attr('data-validation')) !== null) {
+                    $(this).removeClass('invalid');
+                } else {
+                    $(this).addClass('invalid');
+                }
+            });
+        }
+    });
 });
 
 
@@ -76,46 +87,46 @@ $('#LoginPage').live('pageshow',function(event,ui) {
 });
 
 $('#AboutPage').live('pagecreate',function(event,ui) {
-   $('#ViewAboutApplicationPageTitle').text(RES_ABOUT_APPLICATION_HEADER);
-   $('#AboutApplicationParagraph').text(RES_LOGIN_PAGE_HEADER + " " + RES_CURRENT_VERSION_NUMBER);
+    $('#ViewAboutApplicationPageTitle').text(RES_ABOUT_APPLICATION_HEADER);
+    $('#AboutApplicationParagraph').text(RES_LOGIN_PAGE_HEADER + " " + RES_CURRENT_VERSION_NUMBER);
 });
 
 $('#AddNewSelectTypePage').live('pagecreate',function(event,ui) {
-   $('#SelectNewRecordTypeHeader').text(RES_SELECT_NEW_TYPE);
-   $('#CreateNewAccountButton').text(RES_ACCOUNT_LABEL);
-   $('#CreateNewContactButton').text(RES_CONTACT_LABEL);
-   $('#CreateNewOpportunityButton').text(RES_OPPORTUNITY_LABEL);
-   $('#CreateNewLeadButton').text(RES_LEAD_LABEL);
-   $('#CreateNewCallButton').text(RES_CALL_LABEL);
-   $('#CreateNewMeetingButton').text(RES_MEETING_LABEL);
-   $('#CreateNewTaskButton').text(RES_TASK_LABEL);
+    $('#SelectNewRecordTypeHeader').text(RES_SELECT_NEW_TYPE);
+    $('#CreateNewAccountButton').text(RES_ACCOUNT_LABEL);
+    $('#CreateNewContactButton').text(RES_CONTACT_LABEL);
+    $('#CreateNewOpportunityButton').text(RES_OPPORTUNITY_LABEL);
+    $('#CreateNewLeadButton').text(RES_LEAD_LABEL);
+    $('#CreateNewCallButton').text(RES_CALL_LABEL);
+    $('#CreateNewMeetingButton').text(RES_MEETING_LABEL);
+    $('#CreateNewTaskButton').text(RES_TASK_LABEL);
 });
 
 $('#HomePage').live('pagecreate',function(event,ui) {
-   $('#HomePageHeader').text(RES_LOGIN_PAGE_HEADER);
-   $('.MainMenuButton').text(RES_MAIN_MENU_LABEL);
-   $('#AddNewButton').text(RES_ADD_BUTTON);
-   $('.LogoutButton').text(RES_LOGOUT_LABEL);
-   $('#LogOutButton .ui-btn-text').text(RES_LOGOUT_LABEL);
-   $('#AccountsListPageLinkLabel').text(RES_ACCOUNTS_LABEL);
-   $('#ContactsListPageLinkLabel').text(RES_CONTACTS_LABEL);
-   $('#OpportunitiesListPageLinkLabel').text(RES_OPPORTUNITIES_LABEL);
-   $('#LeadsListPageLinkLabel').text(RES_LEADS_LABEL);
-   $('#CallsListPageLinkLabel').text(RES_CALLS_LABEL);
-   $('#MeetingsListPageLinkLabel').text(RES_MEETINGS_LABEL);
-   $('#TasksListPageLinkLabel').text(RES_TASKS_LABEL);
-   $('#AccountsListPageTitle').text(RES_ACCOUNTS_LABEL);
-   $('#ContactsListPageTitle').text(RES_CONTACTS_LABEL);
-   $('#OpportunitiesListPageTitle').text(RES_OPPORTUNITIES_LABEL);
-   $('#LeadsListPageTitle').text(RES_LEADS_LABEL);
-   $('#CallsListPageTitle').text(RES_CALLS_LABEL);
-   $('#SearchListPageLinkLabel').text(RES_SEARCH_ICON_LABEL);
-   $('#MeetingsListPageTitle').text(RES_MEETINGS_LABEL);
-   $('#TasksListPageTitle').text(RES_TASKS_LABEL);
-   $('#ViewContactDetailsPageTitle').text(RES_CONTACT_LABEL + " " + RES_DETAILS_LABEL);
-   $('#ViewAccountDetailsPageTitle').text(RES_ACCOUNT_LABEL + " " + RES_DETAILS_LABEL);
-   $('#ViewAboutApplicationPageTitle').text(RES_ABOUT_APPLICATION_HEADER);
-   $('#HomePage').page();
+    $('#HomePageHeader').text(RES_LOGIN_PAGE_HEADER);
+    $('.MainMenuButton').text(RES_MAIN_MENU_LABEL);
+    $('#AddNewButton').text(RES_ADD_BUTTON);
+    $('.LogoutButton').text(RES_LOGOUT_LABEL);
+    $('#LogOutButton .ui-btn-text').text(RES_LOGOUT_LABEL);
+    $('#AccountsListPageLinkLabel').text(RES_ACCOUNTS_LABEL);
+    $('#ContactsListPageLinkLabel').text(RES_CONTACTS_LABEL);
+    $('#OpportunitiesListPageLinkLabel').text(RES_OPPORTUNITIES_LABEL);
+    $('#LeadsListPageLinkLabel').text(RES_LEADS_LABEL);
+    $('#CallsListPageLinkLabel').text(RES_CALLS_LABEL);
+    $('#MeetingsListPageLinkLabel').text(RES_MEETINGS_LABEL);
+    $('#TasksListPageLinkLabel').text(RES_TASKS_LABEL);
+    $('#AccountsListPageTitle').text(RES_ACCOUNTS_LABEL);
+    $('#ContactsListPageTitle').text(RES_CONTACTS_LABEL);
+    $('#OpportunitiesListPageTitle').text(RES_OPPORTUNITIES_LABEL);
+    $('#LeadsListPageTitle').text(RES_LEADS_LABEL);
+    $('#CallsListPageTitle').text(RES_CALLS_LABEL);
+    $('#SearchListPageLinkLabel').text(RES_SEARCH_ICON_LABEL);
+    $('#MeetingsListPageTitle').text(RES_MEETINGS_LABEL);
+    $('#TasksListPageTitle').text(RES_TASKS_LABEL);
+    $('#ViewContactDetailsPageTitle').text(RES_CONTACT_LABEL + " " + RES_DETAILS_LABEL);
+    $('#ViewAccountDetailsPageTitle').text(RES_ACCOUNT_LABEL + " " + RES_DETAILS_LABEL);
+    $('#ViewAboutApplicationPageTitle').text(RES_ABOUT_APPLICATION_HEADER);
+    $('#HomePage').page();
 });
 
 /* Set Page Bindings for each of the List Pages */
@@ -124,7 +135,7 @@ $('#AccountsListPage').live('pageshow',function(event, ui){
 });
 
 $('#ContactsListPage').live('pageshow',function(event,ui) {
-   SugarCrmGetContactListFromServer(ContactsListCurrentOffset);
+    SugarCrmGetContactListFromServer(ContactsListCurrentOffset);
 });
 
 $('#OpportunitiesListPage').live('pageshow',function(event,ui) {
@@ -144,14 +155,14 @@ $('#MeetingsListPage').live('pageshow',function(event,ui) {
 });
 
 $('#TasksListPage').live('pageshow',function(event,ui) {
-   SugarCrmGetTasksListFromServer(TasksListCurrentOffset);
+    SugarCrmGetTasksListFromServer(TasksListCurrentOffset);
 });
 
 $('#SearchListPage').live('pagecreate',function(event,ui) {
-   getAvailableSearchModules();
-   $('#SearchPageHeader').text(RES_SEARCH_PAGE_HEADER);
-   $('#SearchModulesLabel').html(RES_SELECT_MODULES_TO_SEARCH);
-   $('#SearchPagePerformSearchButton').text(RES_SEARCH_PAGE_BUTTON);
+    getAvailableSearchModules();
+    $('#SearchPageHeader').text(RES_SEARCH_PAGE_HEADER);
+    $('#SearchModulesLabel').html(RES_SELECT_MODULES_TO_SEARCH);
+    $('#SearchPagePerformSearchButton').text(RES_SEARCH_PAGE_BUTTON);
 });
 /* Redirect to the Login Page if no session exists */
 $('#HomePage').live('pageshow',function(event,ui) {
@@ -162,53 +173,53 @@ $('#HomePage').live('pageshow',function(event,ui) {
 
 /* Login function used to log the user in and establish session */
 function LoginUser(noEncryption) {
-    if (validateLoginFields() == true) {
-    $.mobile.showPageLoadingMsg();
-    var enteredUsername = "";
-    if ($('#SettingsPageSugarCrmSaveSettings').attr('checked',true)) {
-        setCookie("username",$('#SettingsPageSugarCrmUsername').val(),365);
-        enteredUsername = getCookie("username");
-        setCookie("serveraddress",CurrentServerAddress,365);
-    } else {
-        enteredUsername = $('#SettingsPageSugarCrmSaveSettings').val();
-    }
+    if ($('#LoginPageLoginForm .invalid').length <= 0) {
+        $.mobile.showPageLoadingMsg();
+        var enteredUsername = "";
+        if ($('#SettingsPageSugarCrmSaveSettings').attr('checked',true)) {
+            setCookie("username",$('#SettingsPageSugarCrmUsername').val(),365);
+            enteredUsername = getCookie("username");
+            setCookie("serveraddress",CurrentServerAddress,365);
+        } else {
+            enteredUsername = $('#SettingsPageSugarCrmSaveSettings').val();
+        }
     
-    var enteredPassword = $('#SettingsPageSugarCrmPassword').val();
-    var password = enteredPassword;
+        var enteredPassword = $('#SettingsPageSugarCrmPassword').val();
+        var password = enteredPassword;
 
-    if (noEncryption==undefined) password = $.md5(password);
+        if (noEncryption==undefined) password = $.md5(password);
 
-    $.get(CurrentServerAddress + '/service/v2/rest.php', {
-        method: "login",
-        input_type: "JSON",
-        response_type: "JSON",
-        rest_data: '[{"password":"' + password + '","user_name":"' + enteredUsername + '"},"SugarCrm",{"name":"language","value":"en_US"}]'
-    },
-    function(data) {
-        if (data !== "") {
-          var loginResult = jQuery.parseJSON(data);
-          if ((loginResult.name !== undefined) && (loginResult.name === 'Invalid Login')) {
-            if (noEncryption==undefined) { // invalid login, try with non encrypted password (LDAP auth) @TODO check security (https needed ?)
-              LoginUser(true);
+        $.get(CurrentServerAddress + '/service/v2/rest.php', {
+            method: "login",
+            input_type: "JSON",
+            response_type: "JSON",
+            rest_data: '[{"password":"' + password + '","user_name":"' + enteredUsername + '"},"SugarCrm",{"name":"language","value":"en_US"}]'
+        },
+        function(data) {
+            if (data !== "") {
+                var loginResult = jQuery.parseJSON(data);
+                if ((loginResult.name !== undefined) && (loginResult.name === 'Invalid Login')) {
+                    if (noEncryption==undefined) { // invalid login, try with non encrypted password (LDAP auth) @TODO check security (https needed ?)
+                        LoginUser(true);
+                    }
+                    else {
+                        $.mobile.hidePageLoadingMsg();
+                        alert('Login Failed');
+                    }
+                }
+                else {
+                    SugarSessionId = loginResult.id;
+                    $('#SettingsPageSugarCrmUsername').val('');
+                    $('#SettingsPageSugarCrmPassword').val('');
+                    $.mobile.hidePageLoadingMsg();
+                    $.mobile.changePage('#HomePage');
+                }
             }
             else {
-              $.mobile.hidePageLoadingMsg();
-              alert('Login Failed');
+                $.mobile.hidePageLoadingMsg();
+                alert('An unexpected error occurred logging in.');
             }
-          }
-          else {
-              SugarSessionId = loginResult.id;
-              $('#SettingsPageSugarCrmUsername').val('');
-              $('#SettingsPageSugarCrmPassword').val('');
-              $.mobile.hidePageLoadingMsg();
-              $.mobile.changePage('#HomePage');
-          }
-        }
-        else {
-          $.mobile.hidePageLoadingMsg();
-          alert('An unexpected error occurred logging in.');
-        }
-    });
+        });
     } else {
         $.mobile.hidePageLoadingMsg();
         alert(RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
@@ -243,7 +254,9 @@ function LogOutUser() {
         response_type: "JSON",
         rest_data: '[{"session":"' + SugarSessionId + '"}]'
     },function(data) {
-        $.mobile.changePage('#LoginPage', {reverse: "true"} );
+        $.mobile.changePage('#LoginPage', {
+            reverse: "true"
+        } );
     });
 }
 
@@ -295,57 +308,48 @@ $('#CreateNewContactPage').live('pagecreate',function(event,ui) {
 
 $('#CreateNewOpportunityPage').live('pagecreate',function(event,ui) {
 
-});
+    });
 
 $('#CreateNewLeadPage').live('pagecreate',function(event,ui) {
 
-});
+    });
 
 $('#CreateNewCallPage').live('pagecreate',function(event,ui) {
 
-});
+    });
 
 $('#CreateNewMeetingPage').live('pagecreate',function(event,ui) {
 
-});
+    });
 
 $('#CreateNewTaskPage').live('pagecreate',function(event,ui) {
 
-});
+    });
 
-function revalidateControl(control,validationExpression) {
-    var re = new RegExp(validationExpression);
-    if ((control.type === 'text') || (control.type === 'password')) {
-        if (re.test($.trim(control.value))) {
-            $(control).removeClass('invalid');
-        } else {
-            $(control).addClass('invalid');
-        }
-    }
-}
+
 
 
 function setCookie(c_name,value,exdays)
 {
-var exdate=new Date();
-exdate.setDate(exdate.getDate() + exdays);
-var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
-document.cookie=c_name + "=" + c_value;
+    var exdate=new Date();
+    exdate.setDate(exdate.getDate() + exdays);
+    var c_value=escape(value) + ((exdays==null) ? "" : "; expires="+exdate.toUTCString());
+    document.cookie=c_name + "=" + c_value;
 }
 
 function getCookie(c_name)
 {
-var i,x,y,ARRcookies=document.cookie.split(";");
-for (i=0;i<ARRcookies.length;i++)
-{
-  x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
-  y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
-  x=x.replace(/^\s+|\s+$/g,"");
-  if (x==c_name)
+    var i,x,y,ARRcookies=document.cookie.split(";");
+    for (i=0;i<ARRcookies.length;i++)
     {
-    return unescape(y);
+        x=ARRcookies[i].substr(0,ARRcookies[i].indexOf("="));
+        y=ARRcookies[i].substr(ARRcookies[i].indexOf("=")+1);
+        x=x.replace(/^\s+|\s+$/g,"");
+        if (x==c_name)
+        {
+            return unescape(y);
+        }
     }
-  }
 }
 
 function showInformationDialog(title,msg) {
