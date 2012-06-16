@@ -40,9 +40,17 @@ var TasksListCurrentOffset = 0;
 var CurrentNoteId = '';
 var CurrentProtocol = 'HTTPS';
 var CurrentServerAddress = '../';
+var currentLocale = "en_US";
+var scriptVersion = "1.0.0";
 
 
 $('#LoginPage').live('pagecreate',function(event,ui) {
+    if ((getURLParameter("localeInfo") !== null) && (getURLParameter("localeInfo").length > 0)) {
+        currentLocale = getURLParameter("localeInfo");
+    }
+    $.ajaxSetup({async:false});
+    $.getScript('l10n/ui_resources_' + currentLocale + '-' + scriptVersion + '.js');
+    $.ajaxSetup({async:true});
     $('.AboutApplicationClass').text(RES_ABOUT_APPLICATION_MENU_ITEM);
     $('.AboutApplicationClass .ui-btn-text').text(RES_ABOUT_APPLICATION_MENU_ITEM);
     $('#UsernameLabel').text(RES_USERNAME_LABEL);
@@ -56,6 +64,7 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
     $('#SugarCrmProtocolHttpLabel').text(RES_SETTINGS_PROTOCOL_HTTP_LABEL);
     $('#SettingsPageSugarCrmServerAddressLabel').text(RES_SETTINGS_SERVER_ADDRESS_LABEL);
     $('#SettingsPageSugarCrmSaveSettingsLabel').text(RES_SETTINGS_SAVE_CONFIG_LABEL);
+    document.title = RES_LOGIN_PAGE_HEADER;
     $(document).attr('title',RES_LOGIN_PAGE_HEADER);
     $('.SaveButtonClass').text(RES_SAVE_BUTTON);
     $('.CancelButtonClass').text(RES_CANCEL_BUTTON);
@@ -64,6 +73,14 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
             showInformationDialog(RES_INFO_TITLE,RES_LOGIN_PAGE_HEADER + ' ' + RES_CURRENT_VERSION_NUMBER);
         }
     });
+});
+
+
+$('#LoginPage').live('pageshow',function(event,ui) {
+    var username = getCookie("username");
+    if (username!=null && username!="") {
+        $('#SettingsPageSugarCrmUsername').val(username);
+    }
     /* Check all input controls that hava a data-validation rule and bind the appropriate regular expression checking */
     $('input[data-validation]').each(function(index,item){
         if ($(item).attr('data-validation') !== "") {
@@ -76,14 +93,6 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
             });
         }
     });
-});
-
-
-$('#LoginPage').live('pageshow',function(event,ui) {
-    var username = getCookie("username");
-    if (username!=null && username!="") {
-        $('#SettingsPageSugarCrmUsername').val(username);
-    }
 });
 
 $('#AboutPage').live('pagecreate',function(event,ui) {
@@ -356,4 +365,8 @@ function showInformationDialog(title,msg) {
     $('#InformationDialogPageHeader').text(title);
     $('#InformationDialogPageMessage').text(msg);
     $.mobile.changePage('#InformationDialogPage');
+}
+
+function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
 }
