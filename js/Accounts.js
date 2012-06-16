@@ -280,13 +280,13 @@ function SugarCrmGetAccountDetails() {
                     }
                     $('#ViewAccountDetailsPageDetailsList').append("<li data-role=\"list-divider\">Other</li>");
                     if ((account.name_value_list.assigned_user_name !== undefined) && (account.name_value_list.assigned_user_name.value !== "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />Assigned To</p><h4>" + account.name_value_list.assigned_user_name.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_ASSIGNED_TO + "</p><h4>" + account.name_value_list.assigned_user_name.value + "</h4></li>");
                     }
                     if ((account.name_value_list.date_modified !== undefined) && (account.name_value_list.date_modified.value !== "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />Date Modified</p><h4>" + account.name_value_list.date_modified.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_DATE_MODIFIED + "</p><h4>" + account.name_value_list.date_modified.value + "</h4></li>");
                     }
                     if ((account.name_value_list.date_entered !== undefined) && (account.name_value_list.date_entered.value !== "")) {
-                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />Date Created</p><h4>" + account.name_value_list.date_entered.value + " by " + account.name_value_list.created_by_name.value + "</h4></li>");
+                        $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_DATE_CREATED + "</p><h4>" + account.name_value_list.date_entered.value + " by " + account.name_value_list.created_by_name.value + "</h4></li>");
                     }
                 }
             }
@@ -300,7 +300,6 @@ function SugarCrmGetAccountDetails() {
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Accounts","module_id":"' + CurrentAccountId + '","link_field_name":"contacts","related_module_query":"","related_fields":["id","first_name","last_name","title"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        $('#ViewAccountDetailsPageContactsListUl').append("<li data-role=\"list-divider\">Contacts</li>");
         if (data !== undefined) {
             var accountContactsList = jQuery.parseJSON(data);
             if ((accountContactsList.name !== undefined) && (accountContactsList.name === "Invalid Session ID")) {
@@ -310,6 +309,7 @@ function SugarCrmGetAccountDetails() {
             if ((accountContactsList !== undefined) && (accountContactsList.entry_list !== undefined)) {
                 if (accountContactsList.entry_list.length>0)
                 {
+                    $('#ViewAccountDetailsPageContactsListUl').append("<li data-role=\"list-divider\">" + RES_CONTACTS_LABEL + "</li>");
                     var intAccountContact = 0;
                     for(intAccountContact=0;intAccountContact<=accountContactsList.entry_list.length;intAccountContact++)
                     {
@@ -336,12 +336,6 @@ function SugarCrmGetAccountDetails() {
                         }
                     }
                 }
-                else {
-                    var accountContactEmptyListItem = $("<li/>");
-                    var accountContactEmptyListHeader = "<h4>No Data</h4>";
-                    accountContactEmptyListItem.append(accountContactEmptyListHeader);
-                    $('#ViewAccountDetailsPageContactsListUl').append(accountContactEmptyListItem);
-                }
             }
             $('#ViewAccountDetailsPageContactsListUl').listview("refresh");
         }
@@ -354,7 +348,6 @@ function SugarCrmGetAccountDetails() {
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Accounts","module_id":"' + CurrentAccountId + '","link_field_name":"opportunities","related_module_query":"","related_fields":["id","name","sales_stage"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        $('#ViewAccountDetailsPageOpportunitiesListUl').append("<li data-role=\"list-divider\">Opportunities</li>");
         if (data !== undefined) {
             var accountOpportunitiesList = jQuery.parseJSON(data);
             if ((accountOpportunitiesList.name !== undefined) && (accountOpportunitiesList.name === "Invalid Session ID")) {
@@ -364,6 +357,7 @@ function SugarCrmGetAccountDetails() {
             if ((accountOpportunitiesList !== undefined) && (accountOpportunitiesList.entry_list !== undefined)) {
                 if (accountOpportunitiesList.entry_list.length>0)
                 {
+                    $('#ViewAccountDetailsPageOpportunitiesListUl').append("<li data-role=\"list-divider\">" + RES_OPPORTUNITIES_LABEL + "</li>");
                     var intAccountOpportunity = 0;
                     for(intAccountOpportunity=0;intAccountOpportunity<=accountOpportunitiesList.entry_list.length;intAccountOpportunity++)
                     {
@@ -390,12 +384,6 @@ function SugarCrmGetAccountDetails() {
                         }
                     }
                 }
-                else {
-                    var accountOpportunityEmptyListItem = $("<li/>");
-                    var accountOpportunityEmptyListHeader = "<h4>No Data</h4>";
-                    accountOpportunityEmptyListItem.append(accountOpportunityEmptyListHeader);
-                    $('#ViewAccountDetailsPageOpportunitiesListUl').append(accountOpportunityEmptyListItem);
-                }
             }
         }
         $('#ViewAccountDetailsPageOpportunitiesListUl').listview("refresh");
@@ -408,7 +396,6 @@ function SugarCrmGetAccountDetails() {
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Accounts","module_id":"' + CurrentAccountId + '","link_field_name":"leads","related_module_query":"","related_fields":["id","first_name","last_name","title"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        $('#ViewAccountDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
         if (data !== undefined) {
             var accountLeadsList = jQuery.parseJSON(data);
             if ((accountLeadsList.name !== undefined) && (accountLeadsList.name === "Invalid Session ID")) {
@@ -418,6 +405,7 @@ function SugarCrmGetAccountDetails() {
             if ((accountLeadsList !== undefined) && (accountLeadsList.entry_list !== undefined)) {
                 if (accountLeadsList.entry_list.length>0)
                 {
+                    $('#ViewAccountDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
                     var intAccountLead = 0;
                     for(intAccountLead=0;intAccountLead<=accountLeadsList.entry_list.length;intAccountLead++)
                     {
@@ -448,12 +436,6 @@ function SugarCrmGetAccountDetails() {
                         }
                     }
                 }
-                else {
-                    var accountLeadEmptyListItem = $("<li/>");
-                    var accountLeadEmptyListHeader = "<h4>No Data</h4>";
-                    accountLeadEmptyListItem.append(accountLeadEmptyListHeader);
-                    $('#ViewAccountDetailsPageLeadsListUl').append(accountLeadEmptyListItem);
-                }
             }
         }
         $('#ViewAccountDetailsPageLeadsListUl').listview("refresh");
@@ -473,7 +455,6 @@ function SugarCrmGetAccountDetails() {
         '"related_fields":["id","name","status","date_start"],' +
         '"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        $('#ViewAccountDetailsPageCallsListUl').append("<li data-role=\"list-divider\">Calls</li>");
         if (data !== undefined) {
             var accountCallsList = jQuery.parseJSON(data);
             if ((accountCallsList.name !== undefined) && (accountCallsList.name === "Invalid Session ID")) {
@@ -483,6 +464,7 @@ function SugarCrmGetAccountDetails() {
             if ((accountCallsList !== undefined) && (accountCallsList.entry_list !== undefined)) {
                 if (accountCallsList.entry_list.length>0)
                 {
+                    $('#ViewAccountDetailsPageCallsListUl').append("<li data-role=\"list-divider\">Calls</li>");
                     var intAccountCall = 0;
                     for(intAccountCall=0;intAccountCall<=accountCallsList.entry_list.length;intAccountCall++)
                     {
@@ -515,12 +497,6 @@ function SugarCrmGetAccountDetails() {
                         }
                     }
                 }
-                else {
-                    var accountCallEmptyListItem = $("<li/>");
-                    var accountCallEmptyListHeader = "<h4>No Data</h4>";
-                    accountCallEmptyListItem.append(accountCallEmptyListHeader);
-                    $('#ViewAccountDetailsPageCallsListUl').append(accountCallEmptyListItem);
-                }
             }
         }
         $('#ViewAccountDetailsPageCallsListUl').listview("refresh");
@@ -539,7 +515,6 @@ function SugarCrmGetAccountDetails() {
         '"related_fields":["id","name","status","date_start"],' +
         '"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        $('#ViewAccountDetailsPageMeetingsListUl').append("<li data-role=\"list-divider\">Meetings</li>");
         if (data !== undefined) {
             var accountMeetingsList = jQuery.parseJSON(data);
             if ((accountMeetingsList.name !== undefined) && (accountMeetingsList.name === "Invalid Session ID")) {
@@ -549,6 +524,7 @@ function SugarCrmGetAccountDetails() {
             if ((accountMeetingsList !== undefined) && (accountMeetingsList.entry_list !== undefined)) {
                 if (accountMeetingsList.entry_list.length>0)
                 {
+                    $('#ViewAccountDetailsPageMeetingsListUl').append("<li data-role=\"list-divider\">Meetings</li>");
                     var intAccountMeeting = 0;
                     for(intAccountMeeting=0;intAccountMeeting<=accountMeetingsList.entry_list.length;intAccountMeeting++)
                     {
@@ -584,12 +560,6 @@ function SugarCrmGetAccountDetails() {
                         }
                     }
                 }
-                else {
-                    var accountMeetingEmptyListItem = $("<li/>");
-                    var accountMeetingEmptyListHeader = "<h4>No Data</h4>";
-                    accountMeetingEmptyListItem.append(accountMeetingEmptyListHeader);
-                    $('#ViewAccountDetailsPageMeetingsListUl').append(accountMeetingEmptyListItem);
-                }
             }
         }
         $('#ViewAccountDetailsPageMeetingsListUl').listview("refresh");
@@ -608,7 +578,6 @@ function SugarCrmGetAccountDetails() {
         '"related_fields":["id","name","status","date_start"],' +
         '"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        $('#ViewAccountDetailsPageTasksListUl').append("<li data-role=\"list-divider\">Tasks</li>");
         if (data !== undefined) {
             var accountTasksList = jQuery.parseJSON(data);
             if ((accountTasksList.name !== undefined) && (accountTasksList.name === "Invalid Session ID")) {
@@ -618,6 +587,7 @@ function SugarCrmGetAccountDetails() {
             if ((accountTasksList !== undefined) && (accountTasksList.entry_list !== undefined)) {
                 if (accountTasksList.entry_list.length>0)
                 {
+                    $('#ViewAccountDetailsPageTasksListUl').append("<li data-role=\"list-divider\">Tasks</li>");
                     var intAccountTask = 0;
                     for(intAccountTask=0;intAccountTask<=accountTasksList.entry_list.length;intAccountTask++)
                     {
@@ -652,12 +622,6 @@ function SugarCrmGetAccountDetails() {
                             $('#ViewAccountDetailsPageTasksListUl').append(accountTaskListItem);
                         }
                     }
-                }
-                else {
-                    var accountTaskEmptyListItem = $("<li/>");
-                    var accountTaskEmptyListHeader = "<h4>No Data</h4>";
-                    accountTaskEmptyListItem.append(accountTaskEmptyListHeader);
-                    $('#ViewAccountDetailsPageTasksListUl').append(accountTaskEmptyListItem);
                 }
             }
         }
