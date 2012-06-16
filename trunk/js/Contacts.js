@@ -1,7 +1,7 @@
 function SugarCrmGetContactListFromServer(offset) {
     var existingList = $('#AllContactsListDiv li');
     if ((existingList.length === 0) || (ContactsListCurrentOffset !== offset)) {
-        $.mobile.showshowPageLoadingMsgMsg();
+        $.mobile.showPageLoadingMsg();
         ContactsListCurrentOffset = offset;
         $.get(CurrentServerAddress + '/service/v2/rest.php', {
             method: "get_entry_list",
@@ -50,7 +50,7 @@ function SugarCrmGetContactListFromServer(offset) {
                                     click: function() {
                                         CurrentContactId = $(this).data("identity");
                                         $.mobile.changePage('#ViewContactDetailsPage');
-                                        $.mobile.showshowPageLoadingMsgMsg();
+                                        $.mobile.showPageLoadingMsg();
                                         SugarCrmGetContactDetails();
                                     }
                                 });
@@ -68,12 +68,12 @@ function SugarCrmGetContactListFromServer(offset) {
                 }
             }
         });
-        $.mobile.hideshowPageLoadingMsgMsg();
+        $.mobile.hidePageLoadingMsg();
     }
 }
 
 function SugarCrmGetContactDetails() {
-    $.mobile.showshowPageLoadingMsgMsg();
+    $.mobile.showPageLoadingMsg();
     $('#ContactNameH1').html('');
     $('#ContactTitleP').text('');
     $('#ViewContactDetailsPageDetailsList li').remove();
@@ -269,7 +269,7 @@ function SugarCrmGetContactDetails() {
     getContactRelatedCallsInsetList();
     getContactRelatedMeetingsInsetList();
     getContactRelatedTasksInsetList();
-    $.mobile.hideshowPageLoadingMsgMsg();
+    $.mobile.hidePageLoadingMsg();
 }
 
 
@@ -307,7 +307,7 @@ function getContactRelatedOpportunitiesInsetList() {
                                 click: function() {
                                     CurrentOpportunityId = $(this).data("identity");
                                     $.mobile.changePage('#ViewOpportunityDetailsPage');
-                                    $.mobile.showshowPageLoadingMsgMsg();
+                                    $.mobile.showPageLoadingMsg();
                                     SugarCrmGetOpportunityDetails();
                                 }
                             });
@@ -327,7 +327,7 @@ function getContactRelatedOpportunitiesInsetList() {
             }
             $('#ViewContactDetailsPageOpportunitiesListUl').listview("refresh");
         }
-        $.mobile.hideshowPageLoadingMsgMsg();
+        $.mobile.hidePageLoadingMsg();
     });
 }
 
@@ -368,7 +368,7 @@ function getContactRelatedLeadsInsetList() {
                                 click: function() {
                                     CurrentLeadId = $(this).data("identity");
                                     $.mobile.changePage('#ViewLeadDetailsPage');
-                                    $.mobile.showshowPageLoadingMsgMsg();
+                                    $.mobile.showPageLoadingMsg();
                                     SugarCrmGetLeadDetails();
                                 }
                             });
@@ -389,7 +389,7 @@ function getContactRelatedLeadsInsetList() {
             $('#ViewContactDetailsPageLeadsListUl').listview("refresh");
         }
     });
-    $.mobile.hideshowPageLoadingMsgMsg();
+    $.mobile.hidePageLoadingMsg();
 }
 
 function getContactRelatedCallsInsetList() {
@@ -439,7 +439,7 @@ function getContactRelatedCallsInsetList() {
                                 click: function() {
                                     CurrentCallId = $(this).data("identity");
                                     $.mobile.changePage('#ViewCallDetailsPage');
-                                    $.mobile.showshowPageLoadingMsgMsg();
+                                    $.mobile.showPageLoadingMsg();
                                     SugarCrmGetCallDetails();
                                 }
                             });
@@ -460,7 +460,7 @@ function getContactRelatedCallsInsetList() {
                 }
             }
             $('#ViewContactDetailsPageCallsListUl').listview("refresh");
-            $.mobile.hideshowPageLoadingMsgMsg();
+            $.mobile.hidePageLoadingMsg();
         }
     });
 }
@@ -513,7 +513,7 @@ function getContactRelatedMeetingsInsetList() {
                                 click: function() {
                                     CurrentMeetingId = $(this).data("identity");
                                     $.mobile.changePage('#ViewMeetingDetailsPage');
-                                    $.mobile.showshowPageLoadingMsgMsg();
+                                    $.mobile.showPageLoadingMsg();
                                     SugarCrmGetMeetingDetails();
                                 }
                             });
@@ -534,7 +534,7 @@ function getContactRelatedMeetingsInsetList() {
             $('#ViewContactDetailsPageMeetingsListUl').listview("refresh");
         }
     });
-    $.mobile.hideshowPageLoadingMsgMsg();
+    $.mobile.hidePageLoadingMsg();
 }
 
 function getContactRelatedTasksInsetList() {
@@ -588,7 +588,7 @@ function getContactRelatedTasksInsetList() {
                                 click: function() {
                                     CurrentTaskId = $(this).data("identity");
                                     $.mobile.changePage('#ViewTaskDetailsPage');
-                                    $.mobile.showshowPageLoadingMsgMsg();
+                                    $.mobile.showPageLoadingMsg();
                                     SugarCrmGetTaskDetails();
                                 }
                             });
@@ -609,11 +609,11 @@ function getContactRelatedTasksInsetList() {
             $('#ViewContactDetailsPageTasksListUl').listview("refresh");
         }
     });
-    $.mobile.hideshowPageLoadingMsgMsg();
+    $.mobile.hidePageLoadingMsg();
 }
 
 function SugarCrmAddNewContact() {
-    $.mobile.showshowPageLoadingMsgMsg();
+    $.mobile.showPageLoadingMsg();
     var validInput = ValidateNewContactToAdd();
     if (validInput) {
          $.get(CurrentServerAddress + '/service/v2/rest.php', {
@@ -637,7 +637,7 @@ function SugarCrmAddNewContact() {
                 var addContactResult = jQuery.parseJSON(data);
                 if (addContactResult.id === "Invalid Session ID") {
                     SugarSessionId = '';
-                    $.mobile.showshowPageLoadingMsgMsg();
+                    $.mobile.showPageLoadingMsg();
                     $.mobile.changePage('#LoginPage');
                 }
 		 $('#ContactFirstNameTextBox').val('');
@@ -649,13 +649,13 @@ function SugarCrmAddNewContact() {
                  $('#ContactTitleTextBox').val('');
                  $('#ContactDepartmentTextBox').val('');
                  $('#NewContactDescriptionTextArea').val('');
-                 $.mobile.showshowPageLoadingMsgMsg();
+                 $.mobile.showPageLoadingMsg();
                  $.mobile.changePage('#HomePage');
             }
         });
     }
     else {
-        $.mobile.hideshowPageLoadingMsgMsg();
+        $.mobile.hidePageLoadingMsg();
         alert(RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
     }
 }

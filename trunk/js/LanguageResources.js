@@ -126,3 +126,7 @@ var RES_SEARCH_ICON_LABEL = "Search";
 var RES_SELECT_MODULES_TO_SEARCH = "Select modules to be included in the search";
 var RES_SEARCH_PAGE_HEADER = "Search";
 var RES_SEARCH_PAGE_BUTTON = "Perform Search";
+var RES_INFO_TITLE = "Information";
+var RES_NO_RECORDS_TEXT = "There are no more records in that direction";
+
+var RES_OK_BUTTON = "Ok"

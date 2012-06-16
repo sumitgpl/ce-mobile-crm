@@ -72,3 +72,8 @@ Alpha 2 Change Log
      is not returning it. If this gets resolved the list should show the currency as well.
 --- Handling Session timeouts to redirect automatically to the login page
 --- Added Log Out menu to main page
+
+Release 1.0.0.0 Change Log
+--- Added Create options for all modules
+--- Upgraded to the released version of jQuery
+--- 
