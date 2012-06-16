@@ -182,6 +182,9 @@ $('#HomePage').live('pageshow',function(event,ui) {
 
 /* Login function used to log the user in and establish session */
 function LoginUser(noEncryption) {
+    $('#LoginPageLoginForm input').each(function(item,index){
+       $(item).change();
+    });
     if ($('#LoginPageLoginForm .invalid').length <= 0) {
         $.mobile.showPageLoadingMsg();
         var enteredUsername = "";

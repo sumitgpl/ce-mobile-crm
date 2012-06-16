@@ -130,3 +130,15 @@ var RES_INFO_TITLE = "Information";
 var RES_NO_RECORDS_TEXT = "There are no more records in that direction";
 
 var RES_OK_BUTTON = "Ok"
+
+var RES_FIELD_LABEL_ACCOUNT_TYPE = "Account Type";
+var RES_FIELD_LABEL_INDUSTRY = "Industry";
+var RES_FIELD_LABEL_ANNUAL_REVENUE = "Annual Revenue";
+var RES_FIELD_LABEL_EMPLOYEES = "Employees";
+var RES_FIELD_LABEL_SIC_CODE = "SIC Code";
+var RES_FIELD_LABEL_TICKER_SYMBOL = "Ticker Symbol";
+var RES_FIELD_LABEL_MEMBER_OF = "Member of";
+var RES_FIELD_LABEL_OWNERSHIP = "Ownership";
+var RES_FIELD_LABEL_CAMPAIGN = "Campaign";
+var RES_FIELD_LABEL_RATING = "Rating";
+var RES_FIELD_LABEL_
