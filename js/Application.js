@@ -44,6 +44,22 @@ var currentLocale = "en_US";
 var scriptVersion = "1.0.0";
 
 
+function hideAddressBar()
+{
+  if(!window.location.hash)
+  {
+      if(document.height < window.outerHeight)
+      {
+          document.body.style.height = (window.outerHeight + 50) + 'px';
+      }
+
+      setTimeout( function(){window.scrollTo(0, 1);}, 50 );
+  }
+}
+
+window.addEventListener("load", function(){if(!window.pageYOffset){hideAddressBar();}} );
+window.addEventListener("orientationchange", hideAddressBar );
+
 $('#LoginPage').live('pagecreate',function(event,ui) {
     if ((getURLParameter("localeInfo") !== null) && (getURLParameter("localeInfo").length > 0)) {
         currentLocale = getURLParameter("localeInfo");
@@ -73,6 +89,10 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
             showInformationDialog(RES_INFO_TITLE,RES_LOGIN_PAGE_HEADER + ' ' + RES_CURRENT_VERSION_NUMBER);
         }
     });
+    $('.PreviousRecordsButton').text(RES_NAVIGATE_RECORDS_PREV_LABEL);
+    $('.NextRecordsButton').text(RES_NAVIGATE_RECORDS_NEXT_LABEL);
+    $('.EditRecordClass').text(RES_ACTION_EDIT);
+    $('.DeleteRecordClass').text(RES_ACTION_DELETE);
 });
 
 
@@ -372,4 +392,12 @@ function showInformationDialog(title,msg) {
 
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+}
+
+function SugarCrmEditExistingAccount() {
+    /* TODO: Compelete edit action taken */
+}
+
+function SugarCrmDeleteExistingAccount() {
+   /* TODO: Complete delete action taken */
 }

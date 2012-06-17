@@ -152,3 +152,4 @@ var RES_FIELD_LABEL_EMAIL = "Email";
 var RES_DIVIDER_LABEL_MORE_INFO = "More Information";
 
 var RES_ACTION_DELETE = "Delete";
+var RES_ACTION_EDIT = "Edit";

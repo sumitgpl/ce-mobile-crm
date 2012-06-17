@@ -76,20 +76,6 @@ function SugarCrmGetAccountsListFromServer(offset) {
                         }
                         /* After binding all the list items to the listview refresh it so all styles are applied */
                         $('#AllAccountsListUl').listview("refresh");
-                        /* TODO: Add code to place the call to SugarCRM on Delete */
- 			$('#AllAccountsListUl li').swipeDelete({
-				btnTheme: 'c',
-				btnLabel: RES_ACTION_DELETE,
-				btnClass: 'aSwipeButton',
-				click: function(e){
-					e.preventDefault();
-					var url = $(e.target).attr('href');
-					$(this).parents('li').slideUp();
-					$.post(url, function(data) {
-						console.log(data);
-					});
-				}
-			});
                         /* Update the Global offset variables so the paging in each direction works */
                         AccountsListNextOffset = accountsList.next_offset;
                         var newPreviousOffset = (offset - RowsPerPageInListViews);
