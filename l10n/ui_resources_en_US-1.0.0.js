@@ -144,3 +144,11 @@ var RES_FIELD_LABEL_RATING = "Rating";
 var RES_FIELD_LABEL_ASSIGNED_TO = "Assigned To";
 var RES_FIELD_LABEL_DATE_MODIFIED = "Date Modified";
 var RES_FIELD_LABEL_DATE_CREATED = "Date Created";
+var RES_FIELD_LABEL_WEBSITE = "Web Site";
+var RES_FIELD_LABEL_BILLING_ADDRESS = "Billing Address";
+var RES_FIELD_LABEL_SHIPPING_ADDRESS = "Shipping Address";
+var RES_FIELD_LABEL_EMAIL = "Email";
+
+var RES_DIVIDER_LABEL_MORE_INFO = "More Information";
+
+var RES_ACTION_DELETE = "Delete";
