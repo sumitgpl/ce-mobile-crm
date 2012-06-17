@@ -46,13 +46,15 @@ function SugarCrmGetAccountsListFromServer(offset) {
                     }
                     else {
                         /* Remove the existing list items before rebinding */
-                        $('#AllAccountsListDiv li').remove();
+                        $('#AllAccountsListUl li').remove();
                         var intAccount = 0;
                         for(intAccount=0;intAccount<=accountsList.entry_list.length;intAccount++)
                         {
                             if (accountsList.entry_list[intAccount] !== undefined) {
                                 var account = accountsList.entry_list[intAccount];
-                                var listItem = $('<li/>');
+                                var listItem = $('<li/>',{
+                                    "data-swipeurl":"#" + account.id
+                                });
                                 var header = "<h4>" + account.name_value_list.name.value + "</h4>";
                                 var accountParagraph = "<p>" + account.name_value_list.billing_address_city.value + "&nbsp;" +
                                 account.name_value_list.billing_address_state.value + "</p>";
@@ -69,12 +71,12 @@ function SugarCrmGetAccountsListFromServer(offset) {
                                 accountLink.append(header);
                                 accountLink.append(accountParagraph);
                                 listItem.append(accountLink);
-                                $('#AllAccountsListDiv').append(listItem);
+                                $('#AllAccountsListUl').append(listItem);
                             }
                         }
                         /* After binding all the list items to the listview refresh it so all styles are applied */
-                        $('#AllAccountsListDiv').listview("refresh");
- 			$('#AllAccountsListDiv li').swipeDelete({
+                        $('#AllAccountsListUl').listview("refresh");
+ 			$('#AllAccountsListUl li').swipeDelete({
 				btnTheme: 'a',
 				btnLabel: RES_ACTION_DELETE,
 				btnClass: 'aSwipeButton',
