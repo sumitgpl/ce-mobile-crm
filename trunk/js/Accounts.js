@@ -74,6 +74,19 @@ function SugarCrmGetAccountsListFromServer(offset) {
                         }
                         /* After binding all the list items to the listview refresh it so all styles are applied */
                         $('#AllAccountsListDiv').listview("refresh");
+ 			$('#AllAccountsListDiv li').swipeDelete({
+				btnTheme: 'a',
+				btnLabel: RES_ACTION_DELETE,
+				btnClass: 'aSwipeButton',
+				click: function(e){
+					e.preventDefault();
+					var url = $(e.target).attr('href');
+					$(this).parents('li').slideUp();
+					$.post(url, function(data) {
+						console.log(data);
+					});
+				}
+			});
                         /* Update the Global offset variables so the paging in each direction works */
                         AccountsListNextOffset = accountsList.next_offset;
                         var newPreviousOffset = (offset - RowsPerPageInListViews);
@@ -157,7 +170,7 @@ function SugarCrmGetAccountDetails() {
                         } else {formattedUrl = account.name_value_list.website.value;}
                         var webSiteLi = $("<li/>");
                         var webSiteHeader = "<h4>" + account.name_value_list.website.value + "</h4>";
-                        var webSiteParagraph = "<p><br />Web Site</p>";
+                        var webSiteParagraph = "<p><br />" + RES_FIELD_LABEL_WEBSITE + "</p>";
                         var webSiteLink = $('<a/>', {
                             href: formattedUrl,
                             rel: "external",
@@ -189,7 +202,7 @@ function SugarCrmGetAccountDetails() {
                     accountBillingAddressCity +"%20" +  accountBillingAddressState + "%20" + accountBillingAddressPostalCode + "&t=m&z=13";
                     var billingAddressHeader = "<h4>" + accountBillingAddressStreet + "<br />" + accountBillingAddressCity + ", " + accountBillingAddressState +
                     " " + accountBillingAddressPostalCode + "<br />" + accountBillingAddressCountry + "</h4>";
-                    var billingAddressP = "<p><br />Billing Address</p>";
+                    var billingAddressP = "<p><br />" + RES_FIELD_LABEL_BILLING_ADDRESS + "</p>";
                     var billingAddressLink = $('<a/>', {
                         href: accountBillingAddressUrl,
                         rel: "external",
@@ -215,7 +228,7 @@ function SugarCrmGetAccountDetails() {
                     accountShippingAddressCity + "%20" + accountShippingAddressState + "%20" + accountShippingAddressPostalCode + "&t=m&z=13";
                     var shippingAddressHeader = "<h4>" + accountShippingAddressStreet + "<br />" + accountShippingAddressCity + ", " + accountShippingAddressState +
                     " " + accountShippingAddressPostalCode + "<br />" + accountShippingAddressCountry + "</h4>";
-                    var shippingAddressP = "<p><br />Shipping Address</p>";
+                    var shippingAddressP = "<p><br />" + RES_FIELD_LABEL_SHIPPING_ADDRESS + "</p>";
                     var shippingAddressLink = $('<a/>', {
                         href: accountShippingAddressUrl,
                         rel: "external",
@@ -233,7 +246,7 @@ function SugarCrmGetAccountDetails() {
                     }
                     /* Append the Email Address */
                     var emailLi = $("<li/>");
-                    var emailParagraph = "<p><br />Email</p>";
+                    var emailParagraph = "<p><br />" + RES_FIELD_LABEL_EMAIL + "</p>";
                     var emailHeader = "<h4>" + account.name_value_list.email1.value + "</h4>";
                     var emailLink = $('<a/>', {
                         href: "mailto:" + account.name_value_list.email1.value,
@@ -247,7 +260,7 @@ function SugarCrmGetAccountDetails() {
                         $('#ViewAccountDetailsPageDetailsList').append(emailLi);
                     }
                     /* Append the deivider for the More Information Section */
-                    $('#ViewAccountDetailsPageDetailsList').append("<li data-role=\"list-divider\">More Information</li>");
+                    $('#ViewAccountDetailsPageDetailsList').append("<li data-role=\"list-divider\">" + RES_DIVIDER_LABEL_MORE_INFO + "</li>");
                     if ((account.name_value_list.account_type !== undefined) && (account.name_value_list.account_type.value !== "")) {
                         $('#ViewAccountDetailsPageDetailsList').append("<li><p><br />" + RES_FIELD_LABEL_ACCOUNT_TYPE + "</p><h4>" + account.name_value_list.account_type.value + "</h4></li>");
                     }
