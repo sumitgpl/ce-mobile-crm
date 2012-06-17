@@ -76,6 +76,7 @@ function SugarCrmGetAccountsListFromServer(offset) {
                         }
                         /* After binding all the list items to the listview refresh it so all styles are applied */
                         $('#AllAccountsListUl').listview("refresh");
+                        /* TODO: Add code to place the call to SugarCRM on Delete */
  			$('#AllAccountsListUl li').swipeDelete({
 				btnTheme: 'c',
 				btnLabel: RES_ACTION_DELETE,
