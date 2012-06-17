@@ -77,7 +77,7 @@ function SugarCrmGetAccountsListFromServer(offset) {
                         /* After binding all the list items to the listview refresh it so all styles are applied */
                         $('#AllAccountsListUl').listview("refresh");
  			$('#AllAccountsListUl li').swipeDelete({
-				btnTheme: 'a',
+				btnTheme: 'c',
 				btnLabel: RES_ACTION_DELETE,
 				btnClass: 'aSwipeButton',
 				click: function(e){
