@@ -8,15 +8,14 @@
         <link rel="apple-touch-startup-image" href="images/startup.png" />
         <link rel="apple-touch-icon" href="images/apple-touch-icon.png"/>
         <!-- CSS BEGIN -->
+        <link rel="stylesheet" href="css/style.css" />
         <link rel="stylesheet" href="theme/ce-mobile-crm.min.css" />
         <link rel="stylesheet" href="lib/jquery.mobile/jquery.mobile.structure-1.1.0.min.css" />
         <link rel="stylesheet" href="css/style.css" />
-        <link rel="stylesheet" href="lib/swipeButton/jquery.swipeButton-1.2.css" />
         <!-- CSS END -->
         <!-- JS BEGIN -->
         <script type="text/javascript" src="lib/jquery/jquery-1.7.1.min.js"></script>
         <script type="text/javascript" src="lib/jquery.mobile/jquery.mobile-1.1.0.min.js"></script>
-        <script type="text/javascript" src="lib/swipeButton/jquery.swipeButton-1.2.0.min.js"></script>
         <script type="text/javascript" src="js/SearchByModule.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-config.js"></script>
         <script type="text/javascript" src="js/Application.js"></script>
@@ -131,8 +130,8 @@
             <div data-role="footer" data-position="fixed" data-theme="b">
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
-                        <li><a href="javascript:SugarCrmGetAccountsListFromServer(AccountsListPrevOffset);" data-icon="arrow-l"></a></li>
-                        <li><a href="javascript:SugarCrmGetAccountsListFromServer(AccountsListNextOffset);" data-icon="arrow-r"></a></li>
+                        <li><a href="javascript:SugarCrmGetAccountsListFromServer(AccountsListPrevOffset);" class="PreviousRecordsButton" data-icon="arrow-l">REPLACEMENT_TEXT</a></li>
+                        <li><a href="javascript:SugarCrmGetAccountsListFromServer(AccountsListNextOffset);" class="NextRecordsButton" data-icon="arrow-r">REPLACEMENT_TEXT</a></li>
                     </ul>
                 </div>
             </div>
@@ -148,8 +147,8 @@
             <div data-role="footer" data-position="fixed" data-theme="b">
             <div data-role="navbar" data-iconpos="top">
                 <ul>
-                    <li><a href="javascript:SugarCrmGetContactListFromServer(ContactsListPrevOffset);" data-icon="arrow-l"></a></li>
-                    <li><a href="javascript:SugarCrmGetContactListFromServer(ContactsListNextOffset);" data-icon="arrow-r"></a></li>
+                    <li><a href="javascript:SugarCrmGetContactListFromServer(ContactsListPrevOffset);"  class="PreviousRecordsButton"data-icon="arrow-l"></a></li>
+                    <li><a href="javascript:SugarCrmGetContactListFromServer(ContactsListNextOffset);" class="NextRecordsButton" data-icon="arrow-r"></a></li>
                 </ul>
             </div>
             </div>
@@ -165,8 +164,8 @@
              <div data-role="footer" data-position="fixed" data-theme="b">
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
-                        <li><a href="javascript:SugarCrmGetOpportunitiesListFromServer(OpportunitiesListPrevOffset);" data-icon="arrow-l"></a></li>
-                        <li><a href="javascript:SugarCrmGetOpportunitiesListFromServer(OpportunitiesListNextOffset);" data-icon="arrow-r"></a></li>
+                        <li><a href="javascript:SugarCrmGetOpportunitiesListFromServer(OpportunitiesListPrevOffset);"  class="PreviousRecordsButton" data-icon="arrow-l"></a></li>
+                        <li><a href="javascript:SugarCrmGetOpportunitiesListFromServer(OpportunitiesListNextOffset);" class="NextRecordsButton" data-icon="arrow-r"></a></li>
                     </ul>
                 </div>
             </div>
@@ -182,8 +181,8 @@
              <div data-role="footer" data-position="fixed" data-theme="b">
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
-                        <li><a href="javascript:SugarCrmGetLeadsListFromServer(LeadsListPrevOffset);" data-icon="arrow-l"></a></li>
-                        <li><a href="javascript:SugarCrmGetLeadsListFromServer(LeadsListNextOffset);" data-icon="arrow-r"></a></li>
+                        <li><a href="javascript:SugarCrmGetLeadsListFromServer(LeadsListPrevOffset);"  class="PreviousRecordsButton" data-icon="arrow-l"></a></li>
+                        <li><a href="javascript:SugarCrmGetLeadsListFromServer(LeadsListNextOffset);" class="NextRecordsButton" data-icon="arrow-r"></a></li>
                     </ul>
                 </div>
             </div>
@@ -199,8 +198,8 @@
              <div data-role="footer" data-position="fixed" data-theme="b">
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
-                        <li><a href="javascript:SugarCrmGetCallsListFromServer(CallsListPrevOffset);" data-icon="arrow-l"></a></li>
-                        <li><a href="javascript:SugarCrmGetCallsListFromServer(CallsListNextOffset);" data-icon="arrow-r"></a></li>
+                        <li><a href="javascript:SugarCrmGetCallsListFromServer(CallsListPrevOffset);"  class="PreviousRecordsButton" data-icon="arrow-l"></a></li>
+                        <li><a href="javascript:SugarCrmGetCallsListFromServer(CallsListNextOffset);" class="NextRecordsButton" data-icon="arrow-r"></a></li>
                     </ul>
                 </div>
             </div>
@@ -210,20 +209,14 @@
             <div data-role="header" data-position="fixed">
                 <h1 id="MeetingsListPageTitle"></h1>
             </div><!-- /header -->
-            <div id="MeetingsListPageSubMenu" data-role="navbar">
-                <ul>
-                    <li><a href="javascript:SugarCrmGetMeetingsListFromServer(MeetingsListPrevOffset);" data-icon="arrow-l"></a></li>
-                    <li><a href="javascript:SugarCrmGetMeetingsListFromServer(MeetingsListNextOffset);" data-icon="arrow-r"></a></li>
-                </ul>
-            </div>
             <div data-role="content">
                 <ul id="AllMeetingsListDiv" data-role="listview" data-filter="false" data-theme="d"/>
             </div><!-- /content -->
              <div data-role="footer" data-position="fixed" data-theme="b">
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
-                        <li><a href="javascript:SugarCrmGetMeetingsListFromServer(MeetingsListPrevOffset);" data-icon="arrow-l"></a></li>
-                        <li><a href="javascript:SugarCrmGetMeetingsListFromServer(MeetingsListNextOffset);" data-icon="arrow-r"></a></li>
+                        <li><a href="javascript:SugarCrmGetMeetingsListFromServer(MeetingsListPrevOffset);"  class="PreviousRecordsButton" data-icon="arrow-l"></a></li>
+                        <li><a href="javascript:SugarCrmGetMeetingsListFromServer(MeetingsListNextOffset);" class="NextRecordsButton" data-icon="arrow-r"></a></li>
                     </ul>
                 </div>
             </div>
@@ -240,8 +233,8 @@
              <div data-role="footer" data-position="fixed" data-theme="b">
                 <div data-role="navbar" data-iconpos="top">
                     <ul>
-                        <li><a href="javascript:SugarCrmGetTasksListFromServer(TasksListPrevOffset);" data-icon="arrow-l"></a></li>
-                        <li><a href="javascript:SugarCrmGetTasksListFromServer(TasksListNextOffset);" data-icon="arrow-r"></a></li>
+                        <li><a href="javascript:SugarCrmGetTasksListFromServer(TasksListPrevOffset);"  class="PreviousRecordsButton" data-icon="arrow-l"></a></li>
+                        <li><a href="javascript:SugarCrmGetTasksListFromServer(TasksListNextOffset);" class="NextRecordsButton" data-icon="arrow-r"></a></li>
                     </ul>
                 </div>
             </div>
@@ -279,6 +272,14 @@
 
                 <div>
                     <ul id="ViewAccountDetailsPageTasksListUl" data-role="listview" data-inset="true" data-theme="d"/>
+                </div>
+            </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmEditExistingAccount();"  class="EditRecordClass" data-icon="pencil"></a></li>
+                        <li><a href="javascript:SugarCrmDeleteExistingAccount()" class="DeleteRecordClass" data-icon="trash"></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -514,13 +515,15 @@
                     <label id="NewAccountDescriptionLabel" for="NewAccountDescriptionTextArea">REPLACEMENT_TEXT</label>
                     <textarea id="NewAccountDescriptionTextArea"></textarea>
                 </div>
-                <div class="ui-body ui-body-b">
-                    <fieldset class="ui-grid-a">
-                        <div class="ui-block-a"><button id="SaveNewAccountButton" class="SaveButtonClass" type="submit" data-theme="d" onclick="SugarCrmAddNewAccount()">REPLACEMENT_TEXT</button></div>
-                        <div class="ui-block-b"><button id="CancelNewAccountButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
-                    </fieldset>
-                </div>
             </form>
+            </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmAddNewAccount();"  class="SaveButtonClass" data-icon="check"></a></li>
+                        <li><a href="#HomePage" class="CancelButtonClass" data-icon="back"></a></li>
+                    </ul>
+                </div>
             </div>
         </div>
 
