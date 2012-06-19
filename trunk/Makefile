@@ -61,8 +61,10 @@ deploy:
 
 usemin:
 	@@sed -e 's/style.css/style.min.css/' ${DIR}/index.html > ${DIR}/index.html.tmp
-	@@sed -e 's/Application.js/Application.min.js/' ${DIR}/index.html.tmp > ${DIR}/index.html
+	@@sed -e 's/Application.js/Application.min.js/' ${DIR}/index.html.tmp > ${DIR}/index.html.tmp2
+	@@java -jar build/htmlcompressor-1.5.3.jar ${DIR}/index.html.tmp2 > ${DIR}/index.html
 	@@rm  ${DIR}/index.html.tmp
+	@@rm  ${DIR}/index.html.tmp2
 
 rmmax:
 	@@rm  ${DIR}/js/Application.js
