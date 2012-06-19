@@ -26,7 +26,7 @@ function SugarCrmGetMeetingsListFromServer(offset) {
                     }
                     if ((meetingsList.next_offset == 0) || (meetingsList.result_count == 0))
                     {
-                        alert('There are no more records in that direction');
+                        alert(RES_NO_RECORDS_TEXT);
                     } else {
                         $('#AllMeetingsListDiv li').remove();
 
@@ -172,8 +172,7 @@ function getMeetingRelatedContactsInsetList() {
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Meetings","module_id":"' + CurrentMeetingId + '","link_field_name":"contacts","related_module_query":"","related_fields":["id","first_name","last_name","title"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        if (data != undefined) {
-            $('#ViewMeetingDetailsPageContactsListUl').append("<li data-role=\"list-divider\">Contacts</li>");
+        if (data != undefined) {            
             var meetingContactsList = jQuery.parseJSON(data);
             if ((meetingContactsList.name !== undefined) && (meetingContactsList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -182,6 +181,7 @@ function getMeetingRelatedContactsInsetList() {
             if ((meetingContactsList != undefined) && (meetingContactsList.entry_list != undefined)) {
                 if (meetingContactsList.entry_list.length>0)
                 {
+                    $('#ViewMeetingDetailsPageContactsListUl').append("<li data-role=\"list-divider\">Contacts</li>");
                     var intMeetingContact = 0;
                     for(intMeetingContact=0;intMeetingContact<=meetingContactsList.entry_list.length;intMeetingContact++)
                     {
@@ -207,13 +207,7 @@ function getMeetingRelatedContactsInsetList() {
                             $('#ViewMeetingDetailsPageContactsListUl').append(meetingContactListItem);
                         }
                     }
-                }
-                else {
-                    var meetingContactEmptyListItem = $("<li/>");
-                    var contactContactEmptyListHeader = "<h4>No Data</h4>";
-                    meetingContactEmptyListItem.append(contactContactEmptyListHeader);
-                    $('#ViewMeetingDetailsPageContactsListUl').append(meetingContactEmptyListItem);
-                }
+                }              
             }
             $('#ViewMeetingDetailsPageContactsListUl').listview("refresh");
         }
@@ -232,8 +226,7 @@ function getMeetingRelatedUsersInsetList() {
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Meetings","module_id":"' + CurrentMeetingId + '","link_field_name":"users","related_module_query":"","related_fields":"","related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        if (data != undefined) {
-            $('#ViewMeetingDetailsPageUsersListUl').append("<li data-role=\"list-divider\">Users</li>");
+        if (data != undefined) {            
             var meetingUsersList = jQuery.parseJSON(data);
             if ((meetingUsersList.name !== undefined) && (meetingUsersList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -242,6 +235,7 @@ function getMeetingRelatedUsersInsetList() {
             if ((meetingUsersList != undefined) && (meetingUsersList.entry_list != undefined)) {
                 if (meetingUsersList.entry_list.length>0)
                 {
+                    $('#ViewMeetingDetailsPageUsersListUl').append("<li data-role=\"list-divider\">Users</li>");
                     var intMeetingUser = 0;
                     for(intMeetingUser=0;intMeetingUser<=meetingUsersList.entry_list.length;intMeetingUser++)
                     {
@@ -255,13 +249,7 @@ function getMeetingRelatedUsersInsetList() {
                             $('#ViewMeetingDetailsPageUsersListUl').append(meetingUserListItem);
                         }
                     }
-                }
-                else {
-                    var meetingUserEmptyListItem = $("<li/>");
-                    var meetingUserEmptyListHeader = "<h4>No Data</h4>";
-                    meetingUserEmptyListItem.append(meetingUserEmptyListHeader);
-                    $('#ViewMeetingDetailsPageUsersListUl').append(meetingUserEmptyListItem);
-                }
+                }               
             }
             $('#ViewMeetingDetailsPageUsersListUl').listview("refresh");
         }
@@ -277,8 +265,7 @@ function getMeetingRelatedLeadsInsetList() {
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Meetings","module_id":"' + CurrentMeetingId + '","link_field_name":"leads","related_module_query":"","related_fields":["id","first_name","last_name","title"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        if (data != undefined) {
-            $('#ViewMeetingDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
+        if (data != undefined) {            
             var meetingLeadsList = jQuery.parseJSON(data);
             if ((meetingLeadsList.name !== undefined) && (meetingLeadsList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -287,6 +274,7 @@ function getMeetingRelatedLeadsInsetList() {
             if ((meetingLeadsList != undefined) && (meetingLeadsList.entry_list != undefined)) {
                 if (meetingLeadsList.entry_list.length>0)
                 {
+                    $('#ViewMeetingDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
                     var intMeetingLead = 0;
                     for(intMeetingLead=0;intMeetingLead<=meetingLeadsList.entry_list.length;intMeetingLead++)
                     {
@@ -316,13 +304,7 @@ function getMeetingRelatedLeadsInsetList() {
                             $('#ViewMeetingDetailsPageLeadsListUl').append(meetingLeadListItem);
                         }
                     }
-                }
-                else {
-                    var meetingLeadEmptyListItem = $("<li/>");
-                    var meetingLeadEmptyListHeader = "<h4>No Data</h4>";
-                    meetingLeadEmptyListItem.append(meetingLeadEmptyListHeader);
-                    $('#ViewMeetingDetailsPageLeadsListUl').append(meetingLeadEmptyListItem);
-                }
+                }                
             }
             $('#ViewMeetingDetailsPageLeadsListUl').listview("refresh");
         }
@@ -337,8 +319,7 @@ function getMeetingRelatedNotesInsetList() {
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Meetings","module_id":"' + CurrentMeetingId + '","link_field_name":"notes","related_module_query":"","related_fields":["id","name","description","date_entered"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        if (data != undefined) {
-            $('#ViewMeetingDetailsPageNotesListUl').append("<li data-role=\"list-divider\">Notes</li>");
+        if (data != undefined) {            
             var callNotesList = jQuery.parseJSON(data);
             if ((callNotesList.name !== undefined) && (callNotesList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -347,6 +328,7 @@ function getMeetingRelatedNotesInsetList() {
             if ((callNotesList != undefined) && (callNotesList.entry_list != undefined)) {
                 if (callNotesList.entry_list.length>0)
                 {
+                    $('#ViewMeetingDetailsPageNotesListUl').append("<li data-role=\"list-divider\">Notes</li>");
                     var intNoteLead = 0;
                     for(intNoteLead=0;intNoteLead<=callNotesList.entry_list.length;intNoteLead++)
                     {
@@ -376,13 +358,7 @@ function getMeetingRelatedNotesInsetList() {
                             $('#ViewMeetingDetailsPageNotesListUl').append(callNoteListItem);
                         }
                     }
-                }
-                else {
-                    var callLeadEmptyListItem = $("<li/>");
-                    var callLeadEmptyListHeader = "<h4>No Data</h4>";
-                    callLeadEmptyListItem.append(callLeadEmptyListHeader);
-                    $('#ViewMeetingDetailsPageNotesListUl').append(callLeadEmptyListItem);
-                }
+                }                
             }
             $('#ViewMeetingDetailsPageNotesListUl').listview("refresh");
         }

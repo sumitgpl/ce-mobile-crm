@@ -150,6 +150,8 @@ var RES_FIELD_LABEL_SHIPPING_ADDRESS = "Shipping Address";
 var RES_FIELD_LABEL_EMAIL = "Email";
 
 var RES_DIVIDER_LABEL_MORE_INFO = "More Information";
+var RES_DIVIDER_LABEL_OTHER_INFO = "Other Information";
 
 var RES_ACTION_DELETE = "Delete";
 var RES_ACTION_EDIT = "Edit";
+var RES_ACTION_DO_NOT_CALL = "*NOTE: This Contact is marked as Do Not Call.";
