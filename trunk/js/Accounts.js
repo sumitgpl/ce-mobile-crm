@@ -5,7 +5,7 @@
 * REST API then binds each of the items to the list view.
 */
 function SugarCrmGetAccountsListFromServer(offset) {
-    $.mobile.showPageLoadingMsg("b", "This is only a test", true);
+    $.mobile.showPageLoadingMsg();
     var existingList = $('#AllAccountsListDiv li');
     if ((existingList.length === 0) || (AccountsListCurrentOffset !== offset)) {
         $.mobile.showPageLoadingMsg();
@@ -43,7 +43,7 @@ function SugarCrmGetAccountsListFromServer(offset) {
                     /* Warn the user if they try to naviage beyond the records available */
                     if ((accountsList.next_offset === 0) || (accountsList.result_count === 0))
                     {
-                        alert(RES_INFO_TITLE,RES_NO_RECORDS_TEXT);
+                        alert(RES_NO_RECORDS_TEXT);
                     }
                     else {
                         /* Remove the existing list items before rebinding */
@@ -85,8 +85,8 @@ function SugarCrmGetAccountsListFromServer(offset) {
                 }
             }
         });
-            /* Hide the loading panel */
-            $.mobile.hidePageLoadingMsg();
+        /* Hide the loading panel */
+        $.mobile.hidePageLoadingMsg();
     }
 }
 
@@ -142,7 +142,9 @@ function SugarCrmGetAccountDetails() {
                                 LogCall("Accounts",CurrentAccountId,subject);
                                 return true;
                             }
-                            else {return true;}
+                            else {
+                                return true;
+                            }
                         }
                     });
                     officePhoneLink.append(officePhoneParagraph);
@@ -157,7 +159,9 @@ function SugarCrmGetAccountDetails() {
                         var formattedUrl = "";
                         if (account.name_value_list.website.value.substring(0, 4) !== "http") {
                             formattedUrl = "http://" + account.name_value_list.website.value;
-                        } else {formattedUrl = account.name_value_list.website.value;}
+                        } else {
+                            formattedUrl = account.name_value_list.website.value;
+                        }
                         var webSiteLi = $("<li/>");
                         var webSiteHeader = "<h4>" + account.name_value_list.website.value + "</h4>";
                         var webSiteParagraph = "<p><br />" + RES_FIELD_LABEL_WEBSITE + "</p>";
@@ -637,20 +641,20 @@ function SugarCrmGetAccountDetails() {
 function SugarCrmAddNewAccount() {
     $.mobile.showPageLoadingMsg();
     $('#CreateNewAccountPageCreateAccountForm input').each(function(item,index){
-       $(item).change();
+        $(item).change();
     });
     if ($('#CreateNewAccountPageCreateAccountForm .invalid').length <= 0) {
-         $.get(CurrentServerAddress + '/service/v2/rest.php', {
-	method: "set_entry",
-	input_type: "JSON",
-        response_type: "JSON",
-	rest_data: '{"session":"' + SugarSessionId + '",' +
-		'"module":"Accounts",' +
-		'"name_value_list":[{"name":"name","value":"' + $('#AccountNameTextBox').val() + '"},' +
-		'{"name":"description","value":,"' + $('#NewAccountDescriptionTextArea').val() + '"},' +
-                '{"name":"phone_office","value":"' + $('#NewAccountOfficePhoneTextBox').val() + '"},' +
-                '{"name":"website","value":"' + $('#NewAccountWebSiteTextBox').val() + '"},' +
-                '{"name":"phone_fax","value":"' + $('#NewAccountPhoneFaxTextBox').val() + '"}]}'
+        $.get(CurrentServerAddress + '/service/v2/rest.php', {
+            method: "set_entry",
+            input_type: "JSON",
+            response_type: "JSON",
+            rest_data: '{"session":"' + SugarSessionId + '",' +
+            '"module":"Accounts",' +
+            '"name_value_list":[{"name":"name","value":"' + $('#AccountNameTextBox').val() + '"},' +
+            '{"name":"description","value":,"' + $('#NewAccountDescriptionTextArea').val() + '"},' +
+            '{"name":"phone_office","value":"' + $('#NewAccountOfficePhoneTextBox').val() + '"},' +
+            '{"name":"website","value":"' + $('#NewAccountWebSiteTextBox').val() + '"},' +
+            '{"name":"phone_fax","value":"' + $('#NewAccountPhoneFaxTextBox').val() + '"}]}'
         }, function(data) {
             if (data !== undefined) {
                 var addAccountResult = jQuery.parseJSON(data);
@@ -658,19 +662,44 @@ function SugarCrmAddNewAccount() {
                     SugarSessionId = '';
                     $.mobile.changePage('#LoginPage');
                 }
-		 $('#AccountNameTextBox').val('');
-                 $('#NewAccountDescriptionTextArea').val('');
-                 $('#NewAccountOfficePhoneTextBox').val('');
-                 $('#NewAccountWebSiteTextBox').val('');
-                 $('#NewAccountPhoneFaxTextBox').val('');
-                 $('#AllAccountsListDiv').children().remove('li');
-                 $.mobile.hidePageLoadingMsg();
-                 $.mobile.changePage('#HomePage');
+                $('#AccountNameTextBox').val('');
+                $('#NewAccountDescriptionTextArea').val('');
+                $('#NewAccountOfficePhoneTextBox').val('');
+                $('#NewAccountWebSiteTextBox').val('');
+                $('#NewAccountPhoneFaxTextBox').val('');
+                $('#AllAccountsListDiv').children().remove('li');
+                $.mobile.hidePageLoadingMsg();
+                $.mobile.changePage('#HomePage');
             }
         });
     }
     else {
         $.mobile.hidePageLoadingMsg();
         alert(RES_INFO_TITLE,RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED);
+    }
+}
+
+function SugarCrmDeleteExistingAccount() {
+    if (confirm(RES_ACTION_CONFIRM_DELETE)) {
+        $.get(CurrentServerAddress + '/service/v2/rest.php', {
+            method: "set_entry",
+            input_type: "JSON",
+            response_type: "JSON",
+            rest_data: '{"session":"' + SugarSessionId + '",' +
+            '"module":"Accounts",' +
+            '"name_value_list":[{"name":"id","value":"' + CurrentAccountId + '"},' +
+            '{"name":"deleted","value":"1"}]}'
+        }, function(data) {
+            if (data !== undefined) {
+                var deleteAccountResult = jQuery.parseJSON(data);
+                if (data.id === "Invalid Session ID") {
+                    SugarSessionId = '';
+                    $.mobile.changePage('#LoginPage');
+                };
+                $('#AllAccountsListDiv').children().remove('li');
+                $.mobile.hidePageLoadingMsg();
+                $.mobile.changePage('#AccountsListPage');
+            }
+        });
     }
 }

@@ -1,19 +1,64 @@
 function SearchByModule() {
+    $('#SearchResultsListUl li').remove();
+    var searchByModulesString = "[";
+    $('#AvailableSearchModulesFieldSet input').each(function() {
+        var target = $(this);
+        if ($(target).is(":checked")) {
+            searchByModulesString+='"' + target.attr('value') + '",';
+        }
+    });
+    searchByModulesString = searchByModulesString.substring(0,(searchByModulesString.length - 1));
+    searchByModulesString+="]";
     $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "search_by_module",
         input_type: "JSON",
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '",' +
         '"search_string":"' + $('#ModuleSearchTerm').val() + '",' +
-        '"modules":"' + '[ { "Accounts" } ] ' + '",' +
+        '"modules":' + searchByModulesString + ',' +
         '"offset":0,' +
-        '"max_results":' + RowsPerPageInListViews + '}'
+        '"max_results":999}'
     }, function(data) {
         if (data !== undefined) {
+            var itemResultCount = 0;
             var searchResults = jQuery.parseJSON(data);
             if ((searchResults === undefined) || (searchResults.entry_list.length == 0)) {
-                alert('Your search did not return any resutls');
+                var noResults = $("<li/>");
+                noResults.append("<p>" + RES_NOTIFICATION + "</p>");
+                $('#SearchResultsListUl').append(noResults);
+                $('#SearchResultsListUl').listview("refresh");
+            } else {
+                var intSearchResults = 0;
+                for(intSearchResults=0;intSearchResults<=searchResults.entry_list.length;intSearchResults++)
+                {
+                    if (searchResults.entry_list[intSearchResults] !== undefined) {
+                        var searchResult = searchResults.entry_list[intSearchResults];
+                        
+                        if ((searchResult.records !== undefined) && (searchResult.records.length > 0)) {
+                            itemResultCount++;
+                            $('#SearchResultsListUl').append("<li data-role=\"list-divider\">" + searchResult.name + "</li>");
+                            var intItemResults = 0;
+                            for(intItemResults=0;intItemResults<searchResult.records.length;intItemResults++) {
+                                var result = searchResult.records[intItemResults];
+                                $('#SearchResultsListUl').append("<li>" + result.name.value + "</li>");
+                            }
+
+                        }
+                    }
+                }
+                if (itemResultCount == 0) {
+                    var noResults = $("<li/>");
+                    noResults.append("<p>" + RES_NOTIFICATION + "</p>");
+                    $('#SearchResultsListUl').append(noResults);
+                    $('#SearchResultsListUl').listview("refresh");
+                }
+                $('#SearchResultsListUl').listview("refresh");
             }
+        } else {
+            var noResults = $("<li/>");
+            noResults.append("<p>" + RES_NOTIFICATION + "</p>");
+            $('#SearchResultsListUl').append(noResults);
+            $('#SearchResultsListUl').listview("refresh");
         }
     });
 }
@@ -78,7 +123,7 @@ function getAvailableSearchModules() {
                     $('#AvailableSearchModulesFieldSet').append(contactsSearchModuleOptionlabel);
                     $("input[type='checkbox']").checkboxradio();
                 }
-                 if ($.inArray("Opportunities", availableModulesData.modules)) {
+                if ($.inArray("Opportunities", availableModulesData.modules)) {
                     var OpportunitySearchModuleOption = $("<input/>", {
                         id: "SearchModuleOpportunities",
                         "value": "Opportunities",
@@ -94,7 +139,7 @@ function getAvailableSearchModules() {
                     $('#AvailableSearchModulesFieldSet').append(OpportunitySearchModuleOptionlabel);
                     $("input[type='checkbox']").checkboxradio();
                 }
-                 if ($.inArray("Leads", availableModulesData.modules)) {
+                if ($.inArray("Leads", availableModulesData.modules)) {
                     var leadsSearchModuleOption = $("<input/>", {
                         id: "SearchModuleLeads",
                         "value": "Contacts",

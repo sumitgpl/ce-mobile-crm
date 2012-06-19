@@ -58,8 +58,10 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
     $.ajaxSetup({async:false});
     $.getScript('l10n/ui_resources_' + currentLocale + '-' + scriptVersion + '.js');
     $.ajaxSetup({async:true});
+    $('.BackButton').text(RES_ACTION_BACK);
     $('.AboutApplicationClass').text(RES_ABOUT_APPLICATION_MENU_ITEM);
     $('.AboutApplicationClass .ui-btn-text').text(RES_ABOUT_APPLICATION_MENU_ITEM);
+    $('#SearchResultsPageHeader').text(RES_SEARCH_RESULTS_TITLE);
     $('#UsernameLabel').text(RES_USERNAME_LABEL);
     $('#UsernameLabel').text(RES_USERNAME_LABEL);
     $('#PasswordLabel').text(RES_PASSWORD_LABEL);
@@ -189,6 +191,10 @@ $('#SearchListPage').live('pagecreate',function(event,ui) {
     $('#SearchPageHeader').text(RES_SEARCH_PAGE_HEADER);
     $('#SearchModulesLabel').html(RES_SELECT_MODULES_TO_SEARCH);
     $('#SearchPagePerformSearchButton').text(RES_SEARCH_PAGE_BUTTON);
+});
+
+$('#SearchResultsPage').live('pageshow',function(event,ui){
+   SearchByModule();
 });
 /* Redirect to the Login Page if no session exists */
 $('#HomePage').live('pageshow',function(event,ui) {
