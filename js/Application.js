@@ -43,22 +43,13 @@ var CurrentServerAddress = '../';
 var currentLocale = "en_US";
 var scriptVersion = "1.0.0";
 
-
-function hideAddressBar()
-{
-  if(!window.location.hash)
-  {
-      if(document.height < window.outerHeight)
-      {
-          document.body.style.height = (window.outerHeight + 50) + 'px';
-      }
-
-      setTimeout( function(){window.scrollTo(0, 1);}, 50 );
-  }
+function enableFullScreenView() {
+$(window).scroll(function(e) {
+    if ($(window).scrollTop() <= 50) {
+        window.scrollTo(0, 1);
+    }
+});
 }
-
-window.addEventListener("load", function(){if(!window.pageYOffset){hideAddressBar();}} );
-window.addEventListener("orientationchange", hideAddressBar );
 
 $('#LoginPage').live('pagecreate',function(event,ui) {
     if ((getURLParameter("localeInfo") !== null) && (getURLParameter("localeInfo").length > 0)) {
@@ -97,6 +88,7 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
 
 
 $('#LoginPage').live('pageshow',function(event,ui) {
+    window.scrollTo(0, 1);
     var username = getCookie("username");
     if (username!=null && username!="") {
         $('#SettingsPageSugarCrmUsername').val(username);
@@ -113,6 +105,11 @@ $('#LoginPage').live('pageshow',function(event,ui) {
             });
         }
     });
+});
+
+$('#HomePage').live('pageshow',function(event,ui){
+   window.scrollTo(0, 1);
+   enableFullScreenView();
 });
 
 $('#AboutPage').live('pagecreate',function(event,ui) {
