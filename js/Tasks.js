@@ -26,7 +26,7 @@ function SugarCrmGetTasksListFromServer(offset) {
                     }
                     if ((tasksList.next_offset == 0) || (tasksList.result_count == 0))
                     {
-                        alert('There are no more records in that direction');
+                        alert(RES_NO_RECORDS_TEXT);
                     } else {
                         $('#AllTasksListDiv li').remove();
 
@@ -168,8 +168,7 @@ function getTaskRelatedContactsInsetList() {
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Tasks","module_id":"' + CurrentTaskId + '","link_field_name":"contacts","related_module_query":"","related_fields":["id","first_name","last_name","title"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        if (data != undefined) {
-            $('#ViewTaskDetailsPageContactsListUl').append("<li data-role=\"list-divider\">Contacts</li>");
+        if (data != undefined) {            
             var taskContactsList = jQuery.parseJSON(data);
             if ((taskContactsList.name !== undefined) && (taskContactsList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -178,6 +177,7 @@ function getTaskRelatedContactsInsetList() {
             if ((taskContactsList != undefined) && (taskContactsList.entry_list != undefined)) {
                 if (taskContactsList.entry_list.length>0)
                 {
+                    $('#ViewTaskDetailsPageContactsListUl').append("<li data-role=\"list-divider\">Contacts</li>");
                     var intTaskContact = 0;
                     for(intTaskContact=0;intTaskContact<=taskContactsList.entry_list.length;intTaskContact++)
                     {
@@ -203,13 +203,7 @@ function getTaskRelatedContactsInsetList() {
                             $('#ViewTaskDetailsPageContactsListUl').append(taskContactListItem);
                         }
                     }
-                }
-                else {
-                    var taskContactEmptyListItem = $("<li/>");
-                    var contactContactEmptyListHeader = "<h4>No Data</h4>";
-                    taskContactEmptyListItem.append(contactContactEmptyListHeader);
-                    $('#ViewTaskDetailsPageContactsListUl').append(taskContactEmptyListItem);
-                }
+                }                
             }
             $('#ViewTaskDetailsPageContactsListUl').listview("refresh");
         }
@@ -225,8 +219,7 @@ function getTaskRelatedUsersInsetList() {
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Tasks","module_id":"' + CurrentTaskId + '","link_field_name":"users","related_module_query":"","related_fields":["id","first_name","last_name","title"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        if (data != undefined) {
-            $('#ViewTaskDetailsPageUsersListUl').append("<li data-role=\"list-divider\">Users</li>");
+        if (data != undefined) {            
             var taskUsersList = jQuery.parseJSON(data);
             if ((taskUsersList.name !== undefined) && (taskUsersList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -235,6 +228,7 @@ function getTaskRelatedUsersInsetList() {
             if ((taskUsersList != undefined) && (taskUsersList.entry_list != undefined)) {
                 if (taskUsersList.entry_list.length>0)
                 {
+                    $('#ViewTaskDetailsPageUsersListUl').append("<li data-role=\"list-divider\">Users</li>");
                     var intTaskUser = 0;
                     for(intTaskUser=0;intTaskUser<=taskUsersList.entry_list.length;intTaskUser++)
                     {
@@ -248,12 +242,6 @@ function getTaskRelatedUsersInsetList() {
                             $('#ViewTaskDetailsPageUsersListUl').append(taskUserListItem);
                         }
                     }
-                }
-                else {
-                    var taskUserEmptyListItem = $("<li/>");
-                    var taskUserEmptyListHeader = "<h4>No Data</h4>";
-                    taskUserEmptyListItem.append(taskUserEmptyListHeader);
-                    $('#ViewTaskDetailsPageUsersListUl').append(taskUserEmptyListItem);
                 }
             }
             $('#ViewTaskDetailsPageUsersListUl').listview("refresh");
@@ -270,8 +258,7 @@ function getTaskRelatedLeadsInsetList() {
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Tasks","module_id":"' + CurrentTaskId + '","link_field_name":"leads","related_module_query":"","related_fields":["id","first_name","last_name","title"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        if (data != undefined) {
-            $('#ViewTaskDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
+        if (data != undefined) {            
             var taskLeadsList = jQuery.parseJSON(data);
             if ((taskLeadsList.name !== undefined) && (taskLeadsList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -280,6 +267,7 @@ function getTaskRelatedLeadsInsetList() {
             if ((taskLeadsList != undefined) && (taskLeadsList.entry_list != undefined)) {
                 if (taskLeadsList.entry_list.length>0)
                 {
+                    $('#ViewTaskDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
                     var intTaskLead = 0;
                     for(intTaskLead=0;intTaskLead<=taskLeadsList.entry_list.length;intTaskLead++)
                     {
@@ -309,13 +297,7 @@ function getTaskRelatedLeadsInsetList() {
                             $('#ViewTaskDetailsPageLeadsListUl').append(taskLeadListItem);
                         }
                     }
-                }
-                else {
-                    var taskLeadEmptyListItem = $("<li/>");
-                    var taskLeadEmptyListHeader = "<h4>No Data</h4>";
-                    taskLeadEmptyListItem.append(taskLeadEmptyListHeader);
-                    $('#ViewTaskDetailsPageLeadsListUl').append(taskLeadEmptyListItem);
-                }
+                }                
             }
             $('#ViewTaskDetailsPageLeadsListUl').listview("refresh");
         }

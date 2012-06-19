@@ -26,7 +26,7 @@ function SugarCrmGetCallsListFromServer(offset) {
                     }
                     if ((callsList.next_offset == 0) || (callsList.result_count == 0))
                     {
-                        alert('There are no more records in that direction');
+                        alert(RES_NO_RECORDS_TEXT);
                     } else {
                         $('#AllCallsListDiv li').remove();
 
@@ -172,7 +172,6 @@ function getCallRelatedContactsInsetList() {
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Calls","module_id":"' + CurrentCallId + '","link_field_name":"contacts","related_module_query":"","related_fields":["id","first_name","last_name","title"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
         if (data != undefined) {
-            $('#ViewCallDetailsPageContactsListUl').append("<li data-role=\"list-divider\">Contacts</li>");
             var callContactsList = jQuery.parseJSON(data);
             if ((callContactsList.name !== undefined) && (callContactsList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -181,6 +180,7 @@ function getCallRelatedContactsInsetList() {
             if ((callContactsList != undefined) && (callContactsList.entry_list != undefined)) {
                 if (callContactsList.entry_list.length>0)
                 {
+                    $('#ViewCallDetailsPageContactsListUl').append("<li data-role=\"list-divider\">Contacts</li>");
                     var intCallContact = 0;
                     for(intCallContact=0;intCallContact<=callContactsList.entry_list.length;intCallContact++)
                     {
@@ -207,12 +207,6 @@ function getCallRelatedContactsInsetList() {
                         }
                     }
                 }
-                else {
-                    var callContactEmptyListItem = $("<li/>");
-                    var contactContactEmptyListHeader = "<h4>No Data</h4>";
-                    callContactEmptyListItem.append(contactContactEmptyListHeader);
-                    $('#ViewCallDetailsPageContactsListUl').append(callContactEmptyListItem);
-                }
             }
             $('#ViewCallDetailsPageContactsListUl').listview("refresh");
         }
@@ -229,7 +223,6 @@ function getCallRelatedUsersInsetList() {
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Calls","module_id":"' + CurrentCallId + '","link_field_name":"users","related_module_query":"","related_fields":["id","first_name","last_name","title"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
         if (data != undefined) {
-            $('#ViewCallDetailsPageUsersListUl').append("<li data-role=\"list-divider\">Users</li>");
             var callUsersList = jQuery.parseJSON(data);
             if ((callUsersList.name !== undefined) && (callUsersList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -238,6 +231,7 @@ function getCallRelatedUsersInsetList() {
             if ((callUsersList != undefined) && (callUsersList.entry_list != undefined)) {
                 if (callUsersList.entry_list.length>0)
                 {
+                    $('#ViewCallDetailsPageUsersListUl').append("<li data-role=\"list-divider\">Users</li>");
                     var intCallUser = 0;
                     for(intCallUser=0;intCallUser<=callUsersList.entry_list.length;intCallUser++)
                     {
@@ -251,12 +245,6 @@ function getCallRelatedUsersInsetList() {
                             $('#ViewCallDetailsPageUsersListUl').append(callUserListItem);
                         }
                     }
-                }
-                else {
-                    var callUserEmptyListItem = $("<li/>");
-                    var callUserEmptyListHeader = "<h4>No Data</h4>";
-                    callUserEmptyListItem.append(callUserEmptyListHeader);
-                    $('#ViewCallDetailsPageUsersListUl').append(callUserEmptyListItem);
                 }
             }
             $('#ViewCallDetailsPageUsersListUl').listview("refresh");
@@ -274,7 +262,6 @@ function getCallRelatedLeadsInsetList() {
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Calls","module_id":"' + CurrentCallId + '","link_field_name":"leads","related_module_query":"","related_fields":["id","first_name","last_name","title"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
         if (data != undefined) {
-            $('#ViewCallDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
             var callLeadsList = jQuery.parseJSON(data);
             if ((callLeadsList.name !== undefined) && (callLeadsList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -283,6 +270,7 @@ function getCallRelatedLeadsInsetList() {
             if ((callLeadsList != undefined) && (callLeadsList.entry_list != undefined)) {
                 if (callLeadsList.entry_list.length>0)
                 {
+                    $('#ViewCallDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
                     var intCallLead = 0;
                     for(intCallLead=0;intCallLead<=callLeadsList.entry_list.length;intCallLead++)
                     {
@@ -313,12 +301,6 @@ function getCallRelatedLeadsInsetList() {
                         }
                     }
                 }
-                else {
-                    var callLeadEmptyListItem = $("<li/>");
-                    var callLeadEmptyListHeader = "<h4>No Data</h4>";
-                    callLeadEmptyListItem.append(callLeadEmptyListHeader);
-                    $('#ViewCallDetailsPageLeadsListUl').append(callLeadEmptyListItem);
-                }
             }
             $('#ViewCallDetailsPageLeadsListUl').listview("refresh");
         }
@@ -333,8 +315,7 @@ function getCallRelatedNotesInsetList() {
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId + '","module_name":"Calls","module_id":"' + CurrentCallId + '","link_field_name":"notes","related_module_query":"","related_fields":["id","name","description","date_entered"],"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        if (data != undefined) {
-            $('#ViewCallDetailsPageNotesListUl').append("<li data-role=\"list-divider\">Notes</li>");
+        if (data != undefined) {            
             var callNotesList = jQuery.parseJSON(data);
             if ((callNotesList.name !== undefined) && (callNotesList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -343,6 +324,7 @@ function getCallRelatedNotesInsetList() {
             if ((callNotesList != undefined) && (callNotesList.entry_list != undefined)) {
                 if (callNotesList.entry_list.length>0)
                 {
+                    $('#ViewCallDetailsPageNotesListUl').append("<li data-role=\"list-divider\">Notes</li>");
                     var intNoteLead = 0;
                     for(intNoteLead=0;intNoteLead<=callNotesList.entry_list.length;intNoteLead++)
                     {
@@ -372,12 +354,6 @@ function getCallRelatedNotesInsetList() {
                             $('#ViewCallDetailsPageNotesListUl').append(callNoteListItem);
                         }
                     }
-                }
-                else {
-                    var callLeadEmptyListItem = $("<li/>");
-                    var callLeadEmptyListHeader = "<h4>No Data</h4>";
-                    callLeadEmptyListItem.append(callLeadEmptyListHeader);
-                    $('#ViewCallDetailsPageNotesListUl').append(callLeadEmptyListItem);
                 }
             }
             $('#ViewCallDetailsPageNotesListUl').listview("refresh");

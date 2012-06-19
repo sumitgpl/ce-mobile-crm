@@ -26,7 +26,7 @@ function SugarCrmGetOpportunitiesListFromServer(offset) {
                     }
                     if ((opportunitiesList.next_offset == 0) || (opportunitiesList.result_count == 0))
                     {
-                        alert('There are no more records in that direction');
+                        alert(RES_NO_RECORDS_TEXT);
                     }
                     else {
                         $('#AllOpportunitiesListDiv li').remove();
@@ -190,10 +190,10 @@ function getOpportunityRelatedContactsInsetList() {
                 SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
-            if ((opportunityContactsList != undefined) && (opportunityContactsList.entry_list != undefined)) {
-                $('#ViewOpportunityDetailsPageContactsListUl').append("<li data-role=\"list-divider\">Contacts</li>");
+            if ((opportunityContactsList != undefined) && (opportunityContactsList.entry_list != undefined)) {                
                 if (opportunityContactsList.entry_list.length>0)
                 {
+                    $('#ViewOpportunityDetailsPageContactsListUl').append("<li data-role=\"list-divider\">Contacts</li>");
                     var intOpportunityContact = 0;
                     for(intOpportunityContact=0;intOpportunityContact<=opportunityContactsList.entry_list.length;intOpportunityContact++)
                     {
@@ -220,12 +220,6 @@ function getOpportunityRelatedContactsInsetList() {
                         }
                     }
                 }
-                else {
-                    var opportunityContactEmptyListItem = $("<li/>");
-                    var opportunityContactEmptyListHeader = "<h4>No Data</h4>";
-                    opportunityContactEmptyListItem.append(opportunityContactEmptyListHeader);
-                    $('#ViewOpportunityDetailsPageContactsListUl').append(opportunityContactEmptyListItem);
-                }
             }
             $('#ViewOpportunityDetailsPageContactsListUl').listview("refresh");
         }
@@ -248,10 +242,10 @@ function getOpportunityRelatedLeadsInsetList() {
                 SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
-            if ((opportunityLeadsList != undefined) && (opportunityLeadsList.entry_list != undefined)) {
-                $('#ViewOpportunityDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
+            if ((opportunityLeadsList != undefined) && (opportunityLeadsList.entry_list != undefined)) {                
                 if (opportunityLeadsList.entry_list.length>0)
                 {
+                    $('#ViewOpportunityDetailsPageLeadsListUl').append("<li data-role=\"list-divider\">Leads</li>");
                     var intOpportunityLead = 0;
                     for(intOpportunityLead=0;intOpportunityLead<=opportunityLeadsList.entry_list.length;intOpportunityLead++)
                     {
@@ -281,13 +275,7 @@ function getOpportunityRelatedLeadsInsetList() {
                             $('#ViewOpportunityDetailsPageLeadsListUl').append(opportunityLeadListItem);
                         }
                     }
-                }
-                else {
-                    var opportunityLeadEmptyListItem = $("<li/>");
-                    var opportunityLeadEmptyListHeader = "<h4>No Data</h4>";
-                    opportunityLeadEmptyListItem.append(opportunityLeadEmptyListHeader);
-                    $('#ViewOpportunityDetailsPageLeadsListUl').append(opportunityLeadEmptyListItem);
-                }
+                }                
             }
             $('#ViewOpportunityDetailsPageLeadsListUl').listview("refresh");
         }
@@ -316,10 +304,10 @@ function getOpportunityRelatedCallsInsetList() {
                 SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
-            if ((opportunityCallsList != undefined) && (opportunityCallsList.entry_list != undefined)) {
-                $('#ViewOpportunityDetailsPageCallsListUl').append("<li data-role=\"list-divider\">Calls</li>");
+            if ((opportunityCallsList != undefined) && (opportunityCallsList.entry_list != undefined)) {                
                 if (opportunityCallsList.entry_list.length>0)
                 {
+                    $('#ViewOpportunityDetailsPageCallsListUl').append("<li data-role=\"list-divider\">Calls</li>");
                     var intOpportunityCall = 0;
                     for(intOpportunityCall=0;intOpportunityCall<=opportunityCallsList.entry_list.length;intOpportunityCall++)
                     {
@@ -356,12 +344,6 @@ function getOpportunityRelatedCallsInsetList() {
                         }
                     }
                 }
-                else {
-                    var opportunityCallEmptyListItem = $("<li/>");
-                    var opportunityCallEmptyListHeader = "<h4>No Data</h4>";
-                    opportunityCallEmptyListItem.append(opportunityCallEmptyListHeader);
-                    $('#ViewOpportunityDetailsPageCallsListUl').append(opportunityCallEmptyListItem);
-                }
             }
             $('#ViewOpportunityDetailsPageCallsListUl').listview("refresh");
         }
@@ -391,10 +373,10 @@ function getOpportunityRelatedMeetingsInsetList() {
                 SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
-            if ((opportunityMeetingsList != undefined) && (opportunityMeetingsList.entry_list != undefined)) {
-                $('#ViewOpportunityDetailsPageMeetingsListUl').append("<li data-role=\"list-divider\">Meetings</li>");
+            if ((opportunityMeetingsList != undefined) && (opportunityMeetingsList.entry_list != undefined)) {                
                 if (opportunityMeetingsList.entry_list.length>0)
                 {
+                    $('#ViewOpportunityDetailsPageMeetingsListUl').append("<li data-role=\"list-divider\">Meetings</li>");
                     var intOpportunityMeeting = 0;
                     for(intOpportunityMeeting=0;intOpportunityMeeting<=opportunityMeetingsList.entry_list.length;intOpportunityMeeting++)
                     {
@@ -429,13 +411,7 @@ function getOpportunityRelatedMeetingsInsetList() {
                             $('#ViewOpportunityDetailsPageMeetingsListUl').append(opportunityMeetingListItem);
                         }
                     }
-                }
-                else {
-                    var opportunityMeetingEmptyListItem = $("<li/>");
-                    var opportunityMeetingEmptyListHeader = "<h4>No Data</h4>";
-                    opportunityMeetingEmptyListItem.append(opportunityMeetingEmptyListHeader);
-                    $('#ViewOpportunityDetailsPageMeetingsListUl').append(opportunityMeetingEmptyListItem);
-                }
+                }              
             }
             $('#ViewOpportunityDetailsPageMeetingsListUl').listview("refresh");
         }
@@ -465,10 +441,10 @@ function getOpportunityRelatedTasksInsetList() {
                 SugarSessionId = '';
                 $.mobile.changePage('#LoginPage');
             }
-            if ((opportunityTasksList != undefined) && (opportunityTasksList.entry_list != undefined)) {
-                $('#ViewOpportunityDetailsPageTasksListUl').append("<li data-role=\"list-divider\">Tasks</li>");
+            if ((opportunityTasksList != undefined) && (opportunityTasksList.entry_list != undefined)) {                
                 if (opportunityTasksList.entry_list.length>0)
                 {
+                    $('#ViewOpportunityDetailsPageTasksListUl').append("<li data-role=\"list-divider\">Tasks</li>");
                     var intOpportunityTask = 0;
                     for(intOpportunityTask=0;intOpportunityTask<=opportunityTasksList.entry_list.length;intOpportunityTask++)
                     {
@@ -503,13 +479,7 @@ function getOpportunityRelatedTasksInsetList() {
                             $('#ViewOpportunityDetailsPageTasksListUl').append(opportunityTaskListItem);
                         }
                     }
-                }
-                else {
-                    var opportunityTaskEmptyListItem = $("<li/>");
-                    var opportunityTaskEmptyListHeader = "<h4>No Data</h4>";
-                    opportunityTaskEmptyListItem.append(opportunityTaskEmptyListHeader);
-                    $('#ViewOpportunityDetailsPageTasksListUl').append(opportunityTaskEmptyListItem);
-                }
+                }                
             }
             $('#ViewOpportunityDetailsPageTasksListUl').listview("refresh");
         }

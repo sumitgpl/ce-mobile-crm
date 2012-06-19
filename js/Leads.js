@@ -26,7 +26,7 @@ function SugarCrmGetLeadsListFromServer(offset) {
                     }
                     if ((leadsList.next_offset == 0) || (leadsList.result_count == 0))
                     {
-                        alert('There are no more records in that direction');
+                        alert(RES_NO_RECORDS_TEXT);
                     }
                     else {
                         $('#AllLeadsListDiv li').remove();
@@ -290,8 +290,7 @@ function getLeadRelatedCallsInsetList() {
         '"related_fields":["id","name","status","date_start"],' +
         '"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        if (data != undefined) {
-            $('#ViewLeadDetailsPageCallsListUl').append("<li data-role=\"list-divider\">Calls</li>");
+        if (data != undefined) {            
             var leadCallsList = jQuery.parseJSON(data);
             if ((leadCallsList.name !== undefined) && (leadCallsList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -300,6 +299,7 @@ function getLeadRelatedCallsInsetList() {
             if ((leadCallsList != undefined) && (leadCallsList.entry_list != undefined)) {
                 if (leadCallsList.entry_list.length>0)
                 {
+                    $('#ViewLeadDetailsPageCallsListUl').append("<li data-role=\"list-divider\">Calls</li>");
                     var intLeadCall = 0;
                     for(intLeadCall=0;intLeadCall<=leadCallsList.entry_list.length;intLeadCall++)
                     {
@@ -333,13 +333,7 @@ function getLeadRelatedCallsInsetList() {
                             $('#ViewLeadDetailsPageCallsListUl').append(leadCallListItem);
                         }
                     }
-                }
-                else {
-                    var leadCallEmptyListItem = $("<li/>");
-                    var leadCallEmptyListHeader = "<h4>No Data</h4>";
-                    leadCallEmptyListItem.append(leadCallEmptyListHeader);
-                    $('#ViewLeadDetailsPageCallsListUl').append(leadCallEmptyListItem);
-                }
+                }               
             }
             $('#ViewLeadDetailsPageCallsListUl').listview("refresh");
         }
@@ -360,8 +354,7 @@ function getLeadRelatedMeetingsInsetList() {
         '"related_fields":["id","name","status","date_start"],' +
         '"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        if (data != undefined) {
-            $('#ViewLeadDetailsPageMeetingsListUl').append("<li data-role=\"list-divider\">Meetings</li>");
+        if (data != undefined) {            
             var leadMeetingsList = jQuery.parseJSON(data);
             if ((leadMeetingsList.name !== undefined) && (leadMeetingsList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -370,6 +363,7 @@ function getLeadRelatedMeetingsInsetList() {
             if ((leadMeetingsList != undefined) && (leadMeetingsList.entry_list != undefined)) {
                 if (leadMeetingsList.entry_list.length>0)
                 {
+                    $('#ViewLeadDetailsPageMeetingsListUl').append("<li data-role=\"list-divider\">Meetings</li>");
                     var intLeadMeeting = 0;
                     for(intLeadMeeting=0;intLeadMeeting<=leadMeetingsList.entry_list.length;intLeadMeeting++)
                     {
@@ -402,13 +396,7 @@ function getLeadRelatedMeetingsInsetList() {
                             $('#ViewLeadDetailsPageMeetingsListUl').append(leadMeetingListItem);
                         }
                     }
-                }
-                else {
-                    var leadMeetingEmptyListItem = $("<li/>");
-                    var leadMeetingEmptyListHeader = "<h4>No Data</h4>";
-                    leadMeetingEmptyListItem.append(leadMeetingEmptyListHeader);
-                    $('#ViewLeadDetailsPageMeetingsListUl').append(leadMeetingEmptyListItem);
-                }
+                }              
             }
             $('#ViewLeadDetailsPageMeetingsListUl').listview("refresh");
         }
@@ -429,8 +417,7 @@ function getLeadRelatedTasksInsetList() {
         '"related_fields":["id","name","status","date_start"],' +
         '"related_module_link_name_to_fields_array":"","deleted":0}'
     }, function(data) {
-        if (data != undefined) {
-            $('#ViewLeadDetailsPageTasksListUl').append("<li data-role=\"list-divider\">Tasks</li>");
+        if (data != undefined) {            
             var leadTasksList = jQuery.parseJSON(data);
             if ((leadTasksList.name !== undefined) && (leadTasksList.name === "Invalid Session ID")) {
                 SugarSessionId = '';
@@ -439,6 +426,7 @@ function getLeadRelatedTasksInsetList() {
             if ((leadTasksList != undefined) && (leadTasksList.entry_list != undefined)) {
                 if (leadTasksList.entry_list.length>0)
                 {
+                    $('#ViewLeadDetailsPageTasksListUl').append("<li data-role=\"list-divider\">Tasks</li>");
                     var intLeadTask = 0;
                     for(intLeadTask=0;intLeadTask<=leadTasksList.entry_list.length;intLeadTask++)
                     {
@@ -471,13 +459,7 @@ function getLeadRelatedTasksInsetList() {
                             $('#ViewLeadDetailsPageTasksListUl').append(leadTaskListItem);
                         }
                     }
-                }
-                else {
-                    var leadTaskEmptyListItem = $("<li/>");
-                    var leadTaskEmptyListHeader = "<h4>No Data</h4>";
-                    leadTaskEmptyListItem.append(leadTaskEmptyListHeader);
-                    $('#ViewLeadDetailsPageTasksListUl').append(leadTaskEmptyListItem);
-                }
+                }               
             }
             $('#ViewLeadDetailsPageTasksListUl').listview("refresh");
         }

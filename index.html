@@ -112,7 +112,6 @@
                         </a>
                     </div>
                 </div>
-                <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
             </div><!-- /content -->
             <div data-role="footer" data-position="fixed" data-theme="b">
                 <div id="MainMenuNavBar" data-role="navbar">
@@ -573,11 +572,13 @@
                     <label id="NewContactDescriptionLabel" for="NewContactDescriptionTextArea">REPLACEMENT_TEXT</label>
                     <textarea id="NewContactDescriptionTextArea"></textarea>
                 </div>
-                <div class="ui-body ui-body-b">
-                    <fieldset class="ui-grid-a">
-                        <div class="ui-block-a"><button id="SaveNewContactButton" class="SaveButtonClass" type="submit" data-theme="d" onclick="SugarCrmAddNewContact();">REPLACEMENT_TEXT</button></div>
-                        <div class="ui-block-b"><button id="CancelNewContactButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
-                    </fieldset>
+            </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmAddNewContact();"  class="SaveButtonClass" data-icon="check"></a></li>
+                        <li><a href="#HomePage" class="CancelButtonClass" data-icon="back"></a></li>
+                    </ul>
                 </div>
             </div>
         </div>

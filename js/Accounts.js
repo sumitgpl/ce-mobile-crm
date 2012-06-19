@@ -5,6 +5,7 @@
 * REST API then binds each of the items to the list view.
 */
 function SugarCrmGetAccountsListFromServer(offset) {
+    $.mobile.showPageLoadingMsg("b", "This is only a test", true);
     var existingList = $('#AllAccountsListDiv li');
     if ((existingList.length === 0) || (AccountsListCurrentOffset !== offset)) {
         $.mobile.showPageLoadingMsg();
@@ -635,6 +636,9 @@ function SugarCrmGetAccountDetails() {
 
 function SugarCrmAddNewAccount() {
     $.mobile.showPageLoadingMsg();
+    $('#CreateNewAccountPageCreateAccountForm input').each(function(item,index){
+       $(item).change();
+    });
     if ($('#CreateNewAccountPageCreateAccountForm .invalid').length <= 0) {
          $.get(CurrentServerAddress + '/service/v2/rest.php', {
 	method: "set_entry",
