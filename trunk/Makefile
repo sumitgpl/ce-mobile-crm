@@ -1,27 +1,28 @@
 VER = $(shell cat version.txt)
 
-DIR = ce-mobile-crm-${VER}
+DIR = ../ce-mobile-crm-${VER}
 MAX = Application.js
 MIN = Application.min.js
 CSS = style.css
 CSSMIN = style.min.css
 ZIP = ${DIR}.zip
 
-JSFILES = js/LanguageResources.js \
+JSFILES = js/Accounts.js \
   js/Application.js \
-  js/Accounts.js \
-  js/Contacts.js \
-  js/Opportunities.js \
-  js/Leads.js \
   js/Calls.js \
-  js/Meetings.js \
-  js/Tasks.js \
-  js/Notes.js \
+  js/Contacts.js \
+  js/Leads.js \
   js/Md5.js \
-  js/jquery.mobile-config.js
+  js/Meetings.js \
+  js/Notes.js \
+  js/Opportunities.js \
+  js/SearchByModule.js \
+  js/Tasks.js \
+  js/jquery.mobile-config.js \
 
 CSSFILES = css/style.css \
-  lib/jquery.mobile/ce-mobile-crm.css \
+
+build: cssmin jsmin deploy usemin rmmax zip
 
 all: clean cssmin jsmin deploy usemin rmmax zip
 
@@ -48,6 +49,9 @@ jsmin:
 
 deploy: 
 	@@cp -R lib/ ${DIR}/lib/
+	@@cp -R theme/ ${DIR}/theme/
+	@@cp -R l10n/ ${DIR}/l10n/
+	@@rm ${DIR}/theme/ce-mobile-crm.css
 	@@cp js/jquery.mobile-config.js ${DIR}/js/
 	@@cp -R images/ ${DIR}/images/
 	@@sed -e '/<!-- JS BEGIN -->/{:z;N;/<!-- JS END -->/!bz;d}' index.html > ${DIR}/index.html
@@ -63,9 +67,6 @@ usemin:
 rmmax:
 	@@rm  ${DIR}/js/Application.js
 	@@rm  ${DIR}/css/style.css
-	@@rm  ${DIR}/lib/jquery-1.6.2.js
-	@@rm  ${DIR}/lib/jquery.mobile/jquery.mobile-1.0b2.js
-	@@rm  ${DIR}/lib/jquery.mobile/jquery.mobile-1.0b2.css
 
 zip:
 	@@zip -rq ${ZIP} ${DIR}
