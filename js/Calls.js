@@ -1,4 +1,5 @@
 function SugarCrmGetCallsListFromServer(offset) {
+    $.mobile.showPageLoadingMsg();
     var existingList = $('#AllCallsListDiv li');
     if ((existingList.length === 0) || (CallsListCurrentOffset !== offset)) {
         
@@ -63,9 +64,9 @@ function SugarCrmGetCallsListFromServer(offset) {
                     }
                 }
             }
-            
+            $.mobile.hidePageLoadingMsg();
         });
-    }
+    } else { $.mobile.hidePageLoadingMsg(); }
 }
 
 function SugarCrmGetCallDetails() {

@@ -1,4 +1,5 @@
 function SugarCrmGetTasksListFromServer(offset) {
+    $.mobile.showPageLoadingMsg();
     var existingList = $('#AllTasksListDiv li');
     if ((existingList.length === 0) || (TasksListCurrentOffset !== offset)) {
         
@@ -61,9 +62,9 @@ function SugarCrmGetTasksListFromServer(offset) {
                     }
                 }
             }
-            
+            $.mobile.hidePageLoadingMsg();
         });
-    }
+    } else { $.mobile.hidePageLoadingMsg(); }
 }
 
 function SugarCrmGetTaskDetails() {
