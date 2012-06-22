@@ -328,6 +328,14 @@
                     <ul id="ViewContactDetailsPageTasksListUl" data-role="listview" data-inset="true" data-theme="d"/>
                 </div>
             </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmEditExistingContact();"  class="EditRecordClass" data-icon="pencil"></a></li>
+                        <li><a href="javascript:SugarCrmDeleteExistingContact()" class="DeleteRecordClass" data-icon="trash"></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div data-role="page" id="ViewOpportunityDetailsPage" data-theme="a">
@@ -362,6 +370,14 @@
                     <ul id="ViewOpportunityDetailsPageTasksListUl" data-role="listview" data-inset="true" data-theme="d"/>
                 </div>
             </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmEditExistingOpportunity();"  class="EditRecordClass" data-icon="pencil"></a></li>
+                        <li><a href="javascript:SugarCrmDeleteExistingOpportunity()" class="DeleteRecordClass" data-icon="trash"></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div data-role="page" id="ViewLeadDetailsPage" data-theme="a">
@@ -386,6 +402,14 @@
 
                 <div>
                     <ul id="ViewLeadDetailsPageTasksListUl" data-role="listview" data-inset="true" data-theme="d"/>
+                </div>
+            </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmEditExistingLead();"  class="EditRecordClass" data-icon="pencil"></a></li>
+                        <li><a href="javascript:SugarCrmDeleteExistingLead()" class="DeleteRecordClass" data-icon="trash"></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -418,6 +442,14 @@
                     <ul id="ViewCallDetailsPageNotesListUl" data-role="listview" data-inset="true" data-theme="d"/>
                 </div>
             </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmEditExistingCall();"  class="EditRecordClass" data-icon="pencil"></a></li>
+                        <li><a href="javascript:SugarCrmDeleteExistingCall()" class="DeleteRecordClass" data-icon="trash"></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div data-role="page" id="ViewMeetingDetailsPage" data-theme="a">
@@ -448,6 +480,14 @@
                     <ul id="ViewMeetingDetailsPageNotesListUl" data-role="listview" data-inset="true" data-theme="d"/>
                 </div>
             </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmEditExistingMeeting();"  class="EditRecordClass" data-icon="pencil"></a></li>
+                        <li><a href="javascript:SugarCrmDeleteExistingMeeting()" class="DeleteRecordClass" data-icon="trash"></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div data-role="page" id="ViewTaskDetailsPage" data-theme="a">
@@ -474,6 +514,14 @@
                     <ul id="ViewTaskDetailsPageLeadsListUl" data-role="listview" data-inset="true" data-theme="d"/>
                 </div>
             </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmEditExistingTask();"  class="EditRecordClass" data-icon="pencil"></a></li>
+                        <li><a href="javascript:SugarCrmDeleteExistingTask()" class="DeleteRecordClass" data-icon="trash"></a></li>
+                    </ul>
+                </div>
+            </div>
         </div>
 
         <div data-role="page" id="ViewNoteDetailsPage" data-theme="a">
@@ -487,6 +535,14 @@
                 <p id="NoteTextP"></p>
                 <div>
                     <ul id="ViewNoteDetailsPageDetailsList" data-role="listview" data-inset="true" data-theme="d"/>
+                </div>
+            </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmEditExistingNote();"  class="EditRecordClass" data-icon="pencil"></a></li>
+                        <li><a href="javascript:SugarCrmDeleteExistingNote()" class="DeleteRecordClass" data-icon="trash"></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -635,11 +691,13 @@
                     <label id="OpportunityNameLabel" for="OpportunityNameTextBox">REPLACEMENT_TEXT</label>
                     <input id="OpportunityNameTextBox" type="text" />
                 </div>
-                <div class="ui-body ui-body-b">
-                    <fieldset class="ui-grid-a">
-                        <div class="ui-block-a"><button id="SaveNewOpportunityButton" class="SaveButtonClass" type="submit" data-theme="d">REPLACEMENT_TEXT</button></div>
-                        <div class="ui-block-b"><button id="CancelNewOpportunityButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
-                    </fieldset>
+            </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmAddNewOpportunity();"  class="SaveButtonClass" data-icon="check"></a></li>
+                        <li><a href="#HomePage" class="CancelButtonClass" data-icon="back"></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -653,11 +711,13 @@
                     <label id="LeadNameLabel" for="LeadNameTextBox">REPLACEMENT_TEXT</label>
                     <input id="LeadNameTextBox" type="text" />
                 </div>
-                <div class="ui-body ui-body-b">
-                    <fieldset class="ui-grid-a">
-                        <div class="ui-block-a"><button id="SaveNewLeadButton" class="SaveButtonClass" type="submit" data-theme="d">REPLACEMENT_TEXT</button></div>
-                        <div class="ui-block-b"><button id="CancelNewLeadButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
-                    </fieldset>
+            </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmAddNewLead();"  class="SaveButtonClass" data-icon="check"></a></li>
+                        <li><a href="#HomePage" class="CancelButtonClass" data-icon="back"></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -671,11 +731,13 @@
                     <label id="CallNameLabel" for="CallNameTextBox">REPLACEMENT_TEXT</label>
                     <input id="CallNameTextBox" type="text" />
                 </div>
-                <div class="ui-body ui-body-b">
-                    <fieldset class="ui-grid-a">
-                        <div class="ui-block-a"><button id="SaveNewCallButton" class="SaveButtonClass" type="submit" data-theme="d">REPLACEMENT_TEXT</button></div>
-                        <div class="ui-block-b"><button id="CancelNewCallButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
-                    </fieldset>
+            </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmAddNewCall();"  class="SaveButtonClass" data-icon="check"></a></li>
+                        <li><a href="#HomePage" class="CancelButtonClass" data-icon="back"></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -689,11 +751,13 @@
                     <label id="MeetingNameLabel" for="MeetingNameTextBox">REPLACEMENT_TEXT</label>
                     <input id="MeetingNameTextBox" type="text" />
                 </div>
-                <div class="ui-body ui-body-b">
-                    <fieldset class="ui-grid-a">
-                        <div class="ui-block-a"><button id="SaveNewMeetingButton" class="SaveButtonClass" type="submit" data-theme="d">REPLACEMENT_TEXT</button></div>
-                        <div class="ui-block-b"><button id="CancelNewMeetingButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
-                    </fieldset>
+            </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmAddNewMeeting();"  class="SaveButtonClass" data-icon="check"></a></li>
+                        <li><a href="#HomePage" class="CancelButtonClass" data-icon="back"></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
@@ -707,11 +771,13 @@
                     <label id="TaskNameLabel" for="TaskNameTextBox">REPLACEMENT_TEXT</label>
                     <input id="TaskNameTextBox" type="text" />
                 </div>
-                <div class="ui-body ui-body-b">
-                    <fieldset class="ui-grid-a">
-                        <div class="ui-block-a"><button id="SaveNewTaskButton" class="SaveButtonClass" type="submit" data-theme="d">REPLACEMENT_TEXT</button></div>
-                        <div class="ui-block-b"><button id="CancelNewTaskButton" class="CancelButtonClass" type="submit" data-theme="a">REPLACEMENT_TEXT</button></div>
-                    </fieldset>
+            </div>
+             <div data-role="footer" data-position="fixed" data-theme="b">
+                <div data-role="navbar" data-iconpos="top">
+                    <ul>
+                        <li><a href="javascript:SugarCrmAddNewOpportunity();"  class="SaveButtonClass" data-icon="check"></a></li>
+                        <li><a href="#HomePage" class="CancelButtonClass" data-icon="back"></a></li>
+                    </ul>
                 </div>
             </div>
         </div>
