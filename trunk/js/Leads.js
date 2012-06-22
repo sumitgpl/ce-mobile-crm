@@ -469,4 +469,26 @@ function getLeadRelatedTasksInsetList() {
 }
 
 
-
+function SugarCrmDeleteExistingLead() {
+    if (confirm(RES_ACTION_CONFIRM_DELETE)) {
+        $.get(CurrentServerAddress + '/service/v2/rest.php', {
+            method: "set_entry",
+            input_type: "JSON",
+            response_type: "JSON",
+            rest_data: '{"session":"' + SugarSessionId + '",' +
+            '"module":"Leads",' +
+            '"name_value_list":[{"name":"id","value":"' + CurrentLeadId + '"},' +
+            '{"name":"deleted","value":"1"}]}'
+        }, function(data) {
+            if (data !== undefined) {
+                if (data.id === "Invalid Session ID") {
+                    SugarSessionId = '';
+                    $.mobile.changePage('#LoginPage');
+                };
+                $('#AllLeadsListDiv').children().remove('li');
+                $.mobile.hidePageLoadingMsg();
+                $.mobile.changePage('#LeadsListPage');
+            }
+        });
+    }
+}
