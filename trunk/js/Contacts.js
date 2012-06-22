@@ -1,19 +1,19 @@
 function SugarCrmGetContactListFromServer(offset) {
+    $.mobile.showPageLoadingMsg();
     var existingList = $('#AllContactsListDiv li');
-    if ((existingList.length === 0) || (ContactsListCurrentOffset !== offset)) {
-        $.mobile.showPageLoadingMsg();
+    if ((existingList.length === 0) || (ContactsListCurrentOffset !== offset)) {        
         ContactsListCurrentOffset = offset;
         $.get(CurrentServerAddress + '/service/v2/rest.php', {
             method: "get_entry_list",
             input_type: "JSON",
             response_type: "JSON",
             rest_data: '{"session":"' + SugarSessionId + '",' +
-                '"module_name":"Contacts",' +
-                '"query":"",' +
-                '"order_by":"name",' +
-                '"offset":' + offset + ',' +
-                '"select_fields":["first_name","last_name","account_name","title"],' +
-                '"link_name_to_fields_array":"","max_results":' + RowsPerPageInListViews + ',"deleted":0}'
+            '"module_name":"Contacts",' +
+            '"query":"",' +
+            '"order_by":"name",' +
+            '"offset":' + offset + ',' +
+            '"select_fields":["first_name","last_name","account_name","title"],' +
+            '"link_name_to_fields_array":"","max_results":' + RowsPerPageInListViews + ',"deleted":0}'
         }, function(data) {
             if (data != undefined) {
                 var contactsList = jQuery.parseJSON(data);
@@ -67,9 +67,9 @@ function SugarCrmGetContactListFromServer(offset) {
                     }
                 }
             }
+            $.mobile.hidePageLoadingMsg();
         });
-        $.mobile.hidePageLoadingMsg();
-    }
+    } else { $.mobile.hidePageLoadingMsg(); }
 }
 
 function SugarCrmGetContactDetails() {
@@ -82,12 +82,12 @@ function SugarCrmGetContactDetails() {
         input_type: "JSON",
         response_type: "JSON",
         rest_data: '{"session":"' + SugarSessionId +
-            '","module_name":"Contacts",' +
-            '"id":"' + CurrentContactId + '",' +
-            '"select_fields":["first_name","last_name","account_name","title","phone_work","email1","description","primary_address_street","primary_address_city","primary_address_state",' +
-            '"primary_address_postalcode","primary_address_country","phone_mobile","phone_fax","department","alt_address_street","alt_address_city","alt_address_state",' +
-            '"alt_address_postalcode","alt_address_country"],' +
-            '"link_name_to_fields_array":""}'
+        '","module_name":"Contacts",' +
+        '"id":"' + CurrentContactId + '",' +
+        '"select_fields":["first_name","last_name","account_name","title","phone_work","email1","description","primary_address_street","primary_address_city","primary_address_state",' +
+        '"primary_address_postalcode","primary_address_country","phone_mobile","phone_fax","department","alt_address_street","alt_address_city","alt_address_state",' +
+        '"alt_address_postalcode","alt_address_country"],' +
+        '"link_name_to_fields_array":""}'
     }, function(data) {
         if (data != undefined) {
             var contactsList = jQuery.parseJSON(data);
@@ -586,22 +586,22 @@ function SugarCrmAddNewContact() {
     $.mobile.showPageLoadingMsg();
     var validInput = ValidateNewContactToAdd();
     if (validInput) {
-         $.get(CurrentServerAddress + '/service/v2/rest.php', {
-	method: "set_entry",
-	input_type: "JSON",
-        response_type: "JSON",
-	rest_data: '{"session":"' + SugarSessionId + '",' +
-		'"module":"Contacts",' +
-		'"name_value_list":[' +
-                '{"name":"first_name","value":"' + $('#ContactFirstNameTextBox').val() + '"},' +
-		'{"name":"last_name","value":"' + $('#ContactLastNameTextBox').val() + '"},' +
-                '{"name":"phone_work","value":"' + $('#ContactOfficePhoneTextBox').val() + '"},' +
-                '{"name":"phone_mobile","value":"' + $('#ContactMobileTextBox').val() + '"},' +
-                '{"name":"phone_fax","value":"' + $('#ContactPhoneFaxTextBox').val() + '"},' +
-                '{"name":"email1","value":"' + $('#ContactEmailTextBox').val() + '"},' +
-                '{"name":"title","value":"' + $('#ContactTitleTextBox').val() + '"},' +
-                '{"name":"department","value":"' + $('#ContactDepartmentTextBox').val() + '"},' +
-                '{"name":"description","value":"' + $('#NewContactDescriptionTextArea').val() + '"}]}'
+        $.get(CurrentServerAddress + '/service/v2/rest.php', {
+            method: "set_entry",
+            input_type: "JSON",
+            response_type: "JSON",
+            rest_data: '{"session":"' + SugarSessionId + '",' +
+            '"module":"Contacts",' +
+            '"name_value_list":[' +
+            '{"name":"first_name","value":"' + $('#ContactFirstNameTextBox').val() + '"},' +
+            '{"name":"last_name","value":"' + $('#ContactLastNameTextBox').val() + '"},' +
+            '{"name":"phone_work","value":"' + $('#ContactOfficePhoneTextBox').val() + '"},' +
+            '{"name":"phone_mobile","value":"' + $('#ContactMobileTextBox').val() + '"},' +
+            '{"name":"phone_fax","value":"' + $('#ContactPhoneFaxTextBox').val() + '"},' +
+            '{"name":"email1","value":"' + $('#ContactEmailTextBox').val() + '"},' +
+            '{"name":"title","value":"' + $('#ContactTitleTextBox').val() + '"},' +
+            '{"name":"department","value":"' + $('#ContactDepartmentTextBox').val() + '"},' +
+            '{"name":"description","value":"' + $('#NewContactDescriptionTextArea').val() + '"}]}'
         }, function(data) {
             if (data !== undefined) {
                 var addContactResult = jQuery.parseJSON(data);
@@ -610,17 +610,17 @@ function SugarCrmAddNewContact() {
                     $.mobile.showPageLoadingMsg();
                     $.mobile.changePage('#LoginPage');
                 }
-		 $('#ContactFirstNameTextBox').val('');
-                 $('#ContactLastNameTextBox').val('');
-                 $('#ContactOfficePhoneTextBox').val('');
-                 $('#ContactMobileTextBox').val('');
-                 $('#ContactPhoneFaxTextBox').val('');
-                 $('#ContactEmailTextBox').val('');
-                 $('#ContactTitleTextBox').val('');
-                 $('#ContactDepartmentTextBox').val('');
-                 $('#NewContactDescriptionTextArea').val('');
-                 $.mobile.showPageLoadingMsg();
-                 $.mobile.changePage('#HomePage');
+                $('#ContactFirstNameTextBox').val('');
+                $('#ContactLastNameTextBox').val('');
+                $('#ContactOfficePhoneTextBox').val('');
+                $('#ContactMobileTextBox').val('');
+                $('#ContactPhoneFaxTextBox').val('');
+                $('#ContactEmailTextBox').val('');
+                $('#ContactTitleTextBox').val('');
+                $('#ContactDepartmentTextBox').val('');
+                $('#NewContactDescriptionTextArea').val('');
+                $.mobile.showPageLoadingMsg();
+                $.mobile.changePage('#HomePage');
             }
         });
     }

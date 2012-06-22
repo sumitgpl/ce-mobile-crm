@@ -1,5 +1,7 @@
+/* This method is called when the search is executed from the UI */
 function SearchByModule() {
     $('#SearchResultsListUl li').remove();
+    /* Build a list of modules to be searched based on selected values */
     var searchByModulesString = "[";
     $('#AvailableSearchModulesFieldSet input').each(function() {
         var target = $(this);
@@ -9,6 +11,7 @@ function SearchByModule() {
     });
     searchByModulesString = searchByModulesString.substring(0,(searchByModulesString.length - 1));
     searchByModulesString+="]";
+    /* Now place the call to the search_by_module method in the REST API */
     $.get(CurrentServerAddress + '/service/v2/rest.php', {
         method: "search_by_module",
         input_type: "JSON",
@@ -19,6 +22,7 @@ function SearchByModule() {
         '"offset":0,' +
         '"max_results":999}'
     }, function(data) {
+        /* Check the data that came back to see if it had results */
         if (data !== undefined) {
             var itemResultCount = 0;
             var searchResults = jQuery.parseJSON(data);
@@ -117,7 +121,7 @@ function getAvailableSearchModules() {
                     });
                     var contactsSearchModuleOptionlabel = $("<label/>",{
                         "for": "SearchModuleContacts",
-                        text: RES_CALLS_LABEL
+                        text: RES_CONTACTS_LABEL
                     });
                     $('#AvailableSearchModulesFieldSet').append(conctactsSearchModuleOption);
                     $('#AvailableSearchModulesFieldSet').append(contactsSearchModuleOptionlabel);

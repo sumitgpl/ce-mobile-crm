@@ -1,4 +1,5 @@
 function SugarCrmGetMeetingsListFromServer(offset) {
+    $.mobile.showPageLoadingMsg();
     var existingList = $('#AllMeetingsListDiv li');
     if ((existingList.length === 0) || (MeetingsListCurrentOffset !== offset)) {
         
@@ -61,9 +62,9 @@ function SugarCrmGetMeetingsListFromServer(offset) {
                     }
                 }
             }
-            
+            $.mobile.hidePageLoadingMsg();
         });
-    }
+    } else { $.mobile.hidePageLoadingMsg(); }
 }
 
 function SugarCrmGetMeetingDetails() {

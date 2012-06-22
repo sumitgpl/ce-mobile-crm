@@ -1,4 +1,5 @@
 function SugarCrmGetOpportunitiesListFromServer(offset) {
+    $.mobile.showPageLoadingMsg();
     var existingList = $('#AllOpportunitiesListDiv li');
     if ((existingList.length === 0) || (OpportunitiesListCurrentOffset !== offset)) {
         
@@ -77,9 +78,9 @@ function SugarCrmGetOpportunitiesListFromServer(offset) {
                     }
                 }
             }
-            
+            $.mobile.hidePageLoadingMsg();
         });
-    }
+    } else { $.mobile.hidePageLoadingMsg(); }
 }
 
 function SugarCrmGetOpportunityDetails() {

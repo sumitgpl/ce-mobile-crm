@@ -1,4 +1,5 @@
 function SugarCrmGetLeadsListFromServer(offset) {
+    $.mobile.showPageLoadingMsg();
     var existingList = $('#AllLeadsListDiv li');
     if ((existingList.length === 0) || (LeadsListCurrentOffset !== offset)) {
         
@@ -62,9 +63,9 @@ function SugarCrmGetLeadsListFromServer(offset) {
                     }
                 }
             }
-            
+            $.mobile.hidePageLoadingMsg();
         });
-    }
+    } else { $.mobile.hidePageLoadingMsg(); }
 }
 
 function SugarCrmGetLeadDetails() {

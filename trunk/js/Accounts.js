@@ -5,10 +5,9 @@
 * REST API then binds each of the items to the list view.
 */
 function SugarCrmGetAccountsListFromServer(offset) {
-    $.mobile.showPageLoadingMsg();
+    $.mobile.showPageLoadingMsg("b",RES_ACTION_LOADING_RECORDS);
     var existingList = $('#AllAccountsListDiv li');
     if ((existingList.length === 0) || (AccountsListCurrentOffset !== offset)) {
-        $.mobile.showPageLoadingMsg();
         AccountsListCurrentOffset = offset;
         /* Set the parameters of the call to the get_entry_list then place the call */
         $.get(CurrentServerAddress + '/service/v2/rest.php', {
@@ -84,10 +83,10 @@ function SugarCrmGetAccountsListFromServer(offset) {
                     }
                 }
             }
+            /* Hide the loading panel */
+            $.mobile.hidePageLoadingMsg();
         });
-        /* Hide the loading panel */
-        $.mobile.hidePageLoadingMsg();
-    }
+    } else { $.mobile.hidePageLoadingMsg(); }
 }
 
 

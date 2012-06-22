@@ -157,6 +157,7 @@ var RES_ACTION_EDIT = "Edit";
 var RES_ACTION_DO_NOT_CALL = "*NOTE: This Contact is marked as Do Not Call.";
 var RES_ACTION_CONFIRM_DELETE = "Are you sure you want to delete this record?";
 var RES_ACTION_BACK = "Back";
+var RES_ACTION_LOADING_RECORDS = "Loading data...";
 
 var RES_NOTIFICATION = "No results matched your criteria";
 
