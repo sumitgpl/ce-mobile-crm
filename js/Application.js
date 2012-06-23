@@ -1,3 +1,4 @@
+var applicationVersion="DEV";
 var SugarSessionId = '';
 var RowsPerPageInListViews = 20;
 /* Set the Global Current Record Id Variables */
@@ -41,6 +42,8 @@ var CurrentNoteId = '';
 var CurrentProtocol = 'HTTPS';
 var CurrentServerAddress = '..';
 var currentLocale = "en_US";
+var currentLatitude = "";
+var currentLongitude = "";
 
 $('#LoginPage').live('pagecreate',function(event,ui) {
     if ((getURLParameter("localeInfo") !== null) && (getURLParameter("localeInfo").length > 0)) {
@@ -49,7 +52,7 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
     $.ajaxSetup({async:false});
     $.getScript('l10n/ui_resources_' + currentLocale + '.js');
     $.ajaxSetup({async:true});
-    alert(isDeviceOnline());
+    getCurrentLocation();
     $('.BackButton').text(RES_ACTION_BACK);
     $('.AboutApplicationClass').text(RES_ABOUT_APPLICATION_MENU_ITEM);
     $('.AboutApplicationClass .ui-btn-text').text(RES_ABOUT_APPLICATION_MENU_ITEM);
@@ -71,7 +74,7 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
     $('.CancelButtonClass').text(RES_CANCEL_BUTTON);
     $('.AboutApplicationClass').bind({
         click:function() {
-            showInformationDialog(RES_INFO_TITLE,RES_LOGIN_PAGE_HEADER + ' ' + RES_CURRENT_VERSION_NUMBER);
+            showInformationDialog(RES_INFO_TITLE,RES_LOGIN_PAGE_HEADER + ' ' + applicationVersion);
         }
     });
     $('.PreviousRecordsButton').text(RES_NAVIGATE_RECORDS_PREV_LABEL);
@@ -405,4 +408,19 @@ function isDeviceOnline() {
     if (navigator.onLine !== undefined) {
         return navigator.onLine;
     } else { return true; }
+}
+
+function getCurrentLocation() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(successfullyObtainedPosition, errorObtainingPosition);
+    }
+}
+
+function successfullyObtainedPosition(position) {
+  currentLatitude = position.coords.latitude;
+  currentLongitude = position.coords.longitude;
+}
+
+function errorObtainingPosition(msg) {
+    alert(RES_NOTIFICATION_GEOLOCATE_ERROR);
 }

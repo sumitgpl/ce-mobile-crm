@@ -1,4 +1,4 @@
-VER = 1.0.0.0
+VER = 1.0.0.1
 
 DIR = ../../../CE-MOBILE-CRM_DEPLOYMENTS/ce-mobile-crm-${VER}
 MAX = Application.js
@@ -46,7 +46,7 @@ cssmin:
 
 jsmin:
 	@@cat ${JSFILES} >> ${DIR}/js/${MAX}
-	@@java -jar ./google-compiler-20100917.jar --js ${DIR}/js/${MAX} --warning_level QUIET --js_output_file ${DIR}/js/${MIN}
+	@@java -jar ./google-compiler-20100917.jar --js ${DIR}/js/${MAX} --warning_level QUIET --js_output_file ${DIR}/js/${MIN}.tmp
 
 deploy:
 	@@cp -R ../css/images ${DIR}/css/images
@@ -62,6 +62,7 @@ deploy:
 	@@find ${DIR} -name ".svn" | xargs rm -Rf
 
 usemin:
+	@@sed -e 's/applicationVersion="DEV"/applicationVersion="${VER}"/' ${DIR}/js/${MIN}.tmp > ${DIR}/js/${MIN}
 	@@sed -e 's/Version:/Version: ${VER}/' ./cache.manifest > ${DIR}/cache.manifest
 	@@sed -e 's/style.css/style.min.css/' ${DIR}/index.html > ${DIR}/index.html.tmp
 	@@sed -e 's/<html>/<html manifest="cache.manifest">/' ${DIR}/index.html.tmp > ${DIR}/index.html.tmp2
@@ -72,6 +73,7 @@ usemin:
 	@@rm -rf ${DIR}/index.html.tmp3
 
 rmmax:
+	@@rm -rf ${DIR}/js/${MIN}.tmp
 	@@rm -rf ${DIR}/js/jquery.mobile-config.js
 	@@rm -rf ${DIR}/lib/jquery
 	@@rm -rf ${DIR}/lib/jquery.mobile/jquery.mobile-1.1.0.min.js
