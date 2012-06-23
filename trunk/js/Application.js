@@ -1,3 +1,4 @@
+/* DO NOT CHANGE VERSION INFORMATION IT IS SET BY THE MAKEFILE */
 var applicationVersion="DEV";
 var SugarSessionId = '';
 var RowsPerPageInListViews = 20;
