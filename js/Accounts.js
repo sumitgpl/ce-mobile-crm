@@ -702,3 +702,52 @@ function SugarCrmDeleteExistingAccount() {
         });
     }
 }
+
+function SugarCrmEditExistingAccount() {
+    resetAccountFormFields();
+    $('#NewAccountHeader').text(RES_EDIT_ACCOUNT_PAGE_TITLE);
+    $.mobile.changePage("#CreateNewAccountPage");
+    $.mobile.showPageLoadingMsg();
+    $('#ViewAccountDetailsPageDetailsList li').remove();
+    $('#AccountNameH1').html('');
+    $('#AccountDescriptionP').text('');
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
+        method: "get_entry",
+        input_type: "JSON",
+        response_type: "JSON",
+        rest_data: '{"session":"' + SugarSessionId + '","module_name":"Accounts","id":"' + CurrentAccountId + '","select_fields":"","link_name_to_fields_array":""}'
+    }, function(data) {
+        if (data !== undefined) {
+            var accountsList = jQuery.parseJSON(data);
+            if ((accountsList.name !== undefined) && (accountsList.name === "Invalid Session ID")) {
+                SugarSessionId = '';
+                $.mobile.changePage('#LoginPage');
+            }
+            if ((accountsList !== undefined) && (accountsList.entry_list !== undefined)) {
+                if (accountsList.entry_list[0] !== undefined) {
+                    var account = accountsList.entry_list[0];
+                    $('#AccountNameTextBox').val(account.name_value_list.name.value);
+                    $('#NewAccountOfficePhoneTextBox').val(account.name_value_list.phone_office.value)
+                    $('#NewAccountWebSiteTextBox').val(account.name_value_list.website.value);
+                    $('#NewAccountPhoneFaxTextBox').val(account.name_value_list.phone_fax.value);
+                    $('#NewAccountDescriptionTextArea').val(account.name_value_list.description.value);
+                }
+            }
+            $.mobile.hidePageLoadingMsg();
+        } else {
+            $.mobile.hidePageLoadingMsg();
+        }
+    });
+}
+
+function SugarCrmCreateNewAccount() {
+    resetAccountFormFields();
+    $('#NewAccountHeader').text(RES_NEW_ACCOUNT_PAGE_TITLE);
+    $.mobile.changePage("#CreateNewAccountPage");
+}
+
+function resetAccountFormFields() {
+    $('#CreateNewAccountPage input').each(function(item,index) {
+        $(item).val('');
+    });
+}
