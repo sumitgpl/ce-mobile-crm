@@ -49,6 +49,7 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
     $.ajaxSetup({async:false});
     $.getScript('l10n/ui_resources_' + currentLocale + '.js');
     $.ajaxSetup({async:true});
+    alert(isDeviceOnline());
     $('.BackButton').text(RES_ACTION_BACK);
     $('.AboutApplicationClass').text(RES_ABOUT_APPLICATION_MENU_ITEM);
     $('.AboutApplicationClass .ui-btn-text').text(RES_ABOUT_APPLICATION_MENU_ITEM);
@@ -398,4 +399,10 @@ function enableFullScreenView() {
             window.scrollTo(0, 1);
         }
     });
+}
+
+function isDeviceOnline() {
+    if (navigator.onLine !== undefined) {
+        return navigator.onLine;
+    } else { return true; }
 }
