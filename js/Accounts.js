@@ -86,7 +86,9 @@ function SugarCrmGetAccountsListFromServer(offset) {
             /* Hide the loading panel */
             $.mobile.hidePageLoadingMsg();
         });
-    } else { $.mobile.hidePageLoadingMsg(); }
+    } else {
+        $.mobile.hidePageLoadingMsg();
+    }
 }
 
 
@@ -703,7 +705,38 @@ function SugarCrmDeleteExistingAccount() {
     }
 }
 
+function SugarCrmSaveExistingAccount() {
+    $.get(CurrentServerAddress + '/service/v2/rest.php', {
+        method: "set_entry",
+        input_type: "JSON",
+        response_type: "JSON",
+        rest_data: '{"session":"' + SugarSessionId + '",' +
+        '"module":"Accounts",' +
+        '"name_value_list":[{"name":"id","value":"' + CurrentAccountId + '"},' +
+        '{"name":"name","value":' + $('#AccountNameTextBox').val() + '},' +
+        '{"name":"phone_office","value":"' + $('#NewAccountOfficePhoneTextBox').val() + '"},' +
+        '{"name":"website","value":"' + $('#NewAccountWebSiteTextBox').val() + '"},' +
+        '{"name":"phone_fax","value":"' + $('#NewAccountPhoneFaxTextBox').val() + '"},' +
+        '{"name":"description","value":"' + $('#NewAccountDescriptionTextArea').val() + '"},' +
+        ']}'
+    }, function(data) {
+        if (data !== undefined) {
+            if (data.id === "Invalid Session ID") {
+                SugarSessionId = '';
+                $.mobile.changePage('#LoginPage');
+            };
+            $('#AllAccountsListDiv').children().remove('li');
+            $.mobile.hidePageLoadingMsg();
+            $.mobile.changePage('#AccountsListPage');
+        }
+    });
+    
+}
+
 function SugarCrmEditExistingAccount() {
+    $('#NewAccountSaveButton').bind('click',function(){
+        SugarCrmSaveExistingAccount();
+    });
     resetAccountFormFields();
     $('#NewAccountHeader').text(RES_EDIT_ACCOUNT_PAGE_TITLE);
     $.mobile.changePage("#CreateNewAccountPage");
@@ -741,6 +774,9 @@ function SugarCrmEditExistingAccount() {
 }
 
 function SugarCrmCreateNewAccount() {
+    $('#NewAccountSaveButton').bind('click',function(){
+        SugarCrmAddNewAccount();
+    });
     resetAccountFormFields();
     $('#NewAccountHeader').text(RES_NEW_ACCOUNT_PAGE_TITLE);
     $.mobile.changePage("#CreateNewAccountPage");
