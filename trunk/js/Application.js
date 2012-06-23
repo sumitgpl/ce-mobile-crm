@@ -39,24 +39,15 @@ var TasksListCurrentOffset = 0;
 /* Set the Note Global Variables */
 var CurrentNoteId = '';
 var CurrentProtocol = 'HTTPS';
-var CurrentServerAddress = '../';
+var CurrentServerAddress = '..';
 var currentLocale = "en_US";
-var scriptVersion = "1.0.0";
-
-function enableFullScreenView() {
-$(window).scroll(function(e) {
-    if ($(window).scrollTop() <= 50) {
-        window.scrollTo(0, 1);
-    }
-});
-}
 
 $('#LoginPage').live('pagecreate',function(event,ui) {
     if ((getURLParameter("localeInfo") !== null) && (getURLParameter("localeInfo").length > 0)) {
         currentLocale = getURLParameter("localeInfo");
     }
     $.ajaxSetup({async:false});
-    $.getScript('l10n/ui_resources_' + currentLocale + '-' + scriptVersion + '.js');
+    $.getScript('l10n/ui_resources_' + currentLocale + '.js');
     $.ajaxSetup({async:true});
     $('.BackButton').text(RES_ACTION_BACK);
     $('.AboutApplicationClass').text(RES_ABOUT_APPLICATION_MENU_ITEM);
@@ -401,6 +392,10 @@ function SugarCrmEditExistingAccount() {
     /* TODO: Compelete edit action taken */
 }
 
-function SugarCrmDeleteExistingAccount() {
-   /* TODO: Complete delete action taken */
+function enableFullScreenView() {
+    $(window).scroll(function(e) {
+        if ($(window).scrollTop() <= 50) {
+            window.scrollTo(0, 1);
+        }
+    });
 }

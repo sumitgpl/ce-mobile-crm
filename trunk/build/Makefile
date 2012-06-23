@@ -21,10 +21,11 @@ JSFILES = ../lib/jquery/jquery-1.7.1.min.js \
   ../js/SearchByModule.js \
   ../js/Tasks.js \
   ../js/jquery.mobile-config.js \
+  ../l10n/ui_resources_en_US.js \
 
 CSSFILES = ../css/style.css \
 
-build: cssmin jsmin deploy usemin rmmax zip
+build: clean cssmin jsmin deploy usemin rmmax zip
 
 all: clean cssmin jsmin deploy usemin rmmax zip
 
@@ -61,11 +62,14 @@ deploy:
 	@@find ${DIR} -name ".svn" | xargs rm -Rf
 
 usemin:
+	@@sed -e 's/Version:/Version: ${VER}/' ./cache.manifest > ${DIR}/cache.manifest
 	@@sed -e 's/style.css/style.min.css/' ${DIR}/index.html > ${DIR}/index.html.tmp
-	@@sed -e 's/Application.js/Application.min.js/' ${DIR}/index.html.tmp > ${DIR}/index.html.tmp2
-	@@java -jar ./htmlcompressor-1.5.3.jar ${DIR}/index.html.tmp2 > ${DIR}/index.html
+	@@sed -e 's/<html>/<html manifest="cache.manifest">/' ${DIR}/index.html.tmp > ${DIR}/index.html.tmp2
+	@@sed -e 's/Application.js/Application.min.js/' ${DIR}/index.html.tmp2 > ${DIR}/index.html.tmp3
+	@@java -jar ./htmlcompressor-1.5.3.jar ${DIR}/index.html.tmp3 > ${DIR}/index.html
 	@@rm -rf ${DIR}/index.html.tmp
 	@@rm -rf ${DIR}/index.html.tmp2
+	@@rm -rf ${DIR}/index.html.tmp3
 
 rmmax:
 	@@rm -rf ${DIR}/js/jquery.mobile-config.js
