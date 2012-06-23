@@ -316,7 +316,6 @@ function LogCall(moduleName,uniqueId,subject) {
 
 
 $('#CreateNewAccountPage').live('pagecreate',function(event,ui) {
-    $('#NewAccountHeader').text(RES_NEW_ACCOUNT_PAGE_TITLE);
     $('#AccountNameLabel').text(RES_NEW_ACCOUNT_NAME_LABEL);
     $('#NewAccountOfficePhoneLabel').text(RES_NEW_ACCOUNT_OFFICE_PHONE_LABEL);
     $('#NewAccountWebSiteLabel').text(RES_NEW_ACCOUNT_WEBSITE_LABEL);
@@ -391,10 +390,6 @@ function showInformationDialog(title,msg) {
 
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
-}
-
-function SugarCrmEditExistingAccount() {
-    /* TODO: Compelete edit action taken */
 }
 
 function enableFullScreenView() {
