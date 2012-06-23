@@ -1,5 +1,3 @@
-/* VERSION STRING */
-var RES_CURRENT_VERSION_NUMBER = "v1.0.0.0";
 /* General Resources */
 var RES_LOGIN_MESSAGE = "Enter your username and password, then click login";
 var RES_LOGIN_TITLE = "Login";
@@ -160,5 +158,6 @@ var RES_ACTION_BACK = "Back";
 var RES_ACTION_LOADING_RECORDS = "Loading data...";
 
 var RES_NOTIFICATION = "No results matched your criteria";
+var RES_NOTIFICATION_GEOLOCATE_ERROR = "Could not establish your location";
 
 var RES_SEARCH_RESULTS_TITLE = "Search Results";
