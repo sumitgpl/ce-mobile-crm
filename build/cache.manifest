@@ -1,0 +1,29 @@
+CACHE MANIFEST
+# Version:
+CACHE:
+css/images/icons-18-white-custom.png
+css/images/icons-36-white-custom.png
+css/images/trash_18.png
+css/style.min.css
+images/apple-touch-icon.png
+images/icons_sprite.png
+images/startup.png
+js/Application.min.js
+l10n/ui_resources_en_US.js
+lib/jquery.mobile/images/ajax-loader.png
+lib/jquery.mobile/images/icons-18-black.png
+lib/jquery.mobile/images/icons-18-white.png
+lib/jquery.mobile/images/icons-18-white-custom.png
+lib/jquery.mobile/images/icons-36-black.png
+lib/jquery.mobile/images/icons-36-white.png
+lib/jquery.mobile/jquery.mobile.structure-1.1.0.min.css
+theme/images/ajax-loader.gif
+theme/images/icons-18-black.png
+theme/images/icons-18-white.png
+theme/images/icons-36-black.png
+theme/images/icons-36-white.png
+theme/ce-mobile-crm.min.css
+index.html
+
+NETWORK:
+../service
