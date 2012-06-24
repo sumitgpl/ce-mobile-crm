@@ -805,3 +805,9 @@ function resetAccountFormFields() {
         $(item).val('');
     });
 }
+
+function SugarCrmUseCurrentLocationAsAccountAddress() {
+    $('#NewAccountBillingAddressStreetTextBox').val(currentStreet);
+    $('#NewAccountBillingAddressCityTextBox').val(currentCity);
+    return false;
+}

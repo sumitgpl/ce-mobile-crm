@@ -45,6 +45,10 @@ var CurrentServerAddress = '..';
 var currentLocale = "en_US";
 var currentLatitude = "";
 var currentLongitude = "";
+var currentStreet = "";
+var currentCity = "";
+var currentState = "";
+var currentPostalCode = "";
 
 $('#LoginPage').live('pagecreate',function(event,ui) {
     if ((getURLParameter("localeInfo") !== null) && (getURLParameter("localeInfo").length > 0)) {
@@ -317,10 +321,20 @@ function LogCall(moduleName,uniqueId,subject) {
 
 $('#CreateNewAccountPage').live('pagecreate',function(event,ui) {
     $('#AccountNameLabel').text(RES_NEW_ACCOUNT_NAME_LABEL);
-    $('#NewAccountOfficePhoneLabel').text(RES_NEW_ACCOUNT_OFFICE_PHONE_LABEL);
+    $('#AccountNameTextBox').attr('placeholder',RES_NEW_ACCOUNT_NAME_LABEL);
+    $('#NewAccountOfficePhoneLabel').text(RES_NEW_ACCOUNT_OFFICE_PHONE_LABEL)
+    $('#NewAccountOfficePhoneTextBox').attr('placeholder',RES_NEW_ACCOUNT_OFFICE_PHONE_LABEL);
     $('#NewAccountWebSiteLabel').text(RES_NEW_ACCOUNT_WEBSITE_LABEL);
+    $('#NewAccountWebSiteTextBox').attr('placeholder',RES_NEW_ACCOUNT_WEBSITE_LABEL);
     $('#NewAccountPhoneFaxLabel').text(RES_NEW_ACCOUNT_PHONE_FAX_LABEL);
+    $('#NewAccountPhoneFaxTextBox').attr('placeholder',RES_NEW_ACCOUNT_PHONE_FAX_LABEL);
     $('#NewAccountDescriptionLabel').text(RES_DESCRIPTION_LABEL);
+    $('#NewAccountDescriptionTextArea').attr('placeholder',RES_DESCRIPTION_LABEL);
+    $('#NewAccountBillingAddressStreetLabel').text(RES_NEW_ACCOUNT_STREET_LABEL);
+    $('#NewAccountBillingAddressDivider').text(RES_FIELD_LABEL_BILLING_ADDRESS);
+    $('#NewAccountBillingAddressStreetTextBox').attr('placeholder',RES_NEW_ACCOUNT_STREET_LABEL);
+    $('#NewAccountBillingAddressUseLocButton').text(RES_ACTION_USE_CURRENT_ADDRESS);
+    getCurrentLocation();
 });
 
 $('#CreateNewContactPage').live('pagecreate',function(event,ui) {
@@ -403,7 +417,7 @@ function enableFullScreenView() {
 function isDeviceOnline() {
     if (navigator.onLine !== undefined) {
         return navigator.onLine;
-    } else { return true; }
+    } else {return true;}
 }
 
 function getCurrentLocation() {
@@ -415,6 +429,20 @@ function getCurrentLocation() {
 function successfullyObtainedPosition(position) {
   currentLatitude = position.coords.latitude;
   currentLongitude = position.coords.longitude;
+  $.ajax({
+      url: 'http://nominatim.openstreetmap.org/reverse',
+      crossDomain: true,
+      dataType: 'json',
+      data: 'format=json&lat=' + currentLatitude + '&lon=' + currentLongitude + '&zoom=18&addressdetails=1',
+      jsonp: 'gotTheAddress',
+      success: gotTheAddress
+  });
+}
+function gotTheAddress(data) {
+    currentStreet = data.address.road;
+    currentCity = data.address.city;
+    currentState = data.address.state;
+    currentPostalCode = data.address.postcode;
 }
 
 function errorObtainingPosition(msg) {
