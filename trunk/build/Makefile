@@ -1,4 +1,4 @@
-VER = 1.0.0.1
+VER = 1.0.0.0
 
 DIR = ../../../CE-MOBILE-CRM_DEPLOYMENTS/ce-mobile-crm-${VER}
 MAX = Application.js
@@ -49,7 +49,6 @@ jsmin:
 	@@java -jar ./google-compiler-20100917.jar --js ${DIR}/js/${MAX} --warning_level QUIET --js_output_file ${DIR}/js/${MIN}.tmp
 
 deploy:
-	@@cp -R ../css/images ${DIR}/css/images
 	@@cp -R ../lib/ ${DIR}/lib/
 	@@cp -R ../theme/ ${DIR}/theme/
 	@@cp -R ../l10n/ ${DIR}/l10n/

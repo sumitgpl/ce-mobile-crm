@@ -29,4 +29,4 @@ theme/ce-mobile-crm.min.css
 index.html
 
 NETWORK:
-../service
+*
