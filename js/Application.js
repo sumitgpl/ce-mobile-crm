@@ -55,10 +55,13 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
     if ((getURLParameter("localeInfo") !== null) && (getURLParameter("localeInfo").length > 0)) {
         currentLocale = getURLParameter("localeInfo");
     }
-    $.ajaxSetup({async:false});
+    $.ajaxSetup({
+        async:false
+    });
     $.getScript('l10n/ui_resources_' + currentLocale + '.js');
-    $.ajaxSetup({async:true});
-    getCurrentLocation();
+    $.ajaxSetup({
+        async:true
+    });
     $('.BackButton').text(RES_ACTION_BACK);
     $('.AboutApplicationClass').text(RES_ABOUT_APPLICATION_MENU_ITEM);
     $('.AboutApplicationClass .ui-btn-text').text(RES_ABOUT_APPLICATION_MENU_ITEM);
@@ -111,8 +114,8 @@ $('#LoginPage').live('pageshow',function(event,ui) {
 });
 
 $('#HomePage').live('pageshow',function(event,ui){
-   window.scrollTo(0, 1);
-   enableFullScreenView();
+    window.scrollTo(0, 1);
+    enableFullScreenView();
 });
 
 $('#AboutPage').live('pagecreate',function(event,ui) {
@@ -195,7 +198,7 @@ $('#SearchListPage').live('pagecreate',function(event,ui) {
 });
 
 $('#SearchResultsPage').live('pageshow',function(event,ui){
-   SearchByModule();
+    SearchByModule();
 });
 /* Redirect to the Login Page if no session exists */
 $('#HomePage').live('pageshow',function(event,ui) {
@@ -207,7 +210,7 @@ $('#HomePage').live('pageshow',function(event,ui) {
 /* Login function used to log the user in and establish session */
 function LoginUser(noEncryption) {
     $('#LoginPageLoginForm input').each(function(item,index){
-       $(item).change();
+        $(item).change();
     });
     if ($('#LoginPageLoginForm .invalid').length <= 0) {
         $.mobile.showPageLoadingMsg();
@@ -455,31 +458,36 @@ function enableFullScreenView() {
 function isDeviceOnline() {
     if (navigator.onLine !== undefined) {
         return navigator.onLine;
-    } else {return true;}
+    } else {
+        return true;
+    }
 }
 
 function getCurrentLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(successfullyObtainedPosition, errorObtainingPosition);
+        navigator.geolocation.getCurrentPosition(successfullyObtainedPosition, errorObtainingPosition);
     }
 }
 
 function successfullyObtainedPosition(position) {
-  currentLatitude = position.coords.latitude;
-  currentLongitude = position.coords.longitude;
-  $.ajax({
-      url: 'http://nominatim.openstreetmap.org/reverse',
-      crossDomain: true,
-      dataType: 'json',
-      data: 'format=json&lat=' + currentLatitude + '&lon=' + currentLongitude + '&zoom=18&addressdetails=1',
-      jsonp: 'gotTheAddress',
-      success: gotTheAddress
-  });
+    currentLatitude = position.coords.latitude;
+    currentLongitude = position.coords.longitude;
+    var requestStringData = 'http://nominatim.openstreetmap.org/reverse?format=json&lat=' + currentLatitude + '&lon=' + currentLongitude + '&zoom=18&addressdetails=1';
+    $.ajax({
+        url: requestStringData,
+        crossDomain: true,
+        dataType: 'json',
+        success: gotTheAddress
+    });
 }
 function gotTheAddress(data) {
     if (data.address.house_number !== undefined)
-        { currentStreet = data.address.house_number  + " " + data.address.road; } else
-        { currentStreet = data.address.road; }
+    {
+        currentStreet = data.address.house_number  + " " + data.address.road;
+    } else
+{
+        currentStreet = data.address.road;
+    }
     currentCity = data.address.city;
     currentState = data.address.state;
     currentPostalCode = data.address.postcode;

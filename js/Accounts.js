@@ -730,6 +730,7 @@ function SugarCrmDeleteExistingAccount() {
                     $.mobile.changePage('#LoginPage');
                 };
                 $('#AllAccountsListDiv').children().remove('li');
+                CurrentAccountId = "";
                 $.mobile.hidePageLoadingMsg();
                 $.mobile.changePage('#AccountsListPage');
             }
