@@ -56,6 +56,10 @@ var RES_NEW_ACCOUNT_OFFICE_PHONE_LABEL = "Office Phone";
 var RES_NEW_ACCOUNT_WEBSITE_LABEL = "Website";
 var RES_NEW_ACCOUNT_PHONE_FAX_LABEL = "Phone Fax";
 var RES_NEW_ACCOUNT_STREET_LABEL = "Street";
+var RES_NEW_ACCOUNT_CITY_LABEL = "City";
+var RES_NEW_ACCOUNT_STATE_LABEL = "State";
+var RES_NEW_ACCOUNT_POSTAL_CODE_LABEL = "Postal Code";
+var RES_NEW_ACCOUNT_COUNTRY_LABEL = "Country";
 /* Contact Field Label Resources */
 var RES_CONTACT_REPORTS_TO_LABEL = "Reports To";
 /* Opportunity Field Label Resources */
@@ -84,6 +88,7 @@ var RES_TITLE_LABEL = "Title";
 var RES_MOBILE_PHONE_LABEL = "Mobile";
 var RES_DEPARTMENT_LABEL = "Department";
 var RES_PRIMARY_ADDRESS_LABEL = "Primary Address";
+var RES_PRIMARY_EMAIL_LABEL = "Primary Email";
 var RES_OTHER_ADDRESS_LABEL = "Other Address";
 var RES_WEBSITE_LABEL = "Website";
 var RES_SUBJECT = "Subject";
@@ -159,6 +164,7 @@ var RES_ACTION_CONFIRM_DELETE = "Are you sure you want to delete this record?";
 var RES_ACTION_BACK = "Back";
 var RES_ACTION_LOADING_RECORDS = "Loading data...";
 var RES_ACTION_USE_CURRENT_ADDRESS = "Use Current Location";
+var RES_ACTION_COPY_BILLING_ADDRESS = "Copy Billing Address";
 
 var RES_NOTIFICATION = "No results matched your criteria";
 var RES_NOTIFICATION_GEOLOCATE_ERROR = "Could not establish your location";
