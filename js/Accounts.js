@@ -125,7 +125,9 @@ function SugarCrmGetAccountDetails() {
                     /* Now start appending details and divider rows to the informaiton list */
                     $('#ViewAccountDetailsPageDetailsList').append("<li data-role=\"list-divider\">Account Overview</li>");
                     /* Build the hyperlink of the phone number removing any special characters */
-                    var officePhoneLi = $("<li/>");
+                    var officePhoneLi = $("<li/>",{
+                        "data-icon": "phone"
+                    });
                     var officePhoneLinkUrl = account.name_value_list.phone_office.value.replace('(','');
                     officePhoneLinkUrl = officePhoneLinkUrl.replace(')','');
                     officePhoneLinkUrl = officePhoneLinkUrl.replace(' ','');
@@ -178,7 +180,9 @@ function SugarCrmGetAccountDetails() {
                         $('#ViewAccountDetailsPageDetailsList').append(webSiteLi);
                     }
                     /* Append the Fax number */
-                    var FaxLi = $("<li/>");
+                    var FaxLi = $("<li/>",{
+                        "data-icon":"page"
+                    });
                     var FaxHeader = "<h4>" + account.name_value_list.phone_fax.value + "</h4>";
                     var FaxParagraph = "<p>Fax</p>";
                     FaxLi.append(FaxHeader);
@@ -187,7 +191,9 @@ function SugarCrmGetAccountDetails() {
                         $('#ViewAccountDetailsPageDetailsList').append(FaxLi);
                     }
                     /* Append the Billing Address */
-                    var accountBillingAddressLi = $("<li/>");
+                    var accountBillingAddressLi = $("<li/>",{
+                        "data-icon":"mappin"
+                    });
                     var accountBillingAddressStreet = account.name_value_list.billing_address_street.value;
                     var accountBillingAddressCity = account.name_value_list.billing_address_city.value;
                     var accountBillingAddressState = account.name_value_list.billing_address_state.value;
@@ -213,7 +219,9 @@ function SugarCrmGetAccountDetails() {
                         $('#ViewAccountDetailsPageDetailsList').append(accountBillingAddressLi);
                     }
                     /* Shipping Address */
-                    var accountShippingAddressLi = $("<li/>");
+                    var accountShippingAddressLi = $("<li/>",{
+                        "data-icon":"mappin"
+                    });
                     var accountShippingAddressStreet = account.name_value_list.shipping_address_street.value;
                     var accountShippingAddressCity = account.name_value_list.shipping_address_city.value;
                     var accountShippingAddressState = account.name_value_list.shipping_address_state.value;
@@ -240,7 +248,9 @@ function SugarCrmGetAccountDetails() {
                         $('#ViewAccountDetailsPageDetailsList').append(accountShippingAddressLi);
                     }
                     /* Append the Email Address */
-                    var emailLi = $("<li/>");
+                    var emailLi = $("<li/>",{
+                        "data-icon":"email"
+                    });
                     var emailParagraph = "<p><br />" + RES_FIELD_LABEL_EMAIL + "</p>";
                     var emailHeader = "<h4>" + account.name_value_list.email1.value + "</h4>";
                     var emailLink = $('<a/>', {
@@ -323,7 +333,9 @@ function SugarCrmGetAccountDetails() {
                     {
                         if (accountContactsList.entry_list[intAccountContact] !== undefined) {
                             var accountConctact = accountContactsList.entry_list[intAccountContact];
-                            var accountContactListItem = $("<li/>");
+                            var accountContactListItem = $("<li/>",{
+                                "data-icon":"person"
+                            });
                             var accountContactHeader = "<h4>" + accountConctact.name_value_list.first_name.value + "&nbsp;" + accountConctact.name_value_list.last_name.value + "</h4>";
                             var accountContactParagraph = "<p>" + accountConctact.name_value_list.title.value + "</p>";
 
@@ -371,7 +383,9 @@ function SugarCrmGetAccountDetails() {
                     {
                         if (accountOpportunitiesList.entry_list[intAccountOpportunity] !== undefined) {
                             var accountOpportunity = accountOpportunitiesList.entry_list[intAccountOpportunity];
-                            var accountOpportunityListItem = $("<li/>");
+                            var accountOpportunityListItem = $("<li/>",{
+                                "data-icon":"dollar"
+                            });
                             var accountOpportunityHeader = "<h4>" + accountOpportunity.name_value_list.name.value + "</h4>";
                             var accountOpportunityParagraph = "<p>" + accountOpportunity.name_value_list.sales_stage.value + "</p>";
 
@@ -478,7 +492,9 @@ function SugarCrmGetAccountDetails() {
                     {
                         if (accountCallsList.entry_list[intAccountCall] !== undefined) {
                             var accountCall = accountCallsList.entry_list[intAccountCall];
-                            var accountCallListItem = $("<li/>");
+                            var accountCallListItem = $("<li/>",{
+                                "data-icon":"phone"
+                            });
                             var accountCallHeader = "<h4>" + accountCall.name_value_list.name.value + "</h4>";
                             var accountCallParagraph = '';
                             if ((accountCall.name_value_list.status !== undefined) && (accountCall.name_value_list.date_start !== undefined)) {
@@ -538,7 +554,9 @@ function SugarCrmGetAccountDetails() {
                     {
                         if (accountMeetingsList.entry_list[intAccountMeeting] !== undefined) {
                             var accountMeeting = accountMeetingsList.entry_list[intAccountMeeting];
-                            var accountMeetingListItem = $("<li/>");
+                            var accountMeetingListItem = $("<li/>",{
+                                "data-icon":"calendar"
+                            });
                             var accountMeetingHeader = "<h4>" + accountMeeting.name_value_list.name.value + "</h4>";
                             var accountMeetingParagraph = '';
                             if (accountMeeting.name_value_list.status !== undefined) {
