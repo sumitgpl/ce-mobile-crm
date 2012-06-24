@@ -823,3 +823,13 @@ function SugarCrmUseBillingAsShippingAddress() {
     $('#NewAccountShippingAddressCountryTextBox').val($('#NewAccountBillingAddressCountryTextBox').val());
     return false;
 }
+
+function cancelAccountCreateOrEdit() {
+    $('#CreateNewAccountPageCreateAccountForm input').each(function(index,item){
+        $(item).val('');
+    });
+    $('#CreateNewAccountPageCreateAccountForm textarea').each(function(item,index){
+        $(item).val('');
+    });
+    return true;
+}
