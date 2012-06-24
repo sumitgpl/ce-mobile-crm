@@ -372,7 +372,6 @@ $('#CreateNewAccountPage').live('pagecreate',function(event,ui) {
     $('#NewAccountOwnershipTextBox').attr('placeholder',RES_ACCOUNT_OWNERSHIP_LABEL);
     $('#NewAccountRatingLabel').text(RES_ACCOUNT_RATING_LABEL)
     $('#NewAccountRatingTextBox').attr('placeholder',RES_ACCOUNT_RATING_LABEL);
-
     getCurrentLocation();
 });
 
