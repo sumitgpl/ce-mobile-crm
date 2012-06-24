@@ -573,10 +573,13 @@
                         <input id="NewAccountPhoneFaxTextBox" type="tel" />
                     </div>
                     <div data-role="fieldcontain" class="ui-hide-label">
+                        <label id="NewAccountPrimaryEmailLabel" for="NewAccountPrimaryEmailTextBox">REPLACEMENT_TEXT</label>
+                        <input id="NewAccountPrimaryEmailTextBox" type="email" />
+                    </div>
+                    <div data-role="fieldcontain" class="ui-hide-label">
                         <label id="NewAccountDescriptionLabel" for="NewAccountDescriptionTextArea">REPLACEMENT_TEXT</label>
                         <textarea id="NewAccountDescriptionTextArea"></textarea>
                     </div>
-                    <a href="#" id="NewAccountBillingAddressUseLocButton" onclick="SugarCrmUseCurrentLocationAsAccountAddress();" data-role="button" data-theme="d"></a>
                     <ul data-role="listview" data-inset="true">
                         <li id="NewAccountBillingAddressDivider" data-role="list-divider">REPALCEMENT_TEXT</li>
                         <li>
@@ -584,19 +587,79 @@
                                 <label id="NewAccountBillingAddressStreetLabel" for="NewAccountBillingAddressStreetTextBox">REPLACEMENT_TEXT</label>
                                 <input id="NewAccountBillingAddressStreetTextBox"></input>
                             </div>
-                             <div data-role="fieldcontain" class="ui-hide-label">
+                            <div data-role="fieldcontain" class="ui-hide-label">
                                 <label id="NewAccountBillingAddressCityLabel" for="NewAccountBillingAddressCityTextBox">REPLACEMENT_TEXT</label>
                                 <input id="NewAccountBillingAddressCityTextBox"></input>
                             </div>
+                            <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountBillingAddressStateLabel" for="NewAccountBillingAddressStateTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountBillingAddressStateTextBox"></input>
+                            </div>
+                            <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountBillingAddressPostalCodeLabel" for="NewAccountBillingAddressPostalCodeTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountBillingAddressPostalCodeTextBox"></input>
+                            </div>
+                            <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountBillingAddressCountryLabel" for="NewAccountBillingAddressCountryTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountBillingAddressCountryTextBox"></input>
+                            </div>
                         </li>
+                        <li data-theme="d"><a href="#" id="NewAccountBillingAddressUseLocButton" onclick="SugarCrmUseCurrentLocationAsAccountAddress();" data-role="button" data-theme="d" data-icon="mappin"></a></li>
                     </ul>
-                    <label><input type="checkbox" name="NewAccountUseBillingForShipping" data-theme="d">Use billing address for shipping</label>
-                    <ul data-role="listview" data-inset="true" data>
+                    <!-- Shipping Address -->
+                    <ul data-role="listview" data-inset="true">
                         <li id="NewAccountShippingAddressDivider" data-role="list-divider">REPALCEMENT_TEXT</li>
                         <li>
                             <div data-role="fieldcontain" class="ui-hide-label">
                                 <label id="NewAccountShippingAddressStreetLabel" for="NewAccountShippingAddressStreetTextBox">REPLACEMENT_TEXT</label>
                                 <input id="NewAccountShippingAddressStreetTextBox"></input>
+                            </div>
+                            <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountShippingAddressCityLabel" for="NewAccountShippingAddressCityTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountShippingAddressCityTextBox"></input>
+                            </div>
+                            <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountShippingAddressStateLabel" for="NewAccountShippingAddressStateTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountShippingAddressStateTextBox"></input>
+                            </div>
+                            <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountShippingAddressPostalCodeLabel" for="NewAccountShippingAddressPostalCodeTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountShippingAddressPostalCodeTextBox"></input>
+                            </div>
+                            <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountShippingAddressCountryLabel" for="NewAccountShippingAddressCountryTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountShippingAddressCountryTextBox"></input>
+                            </div>
+                        </li>
+                        <li data-theme="d"><a href="#" id="NewAccountShippingAddressUseBillingButton" onclick="SugarCrmUseBillingAsShippingAddress();" data-role="button" data-theme="d" data-icon="mappin"></a></li>
+                    </ul>
+                    <!-- MORE INFORMATION SECTION -->
+                    <ul data-role="listview" data-inset="true">
+                        <li id="NewAccountMoreInformationDivider" data-role="list-divider">REPALCEMENT_TEXT</li>
+                        <li>
+                            <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountAnnualRevenueLabel" for="NewAccountAnnualRevenueTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountAnnualRevenueTextBox"></input>
+                            </div>
+                             <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountSicCodeLabel" for="NewAccountSicCodeTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountSicCodeTextBox"></input>
+                            </div>
+                             <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountEmployeesLabel" for="NewAccountEmployeesTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountEmployeesTextBox"></input>
+                            </div>
+                             <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountTickerSymbolLabel" for="NewAccountTickerSymbolTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountTickerSymbolTextBox"></input>
+                            </div>
+                             <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountOwnershipLabel" for="NewAccountOwnershipTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountOwnershipTextBox"></input>
+                            </div>
+                             <div data-role="fieldcontain" class="ui-hide-label">
+                                <label id="NewAccountRatingLabel" for="NewAccountRatingTextBox">REPLACEMENT_TEXT</label>
+                                <input id="NewAccountRatingTextBox"></input>
                             </div>
                         </li>
                     </ul>

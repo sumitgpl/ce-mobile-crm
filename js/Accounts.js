@@ -809,5 +809,17 @@ function resetAccountFormFields() {
 function SugarCrmUseCurrentLocationAsAccountAddress() {
     $('#NewAccountBillingAddressStreetTextBox').val(currentStreet);
     $('#NewAccountBillingAddressCityTextBox').val(currentCity);
+    $('#NewAccountBillingAddressStateTextBox').val(currentState);
+    $('#NewAccountBillingAddressPostalCodeTextBox').val(currentPostalCode);
+    $('#NewAccountBillingAddressCountryTextBox').val(currentCountry);
+    return false;
+}
+
+function SugarCrmUseBillingAsShippingAddress() {
+    $('#NewAccountShippingAddressStreetTextBox').val($('#NewAccountBillingAddressStreetTextBox').val());
+    $('#NewAccountShippingAddressCityTextBox').val($('#NewAccountBillingAddressCityTextBox').val());
+    $('#NewAccountShippingAddressStateTextBox').val($('#NewAccountBillingAddressStateTextBox').val());
+    $('#NewAccountShippingAddressPostalCodeTextBox').val($('#NewAccountBillingAddressPostalCodeTextBox').val());
+    $('#NewAccountShippingAddressCountryTextBox').val($('#NewAccountBillingAddressCountryTextBox').val());
     return false;
 }

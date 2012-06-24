@@ -49,6 +49,7 @@ var currentStreet = "";
 var currentCity = "";
 var currentState = "";
 var currentPostalCode = "";
+var currentCountry = "";
 
 $('#LoginPage').live('pagecreate',function(event,ui) {
     if ((getURLParameter("localeInfo") !== null) && (getURLParameter("localeInfo").length > 0)) {
@@ -328,12 +329,50 @@ $('#CreateNewAccountPage').live('pagecreate',function(event,ui) {
     $('#NewAccountWebSiteTextBox').attr('placeholder',RES_NEW_ACCOUNT_WEBSITE_LABEL);
     $('#NewAccountPhoneFaxLabel').text(RES_NEW_ACCOUNT_PHONE_FAX_LABEL);
     $('#NewAccountPhoneFaxTextBox').attr('placeholder',RES_NEW_ACCOUNT_PHONE_FAX_LABEL);
+    $('#NewAccountPrimaryEmailLabel').text(RES_PRIMARY_EMAIL_LABEL);
+    $('#NewAccountPrimaryEmailTextBox').attr('placeholder',RES_PRIMARY_EMAIL_LABEL);
     $('#NewAccountDescriptionLabel').text(RES_DESCRIPTION_LABEL);
     $('#NewAccountDescriptionTextArea').attr('placeholder',RES_DESCRIPTION_LABEL);
     $('#NewAccountBillingAddressStreetLabel').text(RES_NEW_ACCOUNT_STREET_LABEL);
     $('#NewAccountBillingAddressDivider').text(RES_FIELD_LABEL_BILLING_ADDRESS);
     $('#NewAccountBillingAddressStreetTextBox').attr('placeholder',RES_NEW_ACCOUNT_STREET_LABEL);
+    $('#NewAccountBillingAddressCityLabel').text(RES_NEW_ACCOUNT_CITY_LABEL)
+    $('#NewAccountBillingAddressCityTextBox').attr('placeholder',RES_NEW_ACCOUNT_CITY_LABEL);
+    $('#NewAccountBillingAddressStateLabel').text(RES_NEW_ACCOUNT_STATE_LABEL)
+    $('#NewAccountBillingAddressStateTextBox').attr('placeholder',RES_NEW_ACCOUNT_STATE_LABEL);
+    $('#NewAccountBillingAddressPostalCodeLabel').text(RES_NEW_ACCOUNT_POSTAL_CODE_LABEL)
+    $('#NewAccountBillingAddressPostalCodeTextBox').attr('placeholder',RES_NEW_ACCOUNT_POSTAL_CODE_LABEL);
+    $('#NewAccountBillingAddressCountryLabel').text(RES_NEW_ACCOUNT_COUNTRY_LABEL)
+    $('#NewAccountBillingAddressCountryTextBox').attr('placeholder',RES_NEW_ACCOUNT_COUNTRY_LABEL);
     $('#NewAccountBillingAddressUseLocButton').text(RES_ACTION_USE_CURRENT_ADDRESS);
+    $('#NewAccountShippingAddressStreetLabel').text(RES_NEW_ACCOUNT_STREET_LABEL);
+    $('#NewAccountShippingAddressDivider').text(RES_FIELD_LABEL_SHIPPING_ADDRESS);
+    $('#NewAccountShippingAddressStreetTextBox').attr('placeholder',RES_NEW_ACCOUNT_STREET_LABEL);
+    $('#NewAccountShippingAddressCityLabel').text(RES_NEW_ACCOUNT_CITY_LABEL)
+    $('#NewAccountShippingAddressCityTextBox').attr('placeholder',RES_NEW_ACCOUNT_CITY_LABEL);
+    $('#NewAccountShippingAddressStateLabel').text(RES_NEW_ACCOUNT_STATE_LABEL)
+    $('#NewAccountShippingAddressStateTextBox').attr('placeholder',RES_NEW_ACCOUNT_STATE_LABEL);
+    $('#NewAccountShippingAddressPostalCodeLabel').text(RES_NEW_ACCOUNT_POSTAL_CODE_LABEL)
+    $('#NewAccountShippingAddressPostalCodeTextBox').attr('placeholder',RES_NEW_ACCOUNT_POSTAL_CODE_LABEL);
+    $('#NewAccountShippingAddressCountryLabel').text(RES_NEW_ACCOUNT_COUNTRY_LABEL)
+    $('#NewAccountShippingAddressCountryTextBox').attr('placeholder',RES_NEW_ACCOUNT_COUNTRY_LABEL);
+    $('#NewAccountShippingAddressUseBillingButton').text(RES_ACTION_COPY_BILLING_ADDRESS);
+    $('#NewAccountMoreInformationDivider').text(RES_MORE_INFORMATION_LABEL);
+
+
+    $('#NewAccountAnnualRevenueLabel').text(RES_ACCOUNT_REVENUE_LABEL)
+    $('#NewAccountAnnualRevenueTextBox').attr('placeholder',RES_ACCOUNT_REVENUE_LABEL);
+    $('#NewAccountSicCodeLabel').text(RES_ACCOUNT_SIC_LABEL)
+    $('#NewAccountSicCodeTextBox').attr('placeholder',RES_ACCOUNT_SIC_LABEL);
+    $('#NewAccountEmployeesLabel').text(RES_ACCOUNT_EMPLOYEES_LABEL)
+    $('#NewAccountEmployeesTextBox').attr('placeholder',RES_ACCOUNT_EMPLOYEES_LABEL);
+    $('#NewAccountTickerSymbolLabel').text(RES_ACCOUNT_TICKER_LABEL)
+    $('#NewAccountTickerSymbolTextBox').attr('placeholder',RES_ACCOUNT_TICKER_LABEL);
+    $('#NewAccountOwnershipLabel').text(RES_ACCOUNT_OWNERSHIP_LABEL)
+    $('#NewAccountOwnershipTextBox').attr('placeholder',RES_ACCOUNT_OWNERSHIP_LABEL);
+    $('#NewAccountRatingLabel').text(RES_ACCOUNT_RATING_LABEL)
+    $('#NewAccountRatingTextBox').attr('placeholder',RES_ACCOUNT_RATING_LABEL);
+
     getCurrentLocation();
 });
 
@@ -439,10 +478,13 @@ function successfullyObtainedPosition(position) {
   });
 }
 function gotTheAddress(data) {
-    currentStreet = data.address.road;
+    if (data.address.house_number !== undefined)
+        { currentStreet = data.address.house_number  + " " + data.address.road; } else
+        { currentStreet = data.address.road; }
     currentCity = data.address.city;
     currentState = data.address.state;
     currentPostalCode = data.address.postcode;
+    currentCountry= data.address.country;
 }
 
 function errorObtainingPosition(msg) {
