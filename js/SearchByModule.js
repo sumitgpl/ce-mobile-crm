@@ -43,9 +43,11 @@ function SearchByModule() {
                             $('#SearchResultsListUl').append("<li data-role=\"list-divider\">" + searchResult.name + "</li>");
                             var intItemResults = 0;
                             for(intItemResults=0;intItemResults<searchResult.records.length;intItemResults++) {
+                                var resultLi = $('<li/>');
                                 var result = searchResult.records[intItemResults];
                                 var resultHeader = "<h4>" + result.name.value + "</h4>";
                                 if (searchResult.name == "Accounts") {
+                                    resultLi.attr('data-icon','flag');
                                     var accountLink = $('<a/>', {
                                         href: "#",
                                         "data-identity": result.id.value,
@@ -57,8 +59,69 @@ function SearchByModule() {
                                         }
                                     });
                                     accountLink.append(resultHeader);
-                                    $('#SearchResultsListUl').append(accountLink);
+                                    resultLi.append(accountLink);
+                                } else {
+                                    if (searchResult.name == "Contacts") {
+                                        resultLi.attr('data-icon','person');
+                                        var contactLink = $('<a/>', {
+                                            href: "#",
+                                            "data-identity": result.id.value,
+                                            click: function() {
+                                                CurrentContactId = $(this).data("identity");
+                                                $.mobile.changePage('#ViewContactDetailsPage');
+                                                SugarCrmGetContactDetails();
+                                            }
+                                        });
+                                        contactLink.append(resultHeader);
+                                        resultLi.append(contactLink);
+                                    } else {
+                                        if (searchResult.name == "Calls") {
+                                            resultLi.attr('data-icon','phone');
+                                            var callLink = $('<a/>', {
+                                                href: "#",
+                                                "data-identity": result.id.value,
+                                                click: function() {
+                                                    CurrentCallId = $(this).data("identity");
+                                                    $.mobile.changePage('#ViewCallDetailsPage');
+                                                    SugarCrmGetCallDetails();
+                                                }
+                                            });
+                                            callLink.append(resultHeader);
+                                            resultLi.append(callLink);
+                                        } else {
+                                            if (searchResult.name == "Opportunities") {
+                                                resultLi.attr('data-icon','dollar');
+                                                var opportunityLink = $('<a/>', {
+                                                    href: "#",
+                                                    "data-identity": result.id.value,
+                                                    click: function() {
+                                                        CurrentOpportunityId = $(this).data("identity");
+                                                        $.mobile.changePage('#ViewOpportunityDetailsPage');
+                                                        SugarCrmGetOpportunityDetails();
+                                                    }
+                                                });
+                                                opportunityLink.append(resultHeader);
+                                                resultLi.append(opportunityLink);
+                                            } else {
+                                                if (searchResult.name == "Leads") {
+                                                    resultLi.attr('data-icon','person');
+                                                    var leadLink = $('<a/>', {
+                                                        href: "#",
+                                                        "data-identity": result.id.value,
+                                                        click: function() {
+                                                            CurrentLeadId = $(this).data("identity");
+                                                            $.mobile.changePage('#ViewLeadDetailsPage');
+                                                            SugarCrmGetLeadDetails();
+                                                        }
+                                                    });
+                                                    leadLink.append(resultHeader);
+                                                    resultLi.append(leadLink);
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
+                                $('#SearchResultsListUl').append(resultLi);
                             }
                         }                    
                     }
@@ -90,13 +153,16 @@ function getAvailableSearchModules() {
         if (data !== undefined) {
             var availableModulesData = jQuery.parseJSON(data);
             if ((availableModulesData !== undefined) && (availableModulesData.modules !== undefined)) {
-                if ($.inArray("Accounts", availableModulesData.modules)) {
+               /* TODO: Change to be dynamic once all modules are supported */
+               if ($.inArray("Accounts", availableModulesData.modules)) {
                     var accountSearchModuleOption = $("<input/>", {
                         id: "SearchModuleAccount",
                         "value": "Accounts",
                         "name": "SearchModuleAccount",
                         "type": "checkbox",
-                        "class": "custom"
+                        "class": "custom",
+                        "checked":true,
+                        "data-theme": "d"
                     });
                     var accountSearchModuleOptionlabel = $("<label/>",{
                         "for": "SearchModuleAccount",
@@ -113,7 +179,9 @@ function getAvailableSearchModules() {
                         "value": "Calls",
                         "name": "SearchModuleCalls",
                         "type": "checkbox",
-                        "class": "custom"
+                        "class": "custom",
+                        "checked":true,
+                        "data-theme": "d"
                     });
                     var callsSearchModuleOptionlabel = $("<label/>",{
                         "for": "SearchModuleCalls",
@@ -130,7 +198,9 @@ function getAvailableSearchModules() {
                         "value": "Contacts",
                         "name": "SearchModuleContacts",
                         "type": "checkbox",
-                        "class": "custom"
+                        "class": "custom",
+                        "checked":true,
+                        "data-theme": "d"
                     });
                     var contactsSearchModuleOptionlabel = $("<label/>",{
                         "for": "SearchModuleContacts",
@@ -146,7 +216,9 @@ function getAvailableSearchModules() {
                         "value": "Opportunities",
                         "name": "SearchModuleOpportunities",
                         "type": "checkbox",
-                        "class": "custom"
+                        "class": "custom",
+                        "checked":true,
+                        "data-theme": "d"
                     });
                     var OpportunitySearchModuleOptionlabel = $("<label/>",{
                         "for": "SearchModuleOpportunities",
@@ -159,10 +231,12 @@ function getAvailableSearchModules() {
                 if ($.inArray("Leads", availableModulesData.modules)) {
                     var leadsSearchModuleOption = $("<input/>", {
                         id: "SearchModuleLeads",
-                        "value": "Contacts",
+                        "value": "Leads",
                         "name": "SearchModuleLeads",
                         "type": "checkbox",
-                        "class": "custom"
+                        "class": "custom",
+                        "checked":true,
+                        "data-theme": "d"
                     });
                     var leadsSearchModuleOptionlabel = $("<label/>",{
                         "for": "SearchModuleLeads",
