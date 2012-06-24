@@ -1,4 +1,4 @@
-VER = 1.0.0.0
+VER = 1.0.0.1
 
 DIR = ../../../CE-MOBILE-CRM_DEPLOYMENTS/ce-mobile-crm-${VER}
 MAX = Application.js

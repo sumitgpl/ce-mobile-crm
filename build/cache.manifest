@@ -1,9 +1,6 @@
 CACHE MANIFEST
 # Version:
 CACHE:
-css/images/icons-18-white-custom.png
-css/images/icons-36-white-custom.png
-css/images/trash_18.png
 css/style.min.css
 images/apple-touch-icon.png
 images/icons_sprite.png
@@ -17,6 +14,12 @@ lib/jquery.mobile/images/icons-18-white-custom.png
 lib/jquery.mobile/images/icons-36-black.png
 lib/jquery.mobile/images/icons-36-white.png
 lib/jquery.mobile/jquery.mobile.structure-1.1.0.min.css
+lib/addon-icons/images/ajax-loader.png
+lib/addon-icons/images/icons-18-black-pack.png
+lib/addon-icons/images/icons-18-white-pack.png
+lib/addon-icons/images/icons-36-black-pack.png
+lib/addon-icons/images/icons-36-white-pack.png
+lib/addon-icons/jqm-icon-pack-2.0-original.css
 theme/images/ajax-loader.gif
 theme/images/icons-18-black.png
 theme/images/icons-18-white.png
