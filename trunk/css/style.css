@@ -137,21 +137,3 @@ em {
 .invalid {
     border: solid 1px red;
 }
-
-
-.ui-icon-pencil {
-    background: url(images/icons-18-white-custom.png) no-repeat rgba(0, 0, 0, 0.4) !important;
-    background-position: -0px 50%;
-}
-
-.ui-icon-trash {
-    background: url(images/trash_18.png) no-repeat rgba(0, 0, 0, 0.4) !important;
-}
-
-@media only screen and (-webkit-min-device-pixel-ratio: 2) {
-    .ui-icon-pencil, .ui-icon-trash {
-        background: url(images/icons-18-white-custom.png) no-repeat rgba(0, 0, 0, 0.4) !important;
-        background-size: 18px 18px;
-    }
-    // more declarations here
-}
