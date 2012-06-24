@@ -55,6 +55,7 @@ var RES_NEW_ACCOUNT_NAME_LABEL ="Name";
 var RES_NEW_ACCOUNT_OFFICE_PHONE_LABEL = "Office Phone";
 var RES_NEW_ACCOUNT_WEBSITE_LABEL = "Website";
 var RES_NEW_ACCOUNT_PHONE_FAX_LABEL = "Phone Fax";
+var RES_NEW_ACCOUNT_STREET_LABEL = "Street";
 /* Contact Field Label Resources */
 var RES_CONTACT_REPORTS_TO_LABEL = "Reports To";
 /* Opportunity Field Label Resources */
@@ -157,6 +158,7 @@ var RES_ACTION_DO_NOT_CALL = "*NOTE: This Contact is marked as Do Not Call.";
 var RES_ACTION_CONFIRM_DELETE = "Are you sure you want to delete this record?";
 var RES_ACTION_BACK = "Back";
 var RES_ACTION_LOADING_RECORDS = "Loading data...";
+var RES_ACTION_USE_CURRENT_ADDRESS = "Use Current Location";
 
 var RES_NOTIFICATION = "No results matched your criteria";
 var RES_NOTIFICATION_GEOLOCATE_ERROR = "Could not establish your location";
