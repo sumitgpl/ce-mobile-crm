@@ -44,10 +44,23 @@ function SearchByModule() {
                             var intItemResults = 0;
                             for(intItemResults=0;intItemResults<searchResult.records.length;intItemResults++) {
                                 var result = searchResult.records[intItemResults];
-                                $('#SearchResultsListUl').append("<li>" + result.name.value + "</li>");
-                            }
+                                var resultHeader = "<h4>" + result.name.value + "</h4>";
+                                if (searchResult.name == "Accounts") {
+                                    var accountLink = $('<a/>', {
+                                        href: "#",
+                                        "data-identity": result.id.value,
+                                        click: function() {
+                                            CurrentAccountId = $(this).data("identity");
+                                            $.mobile.changePage('#ViewAccountDetailsPage');
 
-                        }
+                                            SugarCrmGetAccountDetails();
+                                        }
+                                    });
+                                    accountLink.append(resultHeader);
+                                    $('#SearchResultsListUl').append(accountLink);
+                                }
+                            }
+                        }                    
                     }
                 }
                 if (itemResultCount == 0) {
@@ -56,8 +69,8 @@ function SearchByModule() {
                     $('#SearchResultsListUl').append(noResults);
                     $('#SearchResultsListUl').listview("refresh");
                 }
-                $('#SearchResultsListUl').listview("refresh");
             }
+            $('#SearchResultsListUl').listview("refresh");
         } else {
             var noResults = $("<li/>");
             noResults.append("<p>" + RES_NOTIFICATION + "</p>");
