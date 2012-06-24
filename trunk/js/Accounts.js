@@ -670,9 +670,27 @@ function SugarCrmAddNewAccount() {
             rest_data: '{"session":"' + SugarSessionId + '",' +
             '"module":"Accounts",' +
             '"name_value_list":[{"name":"name","value":"' + $('#AccountNameTextBox').val() + '"},' +
-            '{"name":"description","value":,"' + $('#NewAccountDescriptionTextArea').val() + '"},' +
+            '{"name":"description","value":"' + $('#NewAccountDescriptionTextArea').val() + '"},' +
             '{"name":"phone_office","value":"' + $('#NewAccountOfficePhoneTextBox').val() + '"},' +
             '{"name":"website","value":"' + $('#NewAccountWebSiteTextBox').val() + '"},' +
+            '{"name":"email1","value":"' + $('#NewAccountPrimaryEmailTextBox').val() + '"},' +
+            '{"name":"billing_address_street","value":"' + $('#NewAccountBillingAddressStreetTextBox').val() + '"},' +
+            '{"name":"billing_address_city","value":"' + $('#NewAccountBillingAddressCityTextBox').val() + '"},' +
+            '{"name":"billing_address_state","value":"' + $('#NewAccountBillingAddressStateTextBox').val() + '"},' +
+            '{"name":"billing_address_postalcode","value":"' + $('#NewAccountBillingAddressPostalCodeTextBox').val() + '"},' +
+            '{"name":"billing_address_country","value":"' + $('#NewAccountBillingAddressCountryTextBox').val() + '"},' +
+            '{"name":"shipping_address_street","value":"' + $('#NewAccountShippingAddressStreetTextBox').val() + '"},' +
+            '{"name":"shipping_address_city","value":"' + $('#NewAccountShippingAddressCityTextBox').val() + '"},' +
+            '{"name":"shipping_address_state","value":"' + $('#NewAccountShippingAddressStateTextBox').val() + '"},' +
+            '{"name":"shipping_address_postalcode","value":"' + $('#NewAccountShippingAddressPostalCodeTextBox').val() + '"},' +
+            '{"name":"shipping_address_country","value":"' + $('#NewAccountShippingAddressCountryTextBox').val() + '"},' +
+            '{"name":"shipping_address_country","value":"' + $('#NewAccountShippingAddressCountryTextBox').val() + '"},' +
+            '{"name":"annual_revenue","value":"' + $('#NewAccountAnnualRevenueTextBox').val() + '"},' +
+            '{"name":"sic_code","value":"' + $('#NewAccountSicCodeTextBox').val() + '"},' +
+            '{"name":"employees","value":"' + $('#NewAccountEmployeesTextBox').val() + '"},' +
+            '{"name":"ticker_symbol","value":"' + $('#NewAccountTickerSymbolTextBox').val() + '"},' +
+            '{"name":"ownership","value":"' + $('#NewAccountOwnershipTextBox').val() + '"},' +
+            '{"name":"rating","value":"' + $('#NewAccountRatingTextBox').val() + '"},' +
             '{"name":"phone_fax","value":"' + $('#NewAccountPhoneFaxTextBox').val() + '"}]}'
         }, function(data) {
             if (data !== undefined) {
@@ -681,12 +699,8 @@ function SugarCrmAddNewAccount() {
                     SugarSessionId = '';
                     $.mobile.changePage('#LoginPage');
                 }
-                $('#AccountNameTextBox').val('');
-                $('#NewAccountDescriptionTextArea').val('');
-                $('#NewAccountOfficePhoneTextBox').val('');
-                $('#NewAccountWebSiteTextBox').val('');
-                $('#NewAccountPhoneFaxTextBox').val('');
                 $('#AllAccountsListDiv').children().remove('li');
+                resetAccountFormFields();
                 $.mobile.hidePageLoadingMsg();
                 $.mobile.changePage('#HomePage');
             }
@@ -801,7 +815,10 @@ function SugarCrmCreateNewAccount() {
 }
 
 function resetAccountFormFields() {
-    $('#CreateNewAccountPage input').each(function(item,index) {
+    $('#CreateNewAccountPageCreateAccountForm input').each(function(index,item){
+        $(item).val('');
+    });
+    $('#CreateNewAccountPageCreateAccountForm textarea').each(function(item,index){
         $(item).val('');
     });
 }
@@ -825,11 +842,6 @@ function SugarCrmUseBillingAsShippingAddress() {
 }
 
 function cancelAccountCreateOrEdit() {
-    $('#CreateNewAccountPageCreateAccountForm input').each(function(index,item){
-        $(item).val('');
-    });
-    $('#CreateNewAccountPageCreateAccountForm textarea').each(function(item,index){
-        $(item).val('');
-    });
+    resetAccountFormFields();
     return true;
 }
