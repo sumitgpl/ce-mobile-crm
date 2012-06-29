@@ -94,7 +94,6 @@ $('#LoginPage').live('pagecreate',function(event,ui) {
 
 
 $('#LoginPage').live('pageshow',function(event,ui) {
-    window.scrollTo(0, 1);
     var username = getCookie("username");
     if (username!=null && username!="") {
         $('#SettingsPageSugarCrmUsername').val(username);
@@ -114,9 +113,8 @@ $('#LoginPage').live('pageshow',function(event,ui) {
 });
 
 $('#HomePage').live('pageshow',function(event,ui){
-    window.scrollTo(0, 1);
-    enableFullScreenView();
-});
+
+    });
 
 $('#AboutPage').live('pagecreate',function(event,ui) {
     $('#ViewAboutApplicationPageTitle').text(RES_ABOUT_APPLICATION_HEADER);
