@@ -662,3 +662,21 @@ function SugarCrmDeleteExistingContact() {
         });
     }
 }
+
+function SugarCrmCreateNewContact() {
+    $('#NewContactSaveButton').bind('click',function(){
+        SugarCrmAddNewContact();
+    });
+    resetAccountFormFields();
+    $('#NewContactHeader').text(RES_NEW_CONTACT_PAGE_TITLE);
+    $.mobile.changePage("#CreateNewContactPage");
+}
+
+function resetContactFormFields() {
+    $('#CreatNewContactForm input').each(function(index,item){
+        $(item).val('');
+    });
+    $('#CreatNewContactForm textarea').each(function(item,index){
+        $(item).val('');
+    });
+}
