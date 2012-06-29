@@ -378,15 +378,61 @@ $('#CreateNewAccountPage').live('pagecreate',function(event,ui) {
 
 $('#CreateNewContactPage').live('pagecreate',function(event,ui) {
     $('#NewContactHeader').text(RES_NEW_CONTACT_PAGE_TITLE);
+
     $('#ContactFirstNameLabel').text(RES_NEW_CONTACT_FIRST_NAME_LABEL);
+    $('#ContactFirstNameTextBox').attr('placeholder',RES_NEW_CONTACT_FIRST_NAME_LABEL);
+
     $('#ContactLastNameLabel').text(RES_NEW_CONTACT_LAST_NAME_LABEL);
+    $('#ContactLastNameTextBox').attr('placeholder',RES_NEW_CONTACT_LAST_NAME_LABEL);
+
     $('#ContactOfficePhoneLabel').text(RES_NEW_CONTACT_OFFICE_PHONE_LABEL);
+    $('#ContactOfficePhoneTextBox').attr('placeholder',RES_NEW_CONTACT_OFFICE_PHONE_LABEL);
+
     $('#ContactMobilePhoneLabel').text(RES_NEW_CONTACT_MOBILE_PHONE_LABEL);
+    $('#ContactMobilePhoneTextBox').attr('placeholder',RES_NEW_CONTACT_MOBILE_PHONE_LABEL);
+
     $('#ContactPhoneFaxLabel').text(RES_NEW_CONTACT_PHONE_FAX_LABEL);
+    $('#ContactPhoneFaxTextBox').attr('placeholder',RES_NEW_CONTACT_PHONE_FAX_LABEL);
+
     $('#ContactEmailLabel').text(RES_NEW_CONTACT_EMAIL_LABEL);
+    $('#ContactEmailTextBox').attr('placeholder',RES_NEW_CONTACT_EMAIL_LABEL);
+
     $('#ContactTitleLabel').text(RES_NEW_CONTACT_TITLE_LABEL);
+    $('#ContactTitleTextBox').attr('placeholder',RES_NEW_CONTACT_TITLE_LABEL);
+
     $('#ContactDepartmentLabel').text(RES_NEW_CONTACT_DEPARTMENT_LABEL);
+    $('#ContactDepartmentTextBox').attr('placeholder',RES_NEW_CONTACT_DEPARTMENT_LABEL);
+
     $('#NewContactDescriptionLabel').text(RES_DESCRIPTION_LABEL);
+    $('#NewContactDescriptionTextArea').attr('placeholder',RES_DESCRIPTION_LABEL);
+
+
+    $('#NewContactPrimaryAddressStreetLabel').text(RES_NEW_ACCOUNT_STREET_LABEL);
+    $('#NewContactPrimaryAddressDivider').text(RES_PRIMARY_ADDRESS_LABEL);
+    $('#NewContactPrimaryAddressStreetTextBox').attr('placeholder',RES_NEW_ACCOUNT_STREET_LABEL);
+    $('#NewContactPrimaryAddressCityLabel').text(RES_NEW_ACCOUNT_CITY_LABEL)
+    $('#NewContactPrimaryAddressCityTextBox').attr('placeholder',RES_NEW_ACCOUNT_CITY_LABEL);
+    $('#NewContactPrimaryAddressStateLabel').text(RES_NEW_ACCOUNT_STATE_LABEL)
+    $('#NewContactPrimaryAddressStateTextBox').attr('placeholder',RES_NEW_ACCOUNT_STATE_LABEL);
+    $('#NewContactPrimaryAddressPostalCodeLabel').text(RES_NEW_ACCOUNT_POSTAL_CODE_LABEL)
+    $('#NewContactPrimaryAddressPostalCodeTextBox').attr('placeholder',RES_NEW_ACCOUNT_POSTAL_CODE_LABEL);
+    $('#NewContactPrimaryAddressCountryLabel').text(RES_NEW_ACCOUNT_COUNTRY_LABEL)
+    $('#NewContactPrimaryAddressCountryTextBox').attr('placeholder',RES_NEW_ACCOUNT_COUNTRY_LABEL);
+    $('#NewContactPrimaryAddressUseLocButton').text(RES_ACTION_USE_CURRENT_ADDRESS);
+    $('#NewContactOtherAddressStreetLabel').text(RES_NEW_ACCOUNT_STREET_LABEL);
+    $('#NewContactOtherAddressDivider').text(RES_OTHER_ADDRESS_LABEL);
+    $('#NewContactOtherAddressStreetTextBox').attr('placeholder',RES_NEW_ACCOUNT_STREET_LABEL);
+    $('#NewContactOtherAddressCityLabel').text(RES_NEW_ACCOUNT_CITY_LABEL)
+    $('#NewContactOtherAddressCityTextBox').attr('placeholder',RES_NEW_ACCOUNT_CITY_LABEL);
+    $('#NewContactOtherAddressStateLabel').text(RES_NEW_ACCOUNT_STATE_LABEL)
+    $('#NewContactOtherAddressStateTextBox').attr('placeholder',RES_NEW_ACCOUNT_STATE_LABEL);
+    $('#NewContactOtherAddressPostalCodeLabel').text(RES_NEW_ACCOUNT_POSTAL_CODE_LABEL)
+    $('#NewContactOtherAddressPostalCodeTextBox').attr('placeholder',RES_NEW_ACCOUNT_POSTAL_CODE_LABEL);
+    $('#NewContactOtherAddressCountryLabel').text(RES_NEW_ACCOUNT_COUNTRY_LABEL)
+    $('#NewContactOtherAddressCountryTextBox').attr('placeholder',RES_NEW_ACCOUNT_COUNTRY_LABEL);
+    $('#NewContactOtherAddressUseBillingButton').text(RES_ACTION_COPY_BILLING_ADDRESS);
+
+
 });
 
 $('#CreateNewOpportunityPage').live('pagecreate',function(event,ui) {
