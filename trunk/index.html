@@ -17,7 +17,7 @@
 
         <!-- JS BEGIN -->
         <script type="text/javascript" src="lib/jquery/jquery-1.7.1.min.js"></script>
-        <script type="text/javascript" src="lib/jquery.mobile/jquery.mobile-1.1.0.min.js"></script>        
+        <script type="text/javascript" src="lib/jquery.mobile/jquery.mobile-1.1.0.min.js"></script>
         <script type="text/javascript" src="js/SearchByModule.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-config.js"></script>
         <script type="text/javascript" src="js/Md5.js"></script>
@@ -41,7 +41,7 @@
             <div data-role="header" data-position="fixed" data-add-back-btn="false">
                 <h1 id="LoginPageHeader">REPLACEMENT_TEXT</h1>
                 <a class="AboutApplicationClass ui-btn-right" data-icon="question">REPLACEMENT_TEXT</a>
-            </div><!-- /header -->  
+            </div><!-- /header -->
             <div data-role="content">
                 <form id="LoginPageLoginForm" action="#" method="get">
                     <p id="LoginDescriptionParagraph">REPLACEMENT_TEXT</p>
@@ -558,7 +558,7 @@
                 <form id="CreateNewAccountPageCreateAccountForm" action="#" method="get">
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label for="AccountNameTextBox"><em>* </em><span id="AccountNameLabel">REPLACEMENT_TEXT</span></label>
-                        <input id="AccountNameTextBox" type="text" data-validation="[/^\s*\S.*$/]" />
+                        <input id="AccountNameTextBox" type="text" data-validation="[/^\s*\S.*$/]" class="invalid" />
                     </div>
                     <div data-role="fieldcontain" class="ui-hide-label">
                         <label id="NewAccountOfficePhoneLabel" for="NewAccountOfficePhoneTextBox">REPLACEMENT_TEXT</label>
@@ -680,7 +680,7 @@
                 <h1 id="NewContactHeader">REPLACEMENT_TEXT</h1>
             </div>
             <div data-role="content">
-                <div data-role="fieldcontain">
+                <div id="CreatNewContactForm" data-role="fieldcontain">
                     <label for="ContactFirstNameTextBox"><em>* </em><span id="ContactFirstNameLabel">REPLACEMENT_TEXT</span></label>
                     <input id="ContactFirstNameTextBox" type="text" data-validation="[^\s*\S]"/>
                 </div>
@@ -703,7 +703,7 @@
                 <div data-role="fieldcontain">
                     <label id="ContactEmailLabel" for="ContactEmailTextBox">REPLACEMENT_TEXT</label>
                     <input id="ContactEmailTextBox" type="email" />
-                </div>                
+                </div>
                 <div data-role="fieldcontain">
                     <label id="ContactTitleLabel" for="ContactTitleTextBox">REPLACEMENT_TEXT</label>
                     <input id="ContactTitleTextBox" type="text" />
@@ -724,30 +724,6 @@
                         <li><a href="#HomePage" class="CancelButtonClass" data-icon="back"></a></li>
                     </ul>
                 </div>
-            </div>
-        </div>
-
-        <div data-role="page" id="SearchListPage" data-theme="a" data-add-back-btn="true">
-            <div data-role="header" data-position="fixed">
-                <h1 id="SearchPageHeader">REPLACEMENT_TEXT</h1>
-            </div>
-            <div data-role="content">
-                <input type="search" name="search" id="ModuleSearchTerm" value="" />
-                <p id="SearchModulesLabel"></p>
-                <div data-role="fieldcontain">
-                    <fieldset id="AvailableSearchModulesFieldSet" data-role="controlgroup">
-                </fieldset>
-                </div>
-                <a id="SearchPagePerformSearchButton" href="#SearchResultsPage" data-role="button">REPLACEMENT_TEXT</a>
-            </div>
-        </div>
-
-        <div data-role="page" id="SearchResultsPage" data-theme="a" data-add-back-btn="true">
-            <div data-role="header" data-position="fixed">
-                <h1 id="SearchResultsPageHeader">REPLACEMENT_TEXT</h1>
-            </div>
-            <div data-role="content">
-                <ul id="SearchResultsListUl" data-role="listview" data-inset="true" data-filter="false" data-theme="d" />
             </div>
         </div>
 
@@ -863,5 +839,28 @@
                 <p id="InformationDialogPageMessage"></p>
             </div>
         </div>
+
+        <div data-role="page" id="SearchListPage" data-theme="a" data-add-back-btn="true">
+            <div data-role="header" data-position="fixed">
+                <h1 id="SearchPageHeader">REPLACEMENT_TEXT</h1>
+            </div>
+            <div data-role="content">
+                <input type="search" name="search" id="ModuleSearchTerm" value="" />
+                <fieldset id="AvailableSearchModulesFieldSet" data-role="controlgroup">
+                    <legend><span id="SearchModulesLabel">REPLACEMENT_TEXT</span></legend>
+                </fieldset>
+                <a id="SearchPagePerformSearchButton" href="#SearchResultsPage" data-role="button">REPLACEMENT_TEXT</a>
+            </div>
+        </div>
+
+        <div data-role="page" id="SearchResultsPage" data-theme="a" data-add-back-btn="true">
+            <div data-role="header" data-position="fixed">
+                <h1 id="SearchResultsPageHeader">REPLACEMENT_TEXT</h1>
+            </div>
+            <div data-role="content">
+                <ul id="SearchResultsListUl" data-role="listview" data-inset="true" data-filter="false" data-theme="d" />
+            </div>
+        </div>
+
     </body>
 </html>
