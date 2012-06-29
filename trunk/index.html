@@ -641,23 +641,23 @@
                                 <label id="NewAccountAnnualRevenueLabel" for="NewAccountAnnualRevenueTextBox">REPLACEMENT_TEXT</label>
                                 <input id="NewAccountAnnualRevenueTextBox" />
                             </div>
-                             <div data-role="fieldcontain" class="ui-hide-label">
+                            <div data-role="fieldcontain" class="ui-hide-label">
                                 <label id="NewAccountSicCodeLabel" for="NewAccountSicCodeTextBox">REPLACEMENT_TEXT</label>
                                 <input id="NewAccountSicCodeTextBox" />
                             </div>
-                             <div data-role="fieldcontain" class="ui-hide-label">
+                            <div data-role="fieldcontain" class="ui-hide-label">
                                 <label id="NewAccountEmployeesLabel" for="NewAccountEmployeesTextBox">REPLACEMENT_TEXT</label>
                                 <input id="NewAccountEmployeesTextBox" />
                             </div>
-                             <div data-role="fieldcontain" class="ui-hide-label">
+                            <div data-role="fieldcontain" class="ui-hide-label">
                                 <label id="NewAccountTickerSymbolLabel" for="NewAccountTickerSymbolTextBox">REPLACEMENT_TEXT</label>
                                 <input id="NewAccountTickerSymbolTextBox" />
                             </div>
-                             <div data-role="fieldcontain" class="ui-hide-label">
+                            <div data-role="fieldcontain" class="ui-hide-label">
                                 <label id="NewAccountOwnershipLabel" for="NewAccountOwnershipTextBox">REPLACEMENT_TEXT</label>
                                 <input id="NewAccountOwnershipTextBox" />
                             </div>
-                             <div data-role="fieldcontain" class="ui-hide-label">
+                            <div data-role="fieldcontain" class="ui-hide-label">
                                 <label id="NewAccountRatingLabel" for="NewAccountRatingTextBox">REPLACEMENT_TEXT</label>
                                 <input id="NewAccountRatingTextBox" />
                             </div>
@@ -680,42 +680,96 @@
                 <h1 id="NewContactHeader">REPLACEMENT_TEXT</h1>
             </div>
             <div data-role="content">
-                <div id="CreatNewContactForm" data-role="fieldcontain">
+                <div id="CreatNewContactForm" data-role="fieldcontain" class="ui-hide-label">
                     <label for="ContactFirstNameTextBox"><em>* </em><span id="ContactFirstNameLabel">REPLACEMENT_TEXT</span></label>
                     <input id="ContactFirstNameTextBox" type="text" data-validation="[^\s*\S]"/>
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="ui-hide-label">
                     <label for="ContactLastNameTextBox"><em>* </em><span id="ContactLastNameLabel">REPLACEMENT_TEXT</span></label>
                     <input id="ContactLastNameTextBox" type="text" data-validation="[^\s*\S]"/>
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="ui-hide-label">
                     <label id="ContactOfficePhoneLabel" for="ContactOfficePhoneTextBox">REPLACEMENT_TEXT</label>
                     <input id="ContactOfficePhoneTextBox" type="tel" />
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="ui-hide-label">
                     <label id="ContactMobilePhoneLabel" for="ContactMobileTextBox">REPLACEMENT_TEXT</label>
-                    <input id="ContactMobileTextBox" type="tel" />
+                    <input id="ContactMobilePhoneTextBox" type="tel" />
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="ui-hide-label">
                     <label id="ContactPhoneFaxLabel" for="ContactPhoneFaxTextBox">REPLACEMENT_TEXT</label>
                     <input id="ContactPhoneFaxTextBox" type="tel" />
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="ui-hide-label">
                     <label id="ContactEmailLabel" for="ContactEmailTextBox">REPLACEMENT_TEXT</label>
                     <input id="ContactEmailTextBox" type="email" />
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="ui-hide-label">
                     <label id="ContactTitleLabel" for="ContactTitleTextBox">REPLACEMENT_TEXT</label>
                     <input id="ContactTitleTextBox" type="text" />
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="ui-hide-label">
                     <label id="ContactDepartmentLabel" for="ContactDepartmentTextBox">REPLACEMENT_TEXT</label>
                     <input id="ContactDepartmentTextBox" type="text" />
                 </div>
-                <div data-role="fieldcontain">
+                <div data-role="fieldcontain" class="ui-hide-label">
                     <label id="NewContactDescriptionLabel" for="NewContactDescriptionTextArea">REPLACEMENT_TEXT</label>
                     <textarea id="NewContactDescriptionTextArea"></textarea>
                 </div>
+
+                <ul data-role="listview" data-inset="true">
+                    <li id="NewContactPrimaryAddressDivider" data-role="list-divider">REPALCEMENT_TEXT</li>
+                    <li>
+                        <div data-role="fieldcontain" class="ui-hide-label">
+                            <label id="NewContactPrimaryAddressStreetLabel" for="NewContactPrimaryAddressStreetTextBox">REPLACEMENT_TEXT</label>
+                            <input id="NewContactPrimaryAddressStreetTextBox" />
+                        </div>
+                        <div data-role="fieldcontain" class="ui-hide-label">
+                            <label id="NewContactPrimaryAddressCityLabel" for="NewContactPrimaryAddressCityTextBox">REPLACEMENT_TEXT</label>
+                            <input id="NewContactPrimaryAddressCityTextBox" />
+                        </div>
+                        <div data-role="fieldcontain" class="ui-hide-label">
+                            <label id="NewContactPrimaryAddressStateLabel" for="NewContactPrimaryAddressStateTextBox">REPLACEMENT_TEXT</label>
+                            <input id="NewContactPrimaryAddressStateTextBox" />
+                        </div>
+                        <div data-role="fieldcontain" class="ui-hide-label">
+                            <label id="NewContactPrimaryAddressPostalCodeLabel" for="NewContactPrimaryAddressPostalCodeTextBox">REPLACEMENT_TEXT</label>
+                            <input id="NewContactPrimaryAddressPostalCodeTextBox" />
+                        </div>
+                        <div data-role="fieldcontain" class="ui-hide-label">
+                            <label id="NewContactPrimaryAddressCountryLabel" for="NewContactPrimaryAddressCountryTextBox">REPLACEMENT_TEXT</label>
+                            <input id="NewContactPrimaryAddressCountryTextBox" />
+                        </div>
+                    </li>
+                    <li data-theme="d"><a href="#" id="NewContactPrimaryAddressUseLocButton" onclick="SugarCrmUseCurrentLocationAsContactPrimaryAddress();" data-role="button" data-theme="d" data-icon="mappin"></a></li>
+                </ul>
+                <!-- Shipping Address -->
+                <ul data-role="listview" data-inset="true">
+                    <li id="NewContactOtherAddressDivider" data-role="list-divider">REPALCEMENT_TEXT</li>
+                    <li>
+                        <div data-role="fieldcontain" class="ui-hide-label">
+                            <label id="NewContactOtherAddressStreetLabel" for="NewContactOtherAddressStreetTextBox">REPLACEMENT_TEXT</label>
+                            <input id="NewContactOtherAddressStreetTextBox" />
+                        </div>
+                        <div data-role="fieldcontain" class="ui-hide-label">
+                            <label id="NewContactOtherAddressCityLabel" for="NewContactOtherAddressCityTextBox">REPLACEMENT_TEXT</label>
+                            <input id="NewContactOtherAddressCityTextBox" />
+                        </div>
+                        <div data-role="fieldcontain" class="ui-hide-label">
+                            <label id="NewContactOtherAddressStateLabel" for="NewContactOtherAddressStateTextBox">REPLACEMENT_TEXT</label>
+                            <input id="NewContactOtherAddressStateTextBox" />
+                        </div>
+                        <div data-role="fieldcontain" class="ui-hide-label">
+                            <label id="NewContactOtherAddressPostalCodeLabel" for="NewContactOtherAddressPostalCodeTextBox">REPLACEMENT_TEXT</label>
+                            <input id="NewAccountShippingAddressPostalCodeTextBox" />
+                        </div>
+                        <div data-role="fieldcontain" class="ui-hide-label">
+                            <label id="NewContactOtherAddressCountryLabel" for="NewContactOtherAddressCountryTextBox">REPLACEMENT_TEXT</label>
+                            <input id="NewContactOtherAddressCountryTextBox" />
+                        </div>
+                    </li>
+                    <li data-theme="d"><a href="#" id="NewAccountShippingAddressUseBillingButton" onclick="SugarCrmUseBillingAsShippingAddress();" data-role="button" data-theme="d" data-icon="mappin"></a></li>
+                </ul>
             </div>
             <div data-role="footer" data-position="fixed" data-theme="b">
                 <div data-role="navbar" data-iconpos="top">
