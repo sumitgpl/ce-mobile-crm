@@ -126,6 +126,8 @@ var RES_SETTINGS_PROTOCOL_HTTPS_LABEL = "HTTPS"
 var RES_SETTINGS_PROTOCOL_SELECTION_LABEL = "Select Protocol";
 var RES_SETTINGS_SERVER_ADDRESS_LABEL = "SugarCRM Server Address";
 var RES_SETTINGS_SAVE_CONFIG_LABEL = "Save Configuration?"
+/* Opportunity Resources */
+var RES_NEW_OPPORTUNITY_PAGE_TITLE = "*New Opportunity";
 
 var RES_SEARCH_ICON_LABEL = "Search";
 var RES_SELECT_MODULES_TO_SEARCH = "Select modules to be included in the search";
