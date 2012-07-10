@@ -679,8 +679,8 @@
             <div data-role="header" data-position="fixed">
                 <h1 id="NewContactHeader">REPLACEMENT_TEXT</h1>
             </div>
-            <div data-role="content">
-                <div id="CreatNewContactForm" data-role="fieldcontain" class="ui-hide-label">
+            <div id="CreatNewContactForm" data-role="content">
+                <div data-role="fieldcontain" class="ui-hide-label">
                     <label for="ContactFirstNameTextBox"><em>* </em><span id="ContactFirstNameLabel">REPLACEMENT_TEXT</span></label>
                     <input id="ContactFirstNameTextBox" type="text" data-validation="[^\s*\S]"/>
                 </div>
@@ -786,13 +786,61 @@
                 <h1 id="NewOpportunityHeader">REPLACEMENT_TEXT</h1>
             </div>
             <div data-role="content">
-                <div data-role="fieldcontain">
-                    <label id="OpportunityNameLabel" for="OpportunityNameTextBox">REPLACEMENT_TEXT</label>
-                    <input id="OpportunityNameTextBox" type="text" />
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="NewOpportunityNameTextBox"><em>* </em><span id="NewOpportunityNameLabel">REPLACEMENT_TEXT</span></label>
+                    <input id="NewOpportunityNameTextBox" type="text" data-validation="[^\s*\S]"/>
                 </div>
-                <div data-role="fieldcontain">
-                    <label id="OpportunityNameLabel" for="OpportunityNameTextBox">REPLACEMENT_TEXT</label>
-                    <input id="OpportunityNameTextBox" type="text" />
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="NewOpportunityAccountNameTextBox"><em>* </em><span id="NewOpportunityAccountNameLabel">REPLACEMENT_TEXT</span></label>
+                    <input id="NewOpportunityAccountNameTextBox" type="text" data-validation="[^\s*\S]"/>
+                </div>                
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="NewOpportunityCurrencySelect"><em>* </em><span id="NewOpportunityCurrencySelectLabel">REPLACEMENT_TEXT</span></label>
+                    <select id="NewOpportunityCurrencySelect">
+                        <option>REPLACEMENT TEXT</option>
+                    </select>
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="NewOpportunityExpectedCloseDateTextBox"><em>* </em><span id="NewOpportunityExpectedCloseDateLabel">REPLACEMENT_TEXT</span></label>
+                    <input id="NewOpportunityExpectedCloseDateTextBox" type="text" data-validation="[^\s*\S]"/>
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="NewOpportunityAmountTextBox"><em>* </em><span id="NewOpportunityAmountLabel">REPLACEMENT_TEXT</span></label>
+                    <input id="NewOpportunityAmountTextBox" type="number" data-validation="[^\s*\S]"/>
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="NewOpportunityTypeSelect"><em>* </em><span id="NewOpportunityTypeLabel">REPLACEMENT_TEXT</span></label>
+                    <select id="NewOpportunityTypeSelect">
+                        <option>REPLACEMENT TEXT</option>
+                    </select>
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="NewOpportunitySalesStageSelect"><em>* </em><span id="NewOpportunitySalesStageLabel">REPLACEMENT_TEXT</span></label>
+                    <select id="NewOpportunitySalesStageSelect">
+                        <option>REPLACEMENT TEXT</option>
+                    </select>
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="NewOpportunityLeadSourceSelect"><em>* </em><span id="NewOpportunityLeadSourceLabel">REPLACEMENT_TEXT</span></label>
+                    <select id="NewOpportunityLeadSourceSelect">
+                        <option>REPLACEMENT TEXT</option>
+                    </select>
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="NewOpportunityProbabilityTextBox"><em>* </em><span id="NewOpportunityProbabilityLabel">REPLACEMENT_TEXT</span></label>
+                    <input id="NewOpportunityProbabilityTextBox" type="number" data-validation="[^\s*\S]"/>
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="NewOpportunityCampaignTextBox"><span id="NewOpportunityCampaignLabel">REPLACEMENT_TEXT</span></label>
+                    <input id="NewOpportunityCampaignTextBox" type="number" data-validation="[^\s*\S]"/>
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="NewOpportunityNextStepTextBox"><span id="NewOpportunityNextStepLabel">REPLACEMENT_TEXT</span></label>
+                    <input id="NewOpportunityNextStepTextBox" type="number" data-validation="[^\s*\S]"/>
+                </div>
+                <div data-role="fieldcontain" class="ui-hide-label">
+                    <label for="NewOpportunityDescriptionTextBox"><span id="NewOpportunityDescriptionLabel">REPLACEMENT_TEXT</span></label>
+                    <textarea id="NewOpportunityDescriptionTextBox" data-validation="[^\s*\S]"></textarea>
                 </div>
             </div>
             <div data-role="footer" data-position="fixed" data-theme="b">

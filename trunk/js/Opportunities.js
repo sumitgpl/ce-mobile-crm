@@ -511,3 +511,21 @@ function SugarCrmDeleteExistingOpportunity() {
         });
     }
 }
+
+function SugarCrmCreateNewOpportunity() {
+    $('#NewOpportunitySaveButton').bind('click',function(){
+        SugarCrmAddNewOpportunity();
+    });
+    resetOpportunityFormFields();
+    $('#NewOpportunityHeader').text(RES_NEW_OPPORTUNITY_PAGE_TITLE);
+    $.mobile.changePage("#CreateNewOpportunityPage");
+}
+
+function resetOpportunityFormFields() {
+    $('#CreateNewOpportunityPageCreateAccountForm input').each(function(index,item){
+        $(item).val('');
+    });
+    $('#CreateNewOpportunityPageCreateAccountForm textarea').each(function(item,index){
+        $(item).val('');
+    });
+}
