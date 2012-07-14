@@ -436,8 +436,11 @@ $('#CreateNewContactPage').live('pagecreate',function(event,ui) {
 });
 
 $('#CreateNewOpportunityPage').live('pagecreate',function(event,ui) {
-
-    });
+    $('#NewOpportunityNameLabel').text(RES_NEW_OPPORTUNITY_NAME_LABEL);
+    $('#NewOpportunityNameTextBox').attr('placeholder',RES_NEW_OPPORTUNITY_NAME_LABEL);
+    $('#NewOpportunityAccountNameLabel').text(RES_ACCOUNT_NAME_LABEL);
+    $('#NewOpportunityAccountNameTextBox').attr('placeholder',RES_ACCOUNT_NAME_LABEL);
+});
 
 $('#CreateNewLeadPage').live('pagecreate',function(event,ui) {
 
