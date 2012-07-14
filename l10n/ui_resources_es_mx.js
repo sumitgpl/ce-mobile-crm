@@ -1,12 +1,14 @@
+/* VERSION STRING */
+var RES_CURRENT_VERSION_NUMBER = "v1.0.0.0";
 /* General Resources */
-var RES_LOGIN_MESSAGE = "Enter your username and password, then click login";
-var RES_LOGIN_TITLE = "Login";
+var RES_LOGIN_MESSAGE = "Introduzca su nombre de usuario y contraseña, luego haga clic en acceder";
+var RES_LOGIN_TITLE = "acceder";
 var RES_LOGOUT_LABEL = "Logout";
 var RES_HOME_LABEL = "Home";
 var RES_MAIN_MENU_LABEL = "Menu";
 var RES_BACK_LABEL = "Back Test";
-var RES_USERNAME_LABEL = "Username";
-var RES_PASSWORD_LABEL = "Password";
+var RES_USERNAME_LABEL = "Nombre de usuario";
+var RES_PASSWORD_LABEL = "Contraseña";
 var RES_ACCOUNTS_LABEL = "Accounts";
 var RES_ACCOUNT_LABEL = "Account";
 var RES_CONTACTS_LABEL = "Contacts";
@@ -32,7 +34,21 @@ var RES_ADD_BUTTON = "Add";
 var RES_SAVE_BUTTON = "Save";
 var RES_CANCEL_BUTTON = "Cancel";
 var RES_ADD_NEW_ACCOUNT_VALIDATION_FAILED = "One or more required fields is missing, please check the form and retry";
-var RES_SELECT_NEW_TYPE = "Selct Type";
+var RES_SELECT_NEW_TYPE = "Select Type";
+var RES_ACTION_BACK = "Espalda";
+var RES_SEARCH_RESULTS_TITLE = "Resultados";
+var RES_ACTION_EDIT = "Editar";
+var RES_ACTION_DELETE = "Borrar";
+var RES_PRIMARY_EMAIL_LABEL = "principal de correo electrónico";
+var RES_NEW_ACCOUNT_STREET_LABEL = "Calle";
+var RES_FIELD_LABEL_BILLING_ADDRESS = "dirección de facturación";
+var RES_NEW_ACCOUNT_CITY_LABEL = "Ciudad";
+var RES_NEW_ACCOUNT_STATE_LABEL = "Estado";
+var RES_NEW_ACCOUNT_POSTAL_CODE_LABEL = "Código Postal";
+var RES_NEW_ACCOUNT_COUNTRY_LABEL = "País";
+var RES_ACTION_USE_CURRENT_ADDRESS = "la ubicación del uso";
+var RES_FIELD_LABEL_SHIPPING_ADDRESS = "dirección de envío";
+var RES_ACTION_COPY_BILLING_ADDRESS = "copia de la dirección de facturación";
 /* Divider Resources */
 var RES_OVERVIEW_LABEL = "Overview";
 var RES_MORE_INFORMATION_LABEL = "More Information";
@@ -50,16 +66,10 @@ var RES_ACCOUNT_OWNERSHIP_LABEL = "Ownership";
 var RES_ACCOUNT_CAMPAIGN_LABEL = "Campaign";
 var RES_ACCOUNT_RATING_LABEL = "Rating";
 var RES_NEW_ACCOUNT_PAGE_TITLE = "*New Account";
-var RES_EDIT_ACCOUNT_PAGE_TITLE = "Edit Account";
 var RES_NEW_ACCOUNT_NAME_LABEL ="Name";
 var RES_NEW_ACCOUNT_OFFICE_PHONE_LABEL = "Office Phone";
 var RES_NEW_ACCOUNT_WEBSITE_LABEL = "Website";
 var RES_NEW_ACCOUNT_PHONE_FAX_LABEL = "Phone Fax";
-var RES_NEW_ACCOUNT_STREET_LABEL = "Street";
-var RES_NEW_ACCOUNT_CITY_LABEL = "City";
-var RES_NEW_ACCOUNT_STATE_LABEL = "State";
-var RES_NEW_ACCOUNT_POSTAL_CODE_LABEL = "Postal Code";
-var RES_NEW_ACCOUNT_COUNTRY_LABEL = "Country";
 /* Contact Field Label Resources */
 var RES_CONTACT_REPORTS_TO_LABEL = "Reports To";
 /* Opportunity Field Label Resources */
@@ -88,7 +98,6 @@ var RES_TITLE_LABEL = "Title";
 var RES_MOBILE_PHONE_LABEL = "Mobile";
 var RES_DEPARTMENT_LABEL = "Department";
 var RES_PRIMARY_ADDRESS_LABEL = "Primary Address";
-var RES_PRIMARY_EMAIL_LABEL = "Primary Email";
 var RES_OTHER_ADDRESS_LABEL = "Other Address";
 var RES_WEBSITE_LABEL = "Website";
 var RES_SUBJECT = "Subject";
@@ -106,8 +115,8 @@ var RES_DATE_CREATED_LABEL = "Date Created";
 var RES_DO_NOT_CALL = "*NOTE: This Contact is marked as Do Not Call.";
 var RES_LOG_CALL_QUESTION = "Would you like to log this call?";
 var RES_LOG_CALL_REASON = "What is this call about?";
-var RES_ABOUT_APPLICATION_MENU_ITEM = "About";
-var RES_ABOUT_APPLICATION_HEADER = "About";
+var RES_ABOUT_APPLICATION_MENU_ITEM = "Sobre";
+var RES_ABOUT_APPLICATION_HEADER = "Sobre";
 /* Create Contact Resources */
 var RES_NEW_CONTACT_PAGE_TITLE = "*New Contact";
 var RES_NEW_CONTACT_FIRST_NAME_LABEL = "First Name";
@@ -126,11 +135,6 @@ var RES_SETTINGS_PROTOCOL_HTTPS_LABEL = "HTTPS"
 var RES_SETTINGS_PROTOCOL_SELECTION_LABEL = "Select Protocol";
 var RES_SETTINGS_SERVER_ADDRESS_LABEL = "SugarCRM Server Address";
 var RES_SETTINGS_SAVE_CONFIG_LABEL = "Save Configuration?"
-/* Opportunity Resources */
-var RES_NEW_OPPORTUNITY_PAGE_TITLE = "*New Opportunity";
-var RES_NEW_OPPORTUNITY_NAME_LABEL = "Name";
-var RES_ACCOUNT_NAME_LABEL = "Account Name";
-
 
 var RES_SEARCH_ICON_LABEL = "Search";
 var RES_SELECT_MODULES_TO_SEARCH = "Select modules to be included in the search";
@@ -140,38 +144,3 @@ var RES_INFO_TITLE = "Information";
 var RES_NO_RECORDS_TEXT = "There are no more records in that direction";
 
 var RES_OK_BUTTON = "Ok"
-
-var RES_FIELD_LABEL_ACCOUNT_TYPE = "Account Type";
-var RES_FIELD_LABEL_INDUSTRY = "Industry";
-var RES_FIELD_LABEL_ANNUAL_REVENUE = "Annual Revenue";
-var RES_FIELD_LABEL_EMPLOYEES = "Employees";
-var RES_FIELD_LABEL_SIC_CODE = "SIC Code";
-var RES_FIELD_LABEL_TICKER_SYMBOL = "Ticker Symbol";
-var RES_FIELD_LABEL_MEMBER_OF = "Member of";
-var RES_FIELD_LABEL_OWNERSHIP = "Ownership";
-var RES_FIELD_LABEL_CAMPAIGN = "Campaign";
-var RES_FIELD_LABEL_RATING = "Rating";
-var RES_FIELD_LABEL_ASSIGNED_TO = "Assigned To";
-var RES_FIELD_LABEL_DATE_MODIFIED = "Date Modified";
-var RES_FIELD_LABEL_DATE_CREATED = "Date Created";
-var RES_FIELD_LABEL_WEBSITE = "Web Site";
-var RES_FIELD_LABEL_BILLING_ADDRESS = "Billing Address";
-var RES_FIELD_LABEL_SHIPPING_ADDRESS = "Shipping Address";
-var RES_FIELD_LABEL_EMAIL = "Email";
-
-var RES_DIVIDER_LABEL_MORE_INFO = "More Information";
-var RES_DIVIDER_LABEL_OTHER_INFO = "Other Information";
-
-var RES_ACTION_DELETE = "Delete";
-var RES_ACTION_EDIT = "Edit";
-var RES_ACTION_DO_NOT_CALL = "*NOTE: This Contact is marked as Do Not Call.";
-var RES_ACTION_CONFIRM_DELETE = "Are you sure you want to delete this record?";
-var RES_ACTION_BACK = "Back";
-var RES_ACTION_LOADING_RECORDS = "Loading data...";
-var RES_ACTION_USE_CURRENT_ADDRESS = "Use Current Location";
-var RES_ACTION_COPY_BILLING_ADDRESS = "Copy Billing Address";
-
-var RES_NOTIFICATION = "No results matched your criteria";
-var RES_NOTIFICATION_GEOLOCATE_ERROR = "Could not establish your location";
-
-var RES_SEARCH_RESULTS_TITLE = "Search Results";
