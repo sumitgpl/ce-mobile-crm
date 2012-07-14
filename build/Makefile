@@ -8,7 +8,7 @@ CSSMIN = style.min.css
 ZIP = ${DIR}.zip
 
 JSFILES = ../lib/jquery/jquery-1.7.1.min.js \
-  ../lib/jquery.mobile/jquery.mobile-1.1.0.min.js \
+  ../lib/jquery.mobile/jquery.mobile-1.1.1.min.js \
   ../js/Accounts.js \
   ../js/Application.js \
   ../js/Calls.js \
@@ -75,7 +75,7 @@ rmmax:
 	@@rm -rf ${DIR}/js/${MIN}.tmp
 	@@rm -rf ${DIR}/js/jquery.mobile-config.js
 	@@rm -rf ${DIR}/lib/jquery
-	@@rm -rf ${DIR}/lib/jquery.mobile/jquery.mobile-1.1.0.min.js
+	@@rm -rf ${DIR}/lib/jquery.mobile/jquery.mobile-1.1.1.min.js
 	@@rm -rf ${DIR}/js/Application.js
 	@@rm -rf ${DIR}/css/style.css
 
