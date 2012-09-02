@@ -1,0 +1,510 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="57"
+   height="57"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.0 r9654"
+   sodipodi:docname="Leads.svg"
+   inkscape:export-filename="/home/kdesoldeveloper/www/KDESolWeb/apple-touch-icon.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <linearGradient
+       id="linearGradient3867">
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="0"
+         id="stop3869" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3871" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3855">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.33725491;"
+         offset="0"
+         id="stop3857" />
+      <stop
+         id="stop3865"
+         offset="0.62"
+         style="stop-color:#ffffff;stop-opacity:0.29411766;" />
+      <stop
+         id="stop3863"
+         offset="0.63"
+         style="stop-color:#000000;stop-opacity:0.23529412;" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop3859" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3816">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="0"
+         id="stop3818" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3820" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3808">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="0"
+         id="stop3810" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3812" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3794">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.33725491;"
+         offset="0"
+         id="stop3796" />
+      <stop
+         id="stop3804"
+         offset="0.25"
+         style="stop-color:#ffffff;stop-opacity:0.29411766;" />
+      <stop
+         id="stop3802"
+         offset="0.5"
+         style="stop-color:#ffffff;stop-opacity:0.23529412;" />
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="1"
+         id="stop3798" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3855"
+       id="radialGradient3861"
+       cx="27"
+       cy="998.86224"
+       fx="27"
+       fy="998.86224"
+       r="28.5"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-2.7881325,2.6907078e-7,-1.3050771e-7,-1.7982534,103.8871,2791.4139)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3867"
+       id="linearGradient3873"
+       x1="49.688267"
+       y1="996.5744"
+       x2="57"
+       y2="1010.6039"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.009046,0,0,1.1635762,-0.15041756,-162.97307)" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3855"
+       id="radialGradient3037"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-2.7522986,0,0,-1.8858891,102.6257,2879.2988)"
+       cx="27"
+       cy="998.86224"
+       fx="27"
+       fy="998.86224"
+       r="28.5" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3867"
+       id="linearGradient3039"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.99607742,0,0,1.0015864,-0.07455546,-1.3854951)"
+       x1="49.688267"
+       y1="996.5744"
+       x2="57"
+       y2="1010.6039" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient7431-6-0-7"
+       id="linearGradient3033"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.52348684,0,0,0.22635414,348.04925,768.6316)"
+       x1="-608.96124"
+       y1="1195.6759"
+       x2="-608.96124"
+       y2="1257.5997" />
+    <linearGradient
+       id="linearGradient7431-6-0-7">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0;"
+         offset="0"
+         id="stop7435-7-4-6" />
+      <stop
+         id="stop7461-8-07-4"
+         offset="1"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+      <stop
+         id="stop7459-9-90-2"
+         offset="1"
+         style="stop-color:#ffffff;stop-opacity:1;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4344">
+      <stop
+         style="stop-color:#727eb3;stop-opacity:1;"
+         offset="0"
+         id="stop4346" />
+      <stop
+         style="stop-color:#5b6598;stop-opacity:1;"
+         offset="1"
+         id="stop4348" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient4338">
+      <stop
+         id="stop4340"
+         offset="0.0000000"
+         style="stop-color:#e9b15e;stop-opacity:1.0000000;" />
+      <stop
+         id="stop4342"
+         offset="1.0000000"
+         style="stop-color:#966416;stop-opacity:1.0000000;" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient3824">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop3826" />
+      <stop
+         style="stop-color:#c9c9c9;stop-opacity:1.0000000;"
+         offset="1.0000000"
+         id="stop3828" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient6732">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop6734" />
+      <stop
+         style="stop-color:#dddddd;stop-opacity:1;"
+         offset="1"
+         id="stop6736" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient5048">
+      <stop
+         style="stop-color:black;stop-opacity:0;"
+         offset="0"
+         id="stop5050" />
+      <stop
+         id="stop5056"
+         offset="0.5"
+         style="stop-color:black;stop-opacity:1;" />
+      <stop
+         style="stop-color:black;stop-opacity:0;"
+         offset="1"
+         id="stop5052" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient5060">
+      <stop
+         style="stop-color:black;stop-opacity:1;"
+         offset="0"
+         id="stop5062" />
+      <stop
+         style="stop-color:black;stop-opacity:0;"
+         offset="1"
+         id="stop5064" />
+    </linearGradient>
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient5060"
+       id="radialGradient5031"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(-2.774389,0,0,1.969706,112.7623,-872.8854)"
+       cx="605.71429"
+       cy="486.64789"
+       fx="605.71429"
+       fy="486.64789"
+       r="117.14286" />
+    <radialGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient3816-1-0"
+       id="radialGradient6950-8"
+       gradientUnits="userSpaceOnUse"
+       cx="31.112698"
+       cy="19.008621"
+       fx="31.112698"
+       fy="19.008621"
+       r="8.6620579" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient3816-1-0">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop3818-6-4" />
+      <stop
+         style="stop-color:#000000;stop-opacity:0;"
+         offset="1"
+         id="stop3820-8-8" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient56044"
+       id="linearGradient3274"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.15688809,0,0,0.14656651,12.514354,-1073.3881)"
+       spreadMethod="pad"
+       x1="96"
+       y1="394.36218"
+       x2="95.713936"
+       y2="379.36218" />
+    <linearGradient
+       id="linearGradient56044">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:1;"
+         offset="0"
+         id="stop56046" />
+      <stop
+         style="stop-color:#b86e32;stop-opacity:0;"
+         offset="1"
+         id="stop56048" />
+    </linearGradient>
+    <filter
+       inkscape:collect="always"
+       id="filter55807"
+       color-interpolation-filters="sRGB">
+      <feGaussianBlur
+         inkscape:collect="always"
+         stdDeviation="3.0648148"
+         id="feGaussianBlur55809" />
+    </filter>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="5.5087719"
+     inkscape:cx="38.845133"
+     inkscape:cy="19.38413"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1440"
+     inkscape:window-height="849"
+     inkscape:window-x="0"
+     inkscape:window-y="124"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid3755"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-995.36218)">
+    <rect
+       style="opacity:0.98999999;fill:#0b3361;fill-opacity:1;stroke:none"
+       id="rect2985"
+       width="56.93483"
+       height="56.784275"
+       x="0"
+       y="995.57788"
+       rx="9.9885674"
+       inkscape:export-filename="/home/dave/Documents/KDESolutions/SugarCRM/Mobile App Icons/Contacts.png"
+       inkscape:export-xdpi="88.305542"
+       inkscape:export-ydpi="88.305542" />
+    <rect
+       style="fill:#999999;fill-opacity:1;stroke:#c5c5c5;stroke-width:0.879399;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       id="rect54972"
+       width="33.856865"
+       height="23.304075"
+       x="11.970406"
+       y="1013.9022"
+       ry="1.424517" />
+    <path
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="ccccccccc"
+       id="path55801"
+       d="m -107.96337,948.0092 c -5.38447,0 -9.71875,4.3343 -9.71875,9.7187 l 0,35.1406 39.999996,55.1407 151.000004,0 40,-55.1407 0,-35.1406 c 0,-5.3844 -4.33429,-9.7187 -9.71875,-9.7187 l -211.5625,0 z"
+       style="opacity:0.5;fill:#2e3436;fill-opacity:1;stroke:none;filter:url(#filter55807)"
+       transform="matrix(0.14656651,0,0,0.14656651,29.072099,875.9837)" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#cccccc;fill-opacity:1;stroke:#666666;stroke-width:0.4396995;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 13.39485,1013.611 c -0.789183,0 -1.424445,0.6352 -1.424445,1.4244 l 0,5.1504 5.862664,8.0819 22.131541,0 5.862661,-8.0819 0,-5.1504 c 0,-0.7892 -0.635262,-1.4244 -1.424443,-1.4244 l -31.007978,0 z"
+       id="rect55754"
+       sodipodi:nodetypes="ccccccccc" />
+    <rect
+       ry="1.4067105"
+       y="1013.9014"
+       x="12.116056"
+       height="23.012772"
+       width="33.433655"
+       id="rect55811"
+       style="fill:none;stroke:#000000;stroke-width:0.14473443;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#cccccc;fill-opacity:1;stroke:#666666;stroke-width:0.12759137;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+       d="m 25.595384,1007.9671 c -2.374878,0 -4.28627,1.9115 -4.28627,4.2863 l 0,1.0726 2.404299,0 0,-1.0168 c 0,-1.0743 0.863476,-1.9418 1.937792,-1.9418 l 5.478456,0 c 1.074317,0 1.937793,0.8675 1.937793,1.9418 l 0,1.0168 2.404301,0 0,-1.0726 c 0,-2.3748 -1.911394,-4.2863 -4.286273,-4.2863 l -5.590098,0 z"
+       id="rect55821" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:#000000;fill-opacity:1;stroke:none"
+       d="m 25.568985,1008.0496 c -2.304198,0 -4.158707,1.8545 -4.158707,4.1588 l 0,1.0406 0.43328,0 0,-0.5455 c 0,-2.3042 1.854502,-4.1587 4.1587,-4.1587 l 5.423729,0 c 1.130115,0 2.153395,0.4457 2.901423,1.1722 -0.756995,-1.0136 -1.966585,-1.6674 -3.334702,-1.6674 l -5.423723,0 z"
+       id="path55836"
+       sodipodi:nodetypes="cccccccccc" />
+    <path
+       inkscape:connector-curvature="0"
+       style="opacity:0.62406018;fill:#2e3436;fill-opacity:1;stroke:none"
+       d="m 33.144871,1012.7581 c 0,-0.6596 -0.04418,-0.9271 -0.205785,-1.2461 -0.0453,-0.089 -0.06898,-0.1625 -0.05261,-0.1625 0.06528,0 0.385433,0.3991 0.493684,0.6154 0.165993,0.3318 0.211281,0.5466 0.211281,1.0022 l 0,0.392 -0.223285,0 -0.223285,0 0,-0.601 0,0 z"
+       id="path55841" />
+    <rect
+       style="opacity:0.2180451;fill:url(#linearGradient3274);fill-opacity:1;stroke:none"
+       id="rect56042"
+       width="33.417164"
+       height="3.9572957"
+       x="12.043692"
+       y="-1017.7862"
+       ry="1.424517"
+       transform="scale(1,-1)" />
+    <g
+       transform="matrix(1.2748723,0,0,1.2748723,7.4001901,-273.59421)"
+       id="g4212">
+      <path
+         inkscape:export-ydpi="88.305542"
+         inkscape:export-xdpi="88.305542"
+         inkscape:export-filename="/home/dave/Documents/KDESolutions/SugarCRM/Mobile App Icons/Contacts.png"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cczcczc"
+         id="path2329"
+         d="m 14.628146,1026.4275 4.61175,0 c 1.306663,0 2.600315,-0.4791 3.0745,-1.8447 0.450296,-1.2968 0.07686,-3.7663 -2.843912,-5.7647 l -5.457239,0 c -2.920775,1.8447 -3.285779,4.3675 -2.613325,5.8416 0.685069,1.5017 1.8447,1.7678 3.228226,1.7678 z"
+         style="color:#000000;fill:#666666;fill-opacity:1;fill-rule:evenodd;stroke:#c5c5c5;stroke-width:0.99999911px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible" />
+      <path
+         inkscape:export-ydpi="88.305542"
+         inkscape:export-xdpi="88.305542"
+         inkscape:export-filename="/home/dave/Documents/KDESolutions/SugarCRM/Mobile App Icons/Contacts.png"
+         inkscape:connector-curvature="0"
+         style="color:#000000;fill:#808080;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible"
+         d="m 16.8331,1019.9711 c 0,0 -0.935395,0.7219 -0.854813,1.5916 -0.887525,-0.783 -0.913024,-2.2834 -0.913024,-2.2834 l 1.767837,0.6918 z"
+         id="path3812"
+         sodipodi:nodetypes="cccc" />
+      <path
+         inkscape:export-ydpi="88.305542"
+         inkscape:export-xdpi="88.305542"
+         inkscape:export-filename="/home/dave/Documents/KDESolutions/SugarCRM/Mobile App Icons/Contacts.png"
+         inkscape:connector-curvature="0"
+         style="opacity:0.21518986;color:#000000;fill:#808080;stroke:#ffffff;stroke-width:0.99999863px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible"
+         d="m 14.883683,1025.6345 4.042376,0 c 1.034322,0 2.058344,-0.3792 2.433698,-1.4602 0.356443,-1.0265 -0.03712,-2.9813 -2.349128,-4.5632 l -4.515728,0 c -2.312013,1.4602 -2.698899,3.4572 -2.166601,4.624 0.542284,1.1887 1.460219,1.3994 2.555383,1.3994 z"
+         id="path3838"
+         sodipodi:nodetypes="cczcczc" />
+      <path
+         inkscape:export-ydpi="88.305542"
+         inkscape:export-xdpi="88.305542"
+         inkscape:export-filename="/home/dave/Documents/KDESolutions/SugarCRM/Mobile App Icons/Contacts.png"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccc"
+         id="path3810"
+         d="m 17.258521,1019.9711 c 0,0 0.935395,0.7219 0.854813,1.5916 0.887525,-0.783 0.913024,-2.2834 0.913024,-2.2834 l -1.767837,0.6918 z"
+         style="color:#000000;fill:#808080;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible" />
+      <path
+         inkscape:export-ydpi="88.305542"
+         inkscape:export-xdpi="88.305542"
+         inkscape:export-filename="/home/dave/Documents/KDESolutions/SugarCRM/Mobile App Icons/Contacts.png"
+         transform="matrix(0.4348,0,0,0.4348,3.275007,1009.846)"
+         sodipodi:type="arc"
+         style="color:#000000;fill:url(#radialGradient6950-8);fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible"
+         id="path3814"
+         sodipodi:cx="31.112698"
+         sodipodi:cy="19.008621"
+         sodipodi:rx="8.6620579"
+         sodipodi:ry="8.6620579"
+         d="m 39.774755,19.008621 c 0,4.783923 -3.878135,8.662058 -8.662057,8.662058 -4.783923,0 -8.662058,-3.878135 -8.662058,-8.662058 0,-4.783922 3.878135,-8.662058 8.662058,-8.662058 4.783922,0 8.662057,3.878136 8.662057,8.662058 z" />
+      <path
+         inkscape:export-ydpi="88.305542"
+         inkscape:export-xdpi="88.305542"
+         inkscape:export-filename="/home/dave/Documents/KDESolutions/SugarCRM/Mobile App Icons/Contacts.png"
+         transform="matrix(0.4348,0,0,0.4348,3.329357,1008.3242)"
+         d="m 39.774755,19.008621 c 0,4.783923 -3.878135,8.662058 -8.662057,8.662058 -4.783923,0 -8.662058,-3.878135 -8.662058,-8.662058 0,-4.783922 3.878135,-8.662058 8.662058,-8.662058 4.783922,0 8.662057,3.878136 8.662057,8.662058 z"
+         sodipodi:ry="8.6620579"
+         sodipodi:rx="8.6620579"
+         sodipodi:cy="19.008621"
+         sodipodi:cx="31.112698"
+         id="path2327"
+         style="color:#000000;fill:#808080;fill-opacity:1;fill-rule:evenodd;stroke:#4d4d4d;stroke-width:2.29990602px;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0;marker:none;visibility:visible;display:inline;overflow:visible"
+         sodipodi:type="arc" />
+      <path
+         inkscape:export-ydpi="88.305542"
+         inkscape:export-xdpi="88.305542"
+         inkscape:export-filename="/home/dave/Documents/KDESolutions/SugarCRM/Mobile App Icons/Contacts.png"
+         inkscape:connector-curvature="0"
+         id="path4173"
+         d="m 18.855584,1023.1224 1.8447,0 -1.076075,-0.9992 -0.230587,0.3075 -0.230588,-0.2306 -0.30745,0.9223 z"
+         style="color:#000000;fill:#808080;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible" />
+      <path
+         inkscape:export-ydpi="88.305542"
+         inkscape:export-xdpi="88.305542"
+         inkscape:export-filename="/home/dave/Documents/KDESolutions/SugarCRM/Mobile App Icons/Contacts.png"
+         inkscape:connector-curvature="0"
+         sodipodi:nodetypes="cccc"
+         id="path4368"
+         d="m 12.752758,1025.9778 c -0.54246,-0.237 -0.785247,-0.808 -0.785247,-0.808 0.365789,-1.7692 1.617424,-3.0637 1.617424,-3.0637 0,0 -0.991049,2.7878 -0.832177,3.8717 z"
+         style="opacity:0.22784807;color:#000000;fill:#808080;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible" />
+      <path
+         inkscape:export-ydpi="88.305542"
+         inkscape:export-xdpi="88.305542"
+         inkscape:export-filename="/home/dave/Documents/KDESolutions/SugarCRM/Mobile App Icons/Contacts.png"
+         inkscape:connector-curvature="0"
+         style="opacity:0.22784807;color:#000000;fill:#808080;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;marker:none;visibility:visible;display:inline;overflow:visible"
+         d="m 20.972959,1025.6046 c 0.535348,-0.2526 0.784544,-0.8706 0.784544,-0.8706 -0.417025,-1.7579 -1.728829,-2.9753 -1.728829,-2.9753 0,0 1.071605,2.7578 0.944285,3.8459 z"
+         id="path4370"
+         sodipodi:nodetypes="cccc" />
+    </g>
+    <rect
+       style="opacity:0.98999999;fill:url(#radialGradient3037);fill-opacity:1;stroke:url(#linearGradient3039);stroke-width:0.99882817"
+       id="rect2985-1"
+       width="56.776413"
+       height="57.090424"
+       x="-0.074558802"
+       y="995.55585"
+       rx="9.9607735"
+       inkscape:export-filename="/home/dave/Documents/KDESolutions/SugarCRM/Mobile App Icons/Leads.png"
+       inkscape:export-xdpi="88.305542"
+       inkscape:export-ydpi="88.305542" />
+  </g>
+</svg>
